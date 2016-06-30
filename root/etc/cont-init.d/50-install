@@ -1,0 +1,13 @@
+#!/usr/bin/with-contenv bash
+
+mkdir -p "${WWW_ROOT}"
+chown abc:abc "${WWW_ROOT}"
+
+if [ ! -e "${NEXTCLOUD_PATH}/index.php" ]; then
+curl -o /tmp/nextcloud.zip -L \
+https://download.nextcloud.com/server/releases/nextcloud-"${NEXTCLOUD_VER}".zip
+cd /tmp || true
+unzip nextcloud.zip
+mv /tmp/nextcloud "${NEXTCLOUD_PATH}"
+rm -f /tmp/nextcloud.zip
+fi
