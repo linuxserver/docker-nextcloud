@@ -10,4 +10,5 @@ cd /tmp || true
 unzip nextcloud.zip
 mv /tmp/nextcloud "${NEXTCLOUD_PATH}"
 rm -f /tmp/nextcloud.zip
+chown abc:abc -R "${NEXTCLOUD_PATH}"
 fi
