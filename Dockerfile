@@ -1,8 +1,7 @@
 FROM lsiobase/alpine.nginx
 MAINTAINER sparklyballs
 
-# set nextcloud version and path
-ENV NEXTCLOUD_VER="9.0.51"
+# set paths
 ENV WWW_ROOT="/config/www"
 ENV NEXTCLOUD_PATH="${WWW_ROOT}/nextcloud"
 
@@ -92,3 +91,6 @@ COPY root/ /
 # ports and volumes
 VOLUME /config /data
 EXPOSE 443
+
+# set nextcloud version
+ENV NEXTCLOUD_VER="9.0.52"
