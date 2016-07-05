@@ -81,6 +81,9 @@ RUN \
 
 # configure php for nextcloud
 RUN \
+ sed -i \
+ 's/;always_populate_raw_post_data = -1/always_populate_raw_post_data = -1/g' \
+	/etc/php5/php.ini && \
  echo "env[PATH] = /usr/local/bin:/usr/bin:/bin" >> /defaults/nginx-fpm.conf
 
 # add local files
