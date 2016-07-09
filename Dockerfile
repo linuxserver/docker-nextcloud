@@ -17,6 +17,7 @@ RUN \
 	php5-dev \
 	re2c \
 	samba-dev \
+	sudo \
 	zlib-dev && \
 
 # fetch php smbclient source
