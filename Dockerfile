@@ -70,6 +70,7 @@ RUN \
 	php5-zip \
 	php5-zlib \
 	samba \
+	sudo \
 	tar \
 	unzip && \
  apk add --no-cache --repository http://nl.alpinelinux.org/alpine/edge/testing \
