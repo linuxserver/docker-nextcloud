@@ -94,4 +94,4 @@ VOLUME /config /data
 EXPOSE 443
 
 # set nextcloud version
-ENV NEXTCLOUD_VER="9.0.52"
+ENV NEXTCLOUD_VER="9.0.53"
