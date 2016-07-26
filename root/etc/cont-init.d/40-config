@@ -3,3 +3,6 @@
 # permissions
 chown abc:abc /config /data
 chown -R abc:abc  /var/lib/nginx
+
+# set cronjob
+crontab /defaults/nextcloud
