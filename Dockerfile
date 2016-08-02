@@ -61,7 +61,6 @@ RUN \
 	php5-pdo_mysql \
 	php5-pdo_pgsql \
 	php5-pdo_sqlite \
-	php5-pgsql \
 	php5-posix \
 	php5-sqlite3 \
 	php5-xml \
