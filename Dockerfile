@@ -58,6 +58,7 @@ RUN \
 	php5-mcrypt \
 	php5-openssl \
 	php5-pcntl \
+	php5-pgsql \
 	php5-pdo_mysql \
 	php5-pdo_pgsql \
 	php5-pdo_sqlite \
