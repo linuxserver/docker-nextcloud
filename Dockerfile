@@ -1,9 +1,11 @@
 FROM lsiobase/alpine.nginx
 MAINTAINER sparklyballs
 
-# set paths
-ENV WWW_ROOT="/config/www"
-ENV NEXTCLOUD_PATH="${WWW_ROOT}/nextcloud"
+# package version
+ENV NEXTCLOUD_VER="9.0.53"
+
+# environment settings
+ENV NEXTCLOUD_PATH="/config/www/nextcloud"
 
 # install build-dependencies
 RUN \
@@ -19,25 +21,7 @@ RUN \
 	samba-dev \
 	zlib-dev && \
 
-# fetch php smbclient source
- git clone git://github.com/eduardok/libsmbclient-php.git /tmp/smbclient && \
-
-# compile smbclient
- cd /tmp/smbclient && \
-	phpize && \
-	./configure && \
-		make && \
-		make install && \
-
-# uninstall build-dependencies
- apk del --purge \
-	build-dependencies && \
-
-# cleanup
- rm -rfv /tmp/*
-
 # install runtime packages
-RUN \
  apk add --no-cache \
 	curl \
 	ffmpeg \
@@ -72,26 +56,39 @@ RUN \
 	sudo \
 	tar \
 	unzip && \
- apk add --no-cache --repository http://nl.alpinelinux.org/alpine/edge/testing \
-	php5-memcached
 
-# configure php extensions
-RUN \
- echo "extension="smbclient.so"" >> /etc/php5/php.ini
+ apk add --no-cache \
+	--repository http://nl.alpinelinux.org/alpine/edge/testing \
+	php5-memcached && \
 
-# configure php for nextcloud
-RUN \
+# fetch php smbclient source
+ git clone git://github.com/eduardok/libsmbclient-php.git /tmp/smbclient && \
+
+# compile smbclient
+ cd /tmp/smbclient && \
+ phpize && \
+ ./configure && \
+	make && \
+	make install && \
+
+# uninstall build-dependencies
+ apk del --purge \
+	build-dependencies && \
+
+# configure php and nginx for nextcloud
+ echo "extension="smbclient.so"" >> /etc/php5/php.ini && \
  sed -i \
  's/;always_populate_raw_post_data = -1/always_populate_raw_post_data = -1/g' \
 	/etc/php5/php.ini && \
- echo "env[PATH] = /usr/local/bin:/usr/bin:/bin" >> /defaults/nginx-fpm.conf
+ echo "env[PATH] = /usr/local/bin:/usr/bin:/bin" >> /defaults/nginx-fpm.conf && \
 
-# add local files
+# cleanup
+ rm -rf \
+	/tmp/*
+
+# copy local files
 COPY root/ /
 
 # ports and volumes
-VOLUME /config /data
 EXPOSE 443
-
-# set nextcloud version
-ENV NEXTCLOUD_VER="9.0.53"
+VOLUME /config /data
