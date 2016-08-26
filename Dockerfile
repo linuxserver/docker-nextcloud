@@ -2,7 +2,7 @@ FROM lsiobase/alpine.nginx
 MAINTAINER sparklyballs
 
 # package version
-ENV NEXTCLOUD_VER="9.0.53"
+ENV NEXTCLOUD_VER="10.0.0"
 
 # environment settings
 ENV NEXTCLOUD_PATH="/config/www/nextcloud"
@@ -36,6 +36,7 @@ RUN \
 	php5-gd \
 	php5-gmp \
 	php5-iconv \
+	php5-imagick \
 	php5-imap \
 	php5-intl \
 	php5-ldap \
