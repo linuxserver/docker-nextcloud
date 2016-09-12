@@ -2,7 +2,7 @@ FROM lsiobase/alpine.nginx
 MAINTAINER sparklyballs
 
 # package version
-ENV NEXTCLOUD_VER="9.0.53"
+ENV NEXTCLOUD_VER="10.0.0"
 
 # environment settings
 ENV NEXTCLOUD_PATH="/config/www/nextcloud"
