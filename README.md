@@ -1,4 +1,4 @@
-![https://linuxserver.io](https://www.linuxserver.io/wp-content/uploads/2015/06/linuxserver_medium.png)
+![https://linuxserver.io](https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/linuxserver_medium.png)
 
 ## This is a Container in active development by the [LinuxServer.io](https://linuxserver.io) team and is not recommended for use by the general public.
 
