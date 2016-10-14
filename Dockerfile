@@ -1,6 +1,11 @@
 FROM lsiobase/alpine.nginx
 MAINTAINER sparklyballs
 
+# set version label
+ARG BUILD_DATE
+ARG VERSION
+LABEL build_version="Linuxserver.io version:- ${VERSION} Build-date:- ${BUILD_DATE}"
+
 # package version
 ENV NEXTCLOUD_VER="10.0.1"
 
