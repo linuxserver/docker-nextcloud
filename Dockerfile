@@ -7,7 +7,7 @@ ARG VERSION
 LABEL build_version="Linuxserver.io version:- ${VERSION} Build-date:- ${BUILD_DATE}"
 
 # package version
-ENV NEXTCLOUD_VER="10.0.1"
+ENV NEXTCLOUD_VER="10.0.2"
 
 # environment settings
 ENV NEXTCLOUD_PATH="/config/www/nextcloud"
