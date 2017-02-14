@@ -1,1 +1,1 @@
-*/15  *  *  *  * s6-setuidgid abc php -f /config/www/nextcloud/cron.php
+*/15  *  *  *  * s6-setuidgid abc php7 -f /config/www/nextcloud/cron.php
