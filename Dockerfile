@@ -46,7 +46,6 @@ RUN \
 	php7-ldap \
 	php7-mbstring \
 	php7-mcrypt \
-	php7-openssl \
 	php7-pcntl \
 	php7-pdo_mysql \
 	php7-pdo_pgsql \
@@ -57,7 +56,6 @@ RUN \
 	php7-xml \
 	php7-xmlreader \
 	php7-zip \
-	php7-zlib \
 	samba \
 	sudo \
 	tar \
