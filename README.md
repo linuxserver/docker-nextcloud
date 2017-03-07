@@ -21,8 +21,8 @@ Where are your photos and documents? With Nextcloud you pick a server of your ch
 
 
 
-[![sonarr](https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/nextcloud-icon.png)][sonarrurl]
-[sonarrurl]: https://sonarr.tv/
+[![nextcloud](https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/nextcloud-icon.png)][nextcloudurl]
+[nextcloudurl]: https://nextcloud.com/
 
 ## Usage
 
