@@ -11,15 +11,12 @@ The [LinuxServer.io][linuxserverurl] team brings you another container release f
 * [Podcast][podcasturl] covers everything to do with getting the most from your Linux Server plus a focus on all things Docker and containerisation!
 
 # linuxserver/nextcloud
-
-
+[![](https://images.microbadger.com/badges/version/linuxserver/nextcloud.svg)](https://microbadger.com/images/linuxserver/nextcloud "Get your own version badge on microbadger.com")[![](https://images.microbadger.com/badges/image/linuxserver/nextcloud.svg)](http://microbadger.com/images/linuxserver/nextcloud "Get your own image badge on microbadger.com")[![Docker Pulls](https://img.shields.io/docker/pulls/linuxserver/nextcloud.svg)][hub][![Docker Stars](https://img.shields.io/docker/stars/linuxserver/nextcloud.svg)][hub][![Build Status](http://jenkins.linuxserver.io:8080/buildStatus/icon?job=Dockers/LinuxServer.io/linuxserver-nextcloud)](http://jenkins.linuxserver.io:8080/job/Dockers/job/LinuxServer.io/job/linuxserver-nextcloud/)
 [hub]: https://hub.docker.com/r/linuxserver/nextcloud/
 
-[Nextcloud](https://nextcloud.com/) gives you access to all your files wherever you are.
+[Nextcloud][nextcloudurl] gives you access to all your files wherever you are.
 
 Where are your photos and documents? With Nextcloud you pick a server of your choice, at home, in a data center or at a provider. And that is where your files will be. Nextcloud runs on that server, protecting your data and giving you access from your desktop or mobile devices. Through Nextcloud you also access, sync and share your existing data on that FTP drive at the office, a Dropbox or a NAS you have at home.
-
-
 
 [![nextcloud](https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/nextcloud-icon.png)][nextcloudurl]
 [nextcloudurl]: https://nextcloud.com/
@@ -64,7 +61,7 @@ In this instance `PUID=1001` and `PGID=1001`. To find yours use `id user` as bel
 ```
 
 ## Setting up the application
-Access the webui at `<your-ip>:443`, for more information check out [Nextcloud](https://nextcloud.com/).  
+Access the webui at `<your-ip>:443`, for more information check out [Nextcloud][nextcloudurl].  
 
 Please note you will need a MySQL/MariaDB or other backend database to set this up.  Also please look [here](https://docs.nextcloud.com/server/11/admin_manual/installation/system_requirements.html#database-requirements-for-mysql-mariadb) for how to configure your database with regard to binlog format and installation.
 
@@ -72,6 +69,14 @@ Please note you will need a MySQL/MariaDB or other backend database to set this 
 
 * Monitor the logs of the container in realtime `docker logs -f nextcloud`.
 
-## Changelog
+* container version number 
 
-+ **07.03.17:** Release and upgrade to php7 and Alpine 3.5.
+`docker inspect -f '{{ index .Config.Labels "build_version" }}' nextcloud`
+
+* image version number
+
+`docker inspect -f '{{ index .Config.Labels "build_version" }}' linuxserver/nextcloud`
+
+## Versions
+
++ **07.03.17:** Release into main repository and upgrade to php7 and Alpine 3.5.
