@@ -21,16 +21,31 @@ RUN \
 	g++ \
 	gcc \
 	make \
-	php7-dev \
 	re2c \
 	samba-dev \
 	zlib-dev && \
+
+ apk add --no-cache --virtual=build-dependencies \
+	--repository http://nl.alpinelinux.org/alpine/edge/community \
+	php7-dev && \
 
 # install runtime packages
  apk add --no-cache \
 	curl \
 	ffmpeg \
 	libxml2 \
+	samba \
+	sudo \
+	tar \
+	unzip && \
+
+ apk add --no-cache \
+	--repository http://nl.alpinelinux.org/alpine/edge/main \
+	icu-libs \
+	libwebp && \
+
+ apk add --no-cache \
+	--repository http://nl.alpinelinux.org/alpine/edge/community \
 	php7-apcu \
 	php7-bz2 \
 	php7-ctype \
@@ -55,11 +70,7 @@ RUN \
 	php7-sqlite3 \
 	php7-xml \
 	php7-xmlreader \
-	php7-zip \
-	samba \
-	sudo \
-	tar \
-	unzip && \
+	php7-zip && \
 
  apk add --no-cache \
 	--repository http://nl.alpinelinux.org/alpine/edge/testing \
