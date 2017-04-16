@@ -61,6 +61,7 @@ RUN \
 	php7-ldap \
 	php7-mbstring \
 	php7-mcrypt \
+	php7-memcached \
 	php7-pcntl \
 	php7-pdo_mysql \
 	php7-pdo_pgsql \
