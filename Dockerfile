@@ -7,7 +7,7 @@ ARG VERSION
 LABEL build_version="Linuxserver.io version:- ${VERSION} Build-date:- ${BUILD_DATE}"
 
 # package version
-ENV NEXTCLOUD_VER="11.0.2"
+ENV NEXTCLOUD_VER="11.0.3"
 
 # environment settings
 ENV NEXTCLOUD_PATH="/config/www/nextcloud"
@@ -61,6 +61,7 @@ RUN \
 	php7-ldap \
 	php7-mbstring \
 	php7-mcrypt \
+	php7-memcached \
 	php7-pcntl \
 	php7-pdo_mysql \
 	php7-pdo_pgsql \
@@ -71,10 +72,6 @@ RUN \
 	php7-xml \
 	php7-xmlreader \
 	php7-zip && \
-
- apk add --no-cache \
-	--repository http://nl.alpinelinux.org/alpine/edge/testing \
-	php7-memcached && \
 
 # fetch php smbclient source
  git clone git://github.com/eduardok/libsmbclient-php.git /tmp/smbclient && \
