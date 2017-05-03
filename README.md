@@ -79,4 +79,6 @@ Please note you will need a MySQL/MariaDB or other backend database to set this 
 
 ## Versions
 
++ **07.03.17:** Add additional php7 packages, fileinfo, simplexml and xmlwriter,
+change php7-memcached repository.
 + **07.03.17:** Release into main repository and upgrade to php7 and Alpine 3.5.
