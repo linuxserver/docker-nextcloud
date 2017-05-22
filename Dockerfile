@@ -7,7 +7,7 @@ ARG VERSION
 LABEL build_version="Linuxserver.io version:- ${VERSION} Build-date:- ${BUILD_DATE}"
 
 # package version
-ENV NEXTCLOUD_VER="11.0.3"
+ENV NEXTCLOUD_VER="12.0.0"
 
 # environment settings
 ENV NEXTCLOUD_PATH="/config/www/nextcloud"
@@ -62,6 +62,7 @@ RUN \
 	php7-mbstring \
 	php7-mcrypt \
 	php7-memcached \
+	php7-opcache \
 	php7-pcntl \
 	php7-pdo_mysql \
 	php7-pdo_pgsql \
