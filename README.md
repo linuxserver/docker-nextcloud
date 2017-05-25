@@ -81,6 +81,7 @@ If updating to nextcloud 12 you will need to comment out line `add_header X-Fram
 
 ## Versions
 
++ **25.05.17:** Rebase to alpine 3.6.
 + **22.05.17:** Update to nextcloud 12.0, adding required dependecies and note about commenting out SAMEORIGIN; line.
 + **03.05.17:** Use community repo of memcached.
 + **07.03.17:** Release into main repository and upgrade to php7 and Alpine 3.5.
