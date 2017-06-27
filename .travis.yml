@@ -1,0 +1,13 @@
+# linuxserver/nextcloud
+
+sudo: required
+
+language: bash
+
+services:
+  - docker
+
+script:
+  - docker build -t linuxserver/nextcloud .
+
+# EOF
