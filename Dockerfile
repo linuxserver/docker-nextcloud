@@ -81,8 +81,17 @@ RUN \
 # configure php and nginx for nextcloud
  echo "extension="smbclient.so"" > /etc/php7/conf.d/00_smbclient.ini && \
  sed -i \
- 's/;always_populate_raw_post_data = -1/always_populate_raw_post_data = -1/g' \
-	/etc/php7/php.ini && \
+	-e 's/;opcache.enable.*=.*/opcache.enable=1/g' \
+	-e 's/;opcache.interned_strings_buffer.*=.*/opcache.interned_strings_buffer=8/g' \
+	-e 's/;opcache.max_accelerated_files.*=.*/opcache.max_accelerated_files=10000/g' \
+	-e 's/;opcache.memory_consumption.*=.*/opcache.memory_consumption=128/g' \
+	-e 's/;opcache.save_comments.*=.*/opcache.save_comments=1/g' \
+	-e 's/;opcache.revalidate_freq.*=.*/opcache.revalidate_freq=1/g' \
+	-e 's/;always_populate_raw_post_data.*=.*/always_populate_raw_post_data=-1/g' \
+		/etc/php7/php.ini && \
+ sed -i \
+	'/opcache.enable=1/a opcache.enable_cli=1' \
+		/etc/php7/php.ini && \
  echo "env[PATH] = /usr/local/bin:/usr/bin:/bin" >> /etc/php7/php-fpm.conf && \
 
 # cleanup
