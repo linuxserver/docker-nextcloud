@@ -58,6 +58,7 @@ RUN \
 	php7-xml \
 	php7-xmlreader \
 	php7-zip \
+	php7-redis \
 	samba \
 	sudo \
 	tar \
