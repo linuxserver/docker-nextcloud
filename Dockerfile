@@ -1,19 +1,19 @@
 FROM lsiobase/alpine.nginx:3.6
-MAINTAINER sparklyballs
 
 # set version label
 ARG BUILD_DATE
 ARG VERSION
 LABEL build_version="Linuxserver.io version:- ${VERSION} Build-date:- ${BUILD_DATE}"
+LABEL maintainer="sparklyballs"
 
 # package version
-ENV NEXTCLOUD_VER="12.0.3"
+ENV NEXTCLOUD_VER="12.0.4"
 
 # environment settings
 ENV NEXTCLOUD_PATH="/config/www/nextcloud"
 
-# install build-dependencies
 RUN \
+ echo "**** install build packages ****" && \
  apk add --no-cache --virtual=build-dependencies \
 	autoconf \
 	automake \
@@ -25,8 +25,7 @@ RUN \
 	re2c \
 	samba-dev \
 	zlib-dev && \
-
-# install runtime packages
+ echo "**** install runtime packages ****" && \
  apk add --no-cache \
 	curl \
 	ffmpeg \
@@ -62,23 +61,15 @@ RUN \
 	sudo \
 	tar \
 	unzip && \
-
-# fetch php smbclient source
+ echo "**** compile smbclient ****" && \
  git clone git://github.com/eduardok/libsmbclient-php.git /tmp/smbclient && \
-
-# compile smbclient
  cd /tmp/smbclient && \
  phpize7 && \
  ./configure \
 	--with-php-config=/usr/bin/php-config7 && \
  make && \
  make install && \
-
-# uninstall build-dependencies
- apk del --purge \
-	build-dependencies && \
-
-# configure php and nginx for nextcloud
+ echo "**** configure php and nginx for nextcloud ****" && \
  echo "extension="smbclient.so"" > /etc/php7/conf.d/00_smbclient.ini && \
  sed -i \
 	-e 's/;opcache.enable.*=.*/opcache.enable=1/g' \
@@ -93,8 +84,9 @@ RUN \
 	'/opcache.enable=1/a opcache.enable_cli=1' \
 		/etc/php7/php.ini && \
  echo "env[PATH] = /usr/local/bin:/usr/bin:/bin" >> /etc/php7/php-fpm.conf && \
-
-# cleanup
+ echo "**** cleanup ****" && \
+ apk del --purge \
+	build-dependencies && \
  rm -rf \
 	/tmp/*
 
