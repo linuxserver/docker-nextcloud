@@ -53,6 +53,7 @@ RUN \
 	php7-pdo_sqlite \
 	php7-pgsql \
 	php7-posix \
+	php7-redis \
 	php7-sqlite3 \
 	php7-xml \
 	php7-xmlreader \
