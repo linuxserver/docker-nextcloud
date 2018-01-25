@@ -1,4 +1,4 @@
-FROM lsiobase/alpine.nginx:3.6
+FROM lsiobase/alpine.nginx:3.7
 
 # set version label
 ARG BUILD_DATE
@@ -7,7 +7,7 @@ LABEL build_version="Linuxserver.io version:- ${VERSION} Build-date:- ${BUILD_DA
 LABEL maintainer="sparklyballs"
 
 # package version
-ENV NEXTCLOUD_VER="12.0.4"
+ENV NEXTCLOUD_VER="12.0.5"
 
 # environment settings
 ENV NEXTCLOUD_PATH="/config/www/nextcloud"
