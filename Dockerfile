@@ -1,4 +1,4 @@
-FROM lsiobase/alpine.nginx:3.6
+FROM lsiobase/alpine.nginx:3.7
 
 # set version label
 ARG BUILD_DATE
@@ -6,10 +6,10 @@ ARG VERSION
 LABEL build_version="Linuxserver.io version:- ${VERSION} Build-date:- ${BUILD_DATE}"
 LABEL maintainer="sparklyballs"
 
-# package version
-ENV NEXTCLOUD_VER="12.0.4"
+# package version
+ENV NEXTCLOUD_VER="12.0.5"
 
-# environment settings
+# environment settings
 ENV NEXTCLOUD_PATH="/config/www/nextcloud"
 
 RUN \
@@ -53,6 +53,7 @@ RUN \
 	php7-pdo_sqlite \
 	php7-pgsql \
 	php7-posix \
+	php7-redis \
 	php7-sqlite3 \
 	php7-xml \
 	php7-xmlreader \
@@ -84,15 +85,15 @@ RUN \
 	'/opcache.enable=1/a opcache.enable_cli=1' \
 		/etc/php7/php.ini && \
  echo "env[PATH] = /usr/local/bin:/usr/bin:/bin" >> /etc/php7/php-fpm.conf && \
- echo "**** cleanup ****" && \
+ echo "**** cleanup ****" && \
  apk del --purge \
 	build-dependencies && \
  rm -rf \
 	/tmp/*
 
-# copy local files
+# copy local files
 COPY root/ /
 
-# ports and volumes
+# ports and volumes
 EXPOSE 443
 VOLUME /config /data
