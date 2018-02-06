@@ -7,7 +7,7 @@ LABEL build_version="Linuxserver.io version:- ${VERSION} Build-date:- ${BUILD_DA
 LABEL maintainer="sparklyballs"
 
 # package version
-ENV NEXTCLOUD_VER="12.0.5"
+ENV NEXTCLOUD_VER="13.0.0"
 
 # environment settings
 ENV NEXTCLOUD_PATH="/config/www/nextcloud"
