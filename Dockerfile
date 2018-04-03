@@ -29,6 +29,7 @@ RUN \
  apk add --no-cache \
 	curl \
 	ffmpeg \
+	imagemagick \
 	libxml2 \
 	php7-apcu \
 	php7-bz2 \
@@ -40,6 +41,7 @@ RUN \
 	php7-gd \
 	php7-gmp \
 	php7-iconv \
+	php7-imagick \
 	php7-imap \
 	php7-intl \
 	php7-ldap \
