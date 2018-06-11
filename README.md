@@ -81,6 +81,7 @@ If updating to nextcloud 12 you will need to comment out line `add_header X-Fram
 
 ## Versions
 
++ **11.06.18:** Use latest rather than specific version for initial install.
 + **26.04.18:** Bump default install to 13.0.1.
 + **06.02.18:** Bump default install to 13.0.0.
 + **26.01.18:** Rebase to alpine 3.7, bump default install to 12.0.5.
