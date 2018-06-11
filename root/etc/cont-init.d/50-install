@@ -7,7 +7,7 @@ mkdir -p \
 # install app
 if [ ! -e "${NEXTCLOUD_PATH}/index.php" ]; then
 curl -o /tmp/nextcloud.tar.bz2 -L \
-	https://download.nextcloud.com/server/releases/nextcloud-"${NEXTCLOUD_VER}".tar.bz2
+	https://download.nextcloud.com/server/releases/latest.tar.bz2
 tar xf /tmp/nextcloud.tar.bz2 -C \
 	"${NEXTCLOUD_PATH}" --strip-components=1
 rm -f \
