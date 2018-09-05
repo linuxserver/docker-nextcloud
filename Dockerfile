@@ -1,4 +1,4 @@
-FROM lsiobase/alpine.nginx:3.7
+FROM lsiobase/alpine.nginx:3.8
 
 # set version label
 ARG BUILD_DATE
@@ -40,7 +40,6 @@ RUN \
 	php7-imap \
 	php7-intl \
 	php7-ldap \
-	php7-mbstring \
 	php7-mcrypt \
 	php7-memcached \
 	php7-opcache \
@@ -52,7 +51,6 @@ RUN \
 	php7-posix \
 	php7-redis \
 	php7-sqlite3 \
-	php7-xml \
 	php7-xmlreader \
 	php7-zip \
 	samba \
