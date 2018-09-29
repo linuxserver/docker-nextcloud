@@ -25,7 +25,8 @@ server {
   add_header X-Robots-Tag none;
   add_header X-Download-Options noopen;
   add_header X-Permitted-Cross-Domain-Policies none;
-
+  add_header Referrer-Policy no-referrer always;
+  
   # Path to the root of your installation
   root /config/www/nextcloud/;
   # set max upload size
@@ -97,6 +98,7 @@ server {
     add_header X-Robots-Tag none;
     add_header X-Download-Options noopen;
     add_header X-Permitted-Cross-Domain-Policies none;
+    add_header Referrer-Policy no-referrer always;
     # Optional: Don't log access to assets
     access_log off;
   }
