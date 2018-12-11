@@ -75,6 +75,7 @@ RUN \
 	-e 's/;opcache.save_comments.*=.*/opcache.save_comments=1/g' \
 	-e 's/;opcache.revalidate_freq.*=.*/opcache.revalidate_freq=1/g' \
 	-e 's/;always_populate_raw_post_data.*=.*/always_populate_raw_post_data=-1/g' \
+	-e 's/memory_limit.*=.*128M/memory_limit=512M/g' \
 		/etc/php7/php.ini && \
  sed -i \
 	'/opcache.enable=1/a opcache.enable_cli=1' \
