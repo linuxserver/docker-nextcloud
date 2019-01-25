@@ -81,6 +81,7 @@ If updating to nextcloud 12 you will need to comment out line `add_header X-Fram
 
 ## Versions
 
++ **25.01.18:** Add php7-phar for occ upgrades.
 + **05.09.18:** Rebase to alpine 3.8.
 + **11.06.18:** Use latest rather than specific version for initial install.
 + **26.04.18:** Bump default install to 13.0.1.
