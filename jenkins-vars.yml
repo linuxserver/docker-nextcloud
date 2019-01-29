@@ -1,0 +1,28 @@
+---
+
+# jenkins variables
+project_name: docker-nextcloud
+external_type: na
+custom_version_command: |
+  {% raw -%}curl -s https://download.nextcloud.com/server/installer/setup-nextcloud.php | awk -F \' '/NC_VERSION/{print $4;exit}'{%- endraw %}
+release_type: stable
+release_tag: latest
+ls_branch: master
+repo_vars:
+  - BUILD_VERSION_ARG = 'NEXTCLOUD_VERSION'
+  - LS_USER = 'linuxserver'
+  - LS_REPO = 'docker-nextcloud'
+  - CONTAINER_NAME = 'nextcloud'
+  - DOCKERHUB_IMAGE = 'linuxserver/nextcloud'
+  - DEV_DOCKERHUB_IMAGE = 'lsiodev/nextcloud'
+  - PR_DOCKERHUB_IMAGE = 'lspipepr/nextcloud'
+  - DIST_IMAGE = 'alpine'
+  - MULTIARCH='true'
+  - CI='true'
+  - CI_WEB='true'
+  - CI_PORT='443'
+  - CI_SSL='true'
+  - CI_DELAY='120'
+  - CI_DOCKERENV='TZ=US/Pacific'
+  - CI_AUTH='user:password'
+  - CI_WEBPATH=''

@@ -35,7 +35,7 @@ docker create \
 
 ## Parameters
 
-`The parameters are split into two halves, separated by a colon, the left hand side representing the host and the right the container side. 
+`The parameters are split into two halves, separated by a colon, the left hand side representing the host and the right the container side.
 For example with a port -p external:internal - what this shows is the port mapping from internal to external of the container.
 So -p 8080:80 would expose port 80 from inside the container to be accessible from the host's IP on port 8080
 http://192.168.x.x:8080 would show you what's running INSIDE the container on port 80.`
@@ -61,7 +61,7 @@ In this instance `PUID=1001` and `PGID=1001`. To find yours use `id user` as bel
 ```
 
 ## Setting up the application
-Access the webui at `<your-ip>:443`, for more information check out [Nextcloud][appurl].  
+Access the webui at `<your-ip>:443`, for more information check out [Nextcloud][appurl].
 
 Please note you will need a MySQL/MariaDB or other backend database to set this up.  Also please look [here](https://docs.nextcloud.com/server/11/admin_manual/installation/system_requirements.html#database-requirements-for-mysql-mariadb) for how to configure your database with regard to binlog format and installation.
 
@@ -71,7 +71,7 @@ If updating to nextcloud 12 you will need to comment out line `add_header X-Fram
 
 * Monitor the logs of the container in realtime `docker logs -f nextcloud`.
 
-* container version number 
+* container version number
 
 `docker inspect -f '{{ index .Config.Labels "build_version" }}' nextcloud`
 
@@ -81,6 +81,7 @@ If updating to nextcloud 12 you will need to comment out line `add_header X-Fram
 
 ## Versions
 
++ **28.01.19:** Add pipeline logic and multi arch.
 + **25.01.19:** Add php7-phar for occ upgrades.
 + **05.09.18:** Rebase to alpine 3.8.
 + **11.06.18:** Use latest rather than specific version for initial install.
