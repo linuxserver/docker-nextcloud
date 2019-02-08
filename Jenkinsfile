@@ -10,7 +10,7 @@ pipeline {
   environment {
     BUILDS_DISCORD=credentials('build_webhook_url')
     GITHUB_TOKEN=credentials('498b4638-2d02-4ce5-832d-8a57d01d97ab')
-    BUILD_VERSION_ARG = 'NEXTCLOUD_VERSION'
+    BUILD_VERSION_ARG = 'NEXTCLOUD_RELEASE'
     LS_USER = 'linuxserver'
     LS_REPO = 'docker-nextcloud'
     CONTAINER_NAME = 'nextcloud'

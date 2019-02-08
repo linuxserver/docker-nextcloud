@@ -9,7 +9,7 @@ release_type: stable
 release_tag: latest
 ls_branch: master
 repo_vars:
-  - BUILD_VERSION_ARG = 'NEXTCLOUD_VERSION'
+  - BUILD_VERSION_ARG = 'NEXTCLOUD_RELEASE'
   - LS_USER = 'linuxserver'
   - LS_REPO = 'docker-nextcloud'
   - CONTAINER_NAME = 'nextcloud'
