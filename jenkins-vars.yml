@@ -4,7 +4,7 @@
 project_name: docker-nextcloud
 external_type: na
 custom_version_command: |
-  {% raw -%}curl -s https://download.nextcloud.com/server/installer/setup-nextcloud.php | awk -F \' '/NC_VERSION/{print $4;exit}'{%- endraw %}
+  {% raw -%}curl -s https://download.nextcloud.com/server/installer/setup-nextcloud.php | awk -F \\' '/NC_VERSION/{print $4;exit}'{%- endraw %}
 release_type: stable
 release_tag: latest
 ls_branch: master
