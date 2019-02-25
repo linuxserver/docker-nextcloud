@@ -56,6 +56,7 @@ app_setup_block: |
 
 # changelog
 changelogs:
+  - { date: "22.02.19:", desc: "Rebasing to alpine 3.9." }
   - { date: "28.01.19:", desc: "Add pipeline logic and multi arch." }
   - { date: "25.01.19:", desc: "Add php7-phar for occ upgrades." }
   - { date: "05.09.18:", desc: "Rebase to alpine 3.8." }
