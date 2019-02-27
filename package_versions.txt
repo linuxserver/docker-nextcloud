@@ -33,11 +33,11 @@ apr-util apr-util-1.6.1-r5
 apache2-utils apache2-utils-2.4.38-r2
 nghttp2-libs nghttp2-libs-1.35.1-r0
 libssh2 libssh2-1.8.0-r4
-libcurl libcurl-7.63.0-r0
+libcurl libcurl-7.64.0-r1
 pcre2 pcre2-10.32-r1
 git git-2.20.1-r0
-libressl2.7-libcrypto libressl2.7-libcrypto-2.7.4-r2
-libressl2.7-libssl libressl2.7-libssl-2.7.4-r2
+libressl2.7-libcrypto libressl2.7-libcrypto-2.7.5-r0
+libressl2.7-libssl libressl2.7-libssl-2.7.5-r0
 popt popt-1.16-r7
 logrotate logrotate-3.15.0-r0
 libmagic libmagic-5.35-r0
@@ -47,7 +47,7 @@ nginx nginx-1.14.2-r0
 openssl openssl-1.1.1a-r1
 php7-common php7-common-7.2.14-r0
 libedit libedit-20181209.3.1-r0
-libxml2 libxml2-2.9.9-r0
+libxml2 libxml2-2.9.9-r1
 php7 php7-7.2.14-r0
 php7-fileinfo php7-fileinfo-7.2.14-r0
 php7-fpm php7-fpm-7.2.14-r0
@@ -96,7 +96,7 @@ lz4-libs lz4-libs-1.8.3-r2
 libarchive libarchive-3.3.2-r4
 samba-client samba-client-4.8.8-r0
 samba-common-tools samba-common-tools-4.8.8-r0
-curl curl-7.63.0-r0
+curl curl-7.64.0-r1
 sdl2 sdl2-2.0.9-r0
 libxau libxau-1.0.8-r3
 libbsd libbsd-0.8.6-r2
@@ -193,5 +193,5 @@ libzip libzip-1.5.1-r2
 php7-zip php7-zip-7.2.14-r0
 samba samba-4.8.8-r0
 sudo sudo-1.8.25_p1-r2
-tar tar-1.31-r0
+tar tar-1.32-r0
 unzip unzip-6.0-r4
