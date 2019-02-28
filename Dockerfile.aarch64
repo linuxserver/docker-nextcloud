@@ -15,7 +15,7 @@ ENV NEXTCLOUD_PATH="/config/www/nextcloud"
 
 RUN \
  echo "**** install build packages ****" && \
- apk add --no-cache --virtual=build-dependencies \
+ apk add --no-cache --virtual=build-dependencies --upgrade \
 	autoconf \
 	automake \
 	file \
@@ -27,7 +27,7 @@ RUN \
 	samba-dev \
 	zlib-dev && \
  echo "**** install runtime packages ****" && \
- apk add --no-cache \
+ apk add --no-cache --upgrade \
 	curl \
 	ffmpeg \
 	imagemagick \
@@ -57,10 +57,11 @@ RUN \
 	php7-phar \
 	php7-posix \
 	php7-redis \
+	php7-sodium \
 	php7-sqlite3 \
 	php7-xmlreader \
 	php7-zip \
-	samba \
+	samba-client \
 	sudo \
 	tar \
 	unzip && \
@@ -74,6 +75,7 @@ RUN \
  make install && \
  echo "**** configure php and nginx for nextcloud ****" && \
  echo "extension="smbclient.so"" > /etc/php7/conf.d/00_smbclient.ini && \
+ echo 'apc.enable_cli=1' >> /etc/php7/conf.d/apcu.ini && \
  sed -i \
 	-e 's/;opcache.enable.*=.*/opcache.enable=1/g' \
 	-e 's/;opcache.interned_strings_buffer.*=.*/opcache.interned_strings_buffer=8/g' \

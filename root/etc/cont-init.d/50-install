@@ -6,15 +6,16 @@ mkdir -p \
 
 # install app
 if [ ! -e "${NEXTCLOUD_PATH}/index.php" ]; then
-NEXTCLOUD_VERSION=$(cat /version.txt)
-curl -o /tmp/nextcloud.tar.bz2 -L \
-	https://download.nextcloud.com/server/releases/nextcloud-${NEXTCLOUD_VERSION}.tar.bz2
-tar xf /tmp/nextcloud.tar.bz2 -C \
-	"${NEXTCLOUD_PATH}" --strip-components=1
-rm -f \
-	/tmp/nextcloud.tar.bz2
-chown abc:abc -R \
-	"${NEXTCLOUD_PATH}"
+	NEXTCLOUD_VERSION=$(cat /version.txt)
+	curl -o /tmp/nextcloud.tar.bz2 -L \
+		https://download.nextcloud.com/server/releases/nextcloud-${NEXTCLOUD_VERSION}.tar.bz2
+	tar xf /tmp/nextcloud.tar.bz2 -C \
+		"${NEXTCLOUD_PATH}" --strip-components=1
+	rm -f \
+		/tmp/nextcloud.tar.bz2
+	chown abc:abc -R \
+		"${NEXTCLOUD_PATH}"
+	chmod +x "${NEXTCLOUD_PATH}/occ"
 fi
 
 # set cronjob

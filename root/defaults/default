@@ -1,110 +1,84 @@
 upstream php-handler {
-  server 127.0.0.1:9000;
-# server unix:/var/run/php/php7.0-fpm.sock;
+    server 127.0.0.1:9000;
 }
-
 server {
-  listen 80;
-  server_name _;
-  # enforce https
-  return 301 https://$server_name$request_uri;
+    listen 80;
+    listen [::]:80;
+    server_name _;
+    return 301 https://$server_name$request_uri;
 }
-
 server {
-  listen 443 ssl;
-  server_name _;
-
-  ssl_certificate /config/keys/cert.crt;
-  ssl_certificate_key /config/keys/cert.key;
-
-  # Add headers to serve security related headers
-  add_header Strict-Transport-Security "max-age=15768000; includeSubDomains; preload;";
-  add_header X-Content-Type-Options nosniff;
-  # add_header X-Frame-Options "SAMEORIGIN";
-  add_header X-XSS-Protection "1; mode=block";
-  add_header X-Robots-Tag none;
-  add_header X-Download-Options noopen;
-  add_header X-Permitted-Cross-Domain-Policies none;
-  add_header Referrer-Policy no-referrer always;
-  
-  # Path to the root of your installation
-  root /config/www/nextcloud/;
-  # set max upload size
-  client_max_body_size 10G;
-  fastcgi_buffers 64 4K;
-
-  # Disable gzip to avoid the removal of the ETag header
-  gzip off;
-
-  # Uncomment if your server is build with the ngx_pagespeed module
-  # This module is currently not supported.
-  #pagespeed off;
-
-  index index.php;
-  error_page 403 /core/templates/403.php;
-  error_page 404 /core/templates/404.php;
-
-  rewrite ^/.well-known/carddav /remote.php/dav/ permanent;
-  rewrite ^/.well-known/caldav /remote.php/dav/ permanent;
-
-  # The following 2 rules are only needed for the user_webfinger app.
-  # Uncomment it if you're planning to use this app.
-  #rewrite ^/.well-known/host-meta /public.php?service=host-meta last;
-  #rewrite ^/.well-known/host-meta.json /public.php?service=host-meta-json last;
-
-  location = /robots.txt {
-    allow all;
-    log_not_found off;
-    access_log off;
-  }
-
-  location ~ ^/(build|tests|config|lib|3rdparty|templates|data)/ {
-    deny all;
-  }
-
-  location ~ ^/(?:\.|autotest|occ|issue|indie|db_|console) {
-    deny all;
-  }
-
-  location / {
-
-    rewrite ^/remote/(.*) /remote.php last;
-
-    rewrite ^(/core/doc/[^\/]+/)$ $1/index.html;
-
-    try_files $uri $uri/ =404;
-  }
-
-  location ~ \.php(?:$|/) {
-    fastcgi_split_path_info ^(.+\.php)(/.+)$;
-    include /etc/nginx/fastcgi_params;
-    fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
-    fastcgi_param PATH_INFO $fastcgi_path_info;
-    fastcgi_param HTTPS on;
-    fastcgi_param modHeadersAvailable true; #Avoid sending the security headers twice
-    fastcgi_pass php-handler;
-    fastcgi_intercept_errors on;
-  }
-
-  # Adding the cache control header for js and css files
-  # Make sure it is BELOW the location ~ \.php(?:$|/) { block
-  location ~* \.(?:css|js)$ {
-    add_header Cache-Control "public, max-age=7200";
-    # Add headers to serve security related headers
-    add_header Strict-Transport-Security "max-age=15768000; includeSubDomains; preload;";
+    listen 443 ssl http2;
+    listen [::]:443 ssl http2;
+    server_name _;
+    ssl_certificate /config/keys/cert.crt;
+    ssl_certificate_key /config/keys/cert.key;
     add_header X-Content-Type-Options nosniff;
-    add_header X-Frame-Options "SAMEORIGIN";
     add_header X-XSS-Protection "1; mode=block";
     add_header X-Robots-Tag none;
     add_header X-Download-Options noopen;
     add_header X-Permitted-Cross-Domain-Policies none;
-    add_header Referrer-Policy no-referrer always;
-    # Optional: Don't log access to assets
-    access_log off;
-  }
+    add_header Referrer-Policy no-referrer;
+    fastcgi_hide_header X-Powered-By;
+    root /config/www/nextcloud/;
+    location = /robots.txt {
+        allow all;
+        log_not_found off;
+        access_log off;
+    }
+    location = /.well-known/carddav {
+      return 301 $scheme://$host/remote.php/dav;
+    }
+    location = /.well-known/caldav {
+      return 301 $scheme://$host/remote.php/dav;
+    }
+    client_max_body_size 10G;
+    fastcgi_buffers 64 4K;
+    gzip on;
+    gzip_vary on;
+    gzip_comp_level 4;
+    gzip_min_length 256;
+    gzip_proxied expired no-cache no-store private no_last_modified no_etag auth;
+    gzip_types application/atom+xml application/javascript application/json application/ld+json application/manifest+json application/rss+xml application/vnd.geo+json application/vnd.ms-fontobject application/x-font-ttf application/x-web-app-manifest+json application/xhtml+xml application/xml font/opentype image/bmp image/svg+xml image/x-icon text/cache-manifest text/css text/plain text/vcard text/vnd.rim.location.xloc text/vtt text/x-component text/x-cross-domain-policy;
+    location / {
+        rewrite ^ /index.php$request_uri;
+    }
+    location ~ ^\/(?:build|tests|config|lib|3rdparty|templates|data)\/ {
+        deny all;
+    }
+    location ~ ^\/(?:\.|autotest|occ|issue|indie|db_|console) {
+        deny all;
+    }
+    location ~ ^\/(?:index|remote|public|cron|core\/ajax\/update|status|ocs\/v[12]|updater\/.+|ocs-provider\/.+|ocm-provider\/.+)\.php(?:$|\/) {
+        fastcgi_split_path_info ^(.+?\.php)(\/.*|)$;
+        include /etc/nginx/fastcgi_params;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        fastcgi_param PATH_INFO $fastcgi_path_info;
+        fastcgi_param HTTPS on;
+        fastcgi_param modHeadersAvailable true;
+        fastcgi_param front_controller_active true;
+        fastcgi_pass php-handler;
+        fastcgi_intercept_errors on;
+        fastcgi_request_buffering off;
+    }
 
-  # Optional: Don't log access to other assets
-  location ~* \.(?:jpg|jpeg|gif|bmp|ico|png|swf)$ {
-    access_log off;
-  }
+    location ~ ^\/(?:updater|ocs-provider|ocm-provider)(?:$|\/) {
+        try_files $uri/ =404;
+        index index.php;
+    }
+    location ~ \.(?:css|js|woff2?|svg|gif)$ {
+        try_files $uri /index.php$request_uri;
+        add_header Cache-Control "public, max-age=15778463";
+        add_header X-Content-Type-Options nosniff;
+        add_header X-XSS-Protection "1; mode=block";
+        add_header X-Robots-Tag none;
+        add_header X-Download-Options noopen;
+        add_header X-Permitted-Cross-Domain-Policies none;
+        add_header Referrer-Policy no-referrer;
+        access_log off;
+    }
+    location ~ \.(?:png|html|ttf|ico|jpg|jpeg)$ {
+        try_files $uri /index.php$request_uri;
+        access_log off;
+    }
 }
