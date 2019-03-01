@@ -119,7 +119,7 @@ In this instance `PUID=1001` and `PGID=1001`, to find yours use `id user` as bel
 &nbsp;
 ## Application Setup
 
-Access the webui at `<your-ip>:443`, for more information check out [Nextcloud][appurl].
+Access the webui at `<your-ip>:443`, for more information check out [Nextcloud](https://nextcloud.com/).
 
 If you are updating our container along with the in app updater and you are not customizing our default nginx configuration you will need to remove the file:
 ```
