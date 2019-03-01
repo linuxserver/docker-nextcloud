@@ -48,14 +48,17 @@ optional_block_1: false
 # application setup block
 app_setup_block_enabled: true
 app_setup_block: |
-  Access the webui at `<your-ip>:443`, for more information check out [Nextcloud][appurl].
+  Access the webui at `<your-ip>:443`, for more information check out [Nextcloud]({{ project_url }}).
 
-  Please note you will need a MySQL/MariaDB or other backend database to set this up.  Also please look [here](https://docs.nextcloud.com/server/11/admin_manual/installation/system_requirements.html#database-requirements-for-mysql-mariadb) for how to configure your database with regard to binlog format and installation.
-
-  If updating to nextcloud 12 you will need to comment out line `add_header X-Frame-Options "SAMEORIGIN";` in the file /config/nginx/site-confs/default
+  If you are updating our container along with the in app updater and you are not customizing our default nginx configuration you will need to remove the file:
+  ```
+  /config/nginx/site-confs/default
+  ```
+  Then restart the container to replace it with the latest one. 
 
 # changelog
 changelogs:
+  - { date: "27.02.19:", desc: "Updating base nginx config to sync up with v15 requirements." }
   - { date: "22.02.19:", desc: "Rebasing to alpine 3.9." }
   - { date: "28.01.19:", desc: "Add pipeline logic and multi arch." }
   - { date: "25.01.19:", desc: "Add php7-phar for occ upgrades." }
