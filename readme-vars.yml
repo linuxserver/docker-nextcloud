@@ -15,7 +15,7 @@ project_blurb_optional_extras_enabled: false
 available_architectures:
   - { arch: "{{ arch_x86_64 }}", tag: "amd64-latest"}
   - { arch: "{{ arch_arm64 }}", tag: "arm64v8-latest"}
-  - { arch: "{{ arch_armhf }}", tag: "arm32v6-latest"}
+  - { arch: "{{ arch_armhf }}", tag: "arm32v7-latest"}
 
 # development version
 development_versions: false
@@ -58,6 +58,7 @@ app_setup_block: |
 
 # changelog
 changelogs:
+  - { date: "23.03.19:", desc: "Switching to new Base images, shift to arm32v7 tag." }
   - { date: "27.02.19:", desc: "Updating base nginx config to sync up with v15 requirements." }
   - { date: "22.02.19:", desc: "Rebasing to alpine 3.9." }
   - { date: "28.01.19:", desc: "Add pipeline logic and multi arch." }
