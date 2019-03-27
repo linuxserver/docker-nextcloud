@@ -75,7 +75,7 @@ libsasl-2.1.27-r1
 libsm-1.2.2-r2
 libsmbclient-4.8.8-r0
 libsodium-1.0.16-r0
-libssh2-1.8.1-r0
+libssh2-1.8.2-r0
 libssl1.1-1.1.1b-r1
 libstdc++-8.2.0-r2
 libtasn1-4.13-r0
