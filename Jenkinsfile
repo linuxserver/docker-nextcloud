@@ -96,8 +96,7 @@ pipeline {
       steps{
         script{
           env.EXT_RELEASE = sh(
-            script: ''' curl -s https://download.nextcloud.com/server/installer/setup-nextcloud.php | awk -F \\' '/NC_VERSION/{print $4;exit}'
- ''',
+            script: ''' echo 15.0.7 ''',
             returnStdout: true).trim()
             env.RELEASE_LINK = 'custom_command'
         }
