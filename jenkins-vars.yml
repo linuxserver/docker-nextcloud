@@ -3,8 +3,7 @@
 # jenkins variables
 project_name: docker-nextcloud
 external_type: na
-custom_version_command: |
-  {% raw -%}curl -s https://download.nextcloud.com/server/installer/setup-nextcloud.php | awk -F \\' '/NC_VERSION/{print $4;exit}'{%- endraw %}
+custom_version_command: 'echo 15.0.7'
 release_type: stable
 release_tag: latest
 ls_branch: master
