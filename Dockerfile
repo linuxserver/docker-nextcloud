@@ -89,7 +89,8 @@ RUN \
  echo "env[PATH] = /usr/local/bin:/usr/bin:/bin" >> /etc/php7/php-fpm.conf && \
  echo "**** set version tag ****" && \
  if [ -z ${NEXTCLOUD_RELEASE+x} ]; then \
-	NEXTCLOUD_RELEASE=$(echo 15.0.7); \
+	NEXTCLOUD_RELEASE=$(curl -s https://raw.githubusercontent.com/nextcloud/nextcloud.com/master/strings.php \
+	| awk -F\' '/VERSIONS_SERVER_FULL_STABLE/ {print $2;exit}'); \
  fi && \
  echo ${NEXTCLOUD_RELEASE} > /version.txt && \
  echo "**** cleanup ****" && \
