@@ -14,7 +14,7 @@ ca-certificates-cacert-20190108-r0
 cairo-1.16.0-r1
 coreutils-8.30-r0
 cups-libs-2.2.10-r0
-curl-7.64.0-r1
+curl-7.64.0-r2
 db-5.3.28-r1
 dbus-libs-1.10.24-r1
 expat-2.2.6-r0
@@ -50,7 +50,7 @@ libcap-2.26-r0
 libcom_err-1.44.5-r0
 libcroco-0.6.12-r1
 libcrypto1.1-1.1.1b-r1
-libcurl-7.64.0-r1
+libcurl-7.64.0-r2
 libdrm-2.4.96-r0
 libedit-20181209.3.1-r0
 libffi-3.2.1-r6
@@ -73,7 +73,7 @@ libressl2.7-libssl-2.7.5-r0
 librsvg-2.40.20-r0
 libsasl-2.1.27-r1
 libsm-1.2.2-r2
-libsmbclient-4.8.11-r1
+libsmbclient-4.8.12-r0
 libsodium-1.0.16-r0
 libssh2-1.8.2-r0
 libssl1.1-1.1.1b-r1
@@ -87,7 +87,7 @@ libva-2.2.0-r0
 libvdpau-1.1.1-r2
 libvorbis-1.3.6-r2
 libvpx-1.6.1-r1
-libwbclient-4.8.11-r1
+libwbclient-4.8.12-r0
 libwebp-1.0.1-r0
 libx11-1.6.7-r0
 libxau-1.0.8-r3
@@ -165,12 +165,12 @@ php7-zip-7.2.18-r0
 pixman-0.34.0-r6
 popt-1.16-r7
 readline-7.0.003-r1
-samba-client-4.8.11-r1
-samba-client-libs-4.8.11-r1
-samba-common-4.8.11-r1
-samba-common-libs-4.8.11-r1
-samba-heimdal-libs-4.8.11-r1
-samba-libs-4.8.11-r1
+samba-client-4.8.12-r0
+samba-client-libs-4.8.12-r0
+samba-common-4.8.12-r0
+samba-common-libs-4.8.12-r0
+samba-heimdal-libs-4.8.12-r0
+samba-libs-4.8.12-r0
 scanelf-1.2.3-r0
 sdl2-2.0.9-r0
 shadow-4.5-r1
