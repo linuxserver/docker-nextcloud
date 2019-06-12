@@ -173,9 +173,9 @@ samba-heimdal-libs-4.8.12-r0
 samba-libs-4.8.12-r0
 scanelf-1.2.3-r0
 sdl2-2.0.9-r0
-shadow-4.5-r1
+shadow-4.5-r2
 shared-mime-info-1.10-r0
-sqlite-libs-3.26.0-r3
+sqlite-libs-3.28.0-r0
 ssl_client-1.29.3-r10
 sudo-1.8.25_p1-r2
 talloc-2.1.14-r0
