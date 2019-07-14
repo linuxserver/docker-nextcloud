@@ -191,6 +191,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **14.07.19:** - Download nextcloud during build time.
 * **28.06.19:** - Rebasing to alpine 3.10.
 * **23.03.19:** - Switching to new Base images, shift to arm32v7 tag.
 * **27.02.19:** - Updating base nginx config to sync up with v15 requirements.
