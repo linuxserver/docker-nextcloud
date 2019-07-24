@@ -50,7 +50,7 @@ libbz2-1.0.6-r7
 libc-utils-0.7.1-r0
 libcap-2.27-r0
 libcom_err-1.45.2-r0
-libcroco-0.6.13-r0
+libcroco-0.6.13-r1
 libcrypto1.1-1.1.1c-r0
 libcurl-7.65.1-r0
 libde265-1.0.3-r0
@@ -81,7 +81,7 @@ libsmbclient-4.10.5-r0
 libsodium-1.0.18-r0
 libssl1.1-1.1.1c-r0
 libstdc++-8.3.0-r0
-libtasn1-4.13-r0
+libtasn1-4.14-r0
 libtheora-1.1.1-r14
 libtls-standalone-2.9.1-r0
 libunistring-0.9.10-r0
