@@ -176,7 +176,7 @@ samba-common-libs-4.10.5-r0
 samba-heimdal-libs-4.10.5-r0
 samba-libs-4.10.5-r0
 scanelf-1.2.3-r0
-sdl2-2.0.9-r0
+sdl2-2.0.10-r0
 shadow-4.6-r2
 shared-mime-info-1.12-r0
 sqlite-libs-3.28.0-r0
