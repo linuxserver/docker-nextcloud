@@ -19,6 +19,8 @@ server {
     add_header X-Download-Options noopen;
     add_header X-Permitted-Cross-Domain-Policies none;
     add_header Referrer-Policy no-referrer;
+    add_header Strict-Transport-Security "max-age=15768000; includeSubDomains; preload;";
+    add_header X-Frame-Options "SAMEORIGIN";
     fastcgi_hide_header X-Powered-By;
     root /config/www/nextcloud/;
     location = /robots.txt {
