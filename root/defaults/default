@@ -5,7 +5,7 @@ server {
     listen 80;
     listen [::]:80;
     server_name _;
-    return 301 https://$server_name$request_uri;
+    return 301 https://$host$request_uri;
 }
 server {
     listen 443 ssl http2;
@@ -41,7 +41,7 @@ server {
     gzip_proxied expired no-cache no-store private no_last_modified no_etag auth;
     gzip_types application/atom+xml application/javascript application/json application/ld+json application/manifest+json application/rss+xml application/vnd.geo+json application/vnd.ms-fontobject application/x-font-ttf application/x-web-app-manifest+json application/xhtml+xml application/xml font/opentype image/bmp image/svg+xml image/x-icon text/cache-manifest text/css text/plain text/vcard text/vnd.rim.location.xloc text/vtt text/x-component text/x-cross-domain-policy;
     location / {
-        rewrite ^ /index.php$request_uri;
+        rewrite ^ /index.php;
     }
     location ~ ^\/(?:build|tests|config|lib|3rdparty|templates|data)\/ {
         deny all;
@@ -51,6 +51,7 @@ server {
     }
     location ~ ^\/(?:index|remote|public|cron|core\/ajax\/update|status|ocs\/v[12]|updater\/.+|ocs-provider\/.+|ocm-provider\/.+)\.php(?:$|\/) {
         fastcgi_split_path_info ^(.+?\.php)(\/.*|)$;
+        try_files $fastcgi_script_name =404;
         include /etc/nginx/fastcgi_params;
         fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
         fastcgi_param PATH_INFO $fastcgi_path_info;

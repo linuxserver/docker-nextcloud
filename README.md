@@ -127,9 +127,11 @@ In this instance `PUID=1000` and `PGID=1000`, to find yours use `id user` as bel
 &nbsp;
 ## Application Setup
 
-Access the webui at `<your-ip>:443`, for more information check out [Nextcloud](https://nextcloud.com/).
+Access the webui at `https://<your-ip>:443`, for more information check out [Nextcloud](https://nextcloud.com/).
 
-If you are updating our container along with the in app updater and you are not customizing our default nginx configuration you will need to remove the file:
+In order to update nextcloud version, first make sure you are using the latest docker image, and then perform the in app gui update. Docker image update and recreation of container alone won't update nextcloud version. 
+
+If you are not customizing our default nginx configuration you will need to remove the file:
 ```
 /config/nginx/site-confs/default
 ```
@@ -201,6 +203,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **24.10.19:** - Nginx default site config updated due to CVE-2019-11043 (existing users should delete `/config/nginx/site-confs/default` and restart the container).
 * **14.07.19:** - Download nextcloud during build time.
 * **28.06.19:** - Rebasing to alpine 3.10.
 * **23.03.19:** - Switching to new Base images, shift to arm32v7 tag.
