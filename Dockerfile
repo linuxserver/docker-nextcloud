@@ -99,7 +99,11 @@ RUN \
  apk del --purge \
 	build-dependencies && \
  rm -rf \
-	/tmp/*
+	/tmp/* && \
+ echo "**** security stopgap ****" && \
+ apk add --no-cache --upgrade -X http://dl-cdn.alpinelinux.org/alpine/edge/community \
+	php7 \
+	php7-fpm
 
 # copy local files
 COPY root/ /
