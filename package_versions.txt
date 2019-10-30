@@ -64,7 +64,7 @@ libintl-0.19.8.1-r4
 libjpeg-turbo-2.0.2-r0
 libldap-2.4.48-r0
 libltdl-2.4.6-r6
-libmagic-5.37-r0
+libmagic-5.37-r1
 libmcrypt-2.5.8-r7
 libmemcached-libs-1.0.18-r3
 libmount-2.33.2-r0
