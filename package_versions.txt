@@ -41,7 +41,7 @@ lame-3.100-r0
 lcms2-2.9-r1
 ldb-1.5.5-r0
 libacl-2.2.52-r6
-libarchive-3.3.3-r0
+libarchive-3.3.3-r1
 libass-0.14.0-r0
 libattr-2.4.48-r0
 libblkid-2.33.2-r0
@@ -186,7 +186,7 @@ talloc-2.2.0-r0
 tar-1.32-r0
 tdb-libs-1.3.18-r0
 tevent-0.9.39-r0
-tiff-4.0.10-r1
+tiff-4.0.10-r2
 tzdata-2019c-r0
 unzip-6.0-r4
 v4l-utils-libs-1.16.6-r0
