@@ -209,6 +209,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **18.11.19:** - Nginx default site config updated for v17 (existing users should delete `/config/nginx/site-confs/default` and restart the container).
 * **28.10.19:** - Change cronjob to run every 5 minutes.
 * **24.10.19:** - Nginx default site config updated due to CVE-2019-11043 (existing users should delete `/config/nginx/site-confs/default` and restart the container).
 * **14.07.19:** - Download nextcloud during build time.
