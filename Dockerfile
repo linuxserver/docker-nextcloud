@@ -86,6 +86,12 @@ RUN \
  sed -i \
 	'/opcache.enable=1/a opcache.enable_cli=1' \
 		/etc/php7/php.ini && \
+ sed -i \
+	-e 's/pm.max_children.*=.*/pm.max_children=120/g' \
+	-e 's/pm.start_servers.*=.*/pm.start_servers=12/g' \
+	-e 's/pm.min_spare_servers.*=.*/pm.min_spare_servers=6/g' \
+	-e 's/pm.max_spare_servers.*=.*/pm.max_spare_servers=18/g' \
+		/etc/php7/php-fpm.d/www.conf && \
  echo "env[PATH] = /usr/local/bin:/usr/bin:/bin" >> /etc/php7/php-fpm.conf && \
  echo "**** set version tag ****" && \
  if [ -z ${NEXTCLOUD_RELEASE+x} ]; then \
