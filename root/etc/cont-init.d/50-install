@@ -15,3 +15,6 @@ fi
 
 # set cronjob
 crontab /defaults/nextcloud
+
+# set rescan cronjob
+crontab /defaults/nextcloud-rescan

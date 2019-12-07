@@ -1,0 +1,1 @@
+30  3  *  *  1 s6-setuidgid abc php7 -f /config/www/nextcloud/occ files:scan --all
