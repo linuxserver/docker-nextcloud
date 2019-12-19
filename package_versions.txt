@@ -33,8 +33,8 @@ gnutls-3.6.8-r0
 graphite2-1.3.13-r1
 harfbuzz-2.5.1-r0
 icu-libs-64.2-r0
-imagemagick-7.0.8.58-r0
-imagemagick-libs-7.0.8.58-r0
+imagemagick-7.0.8.68-r0
+imagemagick-libs-7.0.8.68-r0
 jansson-2.12-r0
 jbig2dec-0.16-r0
 lame-3.100-r0
