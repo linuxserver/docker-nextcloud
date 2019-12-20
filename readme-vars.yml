@@ -60,6 +60,7 @@ app_setup_block: |
 
 # changelog
 changelogs:
+  - { date: "19.12.19:", desc: "Rebasing to alpine 3.11." }
   - { date: "18.11.19:", desc: "Nginx default site config updated for v17 (existing users should delete `/config/nginx/site-confs/default` and restart the container)." }
   - { date: "28.10.19:", desc: "Change cronjob to run every 5 minutes." }
   - { date: "24.10.19:", desc: "Nginx default site config updated due to CVE-2019-11043 (existing users should delete `/config/nginx/site-confs/default` and restart the container)." }
