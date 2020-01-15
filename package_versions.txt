@@ -8,7 +8,7 @@ apr-util-1.6.1-r6
 argon2-libs-20190702-r1
 avahi-libs-0.7-r4
 bash-5.0.11-r1
-busybox-1.31.1-r8
+busybox-1.31.1-r9
 c-client-2007f-r11
 ca-certificates-20191127-r0
 ca-certificates-cacert-20191127-r0
@@ -182,7 +182,7 @@ sdl2-2.0.10-r0
 shadow-4.7-r1
 shared-mime-info-1.15-r0
 sqlite-libs-3.30.1-r1
-ssl_client-1.31.1-r8
+ssl_client-1.31.1-r9
 sudo-1.8.29-r0
 talloc-2.3.1-r0
 tar-1.32-r1
