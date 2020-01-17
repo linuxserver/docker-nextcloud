@@ -60,6 +60,7 @@ app_setup_block: |
 
 # changelog
 changelogs:
+  - { date: "17.01.20:", desc: "Updated php.ini defaults and site config, including an optional HSTS directive (existing users should delete `/config/nginx/site-confs/default` and restart the container)." }
   - { date: "19.12.19:", desc: "Rebasing to alpine 3.11." }
   - { date: "18.11.19:", desc: "Nginx default site config updated for v17 (existing users should delete `/config/nginx/site-confs/default` and restart the container)." }
   - { date: "28.10.19:", desc: "Change cronjob to run every 5 minutes." }

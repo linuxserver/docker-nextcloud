@@ -13,6 +13,18 @@ server {
     server_name _;
     ssl_certificate /config/keys/cert.crt;
     ssl_certificate_key /config/keys/cert.key;
+
+    # Add headers to serve security related headers
+    # Before enabling Strict-Transport-Security headers please read into this
+    # topic first.
+    #add_header Strict-Transport-Security "max-age=15768000; includeSubDomains; preload;" always;
+    #
+    # WARNING: Only add the preload option once you read about
+    # the consequences in https://hstspreload.org/. This option
+    # will add the domain to a hardcoded list that is shipped
+    # in all major browsers and getting removed from this list
+    # could take several months.
+
     add_header X-Content-Type-Options nosniff;
     add_header X-XSS-Protection "1; mode=block";
     add_header X-Robots-Tag none;
@@ -28,10 +40,10 @@ server {
         access_log off;
     }
     location = /.well-known/carddav {
-      return 301 $scheme://$host/remote.php/dav;
+      return 301 $scheme://$host:$server_port/remote.php/dav;
     }
     location = /.well-known/caldav {
-      return 301 $scheme://$host/remote.php/dav;
+      return 301 $scheme://$host:$server_port/remote.php/dav;
     }
     client_max_body_size 10G;
     fastcgi_buffers 64 4K;
@@ -71,6 +83,16 @@ server {
     location ~ \.(?:css|js|woff2?|svg|gif|map)$ {
         try_files $uri /index.php$request_uri;
         add_header Cache-Control "public, max-age=15778463";
+        # Add headers to serve security related headers
+        # Before enabling Strict-Transport-Security headers please read into this
+        # topic first.
+        #add_header Strict-Transport-Security "max-age=15768000; includeSubDomains; preload;" always;
+        #
+        # WARNING: Only add the preload option once you read about
+        # the consequences in https://hstspreload.org/. This option
+        # will add the domain to a hardcoded list that is shipped
+        # in all major browsers and getting removed from this list
+        # could take several months.
         add_header X-Content-Type-Options nosniff;
         add_header X-XSS-Protection "1; mode=block";
         add_header X-Robots-Tag none;
