@@ -153,7 +153,13 @@ If you are not customizing our default nginx configuration you will need to remo
 ```
 Then restart the container to replace it with the latest one. 
 
+### Post Installation
 
+After the installation it is always a good idea to visit [https://nextcloud.yourDomain.tld/settings/admin/overview](https://nextcloud.yourDomain.tld/settings/admin/overview). Somes of these warnings might ask you to execute command as the owner of the application, which is abc in the container. To do so, [as mentionned here](https://github.com/linuxserver/docker-nextcloud/issues/113#issuecomment-544118484) from your host you could run:
+
+```
+docker exec nextcloud sudo -u abc php7 /config/www/nextcloud/occ files:cleanup
+```
 
 ## Support Info
 
