@@ -6,3 +6,6 @@ chown abc:abc \
 	/data
 chown -R abc:abc  \
 	/var/lib/nginx
+
+sudo -u abc php7 /config/www/nextcloud/occ db:add-missing-indices
+sudo -u abc php7 /config/www/nextcloud/occ db:convert-filecache-bigint
