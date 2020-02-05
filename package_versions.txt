@@ -183,7 +183,7 @@ shadow-4.7-r1
 shared-mime-info-1.15-r0
 sqlite-libs-3.30.1-r1
 ssl_client-1.31.1-r9
-sudo-1.8.29-r0
+sudo-1.8.31-r0
 talloc-2.3.1-r0
 tar-1.32-r1
 tdb-libs-1.4.3-r0
