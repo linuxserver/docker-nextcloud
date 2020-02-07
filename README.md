@@ -219,6 +219,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **17.01.20:** - Updated php.ini defaults and site config, including an optional HSTS directive (existing users should delete `/config/nginx/site-confs/default` and restart the container).
 * **19.12.19:** - Rebasing to alpine 3.11.
 * **18.11.19:** - Nginx default site config updated for v17 (existing users should delete `/config/nginx/site-confs/default` and restart the container).
 * **28.10.19:** - Change cronjob to run every 5 minutes.
