@@ -114,7 +114,6 @@ Container images are configured using parameters passed at runtime (such as thos
 | `-v /config` | Nextcloud configs. |
 | `-v /data` | Your personal data. |
 
-
 ## Environment variables from files (Docker secrets)
 
 You can set any environment variable from a file by using a special prepend `FILE__`. 
