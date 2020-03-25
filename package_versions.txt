@@ -128,8 +128,8 @@ php7-ctype-7.3.16-r0
 php7-curl-7.3.16-r0
 php7-dom-7.3.16-r0
 php7-exif-7.3.16-r0
-php7-fileinfo-7.3.15-r0
-php7-fpm-7.3.15-r0
+php7-fileinfo-7.3.16-r0
+php7-fpm-7.3.16-r0
 php7-ftp-7.3.16-r0
 php7-gd-7.3.16-r0
 php7-gmp-7.3.16-r0
@@ -157,12 +157,12 @@ php7-pgsql-7.3.16-r0
 php7-phar-7.3.16-r0
 php7-posix-7.3.16-r0
 php7-session-7.3.16-r0
-php7-simplexml-7.3.15-r0
+php7-simplexml-7.3.16-r0
 php7-sodium-7.3.16-r0
 php7-sqlite3-7.3.16-r0
-php7-xml-7.3.15-r0
+php7-xml-7.3.16-r0
 php7-xmlreader-7.3.16-r0
-php7-xmlwriter-7.3.15-r0
+php7-xmlwriter-7.3.16-r0
 php7-zip-7.3.16-r0
 pixman-0.38.4-r0
 pkgconf-1.6.3-r0
