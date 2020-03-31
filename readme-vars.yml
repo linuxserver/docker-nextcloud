@@ -29,8 +29,8 @@ param_env_vars:
   - { env_var: "TZ", env_value: "Europe/London", desc: "Specify a timezone to use EG Europe/London." }
 param_usage_include_vols: true
 param_volumes:
-  - { vol_path: "/config", vol_host_path: "</path/to/appdata>", desc: "Nextcloud configs." }
-  - { vol_path: "/data", vol_host_path: "<path/to/data>", desc: "Your personal data." }
+  - { vol_path: "/config", vol_host_path: "/path/to/appdata", desc: "Nextcloud configs." }
+  - { vol_path: "/data", vol_host_path: "/path/to/data", desc: "Your personal data." }
 param_usage_include_ports: true
 param_ports:
   - { external_port: "443", internal_port: "443", port_desc: "WebUI" }
@@ -60,6 +60,7 @@ app_setup_block: |
 
 # changelog
 changelogs:
+  - { date: "31.03.20:", desc: "Allow crontab to be user customized, fix logrotate." }
   - { date: "17.01.20:", desc: "Updated php.ini defaults and site config, including an optional HSTS directive (existing users should delete `/config/nginx/site-confs/default` and restart the container)." }
   - { date: "19.12.19:", desc: "Rebasing to alpine 3.11." }
   - { date: "18.11.19:", desc: "Nginx default site config updated for v17 (existing users should delete `/config/nginx/site-confs/default` and restart the container)." }
