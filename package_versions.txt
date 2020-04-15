@@ -26,7 +26,7 @@ freetype-2.10.1-r0
 fribidi-1.0.8-r0
 gdk-pixbuf-2.40.0-r0
 ghostscript-9.50-r0
-git-2.24.1-r0
+git-2.24.2-r0
 glib-2.62.6-r0
 gmp-6.1.2-r1
 gnutls-3.6.10-r1
@@ -110,8 +110,8 @@ lz4-libs-1.9.2-r0
 musl-1.1.24-r2
 musl-utils-1.1.24-r2
 nano-4.6-r0
-ncurses-libs-6.1_p20200118-r2
-ncurses-terminfo-base-6.1_p20200118-r2
+ncurses-libs-6.1_p20200118-r3
+ncurses-terminfo-base-6.1_p20200118-r3
 nettle-3.5.1-r0
 nghttp2-libs-1.40.0-r0
 nginx-1.16.1-r6
