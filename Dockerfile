@@ -29,6 +29,7 @@ RUN \
 	ffmpeg \
 	imagemagick \
 	libxml2 \
+	php-bcmath \
 	php7-apcu \
 	php7-bz2 \
 	php7-ctype \
