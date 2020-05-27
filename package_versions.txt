@@ -36,7 +36,7 @@ icu-libs-64.2-r1
 imagemagick-7.0.9.7-r0
 imagemagick-libs-7.0.9.7-r0
 jansson-2.12-r0
-jbig2dec-0.17-r0
+jbig2dec-0.17-r2
 lame-3.100-r0
 lcms2-2.9-r1
 ldb-2.0.10-r0
