@@ -30,11 +30,13 @@ RUN \
 	imagemagick \
 	libxml2 \
 	php7-apcu \
+	php7-bcmath \
 	php7-bz2 \
 	php7-ctype \
 	php7-curl \
 	php7-dom \
 	php7-exif \
+	php7-fileinfo \
 	php7-ftp \
 	php7-gd \
 	php7-gmp \

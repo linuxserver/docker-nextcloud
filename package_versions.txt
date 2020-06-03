@@ -123,6 +123,7 @@ pango-1.44.7-r0
 pcre-8.43-r0
 pcre2-10.34-r1
 php7-7.3.18-r0
+php7-bcmath-7.3.18-r0
 php7-bz2-7.3.18-r0
 php7-common-7.3.18-r0
 php7-ctype-7.3.18-r0

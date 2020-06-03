@@ -236,6 +236,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **03.06.20:** - Add php7-bcmath and php7-fileinfo
 * **31.05.20:** - Add aliases for occ and updater.phar
 * **31.03.20:** - Allow crontab to be user customized, fix logrotate.
 * **17.01.20:** - Updated php.ini defaults and site config, including an optional HSTS directive (existing users should delete `/config/nginx/site-confs/default` and restart the container).
