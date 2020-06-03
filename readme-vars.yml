@@ -70,6 +70,7 @@ app_setup_block: |
 
 # changelog
 changelogs:
+  - { date: "03.06.20:", desc: "Add php7-bcmath and php7-fileinfo" }
   - { date: "31.05.20:", desc: "Add aliases for occ and updater.phar" }
   - { date: "31.03.20:", desc: "Allow crontab to be user customized, fix logrotate." }
   - { date: "17.01.20:", desc: "Updated php.ini defaults and site config, including an optional HSTS directive (existing users should delete `/config/nginx/site-confs/default` and restart the container)." }
