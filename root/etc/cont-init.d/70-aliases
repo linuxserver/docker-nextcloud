@@ -9,7 +9,7 @@
 
 ## Set alias for updater.phar and make executable
 [[ ! -f /usr/bin/updater.phar ]] && \
-  echo -e '#!/bin/bash\nsudo -u abc php7 /config/www/nextcloud/updater/updater.phar' > /usr/bin/updater.phar
+  echo -e '#!/bin/bash\nsudo -u abc -s /bin/bash -c "php7 /config/www/nextcloud/updater/updater.phar $*"' > /usr/bin/updater.phar
 
 [[ ! -x /usr/bin/updater.phar ]] && \
   chmod +x /usr/bin/updater.phar
