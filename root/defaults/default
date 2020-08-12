@@ -48,6 +48,9 @@ server {
     location = /.well-known/caldav {
       return 301 $scheme://$host:$server_port/remote.php/dav;
     }
+    location = /.well-known/webfinger {
+      return 301 $scheme://$host:$server_port/public.php?service=webfinger;
+    }
     client_max_body_size 10G;
     fastcgi_buffers 64 4K;
     gzip on;
