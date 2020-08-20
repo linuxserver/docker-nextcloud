@@ -48,6 +48,15 @@ server {
     location = /.well-known/caldav {
       return 301 $scheme://$host:$server_port/remote.php/dav;
     }
+    location = /.well-known/webfinger {
+      return 301 $scheme://$host:$server_port/public.php?service=webfinger;
+    }
+    location = /.well-known/host-meta {
+      return 301 $scheme://$host:$server_port/public.php?service=host-meta;
+    }
+    location = /.well-known/host-meta.json {
+      return 301 $scheme://$host:$server_port/public.php?service=host-meta-json;
+    }
     client_max_body_size 10G;
     fastcgi_buffers 64 4K;
     gzip on;
@@ -65,7 +74,7 @@ server {
     location ~ ^\/(?:\.|autotest|occ|issue|indie|db_|console) {
         deny all;
     }
-    location ~ ^\/(?:index|remote|public|cron|core\/ajax\/update|status|ocs\/v[12]|updater\/.+|oc[ms]-provider\/.+)\.php(?:$|\/) {
+    location ~ ^\/(?:index|remote|public|cron|core\/ajax\/update|status|ocs\/v[12]|updater\/.+|oc[ms]-provider\/.+|.+\/richdocumentscode\/proxy)\.php(?:$|\/) {
         fastcgi_split_path_info ^(.+?\.php)(\/.*|)$;
         set $path_info $fastcgi_path_info;
         try_files $fastcgi_script_name =404;
@@ -105,7 +114,7 @@ server {
         add_header Referrer-Policy no-referrer;
         access_log off;
     }
-    location ~ \.(?:png|html|ttf|ico|jpg|jpeg|bcmap)$ {
+    location ~ \.(?:png|html|ttf|ico|jpg|jpeg|bcmap|mp4|webm)$ {
         try_files $uri /index.php$request_uri;
         access_log off;
     }

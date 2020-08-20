@@ -236,6 +236,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **12.08.20:** - Various updates to default site config, including added support for webfinger (existing users should delete `/config/nginx/site-confs/default` and restart the container).
 * **03.06.20:** - Rebasing to alpine 3.12
 * **03.06.20:** - Add php7-bcmath and php7-fileinfo
 * **31.05.20:** - Add aliases for occ and updater.phar
