@@ -25,7 +25,7 @@ expat-2.2.9-r1
 ffmpeg-4.3.1-r0
 ffmpeg-libs-4.3.1-r0
 fontconfig-2.13.1-r2
-freetype-2.10.2-r0
+freetype-2.10.4-r0
 fribidi-1.0.9-r0
 gdk-pixbuf-2.40.0-r2
 ghostscript-9.52-r0
