@@ -119,7 +119,7 @@ ncurses-libs-6.2_p20200523-r0
 ncurses-terminfo-base-6.2_p20200523-r0
 nettle-3.5.1-r1
 nghttp2-libs-1.41.0-r0
-nginx-1.18.0-r0
+nginx-1.18.0-r1
 openssl-1.1.1g-r0
 opus-1.3.1-r0
 p11-kit-0.23.20-r5
