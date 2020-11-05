@@ -9,8 +9,7 @@ LABEL maintainer="aptalca"
 
 # environment settings
 ENV NEXTCLOUD_PATH="/config/www/nextcloud"
-ENV PHP_VER="7.3.24"
-ARG BUILD_PACKAGES="wget build-base php7-dev"
+
 RUN \
  echo "**** install build packages ****" && \
  apk add --no-cache --virtual=build-dependencies --upgrade \
@@ -41,7 +40,6 @@ RUN \
 	php7-ftp \
 	php7-gd \
 	php7-gmp \
-	php7-iconv \
 	php7-imagick \
 	php7-imap \
 	php7-intl \
@@ -65,6 +63,10 @@ RUN \
 	sudo \
 	tar \
 	unzip && \
+ echo "**** Install iconv extension ****" &&\
+ apk add --update-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/community/ --allow-untrusted \
+	gnu-libiconv \
+	php7-iconv && \
  echo "**** compile smbclient ****" && \
  git clone git://github.com/eduardok/libsmbclient-php.git /tmp/smbclient && \
  cd /tmp/smbclient && \
@@ -105,26 +107,10 @@ RUN \
  apk del --purge \
 	build-dependencies && \
  rm -rf \
-	/tmp/* && \
-echo "**** Fix iconv extension ****" &&\
- apk add --no-cache --virtual .php-build-dependencies $BUILD_PACKAGES && \
-apk add --no-cache --repository https://dl-3.alpinelinux.org/alpine/edge/testing/ gnu-libiconv-dev && \
-(mv /usr/bin/gnu-iconv /usr/bin/iconv; mv /usr/include/gnu-libiconv/*.h /usr/include; rm -rf /usr/include/gnu-libiconv) && \
-mkdir -p /opt && \
-cd /opt && \
-wget https://secure.php.net/distributions/php-$PHP_VER.tar.gz && \
-tar xzf php-$PHP_VER.tar.gz && \
-cd php-$PHP_VER/ext/iconv && \
-phpize && \
-./configure --with-iconv=/usr && \
-make && \
-make install && \
-mkdir -p /etc/php7/conf.d && \
-echo "extension=iconv.so" >> /etc/php7/conf.d/iconv.ini && \
+	/tmp/* 
 
-apk del .php-build-dependencies && \
-rm -rf /opt/*
-# END Fix iconv extension
+# Preload iconv extension
+ENV LD_PRELOAD=/usr/lib/preloadable_libiconv.so
 
 # copy local files
 COPY root/ /
