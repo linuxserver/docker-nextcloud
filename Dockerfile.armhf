@@ -64,6 +64,10 @@ RUN \
 	sudo \
 	tar \
 	unzip && \
+ echo "**** Install iconv extension ****" &&\
+ apk add --update-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/community/ --allow-untrusted \
+	gnu-libiconv \
+	php7-iconv && \
  echo "**** compile smbclient ****" && \
  git clone git://github.com/eduardok/libsmbclient-php.git /tmp/smbclient && \
  cd /tmp/smbclient && \

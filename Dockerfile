@@ -40,7 +40,6 @@ RUN \
 	php7-ftp \
 	php7-gd \
 	php7-gmp \
-	php7-iconv \
 	php7-imagick \
 	php7-imap \
 	php7-intl \
@@ -64,6 +63,10 @@ RUN \
 	sudo \
 	tar \
 	unzip && \
+ echo "**** Install iconv extension ****" &&\
+ apk add --update-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/community/ --allow-untrusted \
+	gnu-libiconv \
+	php7-iconv && \
  echo "**** compile smbclient ****" && \
  git clone git://github.com/eduardok/libsmbclient-php.git /tmp/smbclient && \
  cd /tmp/smbclient && \
@@ -104,7 +107,10 @@ RUN \
  apk del --purge \
 	build-dependencies && \
  rm -rf \
-	/tmp/*
+	/tmp/* 
+
+# Preload iconv extension
+ENV LD_PRELOAD=/usr/lib/preloadable_libiconv.so
 
 # copy local files
 COPY root/ /
@@ -112,3 +118,4 @@ COPY root/ /
 # ports and volumes
 EXPOSE 443
 VOLUME /config /data
+
