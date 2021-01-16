@@ -70,6 +70,7 @@ app_setup_block: |
 
 # changelog
 changelogs:
+  - { date: "16.01.21:", desc: "Rebasing to alpine 3.13" }
   - { date: "12.08.20:", desc: "Various updates to default site config, including added support for webfinger (existing users should delete `/config/nginx/site-confs/default` and restart the container)." }
   - { date: "03.06.20:", desc: "Rebasing to alpine 3.12" }
   - { date: "03.06.20:", desc: "Add php7-bcmath and php7-fileinfo" }
