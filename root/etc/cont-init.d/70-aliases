@@ -13,3 +13,8 @@
 
 [[ ! -x /usr/bin/updater.phar ]] && \
   chmod +x /usr/bin/updater.phar
+
+if occ app:list | grep -q richdocumentscode; then
+  echo "Removing CODE Server"
+  occ app:remove richdocumentscode
+fi

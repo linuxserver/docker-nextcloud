@@ -174,11 +174,6 @@ Nextcloud's built-in collaborative editing packages (Collabora/CODE and OnlyOffi
 
 If (auto) installed, those built-in packages may cause instability and should be removed.
 
-If you're having issues opening `Apps` or `Settings`, you can remove the default installed CODE Server via running the following command on the host machine:
-```
-docker exec -it nextcloud occ app:remove richdocumentscode
-```
-
 
 ## Docker Mods
 [![Docker Mods](https://img.shields.io/badge/dynamic/yaml?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&label=nextcloud&query=%24.mods%5B%27nextcloud%27%5D.mod_count&url=https%3A%2F%2Fraw.githubusercontent.com%2Flinuxserver%2Fdocker-mods%2Fmaster%2Fmod-list.yml)](https://mods.linuxserver.io/?mod=nextcloud "view available mods for this container.") [![Docker Universal Mods](https://img.shields.io/badge/dynamic/yaml?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&label=universal&query=%24.mods%5B%27universal%27%5D.mod_count&url=https%3A%2F%2Fraw.githubusercontent.com%2Flinuxserver%2Fdocker-mods%2Fmaster%2Fmod-list.yml)](https://mods.linuxserver.io/?mod=universal "view available universal mods.")
@@ -251,7 +246,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
-* **21.01.21:** - Fix php iconv (was breaking the mail addon). Update info on CODE server breaking NC.
+* **21.01.21:** - Fix php iconv (was breaking the mail addon). If installed, attempt to remove broken CODE Server app during startup.
 * **20.01.21:** - Increase php fcgi timeout to prevent 504 Gateway timeout errors (existing users should delete `/config/nginx/site-confs/default` and restart the container).
 * **16.01.21:** - Rebasing to alpine 3.13. Users with issues on 32-bit arm, [see this article](https://docs.linuxserver.io/faq#my-host-is-incompatible-with-images-based-on-ubuntu-focal-and-alpine-3-13).
 * **12.08.20:** - Various updates to default site config, including added support for webfinger (existing users should delete `/config/nginx/site-confs/default` and restart the container).
