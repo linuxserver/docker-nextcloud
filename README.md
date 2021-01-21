@@ -170,9 +170,14 @@ Then restart the container to replace it with the latest one.
 
 ### Collaborative Editing
 
-Nextcloud's built-in collaborative editing packages (Collabora and OnlyOffice) only work on x86_64 systems with glibc, and therefore they are not compatible with our images. You should create separate containers for them and set them up in Nextcloud with their respective connector addons.
+Nextcloud's built-in collaborative editing packages (Collabora/CODE and OnlyOffice) only work on x86_64 systems with glibc, and therefore they are not compatible with our images. You should create separate containers for them and set them up in Nextcloud with their respective connector addons.
 
 If (auto) installed, those built-in packages may cause instability and should be removed.
+
+If you're having issues opening `Apps` or `Settings`, you can remove the default installed CODE Server via running the following command on the host machine:
+```
+docker exec -it nextcloud occ app:remove richdocumentscode
+```
 
 
 ## Docker Mods
@@ -246,6 +251,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **21.01.21:** - Fix php iconv (was breaking the mail addon). Update info on CODE server breaking NC.
 * **20.01.21:** - Increase php fcgi timeout to prevent 504 Gateway timeout errors (existing users should delete `/config/nginx/site-confs/default` and restart the container).
 * **16.01.21:** - Rebasing to alpine 3.13. Users with issues on 32-bit arm, [see this article](https://docs.linuxserver.io/faq#my-host-is-incompatible-with-images-based-on-ubuntu-focal-and-alpine-3-13).
 * **12.08.20:** - Various updates to default site config, including added support for webfinger (existing users should delete `/config/nginx/site-confs/default` and restart the container).
