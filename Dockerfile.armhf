@@ -8,7 +8,8 @@ LABEL build_version="Linuxserver.io version:- ${VERSION} Build-date:- ${BUILD_DA
 LABEL maintainer="aptalca"
 
 # environment settings
-ENV NEXTCLOUD_PATH="/config/www/nextcloud"
+ENV NEXTCLOUD_PATH="/config/www/nextcloud" \
+  LD_PRELOAD="/usr/lib/preloadable_libiconv.so"
 
 RUN \
  echo "**** install build packages ****" && \
@@ -27,6 +28,7 @@ RUN \
  apk add --no-cache --upgrade \
 	curl \
 	ffmpeg \
+	gnu-libiconv \
 	imagemagick \
 	libxml2 \
 	php7-apcu \
