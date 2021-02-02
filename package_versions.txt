@@ -162,7 +162,7 @@ php7-pecl-igbinary-3.2.2_rc1-r0
 php7-pecl-imagick-3.4.4-r7
 php7-pecl-mcrypt-1.0.4-r0
 php7-pecl-memcached-3.1.5-r2
-php7-pecl-redis-5.3.2-r0
+php7-pecl-redis-5.3.3-r0
 php7-pgsql-7.4.14-r0
 php7-phar-7.4.14-r0
 php7-posix-7.4.14-r0
