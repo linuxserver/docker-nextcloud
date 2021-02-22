@@ -14,7 +14,7 @@
 [[ ! -x /usr/bin/updater.phar ]] && \
   chmod +x /usr/bin/updater.phar
 
-if occ app:list | grep -q richdocumentscode; then
-  echo "Removing CODE Server"
-  occ app:remove richdocumentscode
+if ( occ app:list --no-interaction | grep -q richdocumentscode) 2>/dev/null; then
+  echo "Removing CODE Server" 
+  occ app:remove --no-interaction richdocumentscode 2>/dev/null 
 fi
