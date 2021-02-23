@@ -42,20 +42,25 @@ server {
         log_not_found off;
         access_log off;
     }
-    location = /.well-known/carddav {
-      return 301 $scheme://$host:$server_port/remote.php/dav;
+    # Rule borrowed from `.htaccess` to handle Microsoft DAV clients
+    location = / {
+        if ( $http_user_agent ~ ^DavClnt ) {
+            return 302 /remote.php/webdav/$is_args$args;
+        }
     }
-    location = /.well-known/caldav {
-      return 301 $scheme://$host:$server_port/remote.php/dav;
-    }
-    location = /.well-known/webfinger {
-      return 301 $scheme://$host:$server_port/public.php?service=webfinger;
-    }
-    location = /.well-known/host-meta {
-      return 301 $scheme://$host:$server_port/public.php?service=host-meta;
-    }
-    location = /.well-known/host-meta.json {
-      return 301 $scheme://$host:$server_port/public.php?service=host-meta-json;
+    # Make a regex exception for `/.well-known` so that clients can still
+    # access it despite the existence of the regex rule
+    # `location ~ /(\.|autotest|...)` which would otherwise handle requests
+    # for `/.well-known`.
+    location ^~ /.well-known {
+        # The following 6 rules are borrowed from `.htaccess`
+
+        location = /.well-known/carddav     { return 301 /remote.php/dav/; }
+        location = /.well-known/caldav      { return 301 /remote.php/dav/; }
+        # Anything else is dynamically handled by Nextcloud
+        location ^~ /.well-known            { return 301 /index.php$uri; }
+
+        try_files $uri $uri/ =404;
     }
     client_max_body_size 10G;
     fastcgi_buffers 64 4K;
