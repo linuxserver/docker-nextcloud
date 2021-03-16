@@ -75,6 +75,7 @@ app_setup_block: |
 
 # changelog
 changelogs:
+  - { date: "16.03.21:", desc: "Rebase on the php8 nginx baseimage." }
   - { date: "25.02.21:", desc: "Nginx default site config updated for v21 (existing users should delete `/config/nginx/site-confs/default` and restart the container)." }
   - { date: "21.01.21:", desc: "Fix php iconv (was breaking the mail addon). If installed, attempt to remove broken CODE Server app during startup." }
   - { date: "20.01.21:", desc: "Increase php fcgi timeout to prevent 504 Gateway timeout errors (existing users should delete `/config/nginx/site-confs/default` and restart the container)." }

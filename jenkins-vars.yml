@@ -4,9 +4,9 @@
 project_name: docker-nextcloud
 external_type: na
 custom_version_command: "curl -s https://raw.githubusercontent.com/nextcloud/nextcloud.com/master/strings.php | awk -F\\\\' '/VERSIONS_SERVER_FULL_STABLE/ {print $2;exit}'"
-release_type: stable
-release_tag: latest
-ls_branch: master
+release_type: prerelease
+release_tag: php8
+ls_branch: php8
 repo_vars:
   - BUILD_VERSION_ARG = 'NEXTCLOUD_RELEASE'
   - LS_USER = 'linuxserver'
