@@ -198,7 +198,7 @@ talloc-2.3.1-r0
 tar-1.33-r1
 tdb-libs-1.4.3-r0
 tevent-0.10.2-r0
-tiff-4.1.0-r2
+tiff-4.2.0-r0
 tzdata-2021a-r0
 unzip-6.0-r8
 utmps-0.1.0.0-r0
