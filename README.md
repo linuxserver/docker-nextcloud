@@ -59,6 +59,14 @@ The architectures supported by this image are:
 | arm64 | arm64v8-latest |
 | armhf | arm32v7-latest |
 
+## Version Tags
+
+This image provides various versions that are available via tags. `latest` tag usually provides the latest stable version. Others are considered under development and caution must be exercised when using them.
+
+| Tag | Description |
+| :----: | --- |
+| latest | Stable Nextcloud releases (currently php7) |
+| php8 | Experimental php8 based Nextcloud releases |
 
 ## Usage
 
@@ -246,6 +254,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **21.03.21:** - Publish `php8` tag for testing.
 * **25.02.21:** - Nginx default site config updated for v21 (existing users should delete `/config/nginx/site-confs/default` and restart the container).
 * **21.01.21:** - Fix php iconv (was breaking the mail addon). If installed, attempt to remove broken CODE Server app during startup.
 * **20.01.21:** - Increase php fcgi timeout to prevent 504 Gateway timeout errors (existing users should delete `/config/nginx/site-confs/default` and restart the container).
