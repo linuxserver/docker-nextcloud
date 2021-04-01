@@ -17,4 +17,5 @@ fi
 # set cronjob
 [[ ! -f /config/crontabs/root ]] && \
 	cp /defaults/root /config/crontabs/root
+sed -i 's|php7|php8|g' /config/crontabs/root
 cp /config/crontabs/root /etc/crontabs/root
