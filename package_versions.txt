@@ -30,7 +30,7 @@ gdbm-1.19-r0
 gdk-pixbuf-2.42.4-r0
 ghostscript-9.53.3-r0
 git-2.30.2-r0
-glib-2.66.7-r1
+glib-2.66.8-r0
 gmp-6.2.1-r0
 gnu-libiconv-1.15-r3
 gnutls-3.7.1-r0
@@ -65,7 +65,7 @@ libgomp-10.2.1_pre1-r3
 libheif-1.9.1-r0
 libice-1.0.10-r0
 libintl-0.20.2-r2
-libjpeg-turbo-2.0.6-r0
+libjpeg-turbo-2.1.0-r0
 libldap-2.4.57-r1
 libltdl-2.4.6-r7
 libmagic-5.39-r0
@@ -157,7 +157,7 @@ php8-pdo_mysql-8.0.2-r0
 php8-pdo_pgsql-8.0.2-r0
 php8-pdo_sqlite-8.0.2-r0
 php8-pecl-apcu-5.1.20-r0
-php8-pecl-igbinary-3.2.2_rc1-r0
+php8-pecl-igbinary-3.2.2-r0
 php8-pecl-imagick-3.4.4-r0
 php8-pecl-mcrypt-1.0.4-r0
 php8-pecl-memcached-3.1.5-r0
