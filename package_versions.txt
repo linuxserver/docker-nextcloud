@@ -2,7 +2,7 @@ alpine-baselayout-3.2.0-r8
 alpine-keys-2.2-r0
 alsa-lib-1.2.4-r2
 aom-libs-1.0.0-r1
-apache2-utils-2.4.46-r3
+apache2-utils-2.4.48-r0
 apk-tools-2.12.5-r0
 apr-1.7.0-r0
 apr-util-1.6.1-r7
@@ -117,7 +117,7 @@ logrotate-3.18.0-r0
 lz4-libs-1.9.2-r0
 musl-1.2.2-r1
 musl-utils-1.2.2-r1
-nano-5.4-r1
+nano-5.4-r2
 ncurses-libs-6.2_p20210109-r0
 ncurses-terminfo-base-6.2_p20210109-r0
 nettle-3.7.2-r0
