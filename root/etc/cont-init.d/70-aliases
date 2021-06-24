@@ -2,19 +2,19 @@
 
 ## Set alias for occ and make executable
 [[ ! -f /usr/bin/occ ]] && \
-  echo -e '#!/bin/bash\nsudo -u abc -s /bin/bash -c "php8 /config/www/nextcloud/occ $*"' > /usr/bin/occ
+    echo -e '#!/bin/bash\nsudo -u abc -s /bin/bash -c "php8 /config/www/nextcloud/occ $*"' > /usr/bin/occ
 
 [[ ! -x /usr/bin/occ ]] && \
-  chmod +x /usr/bin/occ
+    chmod +x /usr/bin/occ
 
 ## Set alias for updater.phar and make executable
 [[ ! -f /usr/bin/updater.phar ]] && \
-  echo -e '#!/bin/bash\nsudo -u abc -s /bin/bash -c "php8 /config/www/nextcloud/updater/updater.phar $*"' > /usr/bin/updater.phar
+    echo -e '#!/bin/bash\nsudo -u abc -s /bin/bash -c "php8 /config/www/nextcloud/updater/updater.phar $*"' > /usr/bin/updater.phar
 
 [[ ! -x /usr/bin/updater.phar ]] && \
-  chmod +x /usr/bin/updater.phar
+    chmod +x /usr/bin/updater.phar
 
 if ( occ app:list --no-interaction | grep -q richdocumentscode) 2>/dev/null; then
-  echo "Removing CODE Server" 
-  occ app:remove --no-interaction richdocumentscode 2>/dev/null 
+    echo "Removing CODE Server" 
+    occ app:remove --no-interaction richdocumentscode 2>/dev/null 
 fi
