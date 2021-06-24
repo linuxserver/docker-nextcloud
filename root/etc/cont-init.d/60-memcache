@@ -2,8 +2,8 @@
 
 # copy config
 [[ ! -f /config/www/nextcloud/config/config.php ]] && \
-	cp /defaults/config.php /config/www/nextcloud/config/config.php
+    cp /defaults/config.php /config/www/nextcloud/config/config.php
 
 # permissions
 chown abc:abc \
-	/config/www/nextcloud/config/config.php
+    /config/www/nextcloud/config/config.php

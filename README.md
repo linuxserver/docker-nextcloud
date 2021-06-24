@@ -249,6 +249,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **24.06.21:** - Rebase to alpine 3.14.
 * **01.04.21:** - Fix crontab during upgrade from php7.
 * **16.03.21:** - Rebase on the php8 nginx baseimage.
 * **25.02.21:** - Nginx default site config updated for v21 (existing users should delete `/config/nginx/site-confs/default` and restart the container).

@@ -2,20 +2,20 @@
 
 # create folders
 mkdir -p \
-	"${NEXTCLOUD_PATH}" \
-	/config/crontabs
+    "${NEXTCLOUD_PATH}" \
+    /config/crontabs
 
 # install app
 if [ ! -e "${NEXTCLOUD_PATH}/index.php" ]; then
-	tar xf /app/nextcloud.tar.bz2 -C \
-		"${NEXTCLOUD_PATH}" --strip-components=1
-	chown abc:abc -R \
-		"${NEXTCLOUD_PATH}"
-	chmod +x "${NEXTCLOUD_PATH}/occ"
+    tar xf /app/nextcloud.tar.bz2 -C \
+        "${NEXTCLOUD_PATH}" --strip-components=1
+    chown abc:abc -R \
+        "${NEXTCLOUD_PATH}"
+    chmod +x "${NEXTCLOUD_PATH}/occ"
 fi
 
 # set cronjob
 [[ ! -f /config/crontabs/root ]] && \
-	cp /defaults/root /config/crontabs/root
+    cp /defaults/root /config/crontabs/root
 sed -i 's|php7|php8|g' /config/crontabs/root
 cp /config/crontabs/root /etc/crontabs/root
