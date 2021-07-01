@@ -117,7 +117,7 @@ logrotate-3.18.0-r0
 lz4-libs-1.9.2-r0
 musl-1.2.2-r1
 musl-utils-1.2.2-r1
-nano-5.4-r2
+nano-5.4-r3
 ncurses-libs-6.2_p20210109-r0
 ncurses-terminfo-base-6.2_p20210109-r0
 nettle-3.7.2-r0
@@ -212,4 +212,4 @@ xvidcore-1.3.7-r1
 xz-5.2.5-r0
 xz-libs-5.2.5-r0
 zlib-1.2.11-r3
-zstd-libs-1.4.5-r3
+zstd-libs-1.4.9-r0
