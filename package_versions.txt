@@ -28,7 +28,7 @@ freetype-2.10.4-r1
 fribidi-1.0.10-r0
 gdbm-1.19-r0
 gdk-pixbuf-2.42.4-r0
-ghostscript-9.53.3-r0
+ghostscript-9.53.3-r1
 git-2.30.2-r0
 glib-2.66.8-r0
 gmp-6.2.1-r0
