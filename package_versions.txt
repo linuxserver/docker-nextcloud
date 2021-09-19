@@ -18,7 +18,7 @@ cairo-1.16.0-r2
 cairo-gobject-1.16.0-r2
 coreutils-8.32-r2
 cups-libs-2.3.3-r1
-curl-7.78.0-r0
+curl-7.79.0-r0
 dbus-libs-1.12.20-r1
 expat-2.2.10-r1
 ffmpeg-4.3.1-r4
@@ -54,7 +54,7 @@ libbz2-1.0.8-r1
 libc-utils-0.7.2-r3
 libcap-2.46-r0
 libcrypto1.1-1.1.1l-r0
-libcurl-7.78.0-r0
+libcurl-7.79.0-r0
 libdav1d-0.8.1-r0
 libde265-1.0.4-r0
 libdrm-2.4.104-r0
@@ -120,7 +120,7 @@ musl-utils-1.2.2-r1
 nano-5.4-r3
 ncurses-libs-6.2_p20210109-r0
 ncurses-terminfo-base-6.2_p20210109-r0
-nettle-3.7.2-r0
+nettle-3.7.3-r0
 nghttp2-libs-1.42.0-r1
 nginx-1.18.0-r15
 oniguruma-6.9.6-r0
