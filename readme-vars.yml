@@ -78,6 +78,7 @@ app_setup_block: |
 
 # changelog
 changelogs:
+  - { date: "11.09.21:", desc: "Rebasing to alpine 3.14" }
   - { date: "21.03.21:", desc: "Publish `php8` tag for testing." }
   - { date: "25.02.21:", desc: "Nginx default site config updated for v21 (existing users should delete `/config/nginx/site-confs/default` and restart the container)." }
   - { date: "21.01.21:", desc: "Fix php iconv (was breaking the mail addon). If installed, attempt to remove broken CODE Server app during startup." }
