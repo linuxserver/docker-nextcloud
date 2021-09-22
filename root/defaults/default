@@ -120,6 +120,8 @@ server {
 
         fastcgi_intercept_errors on;
         fastcgi_request_buffering off;
+        
+        fastcgi_read_timeout 600;
     }
 
     location ~ \.(?:css|js|svg|gif)$ {
