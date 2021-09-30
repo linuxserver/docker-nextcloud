@@ -140,7 +140,7 @@ php7-curl-7.4.24-r0
 php7-dom-7.4.24-r0
 php7-exif-7.4.24-r0
 php7-fileinfo-7.4.24-r0
-php7-fpm-7.4.23-r0
+php7-fpm-7.4.24-r0
 php7-ftp-7.4.24-r0
 php7-gd-7.4.24-r0
 php7-gmp-7.4.24-r0
@@ -168,12 +168,12 @@ php7-pgsql-7.4.24-r0
 php7-phar-7.4.24-r0
 php7-posix-7.4.24-r0
 php7-session-7.4.24-r0
-php7-simplexml-7.4.23-r0
+php7-simplexml-7.4.24-r0
 php7-sodium-7.4.24-r0
 php7-sqlite3-7.4.24-r0
-php7-xml-7.4.23-r0
+php7-xml-7.4.24-r0
 php7-xmlreader-7.4.24-r0
-php7-xmlwriter-7.4.23-r0
+php7-xmlwriter-7.4.24-r0
 php7-zip-7.4.24-r0
 pixman-0.40.0-r2
 pkgconf-1.7.4-r0
@@ -200,7 +200,7 @@ tar-1.34-r0
 tdb-libs-1.4.3-r1
 tevent-0.10.2-r1
 tiff-4.2.0-r1
-tzdata-2021a-r0
+tzdata-2021b-r0
 unzip-6.0-r9
 utmps-0.1.0.2-r0
 v4l-utils-libs-1.20.0-r0
