@@ -1,4 +1,4 @@
-FROM ghcr.io/linuxserver/baseimage-alpine-nginx:3.14
+FROM ghcr.io/linuxserver/baseimage-alpine-nginx:3.15
 
 # set version label
 ARG BUILD_DATE
@@ -12,18 +12,6 @@ ENV NEXTCLOUD_PATH="/config/www/nextcloud" \
   LD_PRELOAD="/usr/lib/preloadable_libiconv.so"
 
 RUN \
-  echo "**** install build packages ****" && \
-  apk add --no-cache --virtual=build-dependencies --upgrade \
-    autoconf \
-    automake \
-    file \
-    g++ \
-    gcc \
-    make \
-    php7-dev \
-    re2c \
-    samba-dev \
-    zlib-dev && \
   echo "**** install runtime packages ****" && \
   apk add --no-cache --upgrade \
     curl \
@@ -31,52 +19,46 @@ RUN \
     gnu-libiconv \
     imagemagick \
     libxml2 \
-    php7-apcu \
-    php7-bcmath \
-    php7-bz2 \
-    php7-ctype \
-    php7-curl \
-    php7-dom \
-    php7-exif \
-    php7-fileinfo \
-    php7-ftp \
-    php7-gd \
-    php7-gmp \
-    php7-iconv \
-    php7-imagick \
-    php7-imap \
-    php7-intl \
-    php7-ldap \
-    php7-mcrypt \
-    php7-memcached \
-    php7-opcache \
-    php7-pcntl \
-    php7-pdo_mysql \
-    php7-pdo_pgsql \
-    php7-pdo_sqlite \
-    php7-pgsql \
-    php7-phar \
-    php7-posix \
-    php7-redis \
-    php7-sodium \
-    php7-sqlite3 \
-    php7-xmlreader \
-    php7-zip \
+    php8-apcu \
+    php8-bcmath \
+    php8-bz2 \
+    php8-ctype \
+    php8-curl \
+    php8-dom \
+    php8-exif \
+    php8-fileinfo \
+    php8-ftp \
+    php8-gd \
+    php8-gmp \
+    php8-iconv \
+    php8-imap \
+    php8-intl \
+    php8-ldap \
+    php8-opcache \
+    php8-pcntl \
+    php8-pdo_mysql \
+    php8-pdo_pgsql \
+    php8-pdo_sqlite \
+    php8-pecl-imagick \
+    php8-pecl-mcrypt \
+    php8-pecl-memcached \
+    php8-pgsql \
+    php8-phar \
+    php8-posix \
+    php8-redis \
+    php8-sodium \
+    php8-sqlite3 \
+    php8-xmlreader \
+    php8-zip \
     samba-client \
     sudo \
     tar \
     unzip && \
-  echo "**** compile smbclient ****" && \
-  git clone https://github.com/eduardok/libsmbclient-php.git /tmp/smbclient && \
-  cd /tmp/smbclient && \
-  phpize7 && \
-  ./configure \
-    --with-php-config=/usr/bin/php-config7 && \
-  make && \
-  make install && \
+  apk add --no-cache \
+    --repository=http://dl-cdn.alpinelinux.org/alpine/edge/testing \
+    php8-pecl-smbclient && \
   echo "**** configure php and nginx for nextcloud ****" && \
-  echo "extension="smbclient.so"" > /etc/php7/conf.d/00_smbclient.ini && \
-  echo 'apc.enable_cli=1' >> /etc/php7/conf.d/apcu.ini && \
+  echo 'apc.enable_cli=1' >> /etc/php8/conf.d/apcu.ini && \
   sed -i \
     -e 's/;opcache.enable.*=.*/opcache.enable=1/g' \
     -e 's/;opcache.interned_strings_buffer.*=.*/opcache.interned_strings_buffer=16/g' \
@@ -89,11 +71,11 @@ RUN \
     -e 's/max_execution_time.*=.*30/max_execution_time=120/g' \
     -e 's/upload_max_filesize.*=.*2M/upload_max_filesize=1024M/g' \
     -e 's/post_max_size.*=.*8M/post_max_size=1024M/g' \
-      /etc/php7/php.ini && \
+        /etc/php8/php.ini && \
   sed -i \
     '/opcache.enable=1/a opcache.enable_cli=1' \
-      /etc/php7/php.ini && \
-  echo "env[PATH] = /usr/local/bin:/usr/bin:/bin" >> /etc/php7/php-fpm.conf && \
+        /etc/php8/php.ini && \
+  echo "env[PATH] = /usr/local/bin:/usr/bin:/bin" >> /etc/php8/php-fpm.conf && \
   echo "**** set version tag ****" && \
   if [ -z ${NEXTCLOUD_RELEASE+x} ]; then \
     NEXTCLOUD_RELEASE=$(curl -sX GET https://api.github.com/repos/nextcloud/server/releases/latest \
@@ -107,8 +89,6 @@ RUN \
     tar xvf /app/nextcloud.tar.bz2 -C \
       /tmp && \
   echo "**** cleanup ****" && \
-  apk del --purge \
-    build-dependencies && \
   rm -rf \
     /tmp/*
 
@@ -117,4 +97,3 @@ COPY root/ /
 
 # ports and volumes
 EXPOSE 443
-VOLUME /config /data
