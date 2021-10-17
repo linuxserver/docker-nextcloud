@@ -2,7 +2,7 @@ alpine-baselayout-3.2.0-r16
 alpine-keys-2.3-r1
 alsa-lib-1.2.5-r2
 aom-libs-1.0.0-r3
-apache2-utils-2.4.50-r0
+apache2-utils-2.4.51-r0
 apk-tools-2.12.7-r0
 apr-1.7.0-r0
 apr-util-1.6.1-r7
@@ -158,8 +158,8 @@ php7-pdo-7.4.24-r0
 php7-pdo_mysql-7.4.24-r0
 php7-pdo_pgsql-7.4.24-r0
 php7-pdo_sqlite-7.4.24-r0
-php7-pecl-apcu-5.1.20-r0
-php7-pecl-igbinary-3.2.4-r0
+php7-pecl-apcu-5.1.21-r0
+php7-pecl-igbinary-3.2.6-r0
 php7-pecl-imagick-3.5.0-r0
 php7-pecl-mcrypt-1.0.4-r0
 php7-pecl-memcached-3.1.5-r2
