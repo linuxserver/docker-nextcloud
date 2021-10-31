@@ -21,8 +21,8 @@ cups-libs-2.3.3-r2
 curl-7.79.1-r0
 dbus-libs-1.12.20-r2
 expat-2.4.1-r0
-ffmpeg-4.4-r1
-ffmpeg-libs-4.4-r1
+ffmpeg-4.4.1-r0
+ffmpeg-libs-4.4.1-r0
 fontconfig-2.13.1-r4
 freetype-2.10.4-r1
 fribidi-1.0.10-r0
@@ -200,7 +200,7 @@ tar-1.34-r0
 tdb-libs-1.4.3-r1
 tevent-0.10.2-r1
 tiff-4.2.0-r1
-tzdata-2021d-r0
+tzdata-2021e-r0
 unzip-6.0-r9
 utmps-0.1.0.2-r0
 v4l-utils-libs-1.20.0-r0
