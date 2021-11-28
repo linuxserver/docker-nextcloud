@@ -37,8 +37,8 @@ gnutls-3.7.1-r0
 graphite2-1.3.14-r0
 harfbuzz-2.8.1-r0
 icu-libs-67.1-r2
-imagemagick-7.0.11.13-r0
-imagemagick-libs-7.0.11.13-r0
+imagemagick-7.0.11.14-r0
+imagemagick-libs-7.0.11.14-r0
 jansson-2.13.1-r0
 jbig2dec-0.19-r0
 lame-3.100-r0
@@ -140,7 +140,7 @@ php8-curl-8.0.13-r0
 php8-dom-8.0.13-r0
 php8-exif-8.0.13-r0
 php8-fileinfo-8.0.13-r0
-php8-fpm-8.0.12-r0
+php8-fpm-8.0.13-r0
 php8-ftp-8.0.13-r0
 php8-gd-8.0.13-r0
 php8-gmp-8.0.13-r0
@@ -159,7 +159,7 @@ php8-pdo_pgsql-8.0.13-r0
 php8-pdo_sqlite-8.0.13-r0
 php8-pecl-apcu-5.1.21-r0
 php8-pecl-igbinary-3.2.6-r0
-php8-pecl-imagick-3.5.0-r0
+php8-pecl-imagick-3.5.0-r1
 php8-pecl-mcrypt-1.0.4-r0
 php8-pecl-memcached-3.1.5-r1
 php8-pecl-redis-5.3.4-r0
@@ -167,12 +167,12 @@ php8-pgsql-8.0.13-r0
 php8-phar-8.0.13-r0
 php8-posix-8.0.13-r0
 php8-session-8.0.13-r0
-php8-simplexml-8.0.12-r0
+php8-simplexml-8.0.13-r0
 php8-sodium-8.0.13-r0
 php8-sqlite3-8.0.13-r0
-php8-xml-8.0.12-r0
+php8-xml-8.0.13-r0
 php8-xmlreader-8.0.13-r0
-php8-xmlwriter-8.0.12-r0
+php8-xmlwriter-8.0.13-r0
 php8-zip-8.0.13-r0
 pixman-0.40.0-r2
 pkgconf-1.7.4-r0
