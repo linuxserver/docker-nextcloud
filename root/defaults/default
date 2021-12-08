@@ -87,6 +87,9 @@ server {
     location ^~ /.well-known {
         # The following 6 rules are borrowed from `.htaccess`
 
+        # Required for legacy support
+        rewrite ^/(?!index|remote|public|cron|core\/ajax\/update|status|ocs\/v[12]|updater\/.+|oc[ms]-provider\/.+|.+\/richdocumentscode\/proxy) /index.php$request_uri;
+
         location = /.well-known/carddav     { return 301 /remote.php/dav/; }
         location = /.well-known/caldav      { return 301 /remote.php/dav/; }
         # Anything else is dynamically handled by Nextcloud
