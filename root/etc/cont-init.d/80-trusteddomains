@@ -9,7 +9,7 @@ elif [[ -z "$TRUSTED_DOMAINS" ]]; then
 else
     for domain in $TRUSTED_DOMAINS
     do
-        occ config:system:set trusted_domains $i --value=$domain
+        occ config:system:set trusted_domains "$i" --value="$domain"
         ((i=i+1))
     done
 fi
