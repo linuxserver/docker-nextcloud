@@ -1,1 +1,15 @@
+#!/usr/bin/with-contenv bash
 
+i=2
+
+if [[ ! -v TRUSTED_DOMAINS ]]; then
+    echo "TRUSTED_DOMAINS is not set"
+elif [[ -z "$TRUSTED_DOMAINS" ]]; then
+    echo "TRUSTED_DOMAINS is set to the empty string"
+else
+    for domain in $TRUSTED_DOMAINS
+    do
+        occ config:system:set trusted_domains $i --value=$domain
+        ((i=i+1))
+    done
+fi
