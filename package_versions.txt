@@ -76,7 +76,7 @@ libmount-2.37.3-r0
 libogg-1.3.5-r0
 libpciaccess-0.16-r0
 libpng-1.6.37-r1
-libpq-13.5-r0
+libpq-13.6-r0
 libproc-3.3.17-r0
 libressl3.3-libcrypto-3.3.3-r0
 libressl3.3-libssl-3.3.3-r0
