@@ -20,7 +20,7 @@ coreutils-8.32-r2
 cups-libs-2.3.3-r2
 curl-7.79.1-r0
 dbus-libs-1.12.20-r2
-expat-2.4.6-r0
+expat-2.4.7-r0
 ffmpeg-4.4.1-r0
 ffmpeg-libs-4.4.1-r0
 fontconfig-2.13.1-r4
@@ -31,7 +31,7 @@ gdk-pixbuf-2.42.6-r0
 ghostscript-9.54.0-r1
 git-2.32.0-r0
 glib-2.68.3-r0
-gmp-6.2.1-r0
+gmp-6.2.1-r1
 gnu-libiconv-1.16-r0
 gnutls-3.7.1-r0
 graphite2-1.3.14-r0
@@ -107,7 +107,7 @@ libxdmcp-1.1.3-r0
 libxext-1.3.4-r0
 libxfixes-6.0.0-r0
 libxft-2.3.3-r0
-libxml2-2.9.12-r1
+libxml2-2.9.13-r0
 libxpm-3.5.13-r0
 libxrender-0.9.10-r3
 libxt-1.2.1-r0
