@@ -68,7 +68,7 @@ RUN \
     tar \
     unzip && \
   echo "**** compile smbclient ****" && \
-  git clone git://github.com/eduardok/libsmbclient-php.git /tmp/smbclient && \
+  git clone https://github.com/eduardok/libsmbclient-php.git /tmp/smbclient && \
   cd /tmp/smbclient && \
   phpize8 && \
   ./configure \
