@@ -8,7 +8,7 @@ apr-1.7.0-r0
 apr-util-1.6.1-r7
 argon2-libs-20190702-r1
 avahi-libs-0.8-r5
-bash-5.1.4-r0
+bash-5.1.16-r0
 brotli-libs-1.0.9-r5
 busybox-1.33.1-r6
 c-client-2007f-r11
@@ -37,8 +37,8 @@ gnutls-3.7.1-r0
 graphite2-1.3.14-r0
 harfbuzz-2.8.1-r0
 icu-libs-67.1-r2
-imagemagick-7.0.11.14-r0
-imagemagick-libs-7.0.11.14-r0
+imagemagick-7.0.11.14-r1
+imagemagick-libs-7.0.11.14-r1
 jansson-2.13.1-r0
 jbig2dec-0.19-r0
 lame-3.100-r0
@@ -80,9 +80,9 @@ libpq-13.6-r0
 libproc-3.3.17-r0
 libressl3.3-libcrypto-3.3.6-r0
 libressl3.3-libssl-3.3.6-r0
-libretls-3.3.3p1-r2
+libretls-3.3.3p1-r3
 librsvg-2.50.4-r1
-libsasl-2.1.27-r12
+libsasl-2.1.28-r0
 libsm-1.2.3-r0
 libsmbclient-4.14.12-r0
 libsodium-1.0.18-r0
@@ -200,7 +200,7 @@ tar-1.34-r0
 tdb-libs-1.4.3-r1
 tevent-0.10.2-r1
 tiff-4.2.0-r1
-tzdata-2021e-r0
+tzdata-2022a-r0
 unzip-6.0-r9
 utmps-0.1.0.2-r0
 v4l-utils-libs-1.20.0-r0
