@@ -212,5 +212,5 @@ x265-libs-3.4-r0
 xvidcore-1.3.7-r1
 xz-5.2.5-r0
 xz-libs-5.2.5-r0
-zlib-1.2.11-r3
+zlib-1.2.12-r0
 zstd-libs-1.4.9-r1
