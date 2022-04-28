@@ -79,7 +79,7 @@ RUN \
   echo 'apc.enable_cli=1' >> /etc/php7/conf.d/apcu.ini && \
   sed -i \
     -e 's/;opcache.enable.*=.*/opcache.enable=1/g' \
-    -e 's/;opcache.interned_strings_buffer.*=.*/opcache.interned_strings_buffer=8/g' \
+    -e 's/;opcache.interned_strings_buffer.*=.*/opcache.interned_strings_buffer=16/g' \
     -e 's/;opcache.max_accelerated_files.*=.*/opcache.max_accelerated_files=10000/g' \
     -e 's/;opcache.memory_consumption.*=.*/opcache.memory_consumption=128/g' \
     -e 's/;opcache.save_comments.*=.*/opcache.save_comments=1/g' \
