@@ -257,6 +257,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **14.04.21:** - Nginx default site config updated for v23 (existing users should delete `/config/nginx/site-confs/default` and restart the container). Fix LDAP connection.
 * **11.09.21:** - Rebasing to alpine 3.14
 * **21.03.21:** - Publish `php8` tag for testing.
 * **25.02.21:** - Nginx default site config updated for v21 (existing users should delete `/config/nginx/site-confs/default` and restart the container).
