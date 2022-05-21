@@ -257,6 +257,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **21.05.22:** - Update version check endpoint.
 * **28.04.22:** - Increase OPCache interned strings buffered setting to 16.
 * **14.04.22:** - Nginx default site config updated for v23 (existing users should delete `/config/nginx/site-confs/default` and restart the container). Fix LDAP connection.
 * **11.09.21:** - Rebasing to alpine 3.14

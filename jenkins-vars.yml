@@ -3,7 +3,7 @@
 # jenkins variables
 project_name: docker-nextcloud
 external_type: na
-custom_version_command: "curl -s https://raw.githubusercontent.com/nextcloud/nextcloud.com/master/strings.php | awk -F\\\\' '/VERSIONS_SERVER_FULL_STABLE/ {print $2;exit}'"
+custom_version_command: "curl -sX GET https://api.github.com/repos/nextcloud/server/releases/latest | jq -r '. | .tag_name' | sed 's|^v||'"
 release_type: stable
 release_tag: latest
 ls_branch: master

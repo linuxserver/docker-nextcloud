@@ -96,12 +96,16 @@ RUN \
   echo "env[PATH] = /usr/local/bin:/usr/bin:/bin" >> /etc/php7/php-fpm.conf && \
   echo "**** set version tag ****" && \
   if [ -z ${NEXTCLOUD_RELEASE+x} ]; then \
-    NEXTCLOUD_RELEASE=$(curl -s https://raw.githubusercontent.com/nextcloud/nextcloud.com/master/strings.php \
-    | awk -F\' '/VERSIONS_SERVER_FULL_STABLE/ {print $2;exit}'); \
+    NEXTCLOUD_RELEASE=$(curl -sX GET https://api.github.com/repos/nextcloud/server/releases/latest \
+      | awk '/tag_name/{print $4;exit}' FS='[""]' \
+      | sed 's|^v||'); \
   fi && \
   echo "**** download nextcloud ****" && \
   curl -o /app/nextcloud.tar.bz2 -L \
     https://download.nextcloud.com/server/releases/nextcloud-${NEXTCLOUD_RELEASE}.tar.bz2 && \
+  echo "**** test tarball ****" && \
+    tar xvf /app/nextcloud.tar.bz2 -C \
+      /tmp && \
   echo "**** cleanup ****" && \
   apk del --purge \
     build-dependencies && \
