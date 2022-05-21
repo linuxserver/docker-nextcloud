@@ -104,7 +104,7 @@ pipeline {
       steps{
         script{
           env.EXT_RELEASE = sh(
-            script: ''' curl -s https://raw.githubusercontent.com/nextcloud/nextcloud.com/master/strings.php | awk -F\\' '/VERSIONS_SERVER_FULL_STABLE/ {print $2;exit}' ''',
+            script: ''' curl -sX GET https://api.github.com/repos/nextcloud/server/releases/latest | jq -r '. | .tag_name' | sed 's|^v||' ''',
             returnStdout: true).trim()
             env.RELEASE_LINK = 'custom_command'
         }
