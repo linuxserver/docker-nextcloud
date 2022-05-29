@@ -14,10 +14,10 @@ busybox-1.33.1-r7
 c-client-2007f-r11
 ca-certificates-20211220-r0
 ca-certificates-bundle-20211220-r0
-cairo-1.16.0-r4
-cairo-gobject-1.16.0-r4
+cairo-1.16.0-r5
+cairo-gobject-1.16.0-r5
 coreutils-8.32-r2
-cups-libs-2.3.3-r2
+cups-libs-2.3.3-r3
 curl-7.79.1-r1
 dbus-libs-1.12.20-r2
 expat-2.4.7-r0
@@ -29,7 +29,7 @@ fribidi-1.0.10-r0
 gdbm-1.19-r0
 gdk-pixbuf-2.42.6-r0
 ghostscript-9.54.0-r1
-git-2.32.1-r0
+git-2.32.2-r0
 glib-2.68.3-r0
 gmp-6.2.1-r1
 gnu-libiconv-1.16-r0
@@ -56,7 +56,7 @@ libcap-2.50-r0
 libcrypto1.1-1.1.1o-r0
 libcurl-7.79.1-r1
 libdav1d-0.9.0-r0
-libde265-1.0.8-r1
+libde265-1.0.8-r2
 libdrm-2.4.106-r0
 libedit-20210216.3.1-r0
 libffi-3.3-r2
