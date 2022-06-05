@@ -18,7 +18,7 @@ jobs:
           fi
           echo "**** External trigger running off of php8 branch. To disable this trigger, set a Github secret named \"PAUSE_EXTERNAL_TRIGGER_NEXTCLOUD_PHP8\". ****"
           echo "**** Retrieving external version ****"
-          EXT_RELEASE=$(curl -s https://raw.githubusercontent.com/nextcloud/nextcloud.com/master/strings.php | awk -F\' '/VERSIONS_SERVER_FULL_STABLE/ {print $2;exit}')
+          EXT_RELEASE=$(curl -u ${{ secrets.CR_USER }}:${{ secrets.CR_PAT }} -sX GET https://api.github.com/repos/nextcloud/server/releases/latest | jq -r '. | .tag_name' | sed 's|^v||')
           if [ -z "${EXT_RELEASE}" ] || [ "${EXT_RELEASE}" == "null" ]; then
             echo "**** Can't retrieve external version, exiting ****"
             FAILURE_REASON="Can't retrieve external version for nextcloud branch php8"
