@@ -121,7 +121,6 @@ server {
         include /etc/nginx/fastcgi_params;
         fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
         fastcgi_param PATH_INFO $path_info;
-        fastcgi_param HTTPS on;
 
         fastcgi_param modHeadersAvailable true;         # Avoid sending the security headers twice
         fastcgi_param front_controller_active true;     # Enable pretty urls
