@@ -18,5 +18,5 @@ fi
 if [[ ! -f /config/crontabs/root ]]; then
     cp /defaults/root /config/crontabs/root
 fi
-sed -i "s|s6-setuidgid abc php7 -f /config/www/nextcloud/cron.php|s6-setuidgid abc php8 -f /config/www/nextcloud/cron.php|" /config/crontabs/root
+sed -i "s|s6-setuidgid abc php[78] -f /config/www/nextcloud/cron.php|s6-setuidgid abc php -f /config/www/nextcloud/cron.php|" /config/crontabs/root
 cp /config/crontabs/root /etc/crontabs/root

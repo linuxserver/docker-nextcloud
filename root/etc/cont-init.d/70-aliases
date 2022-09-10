@@ -2,7 +2,7 @@
 
 ## Set alias for occ and make executable
 if [[ ! -f /usr/bin/occ ]]; then
-    echo -e '#!/bin/bash\nsudo -u abc -s /bin/bash -c "php8 /config/www/nextcloud/occ $*"' > /usr/bin/occ
+    echo -e '#!/bin/bash\nsudo -u abc -s /bin/bash -c "php /config/www/nextcloud/occ $*"' > /usr/bin/occ
 fi
 
 if [[ ! -x /usr/bin/occ ]]; then
@@ -11,7 +11,7 @@ fi
 
 ## Set alias for updater.phar and make executable
 if [[ ! -f /usr/bin/updater.phar ]]; then
-    echo -e '#!/bin/bash\nsudo -u abc -s /bin/bash -c "php8 /config/www/nextcloud/updater/updater.phar $*"' > /usr/bin/updater.phar
+    echo -e '#!/bin/bash\nsudo -u abc -s /bin/bash -c "php /config/www/nextcloud/updater/updater.phar $*"' > /usr/bin/updater.phar
 fi
 
 if [[ ! -x /usr/bin/updater.phar ]]; then
