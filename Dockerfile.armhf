@@ -34,7 +34,9 @@ RUN \
     php8-imap \
     php8-intl \
     php8-ldap \
+    php8-mbstring \
     php8-opcache \
+    php8-openssl \
     php8-pcntl \
     php8-pdo_mysql \
     php8-pdo_pgsql \
@@ -46,9 +48,13 @@ RUN \
     php8-phar \
     php8-posix \
     php8-redis \
+    php8-session \
+    php8-simplexml \
     php8-sodium \
     php8-sqlite3 \
+    php8-xml \
     php8-xmlreader \
+    php8-xmlwriter \
     php8-zip \
     samba-client \
     sudo \
