@@ -31,6 +31,7 @@ RUN \
     gnu-libiconv \
     imagemagick \
     libxml2 \
+    postgresql-client \
     php7-apcu \
     php7-bcmath \
     php7-bz2 \
