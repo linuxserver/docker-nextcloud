@@ -79,7 +79,7 @@ RUN \
   echo 'apc.enable_cli=1' >> /etc/php7/conf.d/apcu.ini && \
   sed -i \
     -e 's/;opcache.enable.*=.*/opcache.enable=1/g' \
-    -e 's/;opcache.interned_strings_buffer.*=.*/opcache.interned_strings_buffer=8/g' \
+    -e 's/;opcache.interned_strings_buffer.*=.*/opcache.interned_strings_buffer=16/g' \
     -e 's/;opcache.max_accelerated_files.*=.*/opcache.max_accelerated_files=10000/g' \
     -e 's/;opcache.memory_consumption.*=.*/opcache.memory_consumption=128/g' \
     -e 's/;opcache.save_comments.*=.*/opcache.save_comments=1/g' \
@@ -97,12 +97,16 @@ RUN \
   echo "env[PATH] = /usr/local/bin:/usr/bin:/bin" >> /etc/php7/php-fpm.conf && \
   echo "**** set version tag ****" && \
   if [ -z ${NEXTCLOUD_RELEASE+x} ]; then \
-    NEXTCLOUD_RELEASE=$(curl -s https://raw.githubusercontent.com/nextcloud/nextcloud.com/master/strings.php \
-    | awk -F\' '/VERSIONS_SERVER_FULL_STABLE/ {print $2;exit}'); \
+    NEXTCLOUD_RELEASE=$(curl -sX GET https://api.github.com/repos/nextcloud/server/releases/latest \
+      | awk '/tag_name/{print $4;exit}' FS='[""]' \
+      | sed 's|^v||'); \
   fi && \
   echo "**** download nextcloud ****" && \
   curl -o /app/nextcloud.tar.bz2 -L \
     https://download.nextcloud.com/server/releases/nextcloud-${NEXTCLOUD_RELEASE}.tar.bz2 && \
+  echo "**** test tarball ****" && \
+    tar xvf /app/nextcloud.tar.bz2 -C \
+      /tmp && \
   echo "**** cleanup ****" && \
   apk del --purge \
     build-dependencies && \

@@ -104,7 +104,7 @@ pipeline {
       steps{
         script{
           env.EXT_RELEASE = sh(
-            script: ''' curl -s https://raw.githubusercontent.com/nextcloud/nextcloud.com/master/strings.php | awk -F\\' '/VERSIONS_SERVER_FULL_STABLE/ {print $2;exit}' ''',
+            script: ''' curl -sX GET https://api.github.com/repos/nextcloud/server/releases/latest | jq -r '. | .tag_name' | sed 's|^v||' ''',
             returnStdout: true).trim()
             env.RELEASE_LINK = 'custom_command'
         }
@@ -343,9 +343,11 @@ pipeline {
               if [[ ("${BRANCH_NAME}" == "master") || ("${BRANCH_NAME}" == "main") ]] && [[ (! -f ${TEMPDIR}/unraid/templates/unraid/${CONTAINER_NAME}.xml) || ("$(md5sum ${TEMPDIR}/unraid/templates/unraid/${CONTAINER_NAME}.xml | awk '{ print $1 }')" != "$(md5sum ${TEMPDIR}/docker-${CONTAINER_NAME}/.jenkins-external/${CONTAINER_NAME}.xml | awk '{ print $1 }')") ]]; then
                 cd ${TEMPDIR}/unraid/templates/
                 if grep -wq "${CONTAINER_NAME}" ${TEMPDIR}/unraid/templates/unraid/ignore.list; then
-                  echo "Image is on the ignore list, removing Unraid template"
-                  git rm unraid/${CONTAINER_NAME}.xml || :
-                  git commit -m 'Bot Removing Deprecated Unraid Template' || :
+                  echo "Image is on the ignore list, marking Unraid template as deprecated"
+                  cp ${TEMPDIR}/docker-${CONTAINER_NAME}/.jenkins-external/${CONTAINER_NAME}.xml ${TEMPDIR}/unraid/templates/unraid/
+                  git add -u unraid/${CONTAINER_NAME}.xml
+                  git mv unraid/${CONTAINER_NAME}.xml unraid/deprecated/${CONTAINER_NAME}.xml || :
+                  git commit -m 'Bot Moving Deprecated Unraid Template' || :
                 else
                   cp ${TEMPDIR}/docker-${CONTAINER_NAME}/.jenkins-external/${CONTAINER_NAME}.xml ${TEMPDIR}/unraid/templates/unraid/
                   git add unraid/${CONTAINER_NAME}.xml
@@ -708,7 +710,7 @@ pipeline {
                 -e DO_REGION="ams3" \
                 -e DO_BUCKET="lsio-ci" \
                 -t ghcr.io/linuxserver/ci:latest \
-                python /ci/ci.py'''
+                python3 test_build.py'''
         }
       }
     }
