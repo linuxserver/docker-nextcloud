@@ -78,6 +78,7 @@ app_setup_block: |
 
 # changelog
 changelogs:
+  - { date: "30.09.22:", desc: "Disabled `output_buffering` as per [nextcloud docs](https://docs.nextcloud.com/server/latest/admin_manual/configuration_files/big_file_upload_configuration.html" }
   - { date: "21.05.22:", desc: "Update version check endpoint." }
   - { date: "28.04.22:", desc: "Increase OPCache interned strings buffered setting to 16." }
   - { date: "14.04.22:", desc: "Nginx default site config updated for v23 (existing users should delete `/config/nginx/site-confs/default` and restart the container). Fix LDAP connection." }
