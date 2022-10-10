@@ -77,10 +77,11 @@ RUN \
     -e 's/max_execution_time.*=.*30/max_execution_time=120/g' \
     -e 's/upload_max_filesize.*=.*2M/upload_max_filesize=1024M/g' \
     -e 's/post_max_size.*=.*8M/post_max_size=1024M/g' \
-        /etc/php8/php.ini && \
+    -e 's/output_buffering.*=.*/output_buffering=0/g' \
+      /etc/php8/php.ini && \
   sed -i \
     '/opcache.enable=1/a opcache.enable_cli=1' \
-        /etc/php8/php.ini && \
+      /etc/php8/php.ini && \
   echo "env[PATH] = /usr/local/bin:/usr/bin:/bin" >> /etc/php8/php-fpm.conf && \
   echo "**** set version tag ****" && \
   if [ -z ${NEXTCLOUD_RELEASE+x} ]; then \
