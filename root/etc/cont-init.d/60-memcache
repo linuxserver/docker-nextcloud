@@ -1,9 +1,10 @@
 #!/usr/bin/with-contenv bash
 
 # copy config
-[[ ! -f /config/www/nextcloud/config/config.php ]] && \
-	cp /defaults/config.php /config/www/nextcloud/config/config.php
+if [[ ! -f /config/www/nextcloud/config/config.php ]]; then
+    cp /defaults/config.php /config/www/nextcloud/config/config.php
+fi
 
 # permissions
 chown abc:abc \
-	/config/www/nextcloud/config/config.php
+    /config/www/nextcloud/config/config.php

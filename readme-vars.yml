@@ -20,8 +20,7 @@ available_architectures:
 # development version
 development_versions: true
 development_versions_items:
-  - { tag: "latest", desc: "Stable Nextcloud releases (currently php7)" }
-  - { tag: "php8", desc: "Experimental php8 based Nextcloud releases" }
+  - { tag: "latest", desc: "Stable Nextcloud releases" }
 
 # container parameters
 common_param_env_vars_enabled: true
@@ -78,26 +77,27 @@ app_setup_block: |
 
 # changelog
 changelogs:
+  - { date: "10.10.22:", desc: "Rebasing to alpine 3.15 with php8. Restructure nginx configs ([see changes announcement](https://info.linuxserver.io/issues/2022-08-20-nginx-base))." }
   - { date: "30.09.22:", desc: "Disabled `output_buffering` as per [nextcloud docs](https://docs.nextcloud.com/server/latest/admin_manual/configuration_files/big_file_upload_configuration.html" }
   - { date: "21.05.22:", desc: "Update version check endpoint." }
   - { date: "28.04.22:", desc: "Increase OPCache interned strings buffered setting to 16." }
   - { date: "14.04.22:", desc: "Nginx default site config updated for v23 (existing users should delete `/config/nginx/site-confs/default` and restart the container). Fix LDAP connection." }
   - { date: "11.09.21:", desc: "Rebasing to alpine 3.14" }
   - { date: "21.03.21:", desc: "Publish `php8` tag for testing." }
-  - { date: "25.02.21:", desc: "Nginx default site config updated for v21 (existing users should delete `/config/nginx/site-confs/default` and restart the container)." }
+  - { date: "25.02.21:", desc: "Nginx default site config updated for v21 (existing users should delete `/config/nginx/site-confs/default.conf` and restart the container)." }
   - { date: "21.01.21:", desc: "Fix php iconv (was breaking the mail addon). If installed, attempt to remove broken CODE Server app during startup." }
-  - { date: "20.01.21:", desc: "Increase php fcgi timeout to prevent 504 Gateway timeout errors (existing users should delete `/config/nginx/site-confs/default` and restart the container)." }
+  - { date: "20.01.21:", desc: "Increase php fcgi timeout to prevent 504 Gateway timeout errors (existing users should delete `/config/nginx/site-confs/default.conf` and restart the container)." }
   - { date: "16.01.21:", desc: "Rebasing to alpine 3.13. Users with issues on 32-bit arm, [see this article](https://docs.linuxserver.io/faq#my-host-is-incompatible-with-images-based-on-ubuntu-focal-and-alpine-3-13)." }
-  - { date: "12.08.20:", desc: "Various updates to default site config, including added support for webfinger (existing users should delete `/config/nginx/site-confs/default` and restart the container)." }
+  - { date: "12.08.20:", desc: "Various updates to default site config, including added support for webfinger (existing users should delete `/config/nginx/site-confs/default.conf` and restart the container)." }
   - { date: "03.06.20:", desc: "Rebasing to alpine 3.12" }
   - { date: "03.06.20:", desc: "Add php7-bcmath and php7-fileinfo" }
   - { date: "31.05.20:", desc: "Add aliases for occ and updater.phar" }
   - { date: "31.03.20:", desc: "Allow crontab to be user customized, fix logrotate." }
-  - { date: "17.01.20:", desc: "Updated php.ini defaults and site config, including an optional HSTS directive (existing users should delete `/config/nginx/site-confs/default` and restart the container)." }
+  - { date: "17.01.20:", desc: "Updated php.ini defaults and site config, including an optional HSTS directive (existing users should delete `/config/nginx/site-confs/default.conf` and restart the container)." }
   - { date: "19.12.19:", desc: "Rebasing to alpine 3.11." }
-  - { date: "18.11.19:", desc: "Nginx default site config updated for v17 (existing users should delete `/config/nginx/site-confs/default` and restart the container)." }
+  - { date: "18.11.19:", desc: "Nginx default site config updated for v17 (existing users should delete `/config/nginx/site-confs/default.conf` and restart the container)." }
   - { date: "28.10.19:", desc: "Change cronjob to run every 5 minutes." }
-  - { date: "24.10.19:", desc: "Nginx default site config updated due to CVE-2019-11043 (existing users should delete `/config/nginx/site-confs/default` and restart the container)." }
+  - { date: "24.10.19:", desc: "Nginx default site config updated due to CVE-2019-11043 (existing users should delete `/config/nginx/site-confs/default.conf` and restart the container)." }
   - { date: "14.07.19:", desc: "Download nextcloud during build time." }
   - { date: "28.06.19:", desc: "Rebasing to alpine 3.10." }
   - { date: "23.03.19:", desc: "Switching to new Base images, shift to arm32v7 tag." }

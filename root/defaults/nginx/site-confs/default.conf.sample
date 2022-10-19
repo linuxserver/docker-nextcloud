@@ -1,31 +1,29 @@
-upstream php-handler {
-    server 127.0.0.1:9000;
-}
-server {
-    listen 80;
-    listen [::]:80;
-    server_name _;
-    return 301 https://$host$request_uri;
-}
-server {
-    listen 443 ssl http2;
-    listen [::]:443 ssl http2;
-    server_name _;
-    ssl_certificate /config/keys/cert.crt;
-    ssl_certificate_key /config/keys/cert.key;
+## Version 2022/08/20 - Changelog: https://github.com/linuxserver/docker-nextcloud/commits/master/root/defaults/nginx/site-confs/default.conf.sample
 
-    # Add headers to serve security related headers
-    # Before enabling Strict-Transport-Security headers please read into this
-    # topic first.
-    #add_header Strict-Transport-Security "max-age=15768000; includeSubDomains; preload;" always;
-    #
-    # WARNING: Only add the preload option once you read about
-    # the consequences in https://hstspreload.org/. This option
-    # will add the domain to a hardcoded list that is shipped
-    # in all major browsers and getting removed from this list
-    # could take several months.
+# Set the `immutable` cache control options only for assets with a cache busting `v` argument
+map $arg_v $asset_immutable {
+    "" "";
+    default "immutable";
+}
 
-    # set max upload size
+server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
+
+    listen 443 ssl http2 default_server;
+    listen [::]:443 ssl http2 default_server;
+
+    server_name _;
+
+    root /config/www/nextcloud/;
+
+    # display real ip in nginx logs when connected through reverse proxy via docker network
+    set_real_ip_from 172.0.0.0/8;
+    real_ip_header X-Forwarded-For;
+
+    # https://docs.nextcloud.com/server/latest/admin_manual/installation/nginx.html#nextcloud-in-the-webroot-of-nginx
+
+    # set max upload size and increase upload timeout:
     client_max_body_size 512M;
     client_body_timeout 300s;
     fastcgi_buffers 64 4K;
@@ -38,6 +36,15 @@ server {
     gzip_proxied expired no-cache no-store private no_last_modified no_etag auth;
     gzip_types application/atom+xml application/javascript application/json application/ld+json application/manifest+json application/rss+xml application/vnd.geo+json application/vnd.ms-fontobject application/wasm application/x-font-ttf application/x-web-app-manifest+json application/xhtml+xml application/xml font/opentype image/bmp image/svg+xml image/x-icon text/cache-manifest text/css text/plain text/vcard text/vnd.rim.location.xloc text/vtt text/x-component text/x-cross-domain-policy;
 
+    # Pagespeed is not supported by Nextcloud, so if your server is built
+    # with the `ngx_pagespeed` module, uncomment this line to disable it.
+    #pagespeed off;
+
+    # The settings allows you to optimize the HTTP2 bandwitdth.
+    # See https://blog.cloudflare.com/delivering-http-2-upload-speed-improvements/
+    # for tunning hints
+    client_body_buffer_size 512k;
+
     # HTTP response headers borrowed from Nextcloud `.htaccess`
     add_header Referrer-Policy                      "no-referrer"   always;
     add_header X-Content-Type-Options               "nosniff"       always;
@@ -49,12 +56,6 @@ server {
 
     # Remove X-Powered-By, which is an information leak
     fastcgi_hide_header X-Powered-By;
-
-    root /config/www/nextcloud/;
-
-    # display real ip in nginx logs when connected through reverse proxy via docker network
-    set_real_ip_from 172.0.0.0/8;
-    real_ip_header X-Forwarded-For;
 
     # Specify how to handle directories -- specifying `/index.php$request_uri`
     # here as the fallback means that Nginx always exhibits the desired behaviour
@@ -120,11 +121,10 @@ server {
         include /etc/nginx/fastcgi_params;
         fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
         fastcgi_param PATH_INFO $path_info;
-        fastcgi_param HTTPS on;
 
         fastcgi_param modHeadersAvailable true;         # Avoid sending the security headers twice
         fastcgi_param front_controller_active true;     # Enable pretty urls
-        fastcgi_pass php-handler;
+        fastcgi_pass 127.0.0.1:9000;
 
         fastcgi_intercept_errors on;
         fastcgi_request_buffering off;
@@ -134,7 +134,7 @@ server {
 
     location ~ \.(?:css|js|svg|gif|png|jpg|ico|wasm|tflite|map)$ {
         try_files $uri /index.php$request_uri;
-        expires 6M;         # Cache-Control policy borrowed from `.htaccess`
+        add_header Cache-Control "public, max-age=15778463, $asset_immutable";
         access_log off;     # Optional: Don't log access to assets
 
         location ~ \.wasm$ {
@@ -154,7 +154,15 @@ server {
     }
 
     location / {
+        # enable for basic auth
+        #auth_basic "Restricted";
+        #auth_basic_user_file /config/nginx/.htpasswd;
+
         try_files $uri $uri/ /index.php$request_uri;
     }
 
+    # deny access to .htaccess/.htpasswd files
+    location ~ /\.ht {
+        deny all;
+    }
 }

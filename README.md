@@ -66,8 +66,7 @@ This image provides various versions that are available via tags. Please read th
 
 | Tag | Available | Description |
 | :----: | :----: |--- |
-| latest | ✅ | Stable Nextcloud releases (currently php7) |
-| php8 | ✅ | Experimental php8 based Nextcloud releases |
+| latest | ✅ | Stable Nextcloud releases |
 
 ## Application Setup
 
@@ -257,26 +256,27 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **10.10.22:** - Rebasing to alpine 3.15 with php8. Restructure nginx configs ([see changes announcement](https://info.linuxserver.io/issues/2022-08-20-nginx-base)).
 * **30.09.22:** - Disabled `output_buffering` as per [nextcloud docs](https://docs.nextcloud.com/server/latest/admin_manual/configuration_files/big_file_upload_configuration.html
 * **21.05.22:** - Update version check endpoint.
 * **28.04.22:** - Increase OPCache interned strings buffered setting to 16.
 * **14.04.22:** - Nginx default site config updated for v23 (existing users should delete `/config/nginx/site-confs/default` and restart the container). Fix LDAP connection.
 * **11.09.21:** - Rebasing to alpine 3.14
 * **21.03.21:** - Publish `php8` tag for testing.
-* **25.02.21:** - Nginx default site config updated for v21 (existing users should delete `/config/nginx/site-confs/default` and restart the container).
+* **25.02.21:** - Nginx default site config updated for v21 (existing users should delete `/config/nginx/site-confs/default.conf` and restart the container).
 * **21.01.21:** - Fix php iconv (was breaking the mail addon). If installed, attempt to remove broken CODE Server app during startup.
-* **20.01.21:** - Increase php fcgi timeout to prevent 504 Gateway timeout errors (existing users should delete `/config/nginx/site-confs/default` and restart the container).
+* **20.01.21:** - Increase php fcgi timeout to prevent 504 Gateway timeout errors (existing users should delete `/config/nginx/site-confs/default.conf` and restart the container).
 * **16.01.21:** - Rebasing to alpine 3.13. Users with issues on 32-bit arm, [see this article](https://docs.linuxserver.io/faq#my-host-is-incompatible-with-images-based-on-ubuntu-focal-and-alpine-3-13).
-* **12.08.20:** - Various updates to default site config, including added support for webfinger (existing users should delete `/config/nginx/site-confs/default` and restart the container).
+* **12.08.20:** - Various updates to default site config, including added support for webfinger (existing users should delete `/config/nginx/site-confs/default.conf` and restart the container).
 * **03.06.20:** - Rebasing to alpine 3.12
 * **03.06.20:** - Add php7-bcmath and php7-fileinfo
 * **31.05.20:** - Add aliases for occ and updater.phar
 * **31.03.20:** - Allow crontab to be user customized, fix logrotate.
-* **17.01.20:** - Updated php.ini defaults and site config, including an optional HSTS directive (existing users should delete `/config/nginx/site-confs/default` and restart the container).
+* **17.01.20:** - Updated php.ini defaults and site config, including an optional HSTS directive (existing users should delete `/config/nginx/site-confs/default.conf` and restart the container).
 * **19.12.19:** - Rebasing to alpine 3.11.
-* **18.11.19:** - Nginx default site config updated for v17 (existing users should delete `/config/nginx/site-confs/default` and restart the container).
+* **18.11.19:** - Nginx default site config updated for v17 (existing users should delete `/config/nginx/site-confs/default.conf` and restart the container).
 * **28.10.19:** - Change cronjob to run every 5 minutes.
-* **24.10.19:** - Nginx default site config updated due to CVE-2019-11043 (existing users should delete `/config/nginx/site-confs/default` and restart the container).
+* **24.10.19:** - Nginx default site config updated due to CVE-2019-11043 (existing users should delete `/config/nginx/site-confs/default.conf` and restart the container).
 * **14.07.19:** - Download nextcloud during build time.
 * **28.06.19:** - Rebasing to alpine 3.10.
 * **23.03.19:** - Switching to new Base images, shift to arm32v7 tag.
