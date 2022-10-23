@@ -29,7 +29,7 @@ fribidi-1.0.11-r0
 gdbm-1.22-r0
 gdk-pixbuf-2.42.8-r0
 ghostscript-9.55.0-r0
-git-2.34.4-r0
+git-2.34.5-r0
 glib-2.70.1-r0
 gmp-6.2.1-r1
 gnu-libiconv-1.16-r0
