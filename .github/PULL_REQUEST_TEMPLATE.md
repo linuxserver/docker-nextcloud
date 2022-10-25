@@ -1,3 +1,7 @@
+# DEPRECATION NOTICE
+
+This image is deprecated. We will not offer support for this image and it will not be updated.
+The latest tag (master branch) now uses php8. The php8 tag/branch will not be updated.
 <!--- Provide a general summary of your changes in the Title above -->
 
 [linuxserverurl]: https://linuxserver.io

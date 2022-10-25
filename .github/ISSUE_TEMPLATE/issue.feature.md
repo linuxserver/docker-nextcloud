@@ -3,6 +3,10 @@ name: Feature request
 about: Suggest an idea for this project
 
 ---
+# DEPRECATION NOTICE
+
+This image is deprecated. We will not offer support for this image and it will not be updated.
+The latest tag (master branch) now uses php8. The php8 tag/branch will not be updated.
 [linuxserverurl]: https://linuxserver.io
 [![linuxserver.io](https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/linuxserver_medium.png)][linuxserverurl]
 
