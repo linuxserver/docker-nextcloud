@@ -252,6 +252,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **25.10.22:** - Deprecate `php8` tag. `latest` tag now uses php8.
 * **05.06.22:** - Bring `php8` tag in line with `latest`.
 * **24.06.21:** - Rebase to alpine 3.14.
 * **01.04.21:** - Fix crontab during upgrade from php7.
