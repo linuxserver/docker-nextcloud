@@ -79,6 +79,7 @@ app_setup_block: |
 
 # changelog
 changelogs:
+  - { date: "25.10.22:", desc: "Deprecate `php8` tag. `latest` tag now uses php8." }
   - { date: "05.06.22:", desc: "Bring `php8` tag in line with `latest`." }
   - { date: "24.06.21:", desc: "Rebase to alpine 3.14." }
   - { date: "01.04.21:", desc: "Fix crontab during upgrade from php7." }
