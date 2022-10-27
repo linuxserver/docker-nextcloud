@@ -84,7 +84,7 @@ Note:  Both `occ` and `updater.phar` can be run without prepending with `sudo -u
 
 If you are not customizing our default nginx configuration you will need to remove the file:
 ```
-/config/nginx/site-confs/default
+/config/nginx/site-confs/default.conf
 ```
 Then restart the container to replace it with the latest one. 
 
@@ -260,7 +260,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 * **30.09.22:** - Disabled `output_buffering` as per [nextcloud docs](https://docs.nextcloud.com/server/latest/admin_manual/configuration_files/big_file_upload_configuration.html
 * **21.05.22:** - Update version check endpoint.
 * **28.04.22:** - Increase OPCache interned strings buffered setting to 16.
-* **14.04.22:** - Nginx default site config updated for v23 (existing users should delete `/config/nginx/site-confs/default` and restart the container). Fix LDAP connection.
+* **14.04.22:** - Nginx default site config updated for v23 (existing users should delete `/config/nginx/site-confs/default.conf` and restart the container). Fix LDAP connection.
 * **11.09.21:** - Rebasing to alpine 3.14
 * **21.03.21:** - Publish `php8` tag for testing.
 * **25.02.21:** - Nginx default site config updated for v21 (existing users should delete `/config/nginx/site-confs/default.conf` and restart the container).
