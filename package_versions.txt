@@ -172,7 +172,7 @@ php8-xml-8.0.25-r0
 php8-xmlreader-8.0.25-r0
 php8-xmlwriter-8.0.25-r0
 php8-zip-8.0.25-r0
-pixman-0.40.0-r3
+pixman-0.40.0-r4
 pkgconf-1.8.0-r0
 popt-1.18-r0
 procps-3.3.17-r0
