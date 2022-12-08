@@ -45,7 +45,7 @@ lame-3.100-r0
 lcms2-2.12-r1
 ldb-2.4.1-r0
 libacl-2.2.53-r0
-libarchive-3.6.1-r0
+libarchive-3.6.1-r1
 libass-0.15.2-r0
 libattr-2.5.1-r1
 libblkid-2.37.4-r0
