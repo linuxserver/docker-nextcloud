@@ -1,8 +1,9 @@
 #!/usr/bin/with-contenv bash
+# shellcheck shell=bash
 
 ## Set alias for occ and make executable
 if [[ ! -f /usr/bin/occ ]]; then
-    echo -e '#!/bin/bash\nsudo -u abc -s /bin/bash -c "php /config/www/nextcloud/occ $*"' > /usr/bin/occ
+    echo -e '#!/bin/bash\nsudo -u abc -s /bin/bash -c "php /config/www/nextcloud/occ $*"' >/usr/bin/occ
 fi
 
 if [[ ! -x /usr/bin/occ ]]; then
@@ -11,14 +12,14 @@ fi
 
 ## Set alias for updater.phar and make executable
 if [[ ! -f /usr/bin/updater.phar ]]; then
-    echo -e '#!/bin/bash\nsudo -u abc -s /bin/bash -c "php /config/www/nextcloud/updater/updater.phar $*"' > /usr/bin/updater.phar
+    echo -e '#!/bin/bash\nsudo -u abc -s /bin/bash -c "php /config/www/nextcloud/updater/updater.phar $*"' >/usr/bin/updater.phar
 fi
 
 if [[ ! -x /usr/bin/updater.phar ]]; then
     chmod +x /usr/bin/updater.phar
 fi
 
-if ( occ app:list --no-interaction | grep -q richdocumentscode) 2>/dev/null; then
-    echo "Removing CODE Server" 
-    occ app:remove --no-interaction richdocumentscode 2>/dev/null 
+if (occ app:list --no-interaction | grep -q richdocumentscode) 2>/dev/null; then
+    echo "Removing CODE Server"
+    occ app:remove --no-interaction richdocumentscode 2>/dev/null
 fi

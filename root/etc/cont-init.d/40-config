@@ -1,4 +1,5 @@
 #!/usr/bin/with-contenv bash
+# shellcheck shell=bash
 
 # folders
 mkdir -p \
@@ -9,5 +10,5 @@ mkdir -p \
 chown abc:abc \
     /config \
     /data
-chown -R abc:abc  \
+chown -R abc:abc \
     /var/lib/nginx
