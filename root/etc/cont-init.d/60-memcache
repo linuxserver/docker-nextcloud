@@ -1,4 +1,5 @@
 #!/usr/bin/with-contenv bash
+# shellcheck shell=bash
 
 # copy config
 if [[ ! -f /config/www/nextcloud/config/config.php ]]; then

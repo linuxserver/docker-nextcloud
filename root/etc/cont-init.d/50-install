@@ -1,4 +1,5 @@
 #!/usr/bin/with-contenv bash
+# shellcheck shell=bash
 
 # create folders
 mkdir -p \
@@ -14,9 +15,14 @@ if [ ! -e "${NEXTCLOUD_PATH}/index.php" ]; then
     chmod +x "${NEXTCLOUD_PATH}/occ"
 fi
 
-# set cronjob
+# copy crontab if needed
 if [[ ! -f /config/crontabs/root ]]; then
-    cp /defaults/root /config/crontabs/root
+    cp /etc/crontabs/root /config/crontabs/
 fi
+
 sed -i "s|s6-setuidgid abc php[78] -f /config/www/nextcloud/cron.php|s6-setuidgid abc php -f /config/www/nextcloud/cron.php|" /config/crontabs/root
-cp /config/crontabs/root /etc/crontabs/root
+
+# import user crontabs
+rm /etc/crontabs/*
+cp /config/crontabs/* /etc/crontabs/
+
