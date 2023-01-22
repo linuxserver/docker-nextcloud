@@ -261,6 +261,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **20.01.23:** - Rebase to alpine 3.17 with php8.1.
 * **10.10.22:** - Rebasing to alpine 3.15 with php8. Restructure nginx configs ([see changes announcement](https://info.linuxserver.io/issues/2022-08-20-nginx-base)).
 * **30.09.22:** - Disabled `output_buffering` as per [nextcloud docs](https://docs.nextcloud.com/server/latest/admin_manual/configuration_files/big_file_upload_configuration.html
 * **21.05.22:** - Update version check endpoint.

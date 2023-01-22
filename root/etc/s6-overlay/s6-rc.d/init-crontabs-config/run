@@ -3,19 +3,16 @@
 
 # create folders
 mkdir -p \
-    "${NEXTCLOUD_PATH}" \
     /config/crontabs
 
-# install app
-if [ ! -e "${NEXTCLOUD_PATH}/index.php" ]; then
-    tar xf /app/nextcloud.tar.bz2 -C \
-        "${NEXTCLOUD_PATH}" --strip-components=1
-    chown abc:abc -R \
-        "${NEXTCLOUD_PATH}"
-    chmod +x "${NEXTCLOUD_PATH}/occ"
+# if root crontabs do not exist in config
+# copy root crontab from system
+if [[ ! -f /config/crontabs/root ]] && crontab -l -u root; then
+    crontab -l -u root >/config/crontabs/root
 fi
 
-# copy crontab if needed
+# if root crontabs still do not exist in config (were not copied from system)
+# copy root crontab from included defaults
 if [[ ! -f /config/crontabs/root ]]; then
     cp /etc/crontabs/root /config/crontabs/
 fi
@@ -23,6 +20,4 @@ fi
 sed -i "s|s6-setuidgid abc php[78] -f /config/www/nextcloud/cron.php|s6-setuidgid abc php -f /config/www/nextcloud/cron.php|" /config/crontabs/root
 
 # import user crontabs
-rm /etc/crontabs/*
-cp /config/crontabs/* /etc/crontabs/
-
+crontab -u root /config/crontabs/root
