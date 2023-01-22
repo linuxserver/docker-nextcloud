@@ -39,7 +39,6 @@ RUN \
     php81-pdo_pgsql \
     php81-pdo_sqlite \
     php81-pecl-imagick \
-    php81-pecl-mcrypt \
     php81-pecl-memcached \
     php81-pgsql \
     php81-phar \
@@ -51,8 +50,8 @@ RUN \
     php81-zip \
     samba-client \
     sudo && \
-  apk add --no-cache \
-    --repository=http://dl-cdn.alpinelinux.org/alpine/edge/testing \
+  apk add --no-cache --repository=http://dl-cdn.alpinelinux.org/alpine/edge/testing \
+    php81-pecl-mcrypt \
     php81-pecl-smbclient && \
   echo "**** configure php and nginx for nextcloud ****" && \
   echo 'apc.enable_cli=1' >> /etc/php81/conf.d/apcu.ini && \
