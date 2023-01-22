@@ -2,7 +2,7 @@ alpine-baselayout-3.2.0-r18
 alpine-keys-2.4-r1
 alsa-lib-1.2.5.1-r1
 aom-libs-3.2.0-r0
-apache2-utils-2.4.54-r0
+apache2-utils-2.4.55-r0
 apk-tools-2.12.7-r3
 apr-1.7.0-r1
 apr-util-1.6.1-r11
@@ -29,7 +29,7 @@ fribidi-1.0.11-r0
 gdbm-1.22-r0
 gdk-pixbuf-2.42.8-r0
 ghostscript-9.55.0-r0
-git-2.34.5-r0
+git-2.34.6-r0
 glib-2.70.1-r0
 gmp-6.2.1-r1
 gnu-libiconv-1.16-r0
@@ -105,7 +105,7 @@ libxext-1.3.4-r0
 libxfixes-6.0.0-r0
 libxft-2.3.4-r0
 libxml2-2.9.14-r2
-libxpm-3.5.13-r0
+libxpm-3.5.15-r0
 libxrender-0.9.10-r3
 libxt-1.2.1-r0
 libzip-1.8.0-r1
@@ -173,7 +173,7 @@ php8-xmlreader-8.0.25-r0
 php8-xmlwriter-8.0.25-r0
 php8-zip-8.0.25-r0
 pixman-0.40.0-r4
-pkgconf-1.8.0-r0
+pkgconf-1.8.1-r0
 popt-1.18-r0
 procps-3.3.17-r0
 readline-8.1.1-r0
@@ -191,7 +191,7 @@ skalibs-2.11.0.0-r0
 soxr-0.1.3-r2
 sqlite-libs-3.36.0-r0
 ssl_client-1.34.1-r7
-sudo-1.9.12-r1
+sudo-1.9.12_p2-r0
 talloc-2.3.3-r0
 tar-1.34-r0
 tdb-libs-1.4.5-r0
