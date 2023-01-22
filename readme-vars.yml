@@ -18,7 +18,7 @@ available_architectures:
   - { arch: "{{ arch_armhf }}", tag: "arm32v7-latest"}
 
 # development version
-development_versions: true
+development_versions: false
 development_versions_items:
   - { tag: "latest", desc: "Stable Nextcloud releases" }
 
