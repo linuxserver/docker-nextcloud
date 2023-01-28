@@ -22,8 +22,5 @@ fi
 
 # permissions
 lsiown abc:abc \
-    /config \
     /config/www/nextcloud/config/config.php \
     /data
-lsiown -R abc:abc \
-    /var/lib/nginx
