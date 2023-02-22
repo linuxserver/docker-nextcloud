@@ -1,0 +1,31 @@
+#!/usr/bin/with-contenv bash
+# shellcheck shell=bash
+
+# create folders
+mkdir -p \
+    /config/www/nextcloud \
+    /data
+
+# install app
+if [ ! -e /config/www/nextcloud/index.php ]; then
+    tar xf /app/nextcloud.tar.bz2 -C \
+        /config/www/nextcloud --strip-components=1
+    lsiown abc:abc -R \
+        /config/www/nextcloud
+    chmod +x /config/www/nextcloud/occ
+fi
+
+# copy config
+if [[ ! -f /config/www/nextcloud/config/config.php ]]; then
+    cp /defaults/config.php /config/www/nextcloud/config/config.php
+fi
+
+# permissions
+lsiown abc:abc \
+    /config/www/nextcloud/config/config.php \
+    /data
+
+if (occ app:list --no-interaction | grep -q richdocumentscode) 2>/dev/null; then
+    echo "Removing CODE Server"
+    occ app:remove --no-interaction richdocumentscode 2>/dev/null
+fi

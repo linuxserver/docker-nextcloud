@@ -60,13 +60,6 @@ The architectures supported by this image are:
 | arm64 | ✅ | arm64v8-\<version tag\> |
 | armhf | ✅ | arm32v7-\<version tag\> |
 
-## Version Tags
-
-This image provides various versions that are available via tags. Please read the descriptions carefully and exercise caution when using unstable or development tags.
-
-| Tag | Available | Description |
-| :----: | :----: |--- |
-| latest | ✅ | Stable Nextcloud releases |
 ## Application Setup
 
 Access the webui at `https://<your-ip>:443`, for more information check out [Nextcloud](https://nextcloud.com/).
@@ -261,6 +254,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **20.01.23:** - Rebase to alpine 3.17 with php8.1.
 * **10.10.22:** - Rebasing to alpine 3.15 with php8. Restructure nginx configs ([see changes announcement](https://info.linuxserver.io/issues/2022-08-20-nginx-base)).
 * **30.09.22:** - Disabled `output_buffering` as per [nextcloud docs](https://docs.nextcloud.com/server/latest/admin_manual/configuration_files/big_file_upload_configuration.html
 * **21.05.22:** - Update version check endpoint.
