@@ -22,7 +22,7 @@ cairo-gobject-1.17.6-r3
 cjson-1.7.15-r3
 coreutils-9.1-r0
 cups-libs-2.4.2-r1
-curl-7.87.0-r1
+curl-7.87.0-r2
 dbus-libs-1.14.4-r0
 ffmpeg-5.1.2-r1
 ffmpeg-libs-5.1.2-r1
