@@ -5,7 +5,7 @@ alpine-keys             2.4-r1                 apk
 alpine-release          3.17.2-r0              apk     
 alsa-lib                1.2.8-r0               apk     
 aom-libs                3.5.0-r0               apk     
-apache2-utils           2.4.55-r0              apk     
+apache2-utils           2.4.56-r0              apk     
 apk-tools               2.12.10-r1             apk     
 apr                     1.7.2-r0               apk     
 apr-util                1.6.3-r0               apk     
@@ -35,7 +35,7 @@ fribidi                 1.0.12-r0              apk
 gdbm                    1.23-r0                apk     
 gdk-pixbuf              2.42.10-r0             apk     
 ghostscript             10.0.0-r0              apk     
-git                     2.38.4-r0              apk     
+git                     2.38.4-r1              apk     
 glib                    2.74.6-r0              apk     
 gmp                     6.2.1-r2               apk     
 gnu-libiconv            1.17-r0                apk     
