@@ -191,6 +191,7 @@ php81-session           8.1.17-r0              apk
 php81-simplexml         8.1.16-r0              apk     
 php81-sodium            8.1.17-r0              apk     
 php81-sqlite3           8.1.17-r0              apk     
+php81-sysvsem           8.1.17-r0              apk     
 php81-xml               8.1.16-r0              apk     
 php81-xmlreader         8.1.17-r0              apk     
 php81-xmlwriter         8.1.16-r0              apk     
