@@ -46,6 +46,7 @@ RUN \
     php81-redis \
     php81-sodium \
     php81-sqlite3 \
+    php81-sysvsem \
     php81-xmlreader \
     php81-zip \
     samba-client \

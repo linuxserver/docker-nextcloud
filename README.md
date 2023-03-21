@@ -254,6 +254,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **21.03.23:** - Add php81-sysvsem as new dep for v26. Update default X-Robots-Tag to noindex, nofollow.
 * **02.03.23:** - Set permissions on crontabs during init.
 * **20.01.23:** - Rebase to alpine 3.17 with php8.1.
 * **10.10.22:** - Rebasing to alpine 3.15 with php8. Restructure nginx configs ([see changes announcement](https://info.linuxserver.io/issues/2022-08-20-nginx-base)).
