@@ -46,8 +46,8 @@ harfbuzz                5.3.1-r1               apk
 hwdata-pci              0.364-r0               apk     
 icu-data-en             72.1-r1                apk     
 icu-libs                72.1-r1                apk     
-imagemagick             7.1.0.52-r0            apk     
-imagemagick-libs        7.1.0.52-r0            apk     
+imagemagick             7.1.0.62-r0            apk     
+imagemagick-libs        7.1.0.62-r0            apk     
 jansson                 2.14-r0                apk     
 jbig2dec                0.19-r1                apk     
 jq                      1.6-r2                 apk     
@@ -183,7 +183,7 @@ php81-pecl-imagick      3.7.0-r0               apk
 php81-pecl-mcrypt       1.0.6-r0               apk     
 php81-pecl-memcached    3.2.0-r0               apk     
 php81-pecl-redis        5.3.7-r0               apk     
-php81-pecl-smbclient    1.0.6-r1               apk     
+php81-pecl-smbclient    1.1.0-r0               apk     
 php81-pgsql             8.1.17-r0              apk     
 php81-phar              8.1.17-r0              apk     
 php81-posix             8.1.17-r0              apk     
