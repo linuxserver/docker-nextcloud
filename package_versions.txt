@@ -2,7 +2,7 @@ NAME                    VERSION                TYPE
 alpine-baselayout       3.4.0-r0               apk     
 alpine-baselayout-data  3.4.0-r0               apk     
 alpine-keys             2.4-r1                 apk     
-alpine-release          3.17.2-r0              apk     
+alpine-release          3.17.3-r0              apk     
 alsa-lib                1.2.8-r0               apk     
 aom-libs                3.5.0-r0               apk     
 apache2-utils           2.4.56-r0              apk     
@@ -207,7 +207,7 @@ samba-common            4.16.10-r0             apk
 samba-libs              4.16.10-r0             apk     
 samba-util-libs         4.16.10-r0             apk     
 scanelf                 1.3.5-r1               apk     
-sdl2                    2.26.3-r0              apk     
+sdl2                    2.26.5-r0              apk     
 shadow                  4.13-r0                apk     
 shared-mime-info        2.2-r2                 apk     
 skalibs                 2.12.0.1-r0            apk     
@@ -221,7 +221,7 @@ talloc                  2.3.4-r0               apk
 tdb-libs                1.4.6-r0               apk     
 tevent                  0.13.0-r0              apk     
 tiff                    4.4.0-r3               apk     
-tzdata                  2023b-r1               apk     
+tzdata                  2023c-r0               apk     
 utmps-libs              0.1.2.0-r1             apk     
 v4l-utils-libs          1.22.1-r2              apk     
 vidstab                 1.1.0-r2               apk     
@@ -232,4 +232,4 @@ xvidcore                1.3.7-r1               apk
 xz                      5.2.9-r0               apk     
 xz-libs                 5.2.9-r0               apk     
 zlib                    1.2.13-r0              apk     
-zstd-libs               1.5.2-r9               apk     
+zstd-libs               1.5.5-r0               apk     
