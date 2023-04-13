@@ -77,6 +77,7 @@ app_setup_block: |
 
 # changelog
 changelogs:
+  - { date: "13.04.23:", desc: "Move ssl.conf include to default.conf." }
   - { date: "21.03.23:", desc: "Add php81-sysvsem as new dep for v26. Update default X-Robots-Tag to `noindex, nofollow``." }
   - { date: "02.03.23:", desc: "Set permissions on crontabs during init." }
   - { date: "20.01.23:", desc: "Rebase to alpine 3.17 with php8.1." }
