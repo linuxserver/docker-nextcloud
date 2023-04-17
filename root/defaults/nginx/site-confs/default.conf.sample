@@ -1,4 +1,4 @@
-## Version 2023/03/21 - Changelog: https://github.com/linuxserver/docker-nextcloud/commits/master/root/defaults/nginx/site-confs/default.conf.sample
+## Version 2023/04/13 - Changelog: https://github.com/linuxserver/docker-nextcloud/commits/master/root/defaults/nginx/site-confs/default.conf.sample
 
 # Set the `immutable` cache control options only for assets with a cache busting `v` argument
 map $arg_v $asset_immutable {
@@ -14,6 +14,8 @@ server {
     listen [::]:443 ssl http2 default_server;
 
     server_name _;
+
+    include /config/nginx/ssl.conf;
 
     root /config/www/nextcloud/;
 

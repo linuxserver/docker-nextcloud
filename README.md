@@ -254,6 +254,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **13.04.23:** - Move ssl.conf include to default.conf.
 * **21.03.23:** - Add php81-sysvsem as new dep for v26. Update default X-Robots-Tag to `noindex, nofollow``.
 * **02.03.23:** - Set permissions on crontabs during init.
 * **20.01.23:** - Rebase to alpine 3.17 with php8.1.
