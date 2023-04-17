@@ -51,9 +51,10 @@ RUN \
     php81-zip \
     samba-client \
     sudo && \
-  apk add --no-cache --repository=http://dl-cdn.alpinelinux.org/alpine/edge/testing \
-    php81-pecl-mcrypt \
+  apk add --no-cache --repository=http://dl-cdn.alpinelinux.org/alpine/edge/community \
     php81-pecl-smbclient && \
+  apk add --no-cache --repository=http://dl-cdn.alpinelinux.org/alpine/edge/testing \
+    php81-pecl-mcrypt && \
   echo "**** configure php and nginx for nextcloud ****" && \
   echo 'apc.enable_cli=1' >> /etc/php81/conf.d/apcu.ini && \
   sed -i \
