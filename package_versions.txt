@@ -65,7 +65,7 @@ libbsd                  0.11.7-r0              apk
 libbz2                  1.0.8-r4               apk     
 libc-utils              0.7.2-r3               apk     
 libcap2                 2.66-r0                apk     
-libcrypto3              3.0.8-r3               apk     
+libcrypto3              3.0.8-r4               apk     
 libcurl                 8.0.1-r0               apk     
 libdav1d                1.0.0-r2               apk     
 libde265                1.0.11-r1              apk     
@@ -101,7 +101,7 @@ libsndfile              1.1.0-r2               apk
 libsodium               1.0.18-r2              apk     
 libsrt                  1.5.1-r0               apk     
 libssh                  0.10.4-r0              apk     
-libssl3                 3.0.8-r3               apk     
+libssl3                 3.0.8-r4               apk     
 libstdc++               12.2.1_git20220924-r4  apk     
 libtasn1                4.19.0-r0              apk     
 libtheora               1.1.1-r16              apk     
@@ -142,7 +142,7 @@ nghttp2-libs            1.51.0-r0              apk
 nginx                   1.22.1-r0              apk     
 numactl                 2.0.16-r1              apk     
 oniguruma               6.9.8-r0               apk     
-openssl                 3.0.8-r3               apk     
+openssl                 3.0.8-r4               apk     
 opus                    1.3.1-r1               apk     
 orc                     0.4.33-r0              apk     
 p11-kit                 0.24.1-r1              apk     
