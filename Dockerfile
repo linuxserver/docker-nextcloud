@@ -77,9 +77,9 @@ RUN \
   echo "env[PATH] = /usr/local/bin:/usr/bin:/bin" >> /etc/php81/php-fpm.conf && \
   echo "**** set version tag ****" && \
   if [ -z ${NEXTCLOUD_RELEASE+x} ]; then \
-    NEXTCLOUD_RELEASE=$(curl -sX GET https://api.github.com/repos/nextcloud/server/releases/latest \
-      | awk '/tag_name/{print $4;exit}' FS='[""]' \
-      | sed 's|^v||'); \
+    NEXTCLOUD_RELEASE=$(curl -sX GET https://api.github.com/repos/nextcloud/server/releases \
+      | jq -r '.[] | select(.prerelease != true) | .tag_name' \
+      | sed 's|^v||g' | sort -rV | head -1); \
   fi && \
   echo "**** download nextcloud ****" && \
   curl -o /app/nextcloud.tar.bz2 -L \
