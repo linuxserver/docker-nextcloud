@@ -35,7 +35,7 @@ fribidi                 1.0.12-r0              apk
 gdbm                    1.23-r0                apk     
 gdk-pixbuf              2.42.10-r0             apk     
 ghostscript             10.01.1-r0             apk     
-git                     2.38.4-r1              apk     
+git                     2.38.5-r0              apk     
 glib                    2.74.6-r0              apk     
 gmp                     6.2.1-r2               apk     
 gnu-libiconv            1.17-r0                apk     
