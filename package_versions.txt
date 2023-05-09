@@ -17,7 +17,7 @@ busybox                 1.35.0                 binary
 busybox                 1.35.0-r29             apk     
 busybox-binsh           1.35.0-r29             apk     
 c-client                2007f-r14              apk     
-ca-certificates         20220614-r4            apk     
+ca-certificates         20230506-r0            apk     
 ca-certificates-bundle  20220614-r4            apk     
 cairo                   1.17.6-r3              apk     
 cairo-gobject           1.17.6-r3              apk     
@@ -100,7 +100,7 @@ libsmbclient            4.16.10-r0             apk
 libsndfile              1.1.0-r2               apk     
 libsodium               1.0.18-r2              apk     
 libsrt                  1.5.1-r0               apk     
-libssh                  0.10.4-r0              apk     
+libssh                  0.10.5-r0              apk     
 libssl3                 3.0.8-r4               apk     
 libstdc++               12.2.1_git20220924-r4  apk     
 libtasn1                4.19.0-r0              apk     
