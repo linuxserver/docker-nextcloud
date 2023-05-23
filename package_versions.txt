@@ -66,7 +66,7 @@ libbz2                  1.0.8-r4               apk
 libc-utils              0.7.2-r3               apk     
 libcap2                 2.66-r1                apk     
 libcrypto3              3.0.8-r4               apk     
-libcurl                 8.0.1-r0               apk     
+libcurl                 8.1.0-r2               apk     
 libdav1d                1.0.0-r2               apk     
 libde265                1.0.11-r1              apk     
 libdrm                  2.4.114-r0             apk     
@@ -131,7 +131,7 @@ lmdb                    0.9.29-r2              apk
 logrotate               3.20.1-r3              apk     
 lz4-libs                1.9.4-r1               apk     
 mbedtls                 2.28.3-r0              apk     
-musl                    1.2.3-r4               apk     
+musl                    1.2.3-r5               apk     
 musl-utils              1.2.3-r4               apk     
 nano                    7.0-r0                 apk     
 ncurses-libs            6.3_p20221119-r0       apk     
