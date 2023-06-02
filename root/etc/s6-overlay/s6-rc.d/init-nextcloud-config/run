@@ -25,6 +25,52 @@ lsiown abc:abc \
     /config/www/nextcloud/config/config.php \
     /data
 
+# update check
+if [[ -f /config/www/nextcloud/version.php ]]; then
+    # Version Functions
+    # https://stackoverflow.com/questions/4023830/how-to-compare-two-strings-in-dot-separated-version-format-in-bash#comment92693604_4024263
+    vergte() { printf '%s\n%s' "${2}" "${1}" | sort -C -V; }
+    vergt() { ! vergte "${2}" "${1}"; }
+    verlte() { printf '%s\n%s' "${1}" "${2}" | sort -C -V; }
+    verlt() { ! verlte "${2}" "${1}"; }
+
+    NEXTCLOUD_RELEASE_AVAILABLE=$(curl -sX GET https://api.github.com/repos/nextcloud/server/releases |
+        jq -r '.[] | select(.prerelease != true) | .tag_name' |
+        sed 's|^v||g' | sort -rV | head -1)
+    NEXTCLOUD_RELEASE_INCLUDED=$(</app/NEXTCLOUD_RELEASE_INCLUDED)
+    OC_VERSION=$(php -r "include('/config/www/nextcloud/version.php'); print \$OC_VersionString;")
+
+    if vergt "${NEXTCLOUD_RELEASE_AVAILABLE}" "${OC_VERSION}"; then
+        cat <<-EOF
+
+
+
+################################################################
+#                                                              #
+#            An upgrade is available for Nextcloud.            #
+#                                                              #
+################################################################
+
+Installed Version: ${OC_VERSION}
+Available Version: ${NEXTCLOUD_RELEASE_AVAILABLE}
+Container Version: ${NEXTCLOUD_RELEASE_INCLUDED} (may require a container image update)
+
+################################################################
+#                                                              #
+#        To update Nextcloud, run the following command        #
+#                                                              #
+#            docker exec -it nextcloud updater.phar            #
+#                                                              #
+################################################################
+
+
+
+EOF
+        sleep 5s
+    fi
+fi
+
+# remove code server
 if (occ app:list --no-interaction | grep -q richdocumentscode) 2>/dev/null; then
     echo "Removing CODE Server"
     APP=$(occ app:list --no-interaction | grep richdocumentscode | awk -F ' ' '{print $2}' | tr -d ':')

@@ -75,6 +75,7 @@ RUN \
       | jq -r '.[] | select(.prerelease != true) | .tag_name' \
       | sed 's|^v||g' | sort -rV | head -1); \
   fi && \
+  echo "${NEXTCLOUD_RELEASE}" >/app/NEXTCLOUD_RELEASE_INCLUDED && \
   echo "**** download nextcloud ****" && \
   curl -o /app/nextcloud.tar.bz2 -L \
     https://download.nextcloud.com/server/releases/nextcloud-${NEXTCLOUD_RELEASE}.tar.bz2 && \
