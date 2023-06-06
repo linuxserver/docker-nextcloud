@@ -14,8 +14,17 @@ mkdir -p \
 # migrate legacy install (copy inside container)
 if [ -f /config/www/nextcloud/version.php ]; then
     echo "Migrating legacy install"
-    rsync -rlD --delete --exclude-from=/app/upgrade.exclude /config/www/nextcloud/ /app/www/public/
-    rsync -rlD --delete --include '/version.php' --exclude '/*' /config/www/nextcloud/ /app/www/public/
+    rsync -rlD --remove-source-files --delete --exclude-from=/app/upgrade.exclude /config/www/nextcloud/ /app/www/public/
+    rsync -rlD --remove-source-files --include '/version.php' --exclude '/*' /config/www/nextcloud/ /app/www/public/
+    rm -rf /config/www/nextcloud/updater/
+    find \
+        /config/www/nextcloud/ \
+        -type d -empty \
+        ! -path "/config/www/nextcloud/config" \
+        ! -path "/config/www/nextcloud/custom_apps" \
+        ! -path "/config/www/nextcloud/themes" \
+        -delete
+
     touch /tmp/full_chown
 fi
 
