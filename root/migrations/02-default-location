@@ -1,0 +1,11 @@
+#!/usr/bin/with-contenv bash
+# shellcheck shell=bash
+
+DEFAULT_CONF="/config/nginx/site-confs/default.conf"
+OLD_ROOT="root /config/www/nextcloud/;"
+NEW_ROOT="root /app/www/public;"
+
+if grep -q "${OLD_ROOT}" "${DEFAULT_CONF}"; then
+    echo "updating root in ${DEFAULT_CONF}"
+    sed -i "s|${OLD_ROOT}|${NEW_ROOT}|" "${DEFAULT_CONF}"
+fi

@@ -17,7 +17,7 @@ if [[ ! -f /config/crontabs/root ]]; then
     # copy crontab from included defaults (using -n, do not overwrite an existing file)
     cp -n /etc/crontabs/root /config/crontabs/
 fi
-sed -i "s|s6-setuidgid abc php[78] -f /config/www/nextcloud/cron.php|s6-setuidgid abc php -f /config/www/nextcloud/cron.php|" /config/crontabs/root
+sed -i "s|s6-setuidgid abc php[0-9]* -f /config/www/nextcloud/cron.php|s6-setuidgid abc php -f /app/www/public/cron.php|" /config/crontabs/root
 # set permissions and import user crontabs
 lsiown root:root /config/crontabs/root
 crontab -u root /config/crontabs/root

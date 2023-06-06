@@ -3,26 +3,106 @@
 
 # create folders
 mkdir -p \
-    /config/www/nextcloud \
+    /app/www/public \
+    /config/www/nextcloud/config \
+    /config/www/nextcloud/custom_apps \
+    /config/www/nextcloud/themes \
     /data
 
+# migrate legacy install (copy inside container)
+if [ -f /config/www/nextcloud/version.php ]; then
+    echo "Migrating legacy install"
+    rsync -rlD --delete --exclude-from=/app/upgrade.exclude /config/www/nextcloud/ /app/www/public/
+    for dir in config custom_apps themes; do
+        if [ -z "$(ls -A /app/www/public/${dir}/)" ]; then
+            rsync -rlD --include "/${dir}/" --exclude '/*' /config/www/nextcloud/ /app/www/public/
+        fi
+    done
+    rsync -rlD --include '/version.php' --exclude '/*' /config/www/nextcloud/ /app/www/public/
+    rm -f /config/www/nextcloud/version.php
+    touch /tmp/full_chown
+fi
+
+# copy defaults
+if [[ ! -f /app/www/public/config/config.php ]]; then
+    cp /defaults/config.php /app/www/public/config/config.php
+fi
+datadirectory=$(php -r "require '/app/www/public/version.php'; echo \$CONFIG['datadirectory'];")
+
+# symlink folders
+for dir in config data custom_apps themes; do
+    if [ "${dir}" = "data" ]; then
+        if [ "$(readlink /app/www/public/${dir})" != "${datadirectory}" ]; then
+            rm -rf "/app/www/public/${dir}"
+            ln -s "${datadirectory}" "/app/www/public/${dir}"
+        fi
+        continue
+    fi
+    if [ "$(readlink /app/www/public/${dir})" != "/config/www/nextcloud/${dir}" ]; then
+        rm -rf "/app/www/public/${dir}"
+        ln -s "/config/www/nextcloud/${dir}" "/app/www/public/${dir}"
+    fi
+done
+
 # install app
-if [ ! -e /config/www/nextcloud/index.php ]; then
-    tar xf /app/nextcloud.tar.bz2 -C \
-        /config/www/nextcloud --strip-components=1
+vergte() { printf '%s\n%s' "${2}" "${1}" | sort -C -V; }
+vergt() { ! vergte "${2}" "${1}"; }
+verlte() { printf '%s\n%s' "${1}" "${2}" | sort -C -V; }
+verlt() { ! verlte "${2}" "${1}"; }
+
+installed_version="0.0.0.0"
+if [ -f /app/www/public/version.php ]; then
+    installed_version=$(php -r "require '/app/www/public/version.php'; echo implode('.', \$OC_Version);")
+fi
+image_version=$(php -r "require '/app/www/src/version.php'; echo implode('.', \$OC_Version);")
+
+if vergt "${installed_version}" "${image_version}"; then
+    echo "Can't start Nextcloud because the version of the data (${installed_version}) is higher than the docker image version (${image_version}) and downgrading is not supported. Are you sure you have pulled the newest image version?"
+    sleep infinity
+fi
+
+if vergt "${image_version}" "${installed_version}"; then
+    echo "Initializing nextcloud ${image_version} ..."
+    if [ "${installed_version}" != "0.0.0.0" ]; then
+        echo "Upgrading nextcloud from ${installed_version} ..."
+        occ app:list | sed -n "/Enabled:/,/Disabled:/p" >/tmp/list_before
+    fi
+
+    rsync -rlD --delete --exclude-from=/app/upgrade.exclude /app/www/src/ /app/www/public/
+    for dir in config data custom_apps themes; do
+        if [ -z "$(ls -A /app/www/public/${dir}/)" ]; then
+            rsync -rlD --include "/${dir}/" --exclude '/*' /app/www/src/ /app/www/public/
+        fi
+    done
+    rsync -rlD --include '/version.php' --exclude '/*' /app/www/src/ /app/www/public/
+
+    touch /tmp/full_chown
+
+    if [ "${installed_version}" = "0.0.0.0" ]; then
+        # Install
+        echo "New nextcloud instance"
+        echo "Please run the web-based installer on first connect!"
+    else
+        # Upgrade
+        occ upgrade
+
+        occ app:list | sed -n "/Enabled:/,/Disabled:/p" >/tmp/list_after
+        echo "The following apps have been disabled:"
+        diff /tmp/list_before /tmp/list_after | grep '<' | cut -d- -f2 | cut -d: -f1
+    fi
+
+    rm -f /tmp/list_before /tmp/list_after
+    echo "Initializing finished"
+fi
+
+echo "Setting permissions"
+if [ -f /tmp/full_chown ]; then
     lsiown abc:abc -R \
-        /config/www/nextcloud
-    chmod +x /config/www/nextcloud/occ
+        /app/www/public
+    rm -f /tmp/full_chown
 fi
-
-# copy config
-if [[ ! -f /config/www/nextcloud/config/config.php ]]; then
-    cp /defaults/config.php /config/www/nextcloud/config/config.php
-fi
-
-# permissions
 lsiown abc:abc \
-    /config/www/nextcloud/config/config.php \
+    /app/www/public \
     /data
 
 if (occ app:list --no-interaction | grep -q richdocumentscode) 2>/dev/null; then
