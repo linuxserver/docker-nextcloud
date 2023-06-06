@@ -3,25 +3,13 @@
 
 # create folders
 mkdir -p \
-    /app/www/public \
+    /app/www/public/config \
+    /app/www/public/custom_apps \
+    /app/www/public/themes \
     /config/www/nextcloud/config \
     /config/www/nextcloud/custom_apps \
     /config/www/nextcloud/themes \
     /data
-
-# migrate legacy install (copy inside container)
-if [ -f /config/www/nextcloud/version.php ]; then
-    echo "Migrating legacy install"
-    rsync -rlD --delete --exclude-from=/app/upgrade.exclude /config/www/nextcloud/ /app/www/public/
-    for dir in config custom_apps themes; do
-        if [ -z "$(ls -A /app/www/public/${dir}/)" ]; then
-            rsync -rlD --include "/${dir}/" --exclude '/*' /config/www/nextcloud/ /app/www/public/
-        fi
-    done
-    rsync -rlD --include '/version.php' --exclude '/*' /config/www/nextcloud/ /app/www/public/
-    rm -f /config/www/nextcloud/version.php
-    touch /tmp/full_chown
-fi
 
 # copy defaults
 if [[ ! -f /app/www/public/config/config.php ]]; then
@@ -43,6 +31,20 @@ for dir in config data custom_apps themes; do
         ln -s "/config/www/nextcloud/${dir}" "/app/www/public/${dir}"
     fi
 done
+
+# migrate legacy install (copy inside container)
+if [ -f /config/www/nextcloud/version.php ]; then
+    echo "Migrating legacy install"
+    rsync -rlD --delete --exclude-from=/app/upgrade.exclude /config/www/nextcloud/ /app/www/public/
+    for dir in config custom_apps themes; do
+        if [ -z "$(ls -A /app/www/public/${dir}/)" ]; then
+            rsync -rlD --include "/${dir}/" --exclude '/*' /config/www/nextcloud/ /app/www/public/
+        fi
+    done
+    rsync -rlD --include '/version.php' --exclude '/*' /config/www/nextcloud/ /app/www/public/
+    rm -f /config/www/nextcloud/version.php
+    touch /tmp/full_chown
+fi
 
 # install app
 vergte() { printf '%s\n%s' "${2}" "${1}" | sort -C -V; }
