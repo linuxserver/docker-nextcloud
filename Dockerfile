@@ -56,26 +56,26 @@ RUN \
   echo "env[PATH] = /usr/local/bin:/usr/bin:/bin" >> /etc/php82/php-fpm.conf && \
   echo "**** configure php for nextcloud ****" && \
   { \
-    echo 'apc.enable_cli=1' \
+    echo 'apc.enable_cli=1'; \
   } >> /etc/php82/conf.d/apcu.ini && \
   { \
-    echo 'opcache.enable=1' \
-    echo 'opcache.interned_strings_buffer=32' \
-    echo 'opcache.max_accelerated_files=10000' \
-    echo 'opcache.memory_consumption=128' \
-    echo 'opcache.save_comments=1' \
-    echo 'opcache.revalidate_freq=60' \
-    echo 'opcache.jit=1255' \
-    echo 'opcache.jit_buffer_size=128M' \
+    echo 'opcache.enable=1'; \
+    echo 'opcache.interned_strings_buffer=32'; \
+    echo 'opcache.max_accelerated_files=10000'; \
+    echo 'opcache.memory_consumption=128'; \
+    echo 'opcache.save_comments=1'; \
+    echo 'opcache.revalidate_freq=60'; \
+    echo 'opcache.jit=1255'; \
+    echo 'opcache.jit_buffer_size=128M'; \
   } >> "/etc/php82/conf.d/00_opcache.ini" && \
   { \
-    echo 'memory_limit=512M' \
-    echo 'upload_max_filesize=16G' \
-    echo 'post_max_size=16G' \
-    echo 'max_input_time=3600' \
-    echo 'max_execution_time=3600' \
-    echo 'output_buffering=0' \
-    echo 'always_populate_raw_post_data=-1' \
+    echo 'memory_limit=512M'; \
+    echo 'upload_max_filesize=16G'; \
+    echo 'post_max_size=16G'; \
+    echo 'max_input_time=3600'; \
+    echo 'max_execution_time=3600'; \
+    echo 'output_buffering=0'; \
+    echo 'always_populate_raw_post_data=-1'; \
   } >> "/etc/php82/conf.d/nextcloud.ini" && \
   echo "**** install nextcloud ****" && \
   mkdir -p \
@@ -89,11 +89,11 @@ RUN \
     /tmp/nextcloud.tar.bz2 -L \
     https://download.nextcloud.com/server/releases/nextcloud-${NEXTCLOUD_RELEASE}.tar.bz2 && \
   tar xf /tmp/nextcloud.tar.bz2 -C \
-    /app/www/src --strip-components=1 \
-  rm -rf /app/www/src/updater; \
-  mkdir -p /app/www/src/data; \
-  mkdir -p /app/www/src/custom_apps; \
-  chmod +x /app/www/src/occ; \
+    /app/www/src --strip-components=1 && \
+  rm -rf /app/www/src/updater && \
+  mkdir -p /app/www/src/data && \
+  mkdir -p /app/www/src/custom_apps && \
+  chmod +x /app/www/src/occ && \
   echo "**** cleanup ****" && \
   rm -rf \
     /tmp/*
