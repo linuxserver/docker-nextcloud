@@ -11,40 +11,31 @@ mkdir -p \
     /config/www/nextcloud/themes \
     /data
 
+# migrate legacy install (copy inside container)
+if [ -f /config/www/nextcloud/version.php ]; then
+    echo "Migrating legacy install"
+    rsync -rlD --delete --exclude-from=/app/upgrade.exclude /config/www/nextcloud/ /app/www/public/
+    rsync -rlD --delete --include '/version.php' --exclude '/*' /config/www/nextcloud/ /app/www/public/
+    touch /tmp/full_chown
+fi
+
 # copy defaults
 if [[ ! -f /app/www/public/config/config.php ]]; then
     cp /defaults/config.php /app/www/public/config/config.php
 fi
-datadirectory=$(php -r "require '/app/www/public/version.php'; echo \$CONFIG['datadirectory'];")
+datadirectory=$(php -r "require '/app/www/public/config/config.php'; echo \$CONFIG['datadirectory'];")
 
 # symlink folders
-for dir in config data custom_apps themes; do
-    if [ "${dir}" = "data" ]; then
-        if [ "$(readlink /app/www/public/${dir})" != "${datadirectory}" ]; then
-            rm -rf "/app/www/public/${dir}"
-            ln -s "${datadirectory}" "/app/www/public/${dir}"
-        fi
-        continue
-    fi
+if [ "$(readlink /app/www/public/data)" != "${datadirectory}" ]; then
+    rm -rf /app/www/public/data
+    ln -s "${datadirectory}" /app/www/public/data
+fi
+for dir in config custom_apps themes; do
     if [ "$(readlink /app/www/public/${dir})" != "/config/www/nextcloud/${dir}" ]; then
         rm -rf "/app/www/public/${dir}"
         ln -s "/config/www/nextcloud/${dir}" "/app/www/public/${dir}"
     fi
 done
-
-# migrate legacy install (copy inside container)
-if [ -f /config/www/nextcloud/version.php ]; then
-    echo "Migrating legacy install"
-    rsync -rlD --delete --exclude-from=/app/upgrade.exclude /config/www/nextcloud/ /app/www/public/
-    for dir in config custom_apps themes; do
-        if [ -z "$(ls -A /app/www/public/${dir}/)" ]; then
-            rsync -rlD --include "/${dir}/" --exclude '/*' /config/www/nextcloud/ /app/www/public/
-        fi
-    done
-    rsync -rlD --include '/version.php' --exclude '/*' /config/www/nextcloud/ /app/www/public/
-    rm -f /config/www/nextcloud/version.php
-    touch /tmp/full_chown
-fi
 
 # install app
 vergte() { printf '%s\n%s' "${2}" "${1}" | sort -C -V; }
@@ -54,9 +45,9 @@ verlt() { ! verlte "${2}" "${1}"; }
 
 installed_version="0.0.0.0"
 if [ -f /app/www/public/version.php ]; then
-    installed_version=$(php -r "require '/app/www/public/version.php'; echo implode('.', \$OC_Version);")
+    installed_version=$(php -r "require '/app/www/public/version.php'; echo implode('.', \$OC_Version);" 2>/dev/null)
 fi
-image_version=$(php -r "require '/app/www/src/version.php'; echo implode('.', \$OC_Version);")
+image_version=$(php -r "require '/app/www/src/version.php'; echo implode('.', \$OC_Version);" 2>/dev/null)
 
 if vergt "${installed_version}" "${image_version}"; then
     echo "Can't start Nextcloud because the version of the data (${installed_version}) is higher than the docker image version (${image_version}) and downgrading is not supported. Are you sure you have pulled the newest image version?"
@@ -72,7 +63,7 @@ if vergt "${image_version}" "${installed_version}"; then
 
     rsync -rlD --delete --exclude-from=/app/upgrade.exclude /app/www/src/ /app/www/public/
     for dir in config data custom_apps themes; do
-        if [ -z "$(ls -A /app/www/public/${dir}/)" ]; then
+        if [ -z "$(ls -A /app/www/public/${dir}/ 2>/dev/null)" ]; then
             rsync -rlD --include "/${dir}/" --exclude '/*' /app/www/src/ /app/www/public/
         fi
     done
