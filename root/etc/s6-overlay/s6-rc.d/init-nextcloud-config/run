@@ -24,27 +24,26 @@ if [ -f /config/www/nextcloud/version.php ]; then
         ! -path "/config/www/nextcloud/custom_apps" \
         ! -path "/config/www/nextcloud/themes" \
         -delete
-
     touch /tmp/full_chown
 fi
 
-# copy defaults
-if [[ ! -f /app/www/public/config/config.php ]]; then
-    cp /defaults/config.php /app/www/public/config/config.php
-fi
-datadirectory=$(php -r "require '/app/www/public/config/config.php'; echo \$CONFIG['datadirectory'];")
-
-# symlink folders
-if [ "$(readlink /app/www/public/data)" != "${datadirectory}" ]; then
-    rm -rf /app/www/public/data
-    ln -s "${datadirectory}" /app/www/public/data
-fi
+# symlink config folders
 for dir in config custom_apps themes; do
     if [ "$(readlink /app/www/public/${dir})" != "/config/www/nextcloud/${dir}" ]; then
         rm -rf "/app/www/public/${dir}"
         ln -s "/config/www/nextcloud/${dir}" "/app/www/public/${dir}"
     fi
 done
+
+# copy defaults
+cp -n /defaults/config.php /app/www/public/config/config.php 2> >(grep -v 'cp: not replacing')
+datadirectory=$(php -r "require '/app/www/public/config/config.php'; echo \$CONFIG['datadirectory'];" 2>/dev/null)
+
+# symlink data folder
+if [ "$(readlink /app/www/public/data)" != "${datadirectory}" ]; then
+    rm -rf /app/www/public/data
+    ln -s "${datadirectory}" /app/www/public/data
+fi
 
 # install app
 vergte() { printf '%s\n%s' "${2}" "${1}" | sort -C -V; }
