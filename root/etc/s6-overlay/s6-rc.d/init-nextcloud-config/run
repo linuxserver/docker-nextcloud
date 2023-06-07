@@ -32,6 +32,7 @@ for dir in apps config themes; do
     if [ "$(readlink /app/www/public/${dir})" != "/config/www/nextcloud/${dir}" ]; then
         rm -rf "/app/www/public/${dir}"
         ln -s "/config/www/nextcloud/${dir}" "/app/www/public/${dir}"
+        lsiown abc:abc "/config/www/nextcloud/${dir}" "/app/www/public/${dir}"
     fi
 done
 
@@ -39,6 +40,7 @@ done
 if [ "$(readlink /app/www/public/data)" != "/data" ]; then
     rm -rf /app/www/public/data
     ln -s /data /app/www/public/data
+    lsiown abc:abc /data /app/www/public/data
 fi
 
 # initialize version variables
@@ -101,17 +103,10 @@ fi
 
 rm -f /tmp/migration
 
+# permissions
 lsiown abc:abc \
     /app/www/public \
-    /app/www/public/apps \
-    /app/www/public/config \
-    /app/www/public/data \
-    /app/www/public/themes \
-    /config/www/nextcloud \
-    /config/www/nextcloud/apps \
-    /config/www/nextcloud/config \
-    /config/www/nextcloud/themes \
-    /data
+    /config/www/nextcloud
 
 # setup config
 if occ config:system:get installed >/dev/null 2>&1; then
