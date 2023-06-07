@@ -35,14 +35,10 @@ for dir in config custom_apps themes; do
     fi
 done
 
-# copy defaults
-cp -n /defaults/config.php /app/www/public/config/config.php 2> >(grep -v 'cp: not replacing')
-datadirectory=$(php -r "require '/app/www/public/config/config.php'; echo \$CONFIG['datadirectory'];" 2>/dev/null)
-
 # symlink data folder
-if [ "$(readlink /app/www/public/data)" != "${datadirectory}" ]; then
+if [ "$(readlink /app/www/public/data)" != "/data" ]; then
     rm -rf /app/www/public/data
-    ln -s "${datadirectory}" /app/www/public/data
+    ln -s /data /app/www/public/data
 fi
 
 # initialize version variables
