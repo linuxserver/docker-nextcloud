@@ -116,17 +116,19 @@ lsiown abc:abc \
     /data
 
 # setup config
-if ! occ config:system:get memcache.local >/dev/null 2>&1; then
-    occ config:system:set memcache.local --value='\\OC\\Memcache\\APCu'
-fi
-if ! occ config:system:get memcache.distributed >/dev/null 2>&1; then
-    occ config:system:set memcache.distributed --value='\\OC\\Memcache\\Memcached'
-fi
-if ! occ config:system:get datadirectory >/dev/null 2>&1; then
-    occ config:system:set datadirectory --value='/data'
-fi
-if ! occ config:system:get apps_paths >/dev/null 2>&1 || ! occ config:system:get apps_paths | grep -q 'path: /app/www/public/apps' || ! occ config:system:get apps_paths | grep -q 'path: /app/www/public/custom_apps'; then
-    occ config:import < <(echo '{"system":{"apps_paths":[{"path":"\/app\/www\/public\/apps","url":"\/apps","writable":false},{"path":"\/app\/www\/public\/custom_apps","url":"\/custom_apps","writable":true}]}}')
+if occ config:system:get installed >/dev/null 2>&1; then
+    if ! occ config:system:get memcache.local >/dev/null 2>&1; then
+        occ config:system:set memcache.local --value='\\OC\\Memcache\\APCu'
+    fi
+    if ! occ config:system:get memcache.distributed >/dev/null 2>&1; then
+        occ config:system:set memcache.distributed --value='\\OC\\Memcache\\Memcached'
+    fi
+    if ! occ config:system:get datadirectory >/dev/null 2>&1; then
+        occ config:system:set datadirectory --value='/data'
+    fi
+    if ! occ config:system:get apps_paths >/dev/null 2>&1 || ! occ config:system:get apps_paths | grep -q 'path: /app/www/public/apps' || ! occ config:system:get apps_paths | grep -q 'path: /app/www/public/custom_apps'; then
+        occ config:import < <(echo '{"system":{"apps_paths":[{"path":"\/app\/www\/public\/apps","url":"\/apps","writable":false},{"path":"\/app\/www\/public\/custom_apps","url":"\/custom_apps","writable":true}]}}')
+    fi
 fi
 
 if (occ app:list --no-interaction | grep -q richdocumentscode) 2>/dev/null; then
