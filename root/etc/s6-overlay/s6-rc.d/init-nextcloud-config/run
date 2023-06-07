@@ -99,11 +99,20 @@ fi
 if [ -f /tmp/full_chown ]; then
     echo "Setting permissions"
     lsiown abc:abc -R \
-        /app/www/public
+        /app/www/public \
+        /config/www/nextcloud
     rm -f /tmp/full_chown
 fi
 lsiown abc:abc \
     /app/www/public \
+    /app/www/public/config \
+    /app/www/public/custom_apps \
+    /app/www/public/data \
+    /app/www/public/themes \
+    /config/www/nextcloud \
+    /config/www/nextcloud/config \
+    /config/www/nextcloud/custom_apps \
+    /config/www/nextcloud/themes \
     /data
 
 # setup config
