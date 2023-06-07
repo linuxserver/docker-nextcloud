@@ -72,7 +72,7 @@ if vergt "${image_version}" "${installed_version}"; then
     rsync -rlD --exclude-from=/app/upgrade.exclude /app/www/src/ /app/www/public/
     for dir in config data custom_apps themes; do
         if [ -z "$(ls -A /app/www/public/${dir}/ 2>/dev/null)" ]; then
-            rsync -rlD --include "/${dir}/" --exclude '/*' /app/www/src/ /app/www/public/
+            rsync -rlD --include "/${dir}/*" --exclude '/*' /app/www/src/ /app/www/public/
         fi
     done
     rsync -rlD --include '/version.php' --exclude '/*' /app/www/src/ /app/www/public/
