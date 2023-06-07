@@ -35,21 +35,9 @@ for dir in config custom_apps themes; do
     fi
 done
 
-# setup config
+# copy defaults
 cp -n /defaults/config.php /app/www/public/config/config.php 2> >(grep -v 'cp: not replacing')
-if ! occ config:system:get memcache.local; then
-    occ config:system:set memcache.local --value='\\OC\\Memcache\\APCu'
-fi
-if ! occ config:system:get memcache.distributed; then
-    occ config:system:set memcache.distributed --value='\\OC\\Memcache\\Memcached'
-fi
-if ! occ config:system:get datadirectory; then
-    occ config:system:set datadirectory --value='/data'
-fi
-if ! occ config:system:get apps_paths || ! occ config:system:get apps_paths | grep -q 'path: /app/www/public/apps' || ! occ config:system:get apps_paths | grep -q 'path: /app/www/public/custom_apps'; then
-    occ config:import < <(echo '{"system":{"apps_paths":[{"path":"\/app\/www\/public\/apps","url":"\/apps","writable":false},{"path":"\/app\/www\/public\/custom_apps","url":"\/custom_apps","writable":true}]}}')
-fi
-datadirectory=$(occ config:system:get datadirectory)
+datadirectory=$(php -r "require '/app/www/public/config/config.php'; echo \$CONFIG['datadirectory'];" 2>/dev/null)
 
 # symlink data folder
 if [ "$(readlink /app/www/public/data)" != "${datadirectory}" ]; then
@@ -117,6 +105,20 @@ fi
 lsiown abc:abc \
     /app/www/public \
     /data
+
+# setup config
+if ! occ config:system:get memcache.local; then
+    occ config:system:set memcache.local --value='\\OC\\Memcache\\APCu'
+fi
+if ! occ config:system:get memcache.distributed; then
+    occ config:system:set memcache.distributed --value='\\OC\\Memcache\\Memcached'
+fi
+if ! occ config:system:get datadirectory; then
+    occ config:system:set datadirectory --value='/data'
+fi
+if ! occ config:system:get apps_paths || ! occ config:system:get apps_paths | grep -q 'path: /app/www/public/apps' || ! occ config:system:get apps_paths | grep -q 'path: /app/www/public/custom_apps'; then
+    occ config:import < <(echo '{"system":{"apps_paths":[{"path":"\/app\/www\/public\/apps","url":"\/apps","writable":false},{"path":"\/app\/www\/public\/custom_apps","url":"\/custom_apps","writable":true}]}}')
+fi
 
 if (occ app:list --no-interaction | grep -q richdocumentscode) 2>/dev/null; then
     echo "Removing CODE Server"
