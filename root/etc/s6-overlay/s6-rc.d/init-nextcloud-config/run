@@ -3,11 +3,11 @@
 
 # create folders
 mkdir -p \
+    /app/www/public/apps \
     /app/www/public/config \
-    /app/www/public/custom_apps \
     /app/www/public/themes \
+    /config/www/nextcloud/apps \
     /config/www/nextcloud/config \
-    /config/www/nextcloud/custom_apps \
     /config/www/nextcloud/themes \
     /data
 
@@ -20,15 +20,15 @@ if [ -f /config/www/nextcloud/version.php ]; then
     find \
         /config/www/nextcloud/ \
         -type d -empty \
+        ! -path "/config/www/nextcloud/apps" \
         ! -path "/config/www/nextcloud/config" \
-        ! -path "/config/www/nextcloud/custom_apps" \
         ! -path "/config/www/nextcloud/themes" \
         -delete
     touch /tmp/migration
 fi
 
 # symlink config folders
-for dir in config custom_apps themes; do
+for dir in apps config themes; do
     if [ "$(readlink /app/www/public/${dir})" != "/config/www/nextcloud/${dir}" ]; then
         rm -rf "/app/www/public/${dir}"
         ln -s "/config/www/nextcloud/${dir}" "/app/www/public/${dir}"
@@ -70,7 +70,7 @@ if vergt "${image_version}" "${installed_version}" || [ -f /tmp/migration ]; the
     fi
 
     rsync -rlD --exclude-from=/app/upgrade.exclude /app/www/src/ /app/www/public/
-    for dir in config data custom_apps themes; do
+    for dir in apps config data themes; do
         if [ -z "$(ls -A /app/www/public/${dir}/ 2>/dev/null)" ]; then
             rsync -rlD --include "/${dir}/*" --exclude '/*' /app/www/src/ /app/www/public/
         fi
@@ -103,13 +103,13 @@ rm -f /tmp/migration
 
 lsiown abc:abc \
     /app/www/public \
+    /app/www/public/apps \
     /app/www/public/config \
-    /app/www/public/custom_apps \
     /app/www/public/data \
     /app/www/public/themes \
     /config/www/nextcloud \
+    /config/www/nextcloud/apps \
     /config/www/nextcloud/config \
-    /config/www/nextcloud/custom_apps \
     /config/www/nextcloud/themes \
     /data
 
@@ -120,12 +120,6 @@ if occ config:system:get installed >/dev/null 2>&1; then
     fi
     if ! occ config:system:get memcache.distributed >/dev/null 2>&1; then
         occ config:system:set memcache.distributed --value='\\OC\\Memcache\\Memcached'
-    fi
-    if ! occ config:system:get datadirectory >/dev/null 2>&1; then
-        occ config:system:set datadirectory --value='/data'
-    fi
-    if ! occ config:system:get apps_paths >/dev/null 2>&1 || ! occ config:system:get apps_paths | grep -q 'path: /app/www/public/apps' || ! occ config:system:get apps_paths | grep -q 'path: /app/www/public/custom_apps'; then
-        occ config:import < <(echo '{"system":{"apps_paths":[{"path":"\/app\/www\/public\/apps","url":"\/apps","writable":false},{"path":"\/app\/www\/public\/custom_apps","url":"\/custom_apps","writable":true}]}}')
     fi
 fi
 

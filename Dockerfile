@@ -92,7 +92,6 @@ RUN \
     /app/www/src --strip-components=1 && \
   rm -rf /app/www/src/updater && \
   mkdir -p /app/www/src/data && \
-  mkdir -p /app/www/src/custom_apps && \
   chmod +x /app/www/src/occ && \
   echo "**** cleanup ****" && \
   rm -rf \
