@@ -24,7 +24,7 @@ if [ -f /config/www/nextcloud/version.php ]; then
         ! -path "/config/www/nextcloud/custom_apps" \
         ! -path "/config/www/nextcloud/themes" \
         -delete
-    touch /tmp/full_chown
+    touch /tmp/migration
 fi
 
 # symlink config folders
@@ -45,27 +45,48 @@ if [ "$(readlink /app/www/public/data)" != "${datadirectory}" ]; then
     ln -s "${datadirectory}" /app/www/public/data
 fi
 
-# install app
+# initialize version variables
+installed_version="0.0.0.0"
+config_version="0.0.0.0"
+
+# get versions
+image_version=$(php -r "require '/app/www/src/version.php'; echo implode('.', \$OC_Version);" 2>/dev/null)
+if [ -f /app/www/public/version.php ]; then
+    installed_version=$(php -r "require '/app/www/public/version.php'; echo implode('.', \$OC_Version);" 2>/dev/null)
+fi
+if occ config:system:get installed >/dev/null 2>&1 &&
+    occ config:system:get version >/dev/null 2>&1; then
+    config_version=$(occ config:system:get version 2>/dev/null)
+fi
+
+# compare versions
 vergte() { printf '%s\n%s' "${2}" "${1}" | sort -C -V; }
 vergt() { ! vergte "${2}" "${1}"; }
 verlte() { printf '%s\n%s' "${1}" "${2}" | sort -C -V; }
 verlt() { ! verlte "${2}" "${1}"; }
 
-installed_version="0.0.0.0"
-if [ -f /app/www/public/version.php ]; then
-    installed_version=$(php -r "require '/app/www/public/version.php'; echo implode('.', \$OC_Version);" 2>/dev/null)
-fi
-image_version=$(php -r "require '/app/www/src/version.php'; echo implode('.', \$OC_Version);" 2>/dev/null)
-
-if vergt "${installed_version}" "${image_version}"; then
-    echo "Can't start Nextcloud because the version of the data (${installed_version}) is higher than the docker image version (${image_version}) and downgrading is not supported. Are you sure you have pulled the newest image version?"
+if vergt "${installed_version}" "${image_version}" ||
+    vergt "${config_version}" "${image_version}"; then
+    echo "Can't start Nextcloud because the version of the data (install: ${installed_version} or config: ${config_version}) is higher than the docker image version (${image_version}) and downgrading is not supported. Are you sure you have pulled the newest image version?"
     sleep infinity
 fi
+if [ "${installed_version}" != "0.0.0.0" ] &&
+    [ "${config_version}" != "0.0.0.0" ] &&
+    [ "${installed_version}" != "${config_version}" ]; then
+    echo "Version mismatch between config and install. Forcing upgrade to ${image_version} ..."
+    touch /tmp/version_mismatch
 
-if vergt "${image_version}" "${installed_version}"; then
+fi
+
+# initialize nextcloud
+if vergt "${image_version}" "${installed_version}" ||
+    vergt "${image_version}" "${config_version}" ||
+    [ -f /tmp/migration ] ||
+    [ -f /tmp/version_mismatch ]; then
     echo "Initializing nextcloud ${image_version} ..."
-    if [ "${installed_version}" != "0.0.0.0" ]; then
-        echo "Upgrading nextcloud from ${installed_version} ..."
+    if [ "${installed_version}" != "0.0.0.0" ] ||
+        [ "${config_version}" != "0.0.0.0" ]; then
+        echo "Upgrading nextcloud from install: ${installed_version} or config: ${config_version} ..."
         occ app:list | sed -n "/Enabled:/,/Disabled:/p" >/tmp/list_before
     fi
 
@@ -77,9 +98,13 @@ if vergt "${image_version}" "${installed_version}"; then
     done
     rsync -rlD --include '/version.php' --exclude '/*' /app/www/src/ /app/www/public/
 
-    touch /tmp/full_chown
+    echo "Setting permissions"
+    lsiown abc:abc -R \
+        /app/www/public \
+        /config/www/nextcloud
 
-    if [ "${installed_version}" = "0.0.0.0" ]; then
+    if [ "${installed_version}" = "0.0.0.0" ] &&
+        [ "${config_version}" = "0.0.0.0" ]; then
         # Install
         echo "New nextcloud instance"
         echo "Please run the web-based installer on first connect!"
@@ -96,13 +121,10 @@ if vergt "${image_version}" "${installed_version}"; then
     echo "Initializing finished"
 fi
 
-if [ -f /tmp/full_chown ]; then
-    echo "Setting permissions"
-    lsiown abc:abc -R \
-        /app/www/public \
-        /config/www/nextcloud
-    rm -f /tmp/full_chown
-fi
+rm -f \
+    /tmp/migration \
+    /tmp/version_mismatch
+
 lsiown abc:abc \
     /app/www/public \
     /app/www/public/config \
