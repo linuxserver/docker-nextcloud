@@ -14,7 +14,7 @@ mkdir -p \
 # migrate legacy install (copy inside container)
 if [ -f /config/www/nextcloud/version.php ]; then
     echo "Migrating legacy install"
-    rsync -rlD --remove-source-files --delete --exclude-from=/app/upgrade.exclude /config/www/nextcloud/ /app/www/public/
+    rsync -rlD --remove-source-files --exclude-from=/app/upgrade.exclude /config/www/nextcloud/ /app/www/public/
     rsync -rlD --remove-source-files --include '/version.php' --exclude '/*' /config/www/nextcloud/ /app/www/public/
     rm -rf /config/www/nextcloud/updater/
     find \
@@ -69,7 +69,7 @@ if vergt "${image_version}" "${installed_version}"; then
         occ app:list | sed -n "/Enabled:/,/Disabled:/p" >/tmp/list_before
     fi
 
-    rsync -rlD --delete --exclude-from=/app/upgrade.exclude /app/www/src/ /app/www/public/
+    rsync -rlD --exclude-from=/app/upgrade.exclude /app/www/src/ /app/www/public/
     for dir in config data custom_apps themes; do
         if [ -z "$(ls -A /app/www/public/${dir}/ 2>/dev/null)" ]; then
             rsync -rlD --include "/${dir}/" --exclude '/*' /app/www/src/ /app/www/public/
