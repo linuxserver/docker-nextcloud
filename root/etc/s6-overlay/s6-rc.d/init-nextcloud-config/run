@@ -13,7 +13,7 @@ mkdir -p \
 
 # migrate legacy install (copy inside container)
 if [ -f /config/www/nextcloud/version.php ]; then
-    echo "Migrating legacy install"
+    echo "Migrating legacy install (this can take a while) ...)"
     rsync -rlD --remove-source-files --exclude-from=/app/upgrade.exclude /config/www/nextcloud/ /app/www/public/
     rsync -rlD --remove-source-files --include '/version.php' --exclude '/*' /config/www/nextcloud/ /app/www/public/
     rm -rf /config/www/nextcloud/updater/
@@ -64,7 +64,7 @@ fi
 
 # initialize nextcloud
 if vergt "${image_version}" "${installed_version}" || [ -z "$(ls -A /app/www/public/core/ 2>/dev/null)" ] || [ -f /tmp/migration ]; then
-    echo "Initializing nextcloud ${image_version} ..."
+    echo "Initializing nextcloud ${image_version} (this can take a while) ..."
     if [ "${installed_version}" != "0.0.0.0" ]; then
         echo "Upgrading nextcloud from ${installed_version} ..."
         occ app:list | sed -n "/Enabled:/,/Disabled:/p" >/tmp/list_before
