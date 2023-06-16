@@ -24,7 +24,7 @@ if [ -f /config/www/nextcloud/version.php ]; then
         ! -path "/config/www/nextcloud/config" \
         ! -path "/config/www/nextcloud/themes" \
         -delete
-    sed -i "s|/config/www/nextcloud/|/app/www/public/|g" /config/crontabs/root
+    sed -i "s|/config/www/nextcloud/cron.php|/app/www/public/cron.php|g" /config/crontabs/root
     touch /tmp/migration
 fi
 
