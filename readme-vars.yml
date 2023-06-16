@@ -53,7 +53,7 @@ app_setup_block: |
 
   ### Updating Nextcloud
 
-  Updating the Nextcloud container is done by pulling the new image, throwing away the old container and starting the new one.
+  Updating Nextcloud is done by pulling the new image, and recreating the container with it.
 
   It is only possible to upgrade one major version at a time. For example, if you want to upgrade from version 14 to 16, you will have to upgrade from version 14 to 15, then from 15 to 16.
 
