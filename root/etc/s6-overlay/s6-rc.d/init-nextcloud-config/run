@@ -63,7 +63,7 @@ if vergt "${installed_version}" "${image_version}"; then
 fi
 
 # initialize nextcloud
-if vergt "${image_version}" "${installed_version}" || [ -f /tmp/migration ]; then
+if vergt "${image_version}" "${installed_version}" || [ -z "$(ls -A /app/www/public/core/ 2>/dev/null)" ] || [ -f /tmp/migration ]; then
     echo "Initializing nextcloud ${image_version} ..."
     if [ "${installed_version}" != "0.0.0.0" ]; then
         echo "Upgrading nextcloud from ${installed_version} ..."
