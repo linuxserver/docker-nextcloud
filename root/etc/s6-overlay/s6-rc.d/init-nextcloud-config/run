@@ -116,9 +116,6 @@ if occ config:system:get installed >/dev/null 2>&1; then
     if ! occ config:system:get memcache.local >/dev/null 2>&1; then
         occ config:system:set memcache.local --value='\\OC\\Memcache\\APCu'
     fi
-    if ! occ config:system:get memcache.distributed >/dev/null 2>&1; then
-        occ config:system:set memcache.distributed --value='\\OC\\Memcache\\Memcached'
-    fi
 fi
 
 if (occ app:list --no-interaction | grep -q richdocumentscode) 2>/dev/null; then
