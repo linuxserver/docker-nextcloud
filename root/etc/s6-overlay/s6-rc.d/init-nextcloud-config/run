@@ -15,7 +15,6 @@ mkdir -p \
 if [ -f /config/www/nextcloud/version.php ]; then
     echo "Migrating legacy install (this can take a while) ...)"
     rsync -rlD --remove-source-files --exclude-from=/app/upgrade.exclude /config/www/nextcloud/ /app/www/public/
-    rsync -rlD --remove-source-files --include '/version.php' --exclude '/*' /config/www/nextcloud/ /app/www/public/
     rm -rf /config/www/nextcloud/updater/
     find \
         /config/www/nextcloud/ \
@@ -25,7 +24,7 @@ if [ -f /config/www/nextcloud/version.php ]; then
         ! -path "/config/www/nextcloud/themes" \
         -delete
     sed -i "s|/config/www/nextcloud/cron.php|/app/www/public/cron.php|g" /config/crontabs/root
-    touch /tmp/migration
+    touch /config/www/nextcloud/config/needs_migration
 fi
 
 # symlink config folders
@@ -52,7 +51,7 @@ if [ "${installed_version}" = "" ]; then
 fi
 image_major="${image_version%%.*}"
 installed_major="${installed_version%%.*}"
-((max_upgrade=installed_major+1))
+((max_upgrade = installed_major + 1))
 
 # compare versions
 vergte() { printf '%s\n%s' "${2}" "${1}" | sort -C -V; }
@@ -60,58 +59,68 @@ vergt() { ! vergte "${2}" "${1}"; }
 verlte() { printf '%s\n%s' "${1}" "${2}" | sort -C -V; }
 verlt() { ! verlte "${2}" "${1}"; }
 
-if [ "${installed_version}" != "0.0.0.0" ] && vergt "${image_major}" "${max_upgrade}"; then
-    echo "Can't start Nextcloud because the version of the data (${installed_version}) is more than one major version behind the docker image version (${image_version}) and upgrading more than one major version is not supported. Please run an image tagged for the major version ${max_upgrade} first."
-    sleep infinity
-fi
-
 if vergt "${installed_version}" "${image_version}"; then
     echo "Can't start Nextcloud because the version of the data (${installed_version}) is higher than the docker image version (${image_version}) and downgrading is not supported. Are you sure you have pulled the newest image version?"
     sleep infinity
 fi
 
+if [ "${installed_version}" != "0.0.0.0" ] && vergt "${image_major}" "${max_upgrade}"; then
+    echo "Can't start Nextcloud because the version of the data (${installed_version}) is more than one major version behind the docker image version (${image_version}) and upgrading more than one major version is not supported. Please run an image tagged for the major version ${max_upgrade} first."
+    sleep infinity
+fi
+
+if [ "${installed_version}" = "0.0.0.0" ] || [ ! -f /app/www/public/version.php ]; then
+    touch /tmp/needs_install
+fi
+
+if [ "${installed_version}" != "0.0.0.0" ] && vergt "${image_version}" "${installed_version}"; then
+    touch /tmp/needs_upgrade
+fi
+
 # initialize nextcloud
-if vergt "${image_version}" "${installed_version}" || [ -z "$(ls -A /app/www/public/core/ 2>/dev/null)" ] || [ -f /tmp/migration ]; then
+if [ -f /config/www/nextcloud/config/needs_migration ] || [ -f /tmp/needs_install ] || [ -f /tmp/needs_upgrade ]; then
     echo "Initializing nextcloud ${image_version} (this can take a while) ..."
-    if [ "${installed_version}" != "0.0.0.0" ]; then
+    if [ -f /config/www/nextcloud/config/needs_migration ] || [ -f /tmp/needs_upgrade ]; then
         echo "Upgrading nextcloud from ${installed_version} ..."
         occ app:list | sed -n "/Enabled:/,/Disabled:/p" >/tmp/list_before
     fi
 
     rsync -rlD --exclude-from=/app/upgrade.exclude /app/www/src/ /app/www/public/
     for dir in apps config themes; do
-        if [ -z "$(ls -A /app/www/public/${dir}/ 2>/dev/null)" ]; then
+        if [ -f /config/www/nextcloud/config/needs_migration ] || [ -f /tmp/needs_upgrade ] || [ -z "$(ls -A /app/www/public/${dir}/ 2>/dev/null)" ]; then
             rsync -rlD --include "/${dir}" --exclude '/*' /app/www/src/ /config/www/nextcloud/
         fi
     done
     if [ -z "$(ls -A /app/www/public/data/ 2>/dev/null)" ]; then
         rsync -rlD --include "/data" --exclude '/*' /app/www/src/ /
     fi
-    rsync -rlD --include '/version.php' --exclude '/*' /app/www/src/ /app/www/public/
 
     echo "Setting permissions"
     lsiown abc:abc -R \
         /app/www/public \
         /config/www/nextcloud
 
-    if [ "${installed_version}" = "0.0.0.0" ]; then
-        # Install
-        echo "New nextcloud instance"
-        echo "Please run the web-based installer on first connect!"
-    else
+    if [ -f /config/www/nextcloud/config/needs_migration ] || [ -f /tmp/needs_upgrade ]; then
         # Upgrade
         occ upgrade
 
         occ app:list | sed -n "/Enabled:/,/Disabled:/p" >/tmp/list_after
         echo "The following apps have been disabled:"
         diff /tmp/list_before /tmp/list_after | grep '<' | cut -d- -f2 | cut -d: -f1
+    else
+        # Install
+        echo "New nextcloud instance"
+        echo "Please run the web-based installer on first connect!"
     fi
 
     rm -f /tmp/list_before /tmp/list_after
     echo "Initializing finished"
 fi
 
-rm -f /tmp/migration
+rm -f \
+    /config/www/nextcloud/config/needs_migration \
+    /tmp/needs_install \
+    /tmp/needs_upgrade
 
 # permissions
 lsiown abc:abc \
