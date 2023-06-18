@@ -52,7 +52,6 @@ if [ "${installed_version}" = "" ]; then
 fi
 image_major="${image_version%%.*}"
 installed_major="${installed_version%%.*}"
-max_upgrade=
 ((max_upgrade=installed_major+1))
 
 # compare versions
@@ -61,7 +60,7 @@ vergt() { ! vergte "${2}" "${1}"; }
 verlte() { printf '%s\n%s' "${1}" "${2}" | sort -C -V; }
 verlt() { ! verlte "${2}" "${1}"; }
 
-if [ "${installed_version}" != "0.0.0.0" ] && vergt "${image_version}" "${max_upgrade}"; then
+if [ "${installed_version}" != "0.0.0.0" ] && vergt "${image_major}" "${max_upgrade}"; then
     echo "Can't start Nextcloud because the version of the data (${installed_version}) is more than one major version behind the docker image version (${image_version}) and upgrading more than one major version is not supported. Please run an image tagged for the major version ${max_upgrade} first."
     sleep infinity
 fi
