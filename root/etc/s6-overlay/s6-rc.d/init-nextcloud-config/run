@@ -108,9 +108,11 @@ if [ -f /config/www/nextcloud/config/needs_migration ] || [ -f /tmp/needs_instal
         echo "The following apps have been disabled:"
         diff /tmp/list_before /tmp/list_after | grep '<' | cut -d- -f2 | cut -d: -f1
     else
-        # Install
-        echo "New nextcloud instance"
-        echo "Please run the web-based installer on first connect!"
+        if [ "${installed_version}" = "0.0.0.0" ]; then
+            # Install
+            echo "New nextcloud instance"
+            echo "Please run the web-based installer on first connect!"
+        fi
     fi
 
     rm -f /tmp/list_before /tmp/list_after
