@@ -66,7 +66,7 @@ Access the webui at `https://<your-ip>:443`, for more information check out [Nex
 
 ### Updating Nextcloud
 
-Updating the Nextcloud container is done by pulling the new image, throwing away the old container and starting the new one.
+Updating Nextcloud is done by pulling the new image, and recreating the container with it.
 
 It is only possible to upgrade one major version at a time. For example, if you want to upgrade from version 14 to 16, you will have to upgrade from version 14 to 15, then from 15 to 16.
 
@@ -246,7 +246,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
-* **06.06.23:** - Move Nextcloud installation inside container.
+* **19.06.23:** - Move Nextcloud installation inside container. Remove CLI updater. [See changes announcement](https://info.linuxserver.io/issues/2023-06-19-nextcloud/).
 * **25.05.23:** - Rebase to Alpine 3.18, deprecate armhf.
 * **13.04.23:** - Move ssl.conf include to default.conf.
 * **21.03.23:** - Add php81-sysvsem as new dep for v26. Update default X-Robots-Tag to `noindex, nofollow``.
