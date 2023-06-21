@@ -254,6 +254,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **25.05.23:** - Existing users should update `/config/nginx/site-confs/default.conf` - Security fix for real ip settings.
 * **25.05.23:** - Rebase to Alpine 3.18, deprecate armhf.
 * **13.04.23:** - Move ssl.conf include to default.conf.
 * **21.03.23:** - Add php81-sysvsem as new dep for v26. Update default X-Robots-Tag to `noindex, nofollow``.
