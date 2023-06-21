@@ -76,6 +76,7 @@ app_setup_block: |
 
 # changelog
 changelogs:
+  - { date: "25.05.23:", desc: "Existing users should update `/config/nginx/site-confs/default.conf` - Security fix for real ip settings." }
   - { date: "25.05.23:", desc: "Rebase to Alpine 3.18, deprecate armhf." }
   - { date: "13.04.23:", desc: "Move ssl.conf include to default.conf." }
   - { date: "21.03.23:", desc: "Add php81-sysvsem as new dep for v26. Update default X-Robots-Tag to `noindex, nofollow``." }
