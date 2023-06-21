@@ -1,4 +1,4 @@
-## Version 2023/06/06 - Changelog: https://github.com/linuxserver/docker-nextcloud/commits/master/root/defaults/nginx/site-confs/default.conf.sample
+## Version 2023/06/22 - Changelog: https://github.com/linuxserver/docker-nextcloud/commits/master/root/defaults/nginx/site-confs/default.conf.sample
 
 # Set the `immutable` cache control options only for assets with a cache busting `v` argument
 map $arg_v $asset_immutable {
@@ -20,7 +20,7 @@ server {
     root /app/www/public;
 
     # display real ip in nginx logs when connected through reverse proxy via docker network
-    set_real_ip_from 172.0.0.0/8;
+    set_real_ip_from 172.16.0.0/12;
     real_ip_header X-Forwarded-For;
 
     # https://docs.nextcloud.com/server/latest/admin_manual/installation/nginx.html#nextcloud-in-the-webroot-of-nginx
