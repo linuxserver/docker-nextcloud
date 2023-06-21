@@ -3,7 +3,7 @@ alpine-baselayout       3.4.3-r1                apk
 alpine-baselayout-data  3.4.3-r1                apk     
 alpine-keys             2.4-r1                  apk     
 alpine-release          3.18.0-r0               apk     
-alsa-lib                1.2.9-r0                apk     
+alsa-lib                1.2.9-r1                apk     
 aom-libs                3.6.1-r0                apk     
 apache2-utils           2.4.57-r2               apk     
 apk-tools               2.14.0-r2               apk     
