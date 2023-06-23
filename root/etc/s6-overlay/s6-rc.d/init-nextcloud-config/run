@@ -134,6 +134,17 @@ if occ config:system:get installed >/dev/null 2>&1; then
     if ! occ config:system:get memcache.local >/dev/null 2>&1; then
         occ config:system:set memcache.local --value='\\OC\\Memcache\\APCu'
     fi
+    if ! occ config:system:get filelocking.enabled >/dev/null 2>&1; then
+        occ config:system:set filelocking.enabled --value=true
+    fi
+    if ! occ config:system:get memcache.locking >/dev/null 2>&1; then
+        occ config:system:set memcache.locking --value='\\OC\\Memcache\\APCu'
+    fi
+else
+    echo "After completing the web-based installer, restart the Nextcloud container to apply default memory caching and transactional file locking configurations."
+    echo "Alternatively, you can apply your own configurations by editing /config/www/nextcloud/config/config.php following the documentation:"
+    echo "https://docs.nextcloud.com/server/latest/admin_manual/configuration_server/caching_configuration.html"
+    echo "https://docs.nextcloud.com/server/latest/admin_manual/configuration_files/files_locking_transactional.html"
 fi
 
 if (occ app:list --no-interaction | grep -q richdocumentscode) 2>/dev/null; then
