@@ -1,4 +1,4 @@
 #!/usr/bin/with-contenv bash
 # shellcheck shell=bash
 
-sudo -u abc -s /bin/bash -c "php /config/www/nextcloud/occ $*"
+sudo -u abc -s /bin/bash -c "php /app/www/public/occ $*"

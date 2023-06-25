@@ -3,27 +3,149 @@
 
 # create folders
 mkdir -p \
-    /config/www/nextcloud \
+    /app/www/public/apps \
+    /app/www/public/config \
+    /app/www/public/themes \
+    /config/www/nextcloud/apps \
+    /config/www/nextcloud/config \
+    /config/www/nextcloud/themes \
     /data
 
-# install app
-if [ ! -e /config/www/nextcloud/index.php ]; then
-    tar xf /app/nextcloud.tar.bz2 -C \
-        /config/www/nextcloud --strip-components=1
-    lsiown abc:abc -R \
-        /config/www/nextcloud
-    chmod +x /config/www/nextcloud/occ
+# migrate legacy install (copy inside container)
+if [ -f /config/www/nextcloud/version.php ]; then
+    echo "Migrating legacy install (this can take a while) ...)"
+    rsync -rlD --remove-source-files --exclude-from=/app/upgrade.exclude /config/www/nextcloud/ /app/www/public/
+    rm -rf /config/www/nextcloud/updater/
+    find \
+        /config/www/nextcloud/ \
+        -type d -empty \
+        ! -path "/config/www/nextcloud/apps" \
+        ! -path "/config/www/nextcloud/config" \
+        ! -path "/config/www/nextcloud/themes" \
+        -delete
+    sed -i "s|/config/www/nextcloud/cron.php|/app/www/public/cron.php|g" /config/crontabs/root
+    touch /config/www/nextcloud/config/needs_migration
 fi
 
-# copy config
-if [[ ! -f /config/www/nextcloud/config/config.php ]]; then
-    cp /defaults/config.php /config/www/nextcloud/config/config.php
+# symlink config folders
+for dir in apps config themes; do
+    if [ "$(readlink /app/www/public/${dir})" != "/config/www/nextcloud/${dir}" ]; then
+        rm -rf "/app/www/public/${dir}"
+        ln -s "/config/www/nextcloud/${dir}" "/app/www/public/${dir}"
+        lsiown abc:abc "/config/www/nextcloud/${dir}" "/app/www/public/${dir}"
+    fi
+done
+
+# symlink data folder
+if [ "$(readlink /app/www/public/data)" != "/data" ]; then
+    rm -rf /app/www/public/data
+    ln -s /data /app/www/public/data
+    lsiown abc:abc /data /app/www/public/data
 fi
+
+# get versions
+image_version=$(php -r "require '/app/www/src/version.php'; echo implode('.', \$OC_Version);" 2>/dev/null)
+installed_version=$(php -r "require '/config/www/nextcloud/config/config.php'; echo \$CONFIG['version'];" 2>/dev/null)
+if [ "${installed_version}" = "" ]; then
+    installed_version="0.0.0.0"
+fi
+image_major="${image_version%%.*}"
+installed_major="${installed_version%%.*}"
+((max_upgrade = installed_major + 1))
+
+# compare versions
+vergte() { printf '%s\n%s' "${2}" "${1}" | sort -C -V; }
+vergt() { ! vergte "${2}" "${1}"; }
+verlte() { printf '%s\n%s' "${1}" "${2}" | sort -C -V; }
+verlt() { ! verlte "${2}" "${1}"; }
+
+if vergt "${installed_version}" "${image_version}"; then
+    echo "Can't start Nextcloud because the version of the data (${installed_version}) is higher than the docker image version (${image_version}) and downgrading is not supported. Are you sure you have pulled the newest image version?"
+    sleep infinity
+fi
+
+if [ "${installed_version}" != "0.0.0.0" ] && vergt "${image_major}" "${max_upgrade}"; then
+    echo "Can't start Nextcloud because the version of the data (${installed_version}) is more than one major version behind the docker image version (${image_version}) and upgrading more than one major version is not supported. Please run an image tagged for the major version ${max_upgrade} first."
+    sleep infinity
+fi
+
+if [ "${installed_version}" = "0.0.0.0" ] || [ ! -f /app/www/public/version.php ]; then
+    touch /tmp/needs_install
+fi
+
+if [ "${installed_version}" != "0.0.0.0" ] && vergt "${image_version}" "${installed_version}"; then
+    touch /tmp/needs_upgrade
+fi
+
+# initialize nextcloud
+if [ -f /config/www/nextcloud/config/needs_migration ] || [ -f /tmp/needs_install ] || [ -f /tmp/needs_upgrade ]; then
+    echo "Initializing nextcloud ${image_version} (this can take a while) ..."
+    if [ -f /config/www/nextcloud/config/needs_migration ] || [ -f /tmp/needs_upgrade ]; then
+        echo "Upgrading nextcloud from ${installed_version} ..."
+        occ app:list | sed -n "/Enabled:/,/Disabled:/p" >/tmp/list_before
+    fi
+
+    rsync -rlD --exclude-from=/app/upgrade.exclude /app/www/src/ /app/www/public/
+    for dir in apps config themes; do
+        if [ -f /config/www/nextcloud/config/needs_migration ] || [ -f /tmp/needs_upgrade ] || [ -z "$(ls -A /app/www/public/${dir}/ 2>/dev/null)" ]; then
+            rsync -rlD --include "/${dir}" --exclude '/*' /app/www/src/ /config/www/nextcloud/
+        fi
+    done
+    if [ -z "$(ls -A /app/www/public/data/ 2>/dev/null)" ]; then
+        rsync -rlD --include "/data" --exclude '/*' /app/www/src/ /
+    fi
+
+    echo "Setting permissions"
+    lsiown abc:abc -R \
+        /app/www/public \
+        /config/www/nextcloud
+
+    if [ -f /config/www/nextcloud/config/needs_migration ] || [ -f /tmp/needs_upgrade ]; then
+        # Upgrade
+        occ upgrade
+
+        occ app:list | sed -n "/Enabled:/,/Disabled:/p" >/tmp/list_after
+        echo "The following apps have been disabled:"
+        diff /tmp/list_before /tmp/list_after | grep '<' | cut -d- -f2 | cut -d: -f1
+    else
+        if [ "${installed_version}" = "0.0.0.0" ]; then
+            # Install
+            echo "New nextcloud instance"
+            echo "Please run the web-based installer on first connect!"
+        fi
+    fi
+
+    rm -f /tmp/list_before /tmp/list_after
+    echo "Initializing finished"
+fi
+
+rm -f \
+    /config/www/nextcloud/config/needs_migration \
+    /tmp/needs_install \
+    /tmp/needs_upgrade
 
 # permissions
 lsiown abc:abc \
-    /config/www/nextcloud/config/config.php \
-    /data
+    /app/www/public \
+    /config/www/nextcloud
+
+# setup config
+if occ config:system:get installed >/dev/null 2>&1; then
+    if ! occ config:system:get memcache.local >/dev/null 2>&1; then
+        occ config:system:set memcache.local --value='\\OC\\Memcache\\APCu'
+    fi
+    if ! occ config:system:get filelocking.enabled >/dev/null 2>&1; then
+        occ config:system:set filelocking.enabled --value=true
+    fi
+    if ! occ config:system:get memcache.locking >/dev/null 2>&1; then
+        occ config:system:set memcache.locking --value='\\OC\\Memcache\\APCu'
+    fi
+else
+    echo "After completing the web-based installer, restart the Nextcloud container to apply default memory caching and transactional file locking configurations."
+    echo "Alternatively, you can apply your own configurations by editing /config/www/nextcloud/config/config.php following the documentation:"
+    echo "https://docs.nextcloud.com/server/latest/admin_manual/configuration_server/caching_configuration.html"
+    echo "https://docs.nextcloud.com/server/latest/admin_manual/configuration_files/files_locking_transactional.html"
+fi
 
 if (occ app:list --no-interaction | grep -q richdocumentscode) 2>/dev/null; then
     echo "Removing CODE Server"
