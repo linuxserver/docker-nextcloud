@@ -36,13 +36,6 @@ for dir in apps config themes; do
     fi
 done
 
-# set data directory
-if [ -f /config/www/nextcloud/config/config.php ]; then
-    sed -i "s|/app/www/public/data|/data|g" /config/www/nextcloud/config/config.php
-else
-    echo -e "<?php\n\$CONFIG = ['datadirectory' => '/data'];" >/config/www/nextcloud/config/config.php
-fi
-
 # get versions
 image_version=$(php -r "require '/app/www/src/version.php'; echo implode('.', \$OC_Version);" 2>/dev/null)
 installed_version=$(php -r "require '/config/www/nextcloud/config/config.php'; echo \$CONFIG['version'];" 2>/dev/null)
@@ -155,4 +148,11 @@ if (occ app:list --no-interaction | grep -q richdocumentscode) 2>/dev/null; then
     echo "Removing CODE Server"
     APP=$(occ app:list --no-interaction | grep richdocumentscode | awk -F ' ' '{print $2}' | tr -d ':')
     occ app:remove --no-interaction "${APP}" 2>/dev/null
+fi
+
+# set data directory
+if [ ! -s /config/www/nextcloud/config/config.php ]; then
+    echo -e "<?php\n\$CONFIG = array (\n    'datadirectory' => '/data',\n);" >/config/www/nextcloud/config/config.php
+elif [ -f /config/www/nextcloud/config/config.php ]; then
+    sed -i "s|/app/www/public/data|/data|g" /config/www/nextcloud/config/config.php
 fi
