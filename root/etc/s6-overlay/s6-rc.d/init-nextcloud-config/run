@@ -36,11 +36,11 @@ for dir in apps config themes; do
     fi
 done
 
-# symlink data folder
-if [ "$(readlink /app/www/public/data)" != "/data" ]; then
-    rm -rf /app/www/public/data
-    ln -s /data /app/www/public/data
-    lsiown abc:abc /data /app/www/public/data
+# set data directory
+if [ -f /config/www/nextcloud/config/config.php ]; then
+    sed -i "s|/app/www/public/data|/data|g" /config/www/nextcloud/config/config.php
+else
+    echo -e "<?php\n\$CONFIG = ['datadirectory' => '/data'];" >/config/www/nextcloud/config/config.php
 fi
 
 # get versions
@@ -91,11 +91,12 @@ if [ -f /config/www/nextcloud/config/needs_migration ] || [ -f /tmp/needs_instal
             rsync -rlD --include "/${dir}" --exclude '/*' /app/www/src/ /config/www/nextcloud/
         fi
     done
-    if [ -z "$(ls -A /app/www/public/data/ 2>/dev/null)" ]; then
+    if [ -z "$(ls -A /data/ 2>/dev/null)" ]; then
         rsync -rlD --include "/data" --exclude '/*' /app/www/src/ /
     fi
 
     echo "Setting permissions"
+    lsiown abc:abc /data
     lsiown abc:abc -R \
         /app/www/public \
         /config/www/nextcloud
@@ -139,6 +140,9 @@ if occ config:system:get installed >/dev/null 2>&1; then
     fi
     if ! occ config:system:get memcache.locking >/dev/null 2>&1; then
         occ config:system:set memcache.locking --value='\\OC\\Memcache\\APCu'
+    fi
+    if ! occ config:system:get datadirectory >/dev/null 2>&1; then
+        occ config:system:set datadirectory --value='/data'
     fi
 else
     echo "After completing the web-based installer, restart the Nextcloud container to apply default memory caching and transactional file locking configurations."
