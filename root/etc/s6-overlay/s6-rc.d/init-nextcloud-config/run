@@ -60,7 +60,7 @@ if [ "${installed_version}" != "0.0.0.0" ] && vergt "${image_major}" "${max_upgr
     sleep infinity
 fi
 
-if [ "${installed_version}" = "0.0.0.0" ] || [ ! -f /app/www/public/version.php ]; then
+if [ "${installed_version}" = "0.0.0.0" ] || [ ! -f /app/www/public/version.php ] || [ -z "$(ls -A /config/www/nextcloud/apps 2>/dev/null)" ]; then
     touch /tmp/needs_install
 fi
 
@@ -82,7 +82,7 @@ if [ -f /config/www/nextcloud/config/needs_migration ] || [ -f /tmp/needs_instal
 
     rsync -rlD --exclude-from=/app/upgrade.exclude /app/www/src/ /app/www/public/
     for dir in apps config themes; do
-        if [ -f /config/www/nextcloud/config/needs_migration ] || [ -f /tmp/needs_upgrade ] || [ -z "$(ls -A /app/www/public/${dir}/ 2>/dev/null)" ]; then
+        if [ -f /config/www/nextcloud/config/needs_migration ] || [ -f /tmp/needs_upgrade ] || [ -z "$(ls -A /app/www/public/${dir} 2>/dev/null)" ]; then
             rsync -rlD --include "/${dir}" --exclude '/*' /app/www/src/ /config/www/nextcloud/
         fi
     done
