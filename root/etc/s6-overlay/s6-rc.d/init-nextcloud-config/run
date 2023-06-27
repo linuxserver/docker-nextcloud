@@ -73,7 +73,6 @@ if [ -f /config/www/nextcloud/config/needs_migration ] || [ -f /tmp/needs_instal
     echo "Initializing nextcloud ${image_version} (this can take a while) ..."
     if [ -f /config/www/nextcloud/config/needs_migration ] || [ -f /tmp/needs_upgrade ]; then
         echo "Upgrading nextcloud from ${installed_version} ..."
-        occ app:list | sed -n "/Enabled:/,/Disabled:/p" >/tmp/list_before
         shippedApps=$(jq -r .shippedApps[] /app/www/src/core/shipped.json)
         for app in ${shippedApps}; do
             rm -rf "/config/www/nextcloud/apps/${app}"
@@ -99,10 +98,6 @@ if [ -f /config/www/nextcloud/config/needs_migration ] || [ -f /tmp/needs_instal
     if [ -f /config/www/nextcloud/config/needs_migration ] || [ -f /tmp/needs_upgrade ]; then
         # Upgrade
         occ upgrade
-
-        occ app:list | sed -n "/Enabled:/,/Disabled:/p" >/tmp/list_after
-        echo "The following apps have been disabled:"
-        diff /tmp/list_before /tmp/list_after | grep '<' | cut -d- -f2 | cut -d: -f1
     else
         if [ "${installed_version}" = "0.0.0.0" ]; then
             # Install
@@ -111,7 +106,6 @@ if [ -f /config/www/nextcloud/config/needs_migration ] || [ -f /tmp/needs_instal
         fi
     fi
 
-    rm -f /tmp/list_before /tmp/list_after
     echo "Initializing finished"
 fi
 
