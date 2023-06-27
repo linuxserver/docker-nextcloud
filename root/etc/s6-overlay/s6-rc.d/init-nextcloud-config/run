@@ -3,9 +3,7 @@
 
 # create folders
 mkdir -p \
-    /app/www/public/apps \
-    /app/www/public/config \
-    /app/www/public/themes \
+    /app/www/public \
     /config/www/nextcloud/apps \
     /config/www/nextcloud/config \
     /config/www/nextcloud/themes \
@@ -76,6 +74,10 @@ if [ -f /config/www/nextcloud/config/needs_migration ] || [ -f /tmp/needs_instal
     if [ -f /config/www/nextcloud/config/needs_migration ] || [ -f /tmp/needs_upgrade ]; then
         echo "Upgrading nextcloud from ${installed_version} ..."
         occ app:list | sed -n "/Enabled:/,/Disabled:/p" >/tmp/list_before
+        shippedApps=$(jq -r .shippedApps[] /app/www/src/core/shipped.json)
+        for app in ${shippedApps}; do
+            rm -rf "/config/www/nextcloud/apps/${app}"
+        done
     fi
 
     rsync -rlD --exclude-from=/app/upgrade.exclude /app/www/src/ /app/www/public/
