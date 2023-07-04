@@ -89,8 +89,8 @@ hwdata-pci                          0.370-r0                         apk
 icewind/searchdav                   v3.0.1                           php-composer  
 icewind/smb                         v3.5.4                           php-composer  
 icewind/streams                     v0.7.7                           php-composer  
-icu-data-en                         73.2-r0                          apk           
-icu-libs                            73.2-r0                          apk           
+icu-data-en                         73.2-r1                          apk           
+icu-libs                            73.2-r1                          apk           
 imagemagick                         7.1.1.10-r0                      apk           
 imagemagick-libs                    7.1.1.10-r0                      apk           
 jansson                             2.14-r3                          apk           
@@ -154,13 +154,13 @@ libproc2                            4.0.3-r1                         apk
 libpulse                            16.1-r10                         apk           
 libraw                              0.21.1-r0                        apk           
 librist                             0.2.7-r0                         apk           
-librsvg                             2.56.1-r0                        apk           
+librsvg                             2.56.2-r0                        apk           
 libsasl                             2.1.28-r4                        apk           
 libsm                               1.2.4-r1                         apk           
 libsmbclient                        4.18.3-r0                        apk           
 libsndfile                          1.2.0-r2                         apk           
 libsodium                           1.0.18-r3                        apk           
-libsrt                              1.5.1-r0                         apk           
+libsrt                              1.5.2-r0                         apk           
 libssh                              0.10.5-r0                        apk           
 libssl3                             3.1.1-r1                         apk           
 libstdc++                           12.2.1_git20220924-r10           apk           
@@ -174,7 +174,7 @@ libvdpau                            1.5-r1                           apk
 libvorbis                           1.3.7-r1                         apk           
 libvpx                              1.13.0-r1                        apk           
 libwbclient                         4.18.3-r0                        apk           
-libwebp                             1.3.0-r2                         apk           
+libwebp                             1.3.1-r0                         apk           
 libx11                              1.8.4-r4                         apk           
 libxau                              1.0.11-r2                        apk           
 libxcb                              1.15-r1                          apk           
@@ -373,6 +373,6 @@ x264-libs                           0.164_git20220602-r1             apk
 x265-libs                           3.5-r4                           apk           
 xvidcore                            1.3.7-r1                         apk           
 xz-libs                             5.4.3-r0                         apk           
-zimg                                3.0.4-r2                         apk           
+zimg                                3.0.5-r0                         apk           
 zlib                                1.2.13-r1                        apk           
 zstd-libs                           1.5.5-r4                         apk           
