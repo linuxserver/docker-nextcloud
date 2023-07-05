@@ -3,9 +3,7 @@
 
 # create folders
 mkdir -p \
-    /app/www/public/apps \
-    /app/www/public/config \
-    /app/www/public/themes \
+    /app/www/public \
     /config/www/nextcloud/apps \
     /config/www/nextcloud/config \
     /config/www/nextcloud/themes \
@@ -36,13 +34,6 @@ for dir in apps config themes; do
     fi
 done
 
-# symlink data folder
-if [ "$(readlink /app/www/public/data)" != "/data" ]; then
-    rm -rf /app/www/public/data
-    ln -s /data /app/www/public/data
-    lsiown abc:abc /data /app/www/public/data
-fi
-
 # get versions
 image_version=$(php -r "require '/app/www/src/version.php'; echo implode('.', \$OC_Version);" 2>/dev/null)
 installed_version=$(php -r "require '/config/www/nextcloud/config/config.php'; echo \$CONFIG['version'];" 2>/dev/null)
@@ -69,7 +60,7 @@ if [ "${installed_version}" != "0.0.0.0" ] && vergt "${image_major}" "${max_upgr
     sleep infinity
 fi
 
-if [ "${installed_version}" = "0.0.0.0" ] || [ ! -f /app/www/public/version.php ]; then
+if [ "${installed_version}" = "0.0.0.0" ] || [ ! -f /app/www/public/version.php ] || [ -z "$(ls -A /config/www/nextcloud/apps 2>/dev/null)" ]; then
     touch /tmp/needs_install
 fi
 
@@ -82,20 +73,24 @@ if [ -f /config/www/nextcloud/config/needs_migration ] || [ -f /tmp/needs_instal
     echo "Initializing nextcloud ${image_version} (this can take a while) ..."
     if [ -f /config/www/nextcloud/config/needs_migration ] || [ -f /tmp/needs_upgrade ]; then
         echo "Upgrading nextcloud from ${installed_version} ..."
-        occ app:list | sed -n "/Enabled:/,/Disabled:/p" >/tmp/list_before
+        shippedApps=$(jq -r .shippedApps[] /app/www/src/core/shipped.json)
+        for app in ${shippedApps}; do
+            rm -rf "/config/www/nextcloud/apps/${app}"
+        done
     fi
 
     rsync -rlD --exclude-from=/app/upgrade.exclude /app/www/src/ /app/www/public/
     for dir in apps config themes; do
-        if [ -f /config/www/nextcloud/config/needs_migration ] || [ -f /tmp/needs_upgrade ] || [ -z "$(ls -A /app/www/public/${dir}/ 2>/dev/null)" ]; then
+        if [ -f /config/www/nextcloud/config/needs_migration ] || [ -f /tmp/needs_upgrade ] || [ -z "$(ls -A /app/www/public/${dir} 2>/dev/null)" ]; then
             rsync -rlD --include "/${dir}" --exclude '/*' /app/www/src/ /config/www/nextcloud/
         fi
     done
-    if [ -z "$(ls -A /app/www/public/data/ 2>/dev/null)" ]; then
+    if [ -z "$(ls -A /data/ 2>/dev/null)" ]; then
         rsync -rlD --include "/data" --exclude '/*' /app/www/src/ /
     fi
 
     echo "Setting permissions"
+    lsiown abc:abc /data
     lsiown abc:abc -R \
         /app/www/public \
         /config/www/nextcloud
@@ -103,10 +98,6 @@ if [ -f /config/www/nextcloud/config/needs_migration ] || [ -f /tmp/needs_instal
     if [ -f /config/www/nextcloud/config/needs_migration ] || [ -f /tmp/needs_upgrade ]; then
         # Upgrade
         occ upgrade
-
-        occ app:list | sed -n "/Enabled:/,/Disabled:/p" >/tmp/list_after
-        echo "The following apps have been disabled:"
-        diff /tmp/list_before /tmp/list_after | grep '<' | cut -d- -f2 | cut -d: -f1
     else
         if [ "${installed_version}" = "0.0.0.0" ]; then
             # Install
@@ -115,7 +106,6 @@ if [ -f /config/www/nextcloud/config/needs_migration ] || [ -f /tmp/needs_instal
         fi
     fi
 
-    rm -f /tmp/list_before /tmp/list_after
     echo "Initializing finished"
 fi
 
@@ -140,6 +130,9 @@ if occ config:system:get installed >/dev/null 2>&1; then
     if ! occ config:system:get memcache.locking >/dev/null 2>&1; then
         occ config:system:set memcache.locking --value='\\OC\\Memcache\\APCu'
     fi
+    if ! occ config:system:get datadirectory >/dev/null 2>&1; then
+        occ config:system:set datadirectory --value='/data'
+    fi
 else
     echo "After completing the web-based installer, restart the Nextcloud container to apply default memory caching and transactional file locking configurations."
     echo "Alternatively, you can apply your own configurations by editing /config/www/nextcloud/config/config.php following the documentation:"
@@ -151,4 +144,11 @@ if (occ app:list --no-interaction | grep -q richdocumentscode) 2>/dev/null; then
     echo "Removing CODE Server"
     APP=$(occ app:list --no-interaction | grep richdocumentscode | awk -F ' ' '{print $2}' | tr -d ':')
     occ app:remove --no-interaction "${APP}" 2>/dev/null
+fi
+
+# set data directory
+if [ ! -s /config/www/nextcloud/config/config.php ]; then
+    echo -e "<?php\n\$CONFIG = array (\n    'datadirectory' => '/data',\n);" >/config/www/nextcloud/config/config.php
+elif [ -f /config/www/nextcloud/config/config.php ]; then
+    sed -i "s|/app/www/public/data|/data|g" /config/www/nextcloud/config/config.php
 fi
