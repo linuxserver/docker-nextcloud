@@ -78,6 +78,17 @@ Nextcloud's built-in collaborative editing packages (Collabora/CODE and OnlyOffi
 
 If (auto) installed, those built-in packages may cause instability and should be removed.
 
+### Custom App Directories
+
+If you are [using custom app directories](https://docs.nextcloud.com/server/latest/admin_manual/apps_management.html#using-custom-app-directories) you will need to make the custom folder(s) you are using available to the web server. The recommended way to do this with our container is to add a volume. Ex:
+
+```yaml
+    volumes:
+      - /path/to/your_custom_apps_folder:/app/www/public/your_custom_apps_folder
+```
+
+Afterwards, you can set `"path" => OC::$SERVERROOT . "/your_custom_apps_folder",` in your `config.php` file, per the [official documentation](https://docs.nextcloud.com/server/latest/admin_manual/apps_management.html#using-custom-app-directories).
+
 ### Strict reverse proxies
 
 This image uses a self-signed certificate by default. This naturally means the scheme is `https`.
