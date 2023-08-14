@@ -3,7 +3,7 @@ Executes a command and passes the stdio streams of the created process to TCP so
 alpine-baselayout                                                                      3.4.3-r1                         apk           
 alpine-baselayout-data                                                                 3.4.3-r1                         apk           
 alpine-keys                                                                            2.4-r1                           apk           
-alpine-release                                                                         3.18.2-r0                        apk           
+alpine-release                                                                         3.18.3-r0                        apk           
 alsa-lib                                                                               1.2.9-r1                         apk           
 amphp/amp                                                                              v2.6.2                           php-composer  
 amphp/byte-stream                                                                      v1.8.1                           php-composer  
@@ -118,7 +118,7 @@ libbsd                                                                          
 libbz2                                                                                 1.0.8-r5                         apk           
 libc-utils                                                                             0.7.2-r5                         apk           
 libcap2                                                                                2.69-r0                          apk           
-libcrypto3                                                                             3.1.1-r3                         apk           
+libcrypto3                                                                             3.1.2-r0                         apk           
 libcurl                                                                                8.2.1-r0                         apk           
 libdav1d                                                                               1.2.1-r0                         apk           
 libde265                                                                               1.0.12-r0                        apk           
@@ -163,7 +163,7 @@ libsndfile                                                                      
 libsodium                                                                              1.0.18-r3                        apk           
 libsrt                                                                                 1.5.2-r0                         apk           
 libssh                                                                                 0.10.5-r0                        apk           
-libssl3                                                                                3.1.1-r3                         apk           
+libssl3                                                                                3.1.2-r0                         apk           
 libstdc++                                                                              12.2.1_git20220924-r10           apk           
 libtasn1                                                                               4.19.0-r1                        apk           
 libtheora                                                                              1.1.1-r17                        apk           
@@ -213,7 +213,7 @@ nginx                                                                           
 numactl                                                                                2.0.16-r4                        apk           
 onevpl-libs                                                                            2023.2.1-r0                      apk           
 oniguruma                                                                              6.9.8-r1                         apk           
-openssl                                                                                3.1.1-r3                         apk           
+openssl                                                                                3.1.2-r0                         apk           
 opis/closure                                                                           3.6.3                            php-composer  
 opus                                                                                   1.4-r0                           apk           
 orc                                                                                    0.4.34-r0                        apk           
