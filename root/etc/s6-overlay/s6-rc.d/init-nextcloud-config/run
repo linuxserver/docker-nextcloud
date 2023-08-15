@@ -142,17 +142,17 @@ fi
 
 # remove problematic apps
 for APP in richdocumentscode updatenotification; do
-    if occ app:list | grep -q " - ${APP}:" 2>/dev/null; then
+    if (occ app:list | grep -q " - ${APP}:") 2>/dev/null; then
         echo "Removing ${APP}"
     fi
-    APP_PATH=$(occ app:getpath "${APP}")
+    APP_PATH=$(occ app:getpath "${APP}" 2>/dev/null)
     if [ -z "${APP_PATH}" ] || [ ! -d "${APP_PATH}" ]; then
         APP_PATH="/app/www/public/apps/${APP}"
     fi
     if [ -d "${APP_PATH}" ]; then
         occ app:disable "${APP}" >/dev/null 2>&1
     fi
-    APP_STATUS="$(occ config:app:get "${APP}" enabled)"
+    APP_STATUS="$(occ config:app:get "${APP}" enabled 2>/dev/null)"
     if [ "${APP_STATUS}" != "no" ] && [ -n "${APP_STATUS}" ]; then
         occ config:app:set "${APP}" enabled --value="no" >/dev/null 2>&1
     fi
