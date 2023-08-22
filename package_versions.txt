@@ -208,7 +208,6 @@ netcat-openbsd                                                                  
 nettle                                                                                 3.8.1-r2                         apk           
 nextcloud/lognormalizer                                                                v1.0.0                           php-composer  
 nghttp2-libs                                                                           1.55.1-r0                        apk           
-nginx                                                                                  1.24.0                           binary        
 nginx                                                                                  1.24.0-r6                        apk           
 numactl                                                                                2.0.16-r4                        apk           
 onevpl-libs                                                                            2023.2.1-r0                      apk           
@@ -225,7 +224,6 @@ pear/archive_tar                                                                
 pear/console_getopt                                                                    v1.4.3                           php-composer  
 pear/pear-core-minimal                                                                 v1.10.10                         php-composer  
 pear/pear_exception                                                                    v1.0.2                           php-composer  
-php-fpm                                                                                8.2.8                            binary        
 php-http/guzzle7-adapter                                                               1.0.0                            php-composer  
 php-http/httplug                                                                       2.2.0                            php-composer  
 php-http/promise                                                                       1.1.0                            php-composer  
