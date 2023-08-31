@@ -43,7 +43,7 @@ cweagans/composer-patches                                                       
 darsyn/ip                                                                              4.1.0                            php-composer  
 dbus-libs                                                                              1.14.8-r0                        apk           
 deepdiver/zipstreamer                                                                  2.0.0                            php-composer  
-deepdiver1975/tarstreamer                                                              2.0.0                            php-composer  
+deepdiver1975/tarstreamer                                                              v2.1.0                           php-composer  
 doctrine/cache                                                                         2.2.0                            php-composer  
 doctrine/dbal                                                                          3.3.8                            php-composer  
 doctrine/deprecations                                                                  v1.0.0                           php-composer  
