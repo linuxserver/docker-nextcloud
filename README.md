@@ -265,6 +265,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **31.08.23:** - Re-add updatenotification app. This allows users to be notified for app updates, but also notifies for NextCloud updates. Updating NextCloud via the web UI is not supported when using this image.
 * **14.08.23:** - Add develop branch.
 * **25.06.23:** - Move Nextcloud installation inside container. Remove CLI updater. [See changes announcement](https://info.linuxserver.io/issues/2023-06-25-nextcloud/).
 * **21.06.23:** - Existing users should update `/config/nginx/site-confs/default.conf` - Security fix for real ip settings.
