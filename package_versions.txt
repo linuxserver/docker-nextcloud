@@ -112,7 +112,7 @@ league/mime-type-detection                                                      
 league/uri                                                                             6.4.0                            php-composer  
 league/uri-interfaces                                                                  2.2.0                            php-composer  
 libacl                                                                                 2.3.1-r3                         apk           
-libarchive                                                                             3.6.2-r2                         apk           
+libarchive                                                                             3.7.2-r0                         apk           
 libass                                                                                 0.17.1-r0                        apk           
 libasyncns                                                                             0.8-r1                           apk           
 libattr                                                                                2.5.1-r4                         apk           
@@ -180,7 +180,7 @@ libvdpau                                                                        
 libvorbis                                                                              1.3.7-r1                         apk           
 libvpx                                                                                 1.13.0-r1                        apk           
 libwbclient                                                                            4.18.5-r0                        apk           
-libwebp                                                                                1.3.1-r0                         apk           
+libwebp                                                                                1.3.2-r0                         apk           
 libx11                                                                                 1.8.4-r4                         apk           
 libxau                                                                                 1.0.11-r2                        apk           
 libxcb                                                                                 1.15-r1                          apk           
