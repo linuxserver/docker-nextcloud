@@ -91,7 +91,7 @@ if [ -f /config/www/nextcloud/config/needs_migration ] || [ -f /tmp/needs_instal
 
     echo "Setting permissions"
     lsiown abc:abc /data
-    lsiown abc:abc -R \
+    lsiown -R abc:abc \
         /app/www/public \
         /config/www/nextcloud
 
