@@ -40,7 +40,7 @@ christian-riesen/base32                                                         
 christophwurst/id3parser                                                               v0.1.4                           php-composer  
 cjson                                                                                  1.7.15-r4                        apk           
 coreutils                                                                              9.3-r1                           apk           
-cups-libs                                                                              2.4.6-r0                         apk           
+cups-libs                                                                              2.4.7-r0                         apk           
 curl                                                                                   8.2.1-r0                         apk           
 cweagans/composer-patches                                                              1.7.3                            php-composer  
 darsyn/ip                                                                              4.1.0                            php-composer  
