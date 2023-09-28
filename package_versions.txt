@@ -178,7 +178,7 @@ libuuid                                                                         
 libva                                                                                  2.18.0-r1                        apk           
 libvdpau                                                                               1.5-r1                           apk           
 libvorbis                                                                              1.3.7-r1                         apk           
-libvpx                                                                                 1.13.0-r1                        apk           
+libvpx                                                                                 1.13.0-r2                        apk           
 libwbclient                                                                            4.18.5-r0                        apk           
 libwebp                                                                                1.3.2-r0                         apk           
 libx11                                                                                 1.8.4-r4                         apk           
