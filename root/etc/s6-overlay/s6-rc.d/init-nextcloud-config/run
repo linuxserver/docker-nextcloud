@@ -141,7 +141,7 @@ else
 fi
 
 # remove problematic apps
-for APP in richdocumentscode updatenotification; do
+for APP in richdocumentscode; do
     if (occ app:list | grep -q " - ${APP}:") 2>/dev/null; then
         echo "Removing ${APP}"
     fi
