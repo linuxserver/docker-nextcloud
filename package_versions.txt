@@ -5,7 +5,7 @@ activity                                                                        
 alpine-baselayout                                                                      3.4.3-r1                         apk           
 alpine-baselayout-data                                                                 3.4.3-r1                         apk           
 alpine-keys                                                                            2.4-r1                           apk           
-alpine-release                                                                         3.18.3-r0                        apk           
+alpine-release                                                                         3.18.4-r0                        apk           
 alsa-lib                                                                               1.2.9-r1                         apk           
 amphp/amp                                                                              v2.6.2                           php-composer  
 amphp/byte-stream                                                                      v1.8.1                           php-composer  
@@ -199,7 +199,7 @@ linux-pam                                                                       
 lmdb                                                                                   0.9.31-r0                        apk           
 logrotate                                                                              3.21.0-r1                        apk           
 lz4-libs                                                                               1.9.4-r4                         apk           
-mbedtls                                                                                2.28.4-r0                        apk           
+mbedtls                                                                                2.28.5-r0                        apk           
 mexitek/phpcolors                                                                      v1.0.4                           php-composer  
 microsoft/azure-storage-blob                                                           1.5.4                            php-composer  
 microsoft/azure-storage-common                                                         1.5.2                            php-composer  
@@ -270,7 +270,7 @@ php82-pecl-imagick                                                              
 php82-pecl-mcrypt                                                                      1.0.6-r0                         apk           
 php82-pecl-memcached                                                                   3.2.0-r1                         apk           
 php82-pecl-msgpack                                                                     2.2.0-r0                         apk           
-php82-pecl-redis                                                                       6.0.0-r0                         apk           
+php82-pecl-redis                                                                       6.0.1-r0                         apk           
 php82-pecl-smbclient                                                                   1.1.1-r0                         apk           
 php82-pgsql                                                                            8.2.10-r0                        apk           
 php82-phar                                                                             8.2.10-r0                        apk           
