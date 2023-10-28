@@ -79,6 +79,7 @@ app_setup_block: |
 
 # changelog
 changelogs:
+  - { date: "28.10.23:", desc: "Disable web upgrades using occ during init." }
   - { date: "31.08.23:", desc: "Re-add updatenotification app. This allows users to be notified for app updates, but also notifies for NextCloud updates. Updating NextCloud via the web UI is not supported when using this image." }
   - { date: "14.08.23:", desc: "Add develop branch." }
   - { date: "25.06.23:", desc: "Move Nextcloud installation inside container. Remove CLI updater. [See changes announcement](https://info.linuxserver.io/issues/2023-06-25-nextcloud/)." }
