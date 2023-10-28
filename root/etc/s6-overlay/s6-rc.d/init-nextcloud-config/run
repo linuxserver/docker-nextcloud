@@ -125,13 +125,16 @@ if occ config:system:get installed >/dev/null 2>&1; then
         occ config:system:set memcache.local --value='\\OC\\Memcache\\APCu'
     fi
     if ! occ config:system:get filelocking.enabled >/dev/null 2>&1; then
-        occ config:system:set filelocking.enabled --value=true
+        occ config:system:set filelocking.enabled --value=true --type=boolean
     fi
     if ! occ config:system:get memcache.locking >/dev/null 2>&1; then
         occ config:system:set memcache.locking --value='\\OC\\Memcache\\APCu'
     fi
     if ! occ config:system:get datadirectory >/dev/null 2>&1; then
         occ config:system:set datadirectory --value='/data'
+    fi
+    if ! occ config:system:get upgrade.disable-web >/dev/null 2>&1; then
+        occ config:system:set upgrade.disable-web --value=true --type=boolean
     fi
 else
     echo "After completing the web-based installer, restart the Nextcloud container to apply default memory caching and transactional file locking configurations."
