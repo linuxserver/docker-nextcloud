@@ -48,7 +48,7 @@ RUN \
     rsync \
     samba-client \
     sudo && \
-  apk add --no-cache --repository=http://dl-cdn.alpinelinux.org/alpine/edge/testing \
+  apk add --no-cache --repository=http://dl-cdn.alpinelinux.org/alpine/edge/community \
     php82-pecl-mcrypt && \
   echo "**** configure php-fpm to pass env vars ****" && \
   sed -E -i 's/^;?clear_env ?=.*$/clear_env = no/g' /etc/php82/php-fpm.d/www.conf && \
