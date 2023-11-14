@@ -307,9 +307,9 @@ rubix/tensor                                                             2.2.3  
 rullzer/easytotp                                                         v0.1.4                           php-composer  
 sabre/dav                                                                4.4.0                            php-composer  
 sabre/event                                                              5.1.4                            php-composer  
-sabre/http                                                               5.1.7                            php-composer  
+sabre/http                                                               5.1.10                           php-composer  
 sabre/uri                                                                2.3.3                            php-composer  
-sabre/vobject                                                            4.5.3                            php-composer  
+sabre/vobject                                                            4.5.4                            php-composer  
 sabre/xml                                                                2.2.6                            php-composer  
 samba-client                                                             4.18.8-r0                        apk           
 samba-client-libs                                                        4.18.8-r0                        apk           
@@ -332,7 +332,7 @@ sqlite-libs                                                              3.41.2-
 ssl_client                                                               1.36.1-r4                        apk           
 stecman/symfony-console-completion                                       0.11.0                           php-composer  
 sudo                                                                     1.9.13_p3-r2                     apk           
-suspicious_login                                                         6.0.0-dev                        npm           
+suspicious_login                                                         6.0.0                            npm           
 svt-av1-libs                                                             1.6.0-r0                         apk           
 symfony/console                                                          v5.4.24                          php-composer  
 symfony/css-selector                                                     v5.4.11                          php-composer  
