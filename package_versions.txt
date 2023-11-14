@@ -141,7 +141,6 @@ libjpeg-turbo                                                            2.1.5.1
 libjxl                                                                   0.8.2-r0                         apk           
 libldap                                                                  2.6.5-r0                         apk           
 libltdl                                                                  2.4.7-r2                         apk           
-libmcrypt                                                                2.5.8-r10                        apk           
 libmd                                                                    1.0.4-r2                         apk           
 libmemcached-libs                                                        1.1.4-r1                         apk           
 libmount                                                                 2.38.1-r8                        apk           
@@ -263,7 +262,6 @@ php82-pdo_sqlite                                                         8.2.12-
 php82-pecl-apcu                                                          5.1.22-r0                        apk           
 php82-pecl-igbinary                                                      3.2.14-r0                        apk           
 php82-pecl-imagick                                                       3.7.0-r5                         apk           
-php82-pecl-mcrypt                                                        1.0.6-r0                         apk           
 php82-pecl-memcached                                                     3.2.0-r1                         apk           
 php82-pecl-msgpack                                                       2.2.0-r0                         apk           
 php82-pecl-redis                                                         6.0.2-r0                         apk           
