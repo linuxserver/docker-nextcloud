@@ -1,0 +1,2 @@
+# min   hour    day     month   weekday command
+*/5     *       *       *       *       /usr/bin/php /app/www/public/cron.php 2>&1
