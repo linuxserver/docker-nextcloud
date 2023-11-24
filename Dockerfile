@@ -69,7 +69,7 @@ RUN \
     echo 'opcache.jit_buffer_size=128M'; \
   } >> "/etc/php82/conf.d/00_opcache.ini" && \
   { \
-    echo 'memory_limit=512M'; \
+    echo 'memory_limit=640M'; \
     echo 'upload_max_filesize=512M'; \
     echo 'post_max_size=512M'; \
     echo 'max_input_time=300'; \
