@@ -5,7 +5,7 @@ activity                                                                 2.20.0 
 alpine-baselayout                                                        3.4.3-r1                         apk           
 alpine-baselayout-data                                                   3.4.3-r1                         apk           
 alpine-keys                                                              2.4-r1                           apk           
-alpine-release                                                           3.18.4-r0                        apk           
+alpine-release                                                           3.18.5-r0                        apk           
 alsa-lib                                                                 1.2.9-r1                         apk           
 amphp/amp                                                                v2.6.2                           php-composer  
 amphp/byte-stream                                                        v1.8.1                           php-composer  
