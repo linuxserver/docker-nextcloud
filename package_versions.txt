@@ -40,7 +40,7 @@ christian-riesen/base32                                                  1.6.0  
 cjson                                                                    1.7.15-r4                        apk           
 coreutils                                                                9.3-r1                           apk           
 cups-libs                                                                2.4.7-r0                         apk           
-curl                                                                     8.4.0-r0                         apk           
+curl                                                                     8.5.0-r0                         apk           
 cweagans/composer-patches                                                1.7.3                            php-composer  
 darsyn/ip                                                                4.1.0                            php-composer  
 dbus-libs                                                                1.14.8-r0                        apk           
@@ -98,7 +98,7 @@ imagemagick                                                              7.1.1.1
 imagemagick-libs                                                         7.1.1.13-r1                      apk           
 jansson                                                                  2.14-r3                          apk           
 jbig2dec                                                                 0.19-r3                          apk           
-jq                                                                       1.6-r3                           apk           
+jq                                                                       1.6-r4                           apk           
 justinrainbow/json-schema                                                5.2.10                           php-composer  
 lame-libs                                                                3.100-r5                         apk           
 laravel/serializable-closure                                             v1.2.2                           php-composer  
@@ -121,7 +121,7 @@ libbz2                                                                   1.0.8-r
 libc-utils                                                               0.7.2-r5                         apk           
 libcap2                                                                  2.69-r0                          apk           
 libcrypto3                                                               3.1.4-r1                         apk           
-libcurl                                                                  8.4.0-r0                         apk           
+libcurl                                                                  8.5.0-r0                         apk           
 libdav1d                                                                 1.2.1-r0                         apk           
 libde265                                                                 1.0.12-r0                        apk           
 libdrm                                                                   2.4.115-r4                       apk           
