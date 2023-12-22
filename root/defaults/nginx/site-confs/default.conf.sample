@@ -1,4 +1,4 @@
-## Version 2023/06/23 - Changelog: https://github.com/linuxserver/docker-nextcloud/commits/master/root/defaults/nginx/site-confs/default.conf.sample
+## Version 2023/12/22 - Changelog: https://github.com/linuxserver/docker-nextcloud/commits/master/root/defaults/nginx/site-confs/default.conf.sample
 
 # Set the `immutable` cache control options only for assets with a cache busting `v` argument
 map $arg_v $asset_immutable {
@@ -58,6 +58,15 @@ server {
 
     # Remove X-Powered-By, which is an information leak
     fastcgi_hide_header X-Powered-By;
+
+    # Add .mjs as a file extension for javascript
+    # Either include it in the default mime.types list
+    # or include you can include that list explicitly and add the file extension
+    # only for Nextcloud like below:
+    include mime.types;
+    types {
+        text/javascript js mjs;
+    }
 
     # Specify how to handle directories -- specifying `/index.php$request_uri`
     # here as the fallback means that Nginx always exhibits the desired behaviour
@@ -134,7 +143,7 @@ server {
         fastcgi_max_temp_file_size 0;
     }
 
-    location ~ \.(?:css|js|svg|gif|png|jpg|ico|wasm|tflite|map)$ {
+    location ~ \.(?:css|js|mjs|svg|gif|png|jpg|ico|wasm|tflite|map|ogg|flac)$ {
         try_files $uri /index.php$request_uri;
         add_header Cache-Control "public, max-age=15778463, $asset_immutable";
         access_log off;     # Optional: Don't log access to assets
