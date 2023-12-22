@@ -143,11 +143,11 @@ server {
             default_type application/wasm;
         }
         location ~ \.js$ {
-            default_type text/javascript;
+            default_type application/javascript;
         }
 
         location ~ \.mjs$ {
-            default_type text/javascript;
+            default_type application/javascript;
         }
 
     }
