@@ -66,7 +66,7 @@ server {
     # only for Nextcloud like below:
     include mime.types;
     types {
-        text/javascript js mjs;
+        text/javascript mjs;
     }
 
     # Specify how to handle directories -- specifying `/index.php$request_uri`
