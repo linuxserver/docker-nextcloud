@@ -331,6 +331,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **22.12.23:** - Site default conf updating to include mime.types for js and mjs and update location to include more file types.
 * **28.10.23:** - Disable web upgrades using occ during init.
 * **31.08.23:** - Re-add updatenotification app. This allows users to be notified for app updates, but also notifies for NextCloud updates. Updating NextCloud via the web UI is not supported when using this image.
 * **14.08.23:** - Add develop branch.
