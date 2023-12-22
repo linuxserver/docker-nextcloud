@@ -1,11 +1,6 @@
 ## Version 2023/06/23 - Changelog: https://github.com/linuxserver/docker-nextcloud/commits/master/root/defaults/nginx/site-confs/default.conf.sample
 ## Version 2023/12/22 - Changelog: https://github.com/linuxserver/docker-nextcloud/commits/master/root/defaults/nginx/site-confs/default.conf.sample
 
-upstream php-handler {
-    server 127.0.0.1:9000;
-    #server unix:/run/php/php8.2-fpm.sock;
-}
-
 # Set the `immutable` cache control options only for assets with a cache busting `v` argument
 map $arg_v $asset_immutable {
     "" "";
@@ -141,7 +136,7 @@ server {
 
         fastcgi_param modHeadersAvailable true;         # Avoid sending the security headers twice
         fastcgi_param front_controller_active true;     # Enable pretty urls
-        fastcgi_pass php-handler;
+        fastcgi_pass 127.0.0.1:9000;
 
         fastcgi_intercept_errors on;
         fastcgi_request_buffering off;
