@@ -142,6 +142,7 @@ server {
         location ~ \.wasm$ {
             default_type application/wasm;
         }
+
         location ~ \.js$ {
             default_type text/javascript;
         }
