@@ -124,7 +124,7 @@ libcap2                              2.69-r0                          apk
 libcrypto3                           3.1.4-r1                         apk           
 libcurl                              8.5.0-r0                         apk           
 libdav1d                             1.2.1-r0                         apk           
-libde265                             1.0.12-r0                        apk           
+libde265                             1.0.15-r0                        apk           
 libdrm                               2.4.115-r4                       apk           
 libedit                              20221030.3.1-r1                  apk           
 libevent                             2.1.12-r6                        apk           
