@@ -1,4 +1,4 @@
-## Version 2023/12/22 - Changelog: https://github.com/linuxserver/docker-nextcloud/commits/master/root/defaults/nginx/site-confs/default.conf.sample
+## Version 2023/12/25 - Changelog: https://github.com/linuxserver/docker-nextcloud/commits/master/root/defaults/nginx/site-confs/default.conf.sample
 
 # Set the `immutable` cache control options only for assets with a cache busting `v` argument
 map $arg_v $asset_immutable {
@@ -36,25 +36,24 @@ server {
     gzip_comp_level 4;
     gzip_min_length 256;
     gzip_proxied expired no-cache no-store private no_last_modified no_etag auth;
-    gzip_types application/atom+xml application/javascript application/json application/ld+json application/manifest+json application/rss+xml application/vnd.geo+json application/vnd.ms-fontobject application/wasm application/x-font-ttf application/x-web-app-manifest+json application/xhtml+xml application/xml font/opentype image/bmp image/svg+xml image/x-icon text/cache-manifest text/css text/plain text/vcard text/vnd.rim.location.xloc text/vtt text/x-component text/x-cross-domain-policy;
+    gzip_types application/atom+xml text/javascript application/javascript application/json application/ld+json application/manifest+json application/rss+xml application/vnd.geo+json application/vnd.ms-fontobject application/wasm application/x-font-ttf application/x-web-app-manifest+json application/xhtml+xml application/xml font/opentype image/bmp image/svg+xml image/x-icon text/cache-manifest text/css text/plain text/vcard text/vnd.rim.location.xloc text/vtt text/x-component text/x-cross-domain-policy;
 
     # Pagespeed is not supported by Nextcloud, so if your server is built
     # with the `ngx_pagespeed` module, uncomment this line to disable it.
     #pagespeed off;
 
-    # The settings allows you to optimize the HTTP2 bandwitdth.
+    # The settings allows you to optimize the HTTP2 bandwidth.
     # See https://blog.cloudflare.com/delivering-http-2-upload-speed-improvements/
-    # for tunning hints
+    # for tuning hints
     client_body_buffer_size 512k;
 
     # HTTP response headers borrowed from Nextcloud `.htaccess`
-    add_header Referrer-Policy                      "no-referrer"       always;
-    add_header X-Content-Type-Options               "nosniff"           always;
-    add_header X-Download-Options                   "noopen"            always;
-    add_header X-Frame-Options                      "SAMEORIGIN"        always;
-    add_header X-Permitted-Cross-Domain-Policies    "none"              always;
-    add_header X-Robots-Tag                         "noindex, nofollow" always;
-    add_header X-XSS-Protection                     "1; mode=block"     always;
+    add_header Referrer-Policy                   "no-referrer"       always;
+    add_header X-Content-Type-Options            "nosniff"           always;
+    add_header X-Frame-Options                   "SAMEORIGIN"        always;
+    add_header X-Permitted-Cross-Domain-Policies "none"              always;
+    add_header X-Robots-Tag                      "noindex, nofollow" always;
+    add_header X-XSS-Protection                  "1; mode=block"     always;
 
     # Remove X-Powered-By, which is an information leak
     fastcgi_hide_header X-Powered-By;
@@ -66,7 +65,7 @@ server {
     # that file is correctly served; if it doesn't, then the request is passed to
     # the front-end controller. This consistent behaviour means that we don't need
     # to specify custom rules for certain paths (e.g. images and other assets,
-    # `/updater`, `/ocm-provider`, `/ocs-provider`), and thus
+    # `/updater`, `/ocs-provider`), and thus
     # `try_files $uri $uri/ /index.php$request_uri`
     # always provides the desired behaviour.
     index index.php index.html /index.php$request_uri;
@@ -113,7 +112,7 @@ server {
     # to the URI, resulting in a HTTP 500 error response.
     location ~ \.php(?:$|/) {
         # Required for legacy support
-        rewrite ^/(?!index|remote|public|cron|core\/ajax\/update|status|ocs\/v[12]|updater\/.+|oc[ms]-provider\/.+|.+\/richdocumentscode\/proxy) /index.php$request_uri;
+        rewrite ^/(?!index|remote|public|cron|core\/ajax\/update|status|ocs\/v[12]|updater\/.+|ocs-provider\/.+|.+\/richdocumentscode\/proxy) /index.php$request_uri;
 
         fastcgi_split_path_info ^(.+?\.php)(/.*)$;
         set $path_info $fastcgi_path_info;
@@ -134,6 +133,7 @@ server {
         fastcgi_max_temp_file_size 0;
     }
 
+    # Serve static files
     location ~ \.(?:css|js|mjs|svg|gif|png|jpg|ico|wasm|tflite|map|ogg|flac)$ {
         try_files $uri /index.php$request_uri;
         add_header Cache-Control "public, max-age=15778463, $asset_immutable";
