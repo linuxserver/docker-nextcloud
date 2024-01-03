@@ -58,9 +58,6 @@ server {
     # Remove X-Powered-By, which is an information leak
     fastcgi_hide_header X-Powered-By;
 
-    # default nginx mime.types
-    include mime.types;
-
     # Specify how to handle directories -- specifying `/index.php$request_uri`
     # here as the fallback means that Nginx always exhibits the desired behaviour
     # when a client requests a path that corresponds to a directory that exists
