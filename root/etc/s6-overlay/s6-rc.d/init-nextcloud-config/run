@@ -171,5 +171,5 @@ fi
 
 #modify javascript mime type and add .mjs support
 if [ ! -s /etc/nginx/mime.types ]; then
-    sed -i "|application/javascript                           js;|text/javascript                           js mjs;|g" /etc/nginx/mime.types
+    sed -i "s|application/javascript                           js;|text/javascript                           js mjs;|g" /etc/nginx/mime.types
 fi
