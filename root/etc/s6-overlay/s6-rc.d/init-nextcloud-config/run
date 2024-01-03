@@ -170,6 +170,6 @@ elif [ -f /config/www/nextcloud/config/config.php ]; then
 fi
 
 #modify javascript mime type and add .mjs support
-if [ ! -s /etc/nginx/mime.types ]; then
-    sed -i "s|application/javascript                           js;|text/javascript                           js mjs;|g" /etc/nginx/mime.types
+if [ -s /etc/nginx/mime.types ]; then
+    sed -i 's| js;|js mjs;|g' /etc/nginx/mime.types
 fi
