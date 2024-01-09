@@ -367,7 +367,7 @@ tevent                               0.14.1-r1                        apk
 thecodingmachine/safe                v1.3.3                           php-composer  
 tiff                                 4.5.1-r0                         apk           
 twofactor_totp                       10.0.0-beta2                     npm           
-tzdata                               2023c-r1                         apk           
+tzdata                               2023d-r0                         apk           
 utmps-libs                           0.1.2.1-r1                       apk           
 v4l-utils-libs                       1.24.1-r0                        apk           
 vidstab                              1.1.1-r0                         apk           
