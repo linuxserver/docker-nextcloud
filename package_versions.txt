@@ -121,7 +121,7 @@ libbsd                               0.11.7-r1                        apk
 libbz2                               1.0.8-r5                         apk           
 libc-utils                           0.7.2-r5                         apk           
 libcap2                              2.69-r0                          apk           
-libcrypto3                           3.1.4-r3                         apk           
+libcrypto3                           3.1.4-r4                         apk           
 libcurl                              8.5.0-r0                         apk           
 libdav1d                             1.2.1-r0                         apk           
 libde265                             1.0.15-r0                        apk           
@@ -165,7 +165,7 @@ libsndfile                           1.2.0-r2                         apk
 libsodium                            1.0.18-r3                        apk           
 libsrt                               1.5.2-r0                         apk           
 libssh                               0.10.5-r0                        apk           
-libssl3                              3.1.4-r3                         apk           
+libssl3                              3.1.4-r4                         apk           
 libstdc++                            12.2.1_git20220924-r10           apk           
 libtasn1                             4.19.0-r1                        apk           
 libtheora                            1.1.1-r17                        apk           
@@ -217,7 +217,7 @@ notifications                        2.16.0                           npm
 numactl                              2.0.16-r4                        apk           
 onevpl-libs                          2023.2.1-r0                      apk           
 oniguruma                            6.9.8-r1                         apk           
-openssl                              3.1.4-r3                         apk           
+openssl                              3.1.4-r4                         apk           
 opus                                 1.4-r0                           apk           
 orc                                  0.4.34-r0                        apk           
 p11-kit                              0.24.1-r2                        apk           
