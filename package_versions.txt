@@ -37,7 +37,7 @@ ca-certificates-bundle               20230506-r0                      apk
 cairo                                1.17.8-r1                        apk           
 cairo-gobject                        1.17.8-r1                        apk           
 christian-riesen/base32              1.6.0                            php-composer  
-cjson                                1.7.15-r4                        apk           
+cjson                                1.7.17-r0                        apk           
 composer                             2.6.6                            binary        
 coreutils                            9.3-r1                           apk           
 cups-libs                            2.4.7-r0                         apk           
@@ -81,7 +81,7 @@ glslang-libs                         1.3.243.0-r1                     apk
 gmp                                  6.2.1-r3                         apk           
 gnu-libiconv                         1.17-r1                          apk           
 gnu-libiconv-libs                    1.17-r1                          apk           
-gnutls                               3.8.0-r2                         apk           
+gnutls                               3.8.3-r0                         apk           
 graphite2                            1.3.14-r5                        apk           
 guzzlehttp/guzzle                    7.5.0                            php-composer  
 guzzlehttp/promises                  1.5.2                            php-composer  
@@ -121,10 +121,10 @@ libbsd                               0.11.7-r1                        apk
 libbz2                               1.0.8-r5                         apk           
 libc-utils                           0.7.2-r5                         apk           
 libcap2                              2.69-r0                          apk           
-libcrypto3                           3.1.4-r1                         apk           
+libcrypto3                           3.1.4-r4                         apk           
 libcurl                              8.5.0-r0                         apk           
 libdav1d                             1.2.1-r0                         apk           
-libde265                             1.0.12-r0                        apk           
+libde265                             1.0.15-r0                        apk           
 libdrm                               2.4.115-r4                       apk           
 libedit                              20221030.3.1-r1                  apk           
 libevent                             2.1.12-r6                        apk           
@@ -166,7 +166,7 @@ libsndfile                           1.2.0-r2                         apk
 libsodium                            1.0.18-r3                        apk           
 libsrt                               1.5.2-r0                         apk           
 libssh                               0.10.5-r0                        apk           
-libssl3                              3.1.4-r1                         apk           
+libssl3                              3.1.4-r4                         apk           
 libstdc++                            12.2.1_git20220924-r10           apk           
 libtasn1                             4.19.0-r1                        apk           
 libtheora                            1.1.1-r17                        apk           
@@ -218,7 +218,7 @@ notifications                        2.16.0                           npm
 numactl                              2.0.16-r4                        apk           
 onevpl-libs                          2023.2.1-r0                      apk           
 oniguruma                            6.9.8-r1                         apk           
-openssl                              3.1.4-r1                         apk           
+openssl                              3.1.4-r4                         apk           
 opus                                 1.4-r0                           apk           
 orc                                  0.4.34-r0                        apk           
 p11-kit                              0.24.1-r2                        apk           
@@ -331,7 +331,7 @@ speexdsp                             1.2.1-r1                         apk
 spirv-tools                          1.3.243.0-r1                     apk           
 spomky-labs/base64url                v2.0.4                           php-composer  
 spomky-labs/cbor-php                 v2.0.1                           php-composer  
-sqlite-libs                          3.41.2-r2                        apk           
+sqlite-libs                          3.41.2-r3                        apk           
 ssl_client                           1.36.1-r5                        apk           
 stecman/symfony-console-completion   0.11.0                           php-composer  
 sudo                                 1.9.13_p3-r2                     apk           
@@ -367,7 +367,7 @@ tevent                               0.14.1-r1                        apk
 thecodingmachine/safe                v1.3.3                           php-composer  
 tiff                                 4.5.1-r0                         apk           
 twofactor_totp                       10.0.0-beta2                     npm           
-tzdata                               2023c-r1                         apk           
+tzdata                               2023d-r0                         apk           
 utmps-libs                           0.1.2.1-r1                       apk           
 v4l-utils-libs                       1.24.1-r0                        apk           
 vidstab                              1.1.1-r0                         apk           

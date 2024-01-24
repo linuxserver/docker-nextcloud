@@ -79,7 +79,8 @@ app_setup_block: |
 
 # changelog
 changelogs:
-  - { date: "23.12.23:", desc: "Rebase to Alpine 3.19 with php 8.3."}
+  - { date: "23.01.24:", desc: "Rebase to Alpine 3.19 with php 8.3."}
+  - { date: "02.01.24:", desc: "Existing users should update: site-confs/default.conf - Cleanup default site conf." }
   - { date: "22.12.23:", desc: "Site default conf updating to include mime.types for js and mjs and update location to include more file types." }
   - { date: "28.10.23:", desc: "Disable web upgrades using occ during init." }
   - { date: "31.08.23:", desc: "Re-add updatenotification app. This allows users to be notified for app updates, but also notifies for NextCloud updates. Updating NextCloud via the web UI is not supported when using this image." }
