@@ -197,7 +197,7 @@ linux-pam                            1.5.2-r10                        apk
 lmdb                                 0.9.31-r0                        apk           
 logrotate                            3.21.0-r1                        apk           
 lz4-libs                             1.9.4-r4                         apk           
-mbedtls                              2.28.5-r0                        apk           
+mbedtls                              2.28.7-r0                        apk           
 mexitek/phpcolors                    v1.0.4                           php-composer  
 microsoft/azure-storage-blob         1.5.4                            php-composer  
 microsoft/azure-storage-common       1.5.2                            php-composer  
