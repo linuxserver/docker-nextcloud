@@ -72,6 +72,8 @@ This image provides various versions that are available via tags. Please read th
 
 Access the webui at `https://<your-ip>:443`, for more information check out [Nextcloud](https://nextcloud.com/).
 
+Note: `occ` should be run without prepending with `sudo -u abc php` or `sudo -u www-data php` ie; `docker exec -it nextcloud occ maintenance:mode --off`
+
 ### Updating Nextcloud
 
 Updating Nextcloud is done by pulling the new image, and recreating the container with it.
