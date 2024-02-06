@@ -5,7 +5,7 @@ activity                             2.20.0                           npm
 alpine-baselayout                    3.4.3-r1                         apk           
 alpine-baselayout-data               3.4.3-r1                         apk           
 alpine-keys                          2.4-r1                           apk           
-alpine-release                       3.18.5-r0                        apk           
+alpine-release                       3.18.6-r0                        apk           
 alsa-lib                             1.2.9-r1                         apk           
 amphp/amp                            v2.6.2                           php-composer  
 amphp/byte-stream                    v1.8.1                           php-composer  
@@ -39,7 +39,7 @@ cairo-gobject                        1.17.8-r1                        apk
 christian-riesen/base32              1.6.0                            php-composer  
 cjson                                1.7.17-r0                        apk           
 composer                             2.6.6                            binary        
-coreutils                            9.3-r1                           apk           
+coreutils                            9.3-r2                           apk           
 cups-libs                            2.4.7-r0                         apk           
 curl                                 8.5.0-r0                         apk           
 cweagans/composer-patches            1.7.3                            php-composer  
@@ -76,7 +76,7 @@ gdk-pixbuf                           2.42.10-r5                       apk
 ghostscript                          10.02.0-r0                       apk           
 giggsey/libphonenumber-for-php-lite  8.13.12                          php-composer  
 git                                  2.40.1-r0                        apk           
-glib                                 2.76.4-r0                        apk           
+glib                                 2.76.6-r0                        apk           
 glslang-libs                         1.3.243.0-r1                     apk           
 gmp                                  6.2.1-r3                         apk           
 gnu-libiconv                         1.17-r1                          apk           
@@ -121,7 +121,7 @@ libbsd                               0.11.7-r1                        apk
 libbz2                               1.0.8-r5                         apk           
 libc-utils                           0.7.2-r5                         apk           
 libcap2                              2.69-r0                          apk           
-libcrypto3                           3.1.4-r4                         apk           
+libcrypto3                           3.1.4-r5                         apk           
 libcurl                              8.5.0-r0                         apk           
 libdav1d                             1.2.1-r0                         apk           
 libde265                             1.0.15-r0                        apk           
@@ -165,7 +165,7 @@ libsndfile                           1.2.0-r2                         apk
 libsodium                            1.0.18-r3                        apk           
 libsrt                               1.5.2-r0                         apk           
 libssh                               0.10.5-r0                        apk           
-libssl3                              3.1.4-r4                         apk           
+libssl3                              3.1.4-r5                         apk           
 libstdc++                            12.2.1_git20220924-r10           apk           
 libtasn1                             4.19.0-r1                        apk           
 libtheora                            1.1.1-r17                        apk           
@@ -217,7 +217,7 @@ notifications                        2.16.0                           npm
 numactl                              2.0.16-r4                        apk           
 onevpl-libs                          2023.2.1-r0                      apk           
 oniguruma                            6.9.8-r1                         apk           
-openssl                              3.1.4-r4                         apk           
+openssl                              3.1.4-r5                         apk           
 opus                                 1.4-r0                           apk           
 orc                                  0.4.34-r0                        apk           
 p11-kit                              0.24.1-r2                        apk           
