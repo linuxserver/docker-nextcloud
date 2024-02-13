@@ -1,6 +1,6 @@
 NAME                                 VERSION                          TYPE         
 @nextcloud/text                      28.0.0-dev.1                     npm           
-Process Wrapper                      0.0.0.0                          dotnet        
+Process Wrapper                      1.0.0.0                          dotnet        
 activity                             2.20.0                           npm           
 alpine-baselayout                    3.4.3-r1                         apk           
 alpine-baselayout-data               3.4.3-r1                         apk           
@@ -38,7 +38,7 @@ cairo                                1.17.8-r1                        apk
 cairo-gobject                        1.17.8-r1                        apk           
 christian-riesen/base32              1.6.0                            php-composer  
 cjson                                1.7.17-r0                        apk           
-composer                             2.6.6                            binary        
+composer                             2.7.0                            binary        
 coreutils                            9.3-r2                           apk           
 cups-libs                            2.4.7-r0                         apk           
 curl                                 8.5.0-r0                         apk           
@@ -152,7 +152,7 @@ libpanelw                            6.4_p20230506-r0                 apk
 libpciaccess                         0.17-r2                          apk           
 libplacebo                           5.264.1-r1                       apk           
 libpng                               1.6.39-r3                        apk           
-libpq                                15.5-r0                          apk           
+libpq                                15.6-r0                          apk           
 libproc2                             4.0.4-r0                         apk           
 libpulse                             16.1-r10                         apk           
 libraw                               0.21.1-r1                        apk           
@@ -365,7 +365,7 @@ tevent                               0.14.1-r1                        apk
 thecodingmachine/safe                v1.3.3                           php-composer  
 tiff                                 4.5.1-r0                         apk           
 twofactor_totp                       10.0.0-beta2                     npm           
-tzdata                               2023d-r0                         apk           
+tzdata                               2024a-r0                         apk           
 utmps-libs                           0.1.2.1-r1                       apk           
 v4l-utils-libs                       1.24.1-r0                        apk           
 vidstab                              1.1.1-r0                         apk           
