@@ -31,7 +31,7 @@ param_env_vars:
   - { env_var: "TZ", env_value: "Europe/London", desc: "Specify a timezone to use EG Europe/London." }
 param_usage_include_vols: true
 param_volumes:
-  - { vol_path: "/config", vol_host_path: "/path/to/appdata", desc: "Nextcloud configs." }
+  - { vol_path: "/config", vol_host_path: "/path/to/{{ project_name }}/config", desc: "Persistent config files" }
   - { vol_path: "/data", vol_host_path: "/path/to/data", desc: "Your personal data." }
 param_usage_include_ports: true
 param_ports:
@@ -79,6 +79,7 @@ app_setup_block: |
 
 # changelog
 changelogs:
+  - { date: "06.03.24:", desc: "Rebase to Alpine 3.19 with php 8.3."}
   - { date: "02.01.24:", desc: "Existing users should update: site-confs/default.conf - Cleanup default site conf." }
   - { date: "22.12.23:", desc: "Site default conf updating to include mime.types for js and mjs and update location to include more file types." }
   - { date: "28.10.23:", desc: "Disable web upgrades using occ during init." }
