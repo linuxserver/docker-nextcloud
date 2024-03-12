@@ -18,6 +18,7 @@ RUN \
     ffmpeg \
     gnu-libiconv \
     imagemagick \
+    imagemagick-svg \
     libxml2 \
     php83-apcu \
     php83-bcmath \
