@@ -53,7 +53,7 @@ clap                                 4.0.32                           rust-crate
 clap_complete                        4.0.7                            rust-crate                    
 clap_derive                          4.0.21                           rust-crate                    
 clap_lex                             0.3.0                            rust-crate                    
-composer                             2.7.1                            binary                        
+composer                             2.7.2                            binary                        
 console                              0.15.5                           rust-crate                    
 coreutils                            9.4-r2                           apk                           
 coreutils-env                        9.4-r2                           apk                           
