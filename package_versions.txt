@@ -172,7 +172,7 @@ libdovi                              3.2.0-r1                         apk
 libdrm                               2.4.118-r0                       apk                           
 libedit                              20230828.3.1-r3                  apk                           
 libevent                             2.1.12-r7                        apk                           
-libexpat                             2.6.0-r0                         apk                           
+libexpat                             2.6.2-r0                         apk                           
 libffi                               3.4.4-r3                         apk                           
 libflac                              1.4.3-r1                         apk                           
 libformw                             6.4_p20231125-r0                 apk                           
