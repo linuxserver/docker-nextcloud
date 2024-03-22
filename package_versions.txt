@@ -45,6 +45,8 @@ c-ares                               1.24.0-r1                        apk
 c-client                             2007f-r15                        apk                           
 ca-certificates                      20230506-r0                      apk                           
 ca-certificates-bundle               20230506-r0                      apk                           
+cairo                                1.18.0-r0                        apk                           
+cairo-gobject                        1.18.0-r0                        apk                           
 cfg-if                               1.0.0                            rust-crate                    
 christian-riesen/base32              1.6.0                            php-composer                  
 cjson                                1.7.17-r0                        apk                           
@@ -100,6 +102,7 @@ funty                                2.0.0                            rust-crate
 fusonic/linq                         v1.1.0                           php-composer                  
 fusonic/opengraph                    v2.2.0                           php-composer                  
 gdbm                                 1.23-r1                          apk                           
+gdk-pixbuf                           2.42.10-r6                       apk                           
 getrandom                            0.2.9                            rust-crate                    
 giggsey/libphonenumber-for-php-lite  8.13.12                          php-composer                  
 git                                  2.43.0-r0                        apk                           
@@ -128,6 +131,9 @@ imagemagick                          7.1.1.26-r0                      apk
 imagemagick-jpeg                     7.1.1.26-r0                      apk                           
 imagemagick-jxl                      7.1.1.26-r0                      apk                           
 imagemagick-libs                     7.1.1.26-r0                      apk                           
+imagemagick-pango                    7.1.1.26-r0                      apk                           
+imagemagick-svg                      7.1.1.26-r0                      apk                           
+imagemagick-tiff                     7.1.1.26-r0                      apk                           
 imagemagick-webp                     7.1.1.26-r0                      apk                           
 interpolate_name                     0.2.3                            rust-crate                    
 io-lifetimes                         1.0.10                           rust-crate                    
@@ -169,7 +175,7 @@ libdovi                              3.2.0-r1                         apk
 libdrm                               2.4.118-r0                       apk                           
 libedit                              20230828.3.1-r3                  apk                           
 libevent                             2.1.12-r7                        apk                           
-libexpat                             2.6.0-r0                         apk                           
+libexpat                             2.6.2-r0                         apk                           
 libffi                               3.4.4-r3                         apk                           
 libflac                              1.4.3-r1                         apk                           
 libformw                             6.4_p20231125-r0                 apk                           
@@ -198,6 +204,7 @@ libpq                                16.2-r0                          apk
 libproc2                             4.0.4-r0                         apk                           
 libpulse                             16.1-r11                         apk                           
 librist                              0.2.10-r0                        apk                           
+librsvg                              2.57.1-r0                        apk                           
 libsasl                              2.1.28-r5                        apk                           
 libsharpyuv                          1.3.2-r0                         apk                           
 libsm                                1.2.4-r3                         apk                           
@@ -227,8 +234,10 @@ libxcb                               1.16-r0                          apk
 libxdmcp                             1.1.4-r3                         apk                           
 libxext                              1.3.5-r3                         apk                           
 libxfixes                            6.0.1-r3                         apk                           
+libxft                               2.3.8-r2                         apk                           
 libxml2                              2.11.7-r0                        apk                           
 libxpm                               3.5.17-r0                        apk                           
+libxrender                           0.9.11-r4                        apk                           
 libxt                                1.3.0-r4                         apk                           
 libxxhash                            0.8.2-r2                         apk                           
 libzip                               1.10.1-r0                        apk                           
@@ -280,6 +289,7 @@ opus                                 1.4-r0                           apk
 orc                                  0.4.34-r0                        apk                           
 os_str_bytes                         6.5.0                            rust-crate                    
 p11-kit                              0.25.3-r0                        apk                           
+pango                                1.51.0-r0                        apk                           
 password_policy                      1.18.0                           npm                           
 paste                                1.0.12                           rust-crate                    
 pcre                                 8.45-r3                          apk                           
@@ -342,6 +352,8 @@ php83-xmlwriter                      8.3.4-r0                         apk
 php83-zip                            8.3.4-r0                         apk                           
 phpseclib/phpseclib                  2.0.45                           php-composer                  
 pimple/pimple                        v3.5.0                           php-composer                  
+pixman                               0.42.2-r2                        apk                           
+pkgconf                              2.1.0-r0                         apk                           
 popt                                 1.19-r3                          apk                           
 ppv-lite86                           0.2.17                           rust-crate                    
 privacy                              1.12.0                           npm                           
@@ -402,6 +414,7 @@ serde                                1.0.163                          rust-crate
 serde_derive                         1.0.163                          rust-crate                    
 shaderc                              2023.7-r0                        apk                           
 shadow                               4.14.2-r0                        apk                           
+shared-mime-info                     2.4-r0                           apk                           
 signal-hook                          0.3.15                           rust-crate                    
 signal-hook-registry                 1.4.1                            rust-crate                    
 simd_helpers                         0.1.0                            rust-crate                    
@@ -453,6 +466,7 @@ tevent                               0.15.0-r0                        apk
 thecodingmachine/safe                v1.3.3                           php-composer                  
 thiserror                            1.0.40                           rust-crate                    
 thiserror-impl                       1.0.40                           rust-crate                    
+tiff                                 4.6.0-r0                         apk                           
 twofactor_totp                       10.0.0-beta2                     npm                           
 tzdata                               2024a-r0                         apk                           
 unicode-ident                        1.0.8                            rust-crate                    
