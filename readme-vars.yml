@@ -81,6 +81,7 @@ app_setup_block: |
 
 # changelog
 changelogs:
+  - { date: "22.03.24:", desc: "Add imagemagick-svg module."}
   - { date: "06.03.24:", desc: "Rebase to Alpine 3.19 with php 8.3."}
   - { date: "02.01.24:", desc: "Existing users should update: site-confs/default.conf - Cleanup default site conf." }
   - { date: "22.12.23:", desc: "Site default conf updating to include mime.types for js and mjs and update location to include more file types." }
