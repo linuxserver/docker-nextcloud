@@ -159,6 +159,9 @@ server {
     # Support for the Client Push (notify_push) plugin, needs mod installed https://github.com/linuxserver/docker-mods/tree/nextcloud-notify-push
     location ^~ /push/ {
         proxy_pass http://127.0.0.1:7867/;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "Upgrade";
     }
 
     location / {
