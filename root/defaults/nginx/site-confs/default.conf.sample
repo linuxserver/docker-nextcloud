@@ -156,6 +156,11 @@ server {
         return 301 /remote.php$request_uri;
     }
 
+    # Suuport for the Client Push (notify_push) plugin, needs mod installed https://github.com/linuxserver/docker-mods/tree/nextcloud-notify-push
+    location /push/ {
+        proxy_pass http://127.0.0.1:7867/;
+    }
+
     location / {
         # enable for basic auth
         #auth_basic "Restricted";
