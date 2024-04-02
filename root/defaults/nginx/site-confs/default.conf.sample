@@ -1,4 +1,4 @@
-## Version 2024/01/03 - Changelog: https://github.com/linuxserver/docker-nextcloud/commits/master/root/defaults/nginx/site-confs/default.conf.sample
+## Version 2024/04/02 - Changelog: https://github.com/linuxserver/docker-nextcloud/commits/master/root/defaults/nginx/site-confs/default.conf.sample
 
 # Set the `immutable` cache control options only for assets with a cache busting `v` argument
 map $arg_v $asset_immutable {
@@ -156,7 +156,7 @@ server {
         return 301 /remote.php$request_uri;
     }
 
-    # Suuport for the Client Push (notify_push) plugin, needs mod installed https://github.com/linuxserver/docker-mods/tree/nextcloud-notify-push
+    # Support for the Client Push (notify_push) plugin, needs mod installed https://github.com/linuxserver/docker-mods/tree/nextcloud-notify-push
     location /push/ {
         proxy_pass http://127.0.0.1:7867/;
     }
