@@ -44,8 +44,8 @@ busybox                              1.36.1-r15                       apk
 busybox-binsh                        1.36.1-r15                       apk                           
 c-ares                               1.24.0-r1                        apk                           
 c-client                             2007f-r15                        apk                           
-ca-certificates                      20230506-r0                      apk                           
-ca-certificates-bundle               20230506-r0                      apk                           
+ca-certificates                      20240226-r0                      apk                           
+ca-certificates-bundle               20240226-r0                      apk                           
 cfg-if                               1.0.0                            rust-crate                    
 christian-riesen/base32              1.6.0                            php-composer                  
 cjson                                1.7.17-r0                        apk                           
@@ -152,7 +152,7 @@ league/uri                           6.4.0                            php-compos
 league/uri-interfaces                2.2.0                            php-composer                  
 libSvtAv1Enc                         1.7.0-r0                         apk                           
 libacl                               2.3.1-r4                         apk                           
-libarchive                           3.7.2-r0                         apk                           
+libarchive                           3.7.2-r1                         apk                           
 libass                               0.17.1-r1                        apk                           
 libasyncns                           0.8-r2                           apk                           
 libattr                              2.5.1-r5                         apk                           
@@ -245,7 +245,7 @@ logreader                            2.14.0                           npm
 logrotate                            3.21.0-r1                        apk                           
 lz4-libs                             1.9.4-r5                         apk                           
 maybe-rayon                          0.1.1                            rust-crate                    
-mbedtls                              2.28.7-r0                        apk                           
+mbedtls                              2.28.8-r0                        apk                           
 memchr                               2.5.0                            rust-crate                    
 memoffset                            0.8.0                            rust-crate                    
 mexitek/phpcolors                    v1.0.4                           php-composer                  
