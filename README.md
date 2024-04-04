@@ -317,6 +317,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **02.04.24:** - Existing users should update: site-confs/default.conf - Add support for the Client Push (notify_push) plugin and the [new mod](https://github.com/linuxserver/docker-mods/tree/nextcloud-notify-push).
 * **22.03.24:** - Add imagemagick-svg module.
 * **06.03.24:** - Rebase to Alpine 3.19 with php 8.3.
 * **02.01.24:** - Existing users should update: site-confs/default.conf - Cleanup default site conf.
