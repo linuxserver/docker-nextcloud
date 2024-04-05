@@ -92,7 +92,9 @@ app_setup_block: |
 
   You may need to log out and back in for the changes to come in to effect. 
   
-  This fix was sourced from [Nextcloud Support](https://help.nextcloud.com/t/solved-image-previews-only-working-for-heic-photos/164302/7)
+  This fix was sourced from [Nextcloud Documentation](https://docs.nextcloud.com/server/latest/admin_manual/configuration_server/config_sample_php_parameters.html#enabledpreviewproviders)
+
+  Nextcloud state that HEIC preview is disabled by default due to performance or privacy concerns, so enable this at your own risk. 
 
   ### Custom App Directories
 
