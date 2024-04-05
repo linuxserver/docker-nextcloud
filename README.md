@@ -88,6 +88,34 @@ Nextcloud's built-in collaborative editing packages (Collabora/CODE and OnlyOffi
 
 If (auto) installed, those built-in packages may cause instability and should be removed.
 
+### HEIC Image Previews
+
+In order to enable HEIC image preview generation you will need to add the following to your `config.php` file in your `config/www/nextcloud/config' directory;
+
+```
+  'enable_previews' => true,
+  'enabledPreviewProviders' =>
+  array (
+    'OC\Preview\PNG',
+    'OC\Preview\JPEG',
+    'OC\Preview\GIF',
+    'OC\Preview\BMP',
+    'OC\Preview\XBitmap',
+    'OC\Preview\MP3',
+    'OC\Preview\TXT',
+    'OC\Preview\MarkDown',
+    'OC\Preview\OpenDocument',
+    'OC\Preview\Krita',
+    'OC\Preview\HEIC',
+  ),
+```
+
+You may need to log out and back in for the changes to come in to effect. 
+
+This fix was sourced from [Nextcloud Documentation](https://docs.nextcloud.com/server/latest/admin_manual/configuration_server/config_sample_php_parameters.html#enabledpreviewproviders)
+
+Nextcloud state that HEIC preview is disabled by default due to performance or privacy concerns, so enable this at your own risk. 
+
 ### Custom App Directories
 
 If you are [using custom app directories](https://docs.nextcloud.com/server/latest/admin_manual/apps_management.html#using-custom-app-directories) you will need to make the custom folder(s) you are using available to the web server. The recommended way to do this with our container is to add a volume. Ex:
@@ -317,6 +345,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **05.04.24:** - Added imagemagick-heic. Manual update to `config.php` required - see above.
 * **02.04.24:** - Existing users should update: site-confs/default.conf - Add support for the Client Push (notify_push) plugin and the [new mod](https://github.com/linuxserver/docker-mods/tree/nextcloud-notify-push).
 * **22.03.24:** - Add imagemagick-svg module.
 * **06.03.24:** - Rebase to Alpine 3.19 with php 8.3.
