@@ -42,7 +42,7 @@ brotli-libs                          1.1.0-r1                         apk
 bruteforcesettings                   2.9.0                            npm                           
 busybox                              1.36.1-r15                       apk                           
 busybox-binsh                        1.36.1-r15                       apk                           
-c-ares                               1.24.0-r1                        apk                           
+c-ares                               1.27.0-r0                        apk                           
 c-client                             2007f-r15                        apk                           
 ca-certificates                      20240226-r0                      apk                           
 ca-certificates-bundle               20240226-r0                      apk                           
@@ -73,7 +73,7 @@ dbus-libs                            1.14.10-r0                       apk
 deepdiver/zipstreamer                v2.0.2                           php-composer                  
 deepdiver1975/tarstreamer            v2.1.0                           php-composer                  
 doctrine/cache                       2.2.0                            php-composer                  
-doctrine/dbal                        3.7.0                            php-composer                  
+doctrine/dbal                        3.8.3                            php-composer                  
 doctrine/deprecations                1.1.2                            php-composer                  
 doctrine/event-manager               1.2.0                            php-composer                  
 doctrine/lexer                       2.1.0                            php-composer                  
@@ -344,7 +344,7 @@ php83-xml                            8.3.4-r0                         apk
 php83-xmlreader                      8.3.4-r0                         apk                           
 php83-xmlwriter                      8.3.4-r0                         apk                           
 php83-zip                            8.3.4-r0                         apk                           
-phpseclib/phpseclib                  2.0.45                           php-composer                  
+phpseclib/phpseclib                  2.0.47                           php-composer                  
 pimple/pimple                        v3.5.0                           php-composer                  
 popt                                 1.19-r3                          apk                           
 ppv-lite86                           0.2.17                           rust-crate                    
