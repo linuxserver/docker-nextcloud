@@ -26,6 +26,7 @@ argon2-libs                          20190702-r5                      apk
 arrayvec                             0.7.2                            rust-crate                    
 av-metrics                           0.9.0                            rust-crate                    
 av1-grain                            0.2.2                            rust-crate                    
+avahi-libs                           0.8-r16                          apk                           
 aws/aws-crt-php                      v1.0.2                           php-composer                  
 aws/aws-sdk-php                      3.240.8                          php-composer                  
 bantu/ini-get-wrapper                v1.0.1                           php-composer                  
@@ -68,6 +69,7 @@ crossbeam-deque                      0.8.3                            rust-crate
 crossbeam-epoch                      0.9.14                           rust-crate                    
 crossbeam-queue                      0.3.8                            rust-crate                    
 crossbeam-utils                      0.8.15                           rust-crate                    
+cups-libs                            2.4.7-r0                         apk                           
 curl                                 8.5.0-r0                         apk                           
 cweagans/composer-patches            1.7.3                            php-composer                  
 dbus-libs                            1.14.10-r0                       apk                           
@@ -104,6 +106,7 @@ fusonic/opengraph                    v2.2.0                           php-compos
 gdbm                                 1.23-r1                          apk                           
 gdk-pixbuf                           2.42.10-r6                       apk                           
 getrandom                            0.2.9                            rust-crate                    
+ghostscript                          10.02.1-r0                       apk                           
 giggsey/libphonenumber-for-php-lite  8.13.12                          php-composer                  
 git                                  2.43.0-r0                        apk                           
 glib                                 2.78.4-r0                        apk                           
@@ -133,6 +136,7 @@ imagemagick-jpeg                     7.1.1.26-r0                      apk
 imagemagick-jxl                      7.1.1.26-r0                      apk                           
 imagemagick-libs                     7.1.1.26-r0                      apk                           
 imagemagick-pango                    7.1.1.26-r0                      apk                           
+imagemagick-pdf                      7.1.1.26-r0                      apk                           
 imagemagick-svg                      7.1.1.26-r0                      apk                           
 imagemagick-tiff                     7.1.1.26-r0                      apk                           
 imagemagick-webp                     7.1.1.26-r0                      apk                           
@@ -142,6 +146,7 @@ is-terminal                          0.4.7                            rust-crate
 itertools                            0.10.5                           rust-crate                    
 ivf                                  0.1.2                            rust-crate                    
 jansson                              2.14-r4                          apk                           
+jbig2dec                             0.20-r0                          apk                           
 jq                                   1.7.1-r0                         apk                           
 justinrainbow/json-schema            5.2.10                           php-composer                  
 lab                                  0.11.0                           rust-crate                    
