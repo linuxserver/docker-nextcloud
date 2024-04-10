@@ -19,6 +19,7 @@ RUN \
     gnu-libiconv \
     imagemagick \
     imagemagick-heic \
+    imagemagick-pdf \
     imagemagick-svg \
     libxml2 \
     php83-apcu \
