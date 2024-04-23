@@ -18,7 +18,7 @@ anyhow                               1.0.71                           rust-crate
 anyhow                               1.0.75                           rust-crate                    
 aom-libs                             3.7.1-r0                         apk                           
 apache2-utils                        2.4.59-r0                        apk                           
-apk-tools                            2.14.3-r1                        apk                           
+apk-tools                            2.14.4-r0                        apk                           
 apr                                  1.7.4-r0                         apk                           
 apr-util                             1.6.3-r1                         apk                           
 arg_enum_proc_macro                  0.3.2                            rust-crate                    
@@ -96,6 +96,7 @@ ffmpeg-libswscale                    6.1.1-r0                         apk
 fftw-double-libs                     3.3.10-r5                        apk                           
 fgrosse/phpasn1                      v2.3.0                           php-composer                  
 files_pdfviewer                      2.9.0                            npm                           
+findutils                            4.9.0-r5                         apk                           
 firstrunwizard                       2.17.0                           npm                           
 fontconfig                           2.14.2-r4                        apk                           
 freetype                             2.13.2-r0                        apk                           
