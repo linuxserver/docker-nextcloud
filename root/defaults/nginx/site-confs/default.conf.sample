@@ -124,9 +124,8 @@ server {
         fastcgi_param PATH_INFO $path_info;
 
         fastcgi_param modHeadersAvailable true;         # Avoid sending the security headers twice
-        fastcgi_param front_controller_active true;     # Enable pretty urls
+#        fastcgi_param front_controller_active true;     # Enable pretty urls
         fastcgi_pass 127.0.0.1:9000;
-
         fastcgi_intercept_errors on;
         fastcgi_request_buffering off;
 
