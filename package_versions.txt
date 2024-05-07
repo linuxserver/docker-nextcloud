@@ -152,7 +152,7 @@ league/uri                           6.4.0                            php-compos
 league/uri-interfaces                2.2.0                            php-composer                  
 libSvtAv1Enc                         1.7.0-r0                         apk                           
 libacl                               2.3.1-r4                         apk                           
-libarchive                           3.7.2-r1                         apk                           
+libarchive                           3.7.4-r0                         apk                           
 libass                               0.17.1-r1                        apk                           
 libasyncns                           0.8-r2                           apk                           
 libattr                              2.5.1-r5                         apk                           
