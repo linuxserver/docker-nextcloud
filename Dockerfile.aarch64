@@ -50,6 +50,7 @@ RUN \
     php83-xmlreader \
     rsync \
     samba-client \
+    util-linux \
     sudo && \
   apk add --no-cache --repository=http://dl-cdn.alpinelinux.org/alpine/edge/community \
     php83-pecl-mcrypt && \
