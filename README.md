@@ -345,6 +345,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **19.05.24:** - Added util-linux package required for taskset.
 * **10.04.24:** - Added imagemagick-pdf.
 * **05.04.24:** - Added imagemagick-heic. Manual update to `config.php` required - see above.
 * **02.04.24:** - Existing users should update: site-confs/default.conf - Add support for the Client Push (notify_push) plugin and the [new mod](https://github.com/linuxserver/docker-mods/tree/nextcloud-notify-push).
