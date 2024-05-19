@@ -2,6 +2,7 @@ NAME                                 VERSION                          TYPE
 @nextcloud/text                      3.10.0                           npm                           
 Process Wrapper                      1.0.0.0                          dotnet        (+1 duplicate)  
 activity                             2.21.0                           npm                           
+agetty                               2.39.3-r0                        apk                           
 alpine-baselayout                    3.4.3-r2                         apk                           
 alpine-baselayout-data               3.4.3-r2                         apk                           
 alpine-keys                          2.4-r1                           apk                           
@@ -38,6 +39,7 @@ bitstream-io                         1.6.0                            rust-crate
 bitstream-io                         1.7.0                            rust-crate                    
 bitvec                               1.0.1                            rust-crate                    
 bitvec_helpers                       3.1.2                            rust-crate                    
+blkid                                2.39.3-r0                        apk                           
 brick/math                           0.9.2                            php-composer                  
 brotli-libs                          1.1.0-r1                         apk                           
 bruteforcesettings                   2.9.0                            npm                           
@@ -50,6 +52,7 @@ ca-certificates-bundle               20240226-r0                      apk
 cairo                                1.18.0-r0                        apk                           
 cairo-gobject                        1.18.0-r0                        apk                           
 catatonit                            0.2.0-r0                         apk                           
+cfdisk                               2.39.3-r0                        apk                           
 cfg-if                               1.0.0                            rust-crate                    
 christian-riesen/base32              1.6.0                            php-composer                  
 cjson                                1.7.17-r0                        apk                           
@@ -99,11 +102,14 @@ fftw-double-libs                     3.3.10-r5                        apk
 fgrosse/phpasn1                      v2.3.0                           php-composer                  
 files_downloadlimit                  1.1.0                            npm                           
 files_pdfviewer                      2.10.0                           npm                           
+findmnt                              2.39.3-r0                        apk                           
 findutils                            4.9.0-r5                         apk                           
 firstrunwizard                       2.18.0                           npm                           
+flock                                2.39.3-r0                        apk                           
 fontconfig                           2.14.2-r4                        apk                           
 freetype                             2.13.2-r0                        apk                           
 fribidi                              1.0.13-r0                        apk                           
+fstrim                               2.39.3-r0                        apk                           
 funty                                2.0.0                            rust-crate                    
 fusonic/linq                         v1.1.0                           php-composer                  
 fusonic/opengraph                    v2.2.0                           php-composer                  
@@ -112,7 +118,7 @@ gdk-pixbuf                           2.42.10-r6                       apk
 getrandom                            0.2.9                            rust-crate                    
 ghostscript                          10.02.1-r0                       apk                           
 giggsey/libphonenumber-for-php-lite  8.13.27                          php-composer                  
-git                                  2.43.0-r0                        apk                           
+git                                  2.43.4-r0                        apk                           
 glib                                 2.78.6-r0                        apk                           
 glslang-libs                         1.3.261.1-r0                     apk                           
 gmp                                  6.3.0-r0                         apk                           
@@ -126,6 +132,7 @@ guzzlehttp/psr7                      2.6.2                            php-compos
 guzzlehttp/uri-template              v0.2.0                           php-composer                  
 harfbuzz                             8.3.0-r0                         apk                           
 heck                                 0.4.1                            rust-crate                    
+hexdump                              2.39.3-r0                        apk                           
 hexogen/kdtree                       v0.2.5                           php-composer                  
 hwdata-pci                           0.377.2-r0                       apk                           
 icewind/searchdav                    v3.1.0                           php-composer                  
@@ -133,16 +140,16 @@ icewind/smb                          v3.5.4                           php-compos
 icewind/streams                      v0.7.7                           php-composer  (+1 duplicate)  
 icu-data-en                          74.1-r0                          apk                           
 icu-libs                             74.1-r0                          apk                           
-imagemagick                          7.1.1.26-r0                      apk                           
-imagemagick-heic                     7.1.1.26-r0                      apk                           
-imagemagick-jpeg                     7.1.1.26-r0                      apk                           
-imagemagick-jxl                      7.1.1.26-r0                      apk                           
-imagemagick-libs                     7.1.1.26-r0                      apk                           
-imagemagick-pango                    7.1.1.26-r0                      apk                           
-imagemagick-pdf                      7.1.1.26-r0                      apk                           
-imagemagick-svg                      7.1.1.26-r0                      apk                           
-imagemagick-tiff                     7.1.1.26-r0                      apk                           
-imagemagick-webp                     7.1.1.26-r0                      apk                           
+imagemagick                          7.1.1.32-r0                      apk                           
+imagemagick-heic                     7.1.1.32-r0                      apk                           
+imagemagick-jpeg                     7.1.1.32-r0                      apk                           
+imagemagick-jxl                      7.1.1.32-r0                      apk                           
+imagemagick-libs                     7.1.1.32-r0                      apk                           
+imagemagick-pango                    7.1.1.32-r0                      apk                           
+imagemagick-pdf                      7.1.1.32-r0                      apk                           
+imagemagick-svg                      7.1.1.32-r0                      apk                           
+imagemagick-tiff                     7.1.1.32-r0                      apk                           
+imagemagick-webp                     7.1.1.32-r0                      apk                           
 interpolate_name                     0.2.3                            rust-crate                    
 io-lifetimes                         1.0.10                           rust-crate                    
 is-terminal                          0.4.7                            rust-crate                    
@@ -177,6 +184,7 @@ libbz2                               1.0.8-r6                         apk
 libc                                 0.2.144                          rust-crate                    
 libc                                 0.2.149                          rust-crate                    
 libc-utils                           0.7.2-r5                         apk                           
+libcap-ng                            0.8.3-r4                         apk                           
 libcap2                              2.69-r1                          apk                           
 libcrypto3                           3.1.4-r6                         apk                           
 libcurl                              8.5.0-r0                         apk                           
@@ -184,9 +192,11 @@ libdav1d                             1.3.0-r1                         apk
 libde265                             1.0.15-r0                        apk                           
 libdovi                              3.2.0-r1                         apk                           
 libdrm                               2.4.118-r0                       apk                           
+libeconf                             0.5.2-r2                         apk                           
 libedit                              20230828.3.1-r3                  apk                           
 libevent                             2.1.12-r7                        apk                           
 libexpat                             2.6.2-r0                         apk                           
+libfdisk                             2.39.3-r0                        apk                           
 libffi                               3.4.4-r3                         apk                           
 libflac                              1.4.3-r1                         apk                           
 libformw                             6.4_p20231125-r0                 apk                           
@@ -212,7 +222,7 @@ libpanelw                            6.4_p20231125-r0                 apk
 libpciaccess                         0.17-r2                          apk                           
 libplacebo                           6.338.1-r0                       apk                           
 libpng                               1.6.40-r0                        apk                           
-libpq                                16.2-r1                          apk                           
+libpq                                16.3-r0                          apk                           
 libproc2                             4.0.4-r0                         apk                           
 libpulse                             16.1-r11                         apk                           
 librist                              0.2.10-r0                        apk                           
@@ -220,6 +230,7 @@ librsvg                              2.57.1-r0                        apk
 libsasl                              2.1.28-r5                        apk                           
 libsharpyuv                          1.3.2-r0                         apk                           
 libsm                                1.2.4-r3                         apk                           
+libsmartcols                         2.39.3-r0                        apk                           
 libsmbclient                         4.18.9-r0                        apk                           
 libsndfile                           1.2.2-r0                         apk                           
 libsodium                            1.0.19-r0                        apk                           
@@ -259,11 +270,15 @@ linux-pam                            1.5.3-r7                         apk
 linux-raw-sys                        0.3.7                            rust-crate                    
 lmdb                                 0.9.31-r0                        apk                           
 log                                  0.4.17                           rust-crate                    
+logger                               2.39.3-r0                        apk                           
 logreader                            2.14.0                           npm                           
 logrotate                            3.21.0-r1                        apk                           
+losetup                              2.39.3-r0                        apk                           
+lsblk                                2.39.3-r0                        apk                           
 lz4-libs                             1.9.4-r5                         apk                           
 maybe-rayon                          0.1.1                            rust-crate                    
 mbedtls                              2.28.8-r0                        apk                           
+mcookie                              2.39.3-r0                        apk                           
 memchr                               2.5.0                            rust-crate                    
 memoffset                            0.8.0                            rust-crate                    
 mexitek/phpcolors                    v1.0.4                           php-composer                  
@@ -271,6 +286,7 @@ microsoft/azure-storage-blob         1.5.4                            php-compos
 microsoft/azure-storage-common       1.5.2                            php-composer                  
 minimal-lexical                      0.2.1                            rust-crate                    
 mlocati/ip-lib                       1.18.0                           php-composer                  
+mount                                2.39.3-r0                        apk                           
 mpg123-libs                          1.32.3-r0                        apk                           
 mtdowling/jmespath.php               2.6.1                            php-composer                  
 musl                                 1.2.4_git20230717-r4             apk                           
@@ -303,6 +319,7 @@ orc                                  0.4.34-r0                        apk
 os_str_bytes                         6.5.0                            rust-crate                    
 p11-kit                              0.25.3-r0                        apk                           
 pango                                1.51.0-r0                        apk                           
+partx                                2.39.3-r0                        apk                           
 password_policy                      1.19.0                           npm                           
 paste                                1.0.12                           rust-crate                    
 pcre                                 8.45-r3                          apk                           
@@ -402,6 +419,7 @@ rsync                                3.2.7-r4                         apk
 rubix/ml                             dev-chore/bump-flysystem-v2.1.1  php-composer                  
 rubix/tensor                         2.2.3                            php-composer                  
 rullzer/easytotp                     v0.1.4                           php-composer                  
+runuser                              2.39.3-r0                        apk                           
 rust_hawktracer                      0.7.0                            rust-crate                    
 rust_hawktracer_normal_macro         0.4.1                            rust-crate                    
 rust_hawktracer_proc_macro           0.4.1                            rust-crate                    
@@ -425,6 +443,9 @@ sdl2                                 2.28.5-r0                        apk
 serd-libs                            0.32.0-r0                        apk                           
 serde                                1.0.163                          rust-crate                    
 serde_derive                         1.0.163                          rust-crate                    
+setarch                              2.39.3-r0                        apk                           
+setpriv                              2.39.3-r0                        apk                           
+sfdisk                               2.39.3-r0                        apk                           
 shaderc                              2023.7-r0                        apk                           
 shadow                               4.14.2-r0                        apk                           
 shared-mime-info                     2.4-r0                           apk                           
@@ -485,9 +506,13 @@ thiserror-impl                       1.0.40                           rust-crate
 tiff                                 4.6.0-r0                         apk                           
 twofactor_totp                       11.0.0-dev                       npm                           
 tzdata                               2024a-r0                         apk                           
+umount                               2.39.3-r0                        apk                           
 unicode-ident                        1.0.8                            rust-crate                    
 unicode-width                        0.1.10                           rust-crate                    
+util-linux                           2.39.3-r0                        apk                           
+util-linux-misc                      2.39.3-r0                        apk                           
 utmps-libs                           0.1.2.2-r0                       apk                           
+uuidgen                              2.39.3-r0                        apk                           
 v4l-utils-libs                       1.24.1-r1                        apk                           
 v_frame                              0.3.3                            rust-crate                    
 vidstab                              1.1.1-r0                         apk                           
@@ -498,6 +523,7 @@ wayland-libs-client                  1.22.0-r4                        apk
 web-auth/cose-lib                    v3.3.9                           php-composer                  
 web-auth/metadata-service            v3.3.9                           php-composer                  
 web-auth/webauthn-lib                v3.3.9                           php-composer                  
+wipefs                               2.39.3-r0                        apk                           
 wyz                                  0.5.1                            rust-crate                    
 x264-libs                            0.164_git20231001-r0             apk                           
 x265-libs                            3.5-r4                           apk                           
