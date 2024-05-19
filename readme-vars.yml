@@ -109,6 +109,7 @@ app_setup_block: |
 
 # changelog
 changelogs:
+  - { date: "19.05.24:", desc: "Added util-linux package required for taskset."}
   - { date: "10.04.24:", desc: "Added imagemagick-pdf."}
   - { date: "05.04.24:", desc: "Added imagemagick-heic. Manual update to `config.php` required - see above."}
   - { date: "02.04.24:", desc: "Existing users should update: site-confs/default.conf - Add support for the Client Push (notify_push) plugin and the [new mod](https://github.com/linuxserver/docker-mods/tree/nextcloud-notify-push)."}
