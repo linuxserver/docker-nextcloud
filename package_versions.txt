@@ -329,7 +329,7 @@ php83-pecl-igbinary                  3.2.15-r0                        apk
 php83-pecl-imagick                   3.7.0-r0                         apk                           
 php83-pecl-mcrypt                    1.0.7-r0                         apk                           
 php83-pecl-memcached                 3.2.0-r0                         apk                           
-php83-pecl-msgpack                   2.2.0-r1                         apk                           
+php83-pecl-msgpack                   2.2.0-r2                         apk                           
 php83-pecl-redis                     6.0.2-r0                         apk                           
 php83-pecl-smbclient                 1.1.1-r0                         apk                           
 php83-pgsql                          8.3.7-r0                         apk                           
