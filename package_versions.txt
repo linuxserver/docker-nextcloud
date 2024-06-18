@@ -60,7 +60,7 @@ clap                                 4.0.32                           rust-crate
 clap_complete                        4.0.7                            rust-crate                    
 clap_derive                          4.0.21                           rust-crate                    
 clap_lex                             0.3.0                            rust-crate                    
-composer                             2.7.6                            binary                        
+composer                             2.7.7                            binary                        
 console                              0.15.5                           rust-crate                    
 coreutils                            9.4-r2                           apk                           
 coreutils-env                        9.4-r2                           apk                           
@@ -74,7 +74,7 @@ crossbeam-deque                      0.8.3                            rust-crate
 crossbeam-epoch                      0.9.14                           rust-crate                    
 crossbeam-queue                      0.3.8                            rust-crate                    
 crossbeam-utils                      0.8.15                           rust-crate                    
-cups-libs                            2.4.7-r0                         apk                           
+cups-libs                            2.4.9-r0                         apk                           
 curl                                 8.5.0-r0                         apk                           
 cweagans/composer-patches            1.7.3                            php-composer                  
 dbus-libs                            1.14.10-r0                       apk                           
