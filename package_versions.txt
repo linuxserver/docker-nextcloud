@@ -40,8 +40,8 @@ bitvec_helpers                       3.1.2                            rust-crate
 brick/math                           0.9.2                            php-composer                  
 brotli-libs                          1.1.0-r1                         apk                           
 bruteforcesettings                   2.9.0                            npm                           
-busybox                              1.36.1-r18                       apk                           
-busybox-binsh                        1.36.1-r18                       apk                           
+busybox                              1.36.1-r19                       apk                           
+busybox-binsh                        1.36.1-r19                       apk                           
 c-ares                               1.27.0-r0                        apk                           
 c-client                             2007f-r15                        apk                           
 ca-certificates                      20240226-r0                      apk                           
@@ -419,7 +419,7 @@ spomky-labs/base64url                v2.0.4                           php-compos
 spomky-labs/cbor-php                 v2.0.1                           php-composer                  
 sqlite-libs                          3.44.2-r0                        apk                           
 sratom                               0.6.16-r0                        apk                           
-ssl_client                           1.36.1-r18                       apk                           
+ssl_client                           1.36.1-r19                       apk                           
 stecman/symfony-console-completion   0.11.0                           php-composer                  
 sudo                                 1.9.15_p2-r0                     apk                           
 support                              1.12.0                           npm                           
