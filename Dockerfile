@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 
-FROM ghcr.io/linuxserver/baseimage-alpine-nginx:3.19
+FROM ghcr.io/linuxserver/baseimage-alpine-nginx:3.20
 
 # set version label
 ARG BUILD_DATE
@@ -36,6 +36,7 @@ RUN \
     php83-pdo_pgsql \
     php83-pdo_sqlite \
     php83-pecl-imagick \
+    php83-pecl-mcrypt \
     php83-pecl-memcached \
     php83-pecl-smbclient \
     php83-pgsql \
@@ -48,8 +49,6 @@ RUN \
     rsync \
     samba-client \
     sudo && \
-  apk add --no-cache --repository=http://dl-cdn.alpinelinux.org/alpine/edge/community \
-    php83-pecl-mcrypt && \
   echo "**** configure php-fpm to pass env vars ****" && \
   sed -E -i 's/^;?clear_env ?=.*$/clear_env = no/g' /etc/php83/php-fpm.d/www.conf && \
   grep -qxF 'clear_env = no' /etc/php83/php-fpm.d/www.conf || echo 'clear_env = no' >> /etc/php83/php-fpm.d/www.conf && \
@@ -93,6 +92,7 @@ RUN \
   rm -rf /app/www/src/updater && \
   mkdir -p /app/www/src/data && \
   chmod +x /app/www/src/occ && \
+  printf "Linuxserver.io version: ${VERSION}\nBuild-date: ${BUILD_DATE}" > /build_version && \
   echo "**** cleanup ****" && \
   rm -rf \
     /tmp/*
