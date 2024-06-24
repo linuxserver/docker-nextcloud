@@ -110,11 +110,11 @@ In order to enable HEIC image preview generation you will need to add the follow
   ),
 ```
 
-You may need to log out and back in for the changes to come in to effect. 
+You may need to log out and back in for the changes to come in to effect.
 
 This fix was sourced from [Nextcloud Documentation](https://docs.nextcloud.com/server/latest/admin_manual/configuration_server/config_sample_php_parameters.html#enabledpreviewproviders)
 
-Nextcloud state that HEIC preview is disabled by default due to performance or privacy concerns, so enable this at your own risk. 
+Nextcloud state that HEIC preview is disabled by default due to performance or privacy concerns, so enable this at your own risk.
 
 ### Custom App Directories
 
@@ -345,6 +345,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **24.06.24:** - Rebase to Alpine 3.20. Existing users should update their nginx confs to avoid http2 deprecation warnings.
 * **19.05.24:** - Added util-linux package required for taskset.
 * **10.04.24:** - Added imagemagick-pdf.
 * **05.04.24:** - Added imagemagick-heic. Manual update to `config.php` required - see above.

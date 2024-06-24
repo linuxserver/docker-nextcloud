@@ -9,7 +9,6 @@ project_blurb: |
 
   Where are your photos and documents? With Nextcloud you pick a server of your choice, at home, in a data center or at a provider. And that is where your files will be. Nextcloud runs on that server, protecting your data and giving you access from your desktop or mobile devices. Through Nextcloud you also access, sync and share your existing data on that FTP drive at the office, a Dropbox or a NAS you have at home.
 project_lsio_github_repo_url: "https://github.com/linuxserver/docker-{{ project_name }}"
-project_blurb_optional_extras_enabled: false
 
 # supported architectures
 available_architectures:
@@ -25,10 +24,6 @@ development_versions_items:
 # container parameters
 common_param_env_vars_enabled: true
 param_container_name: "{{ project_name }}"
-param_usage_include_net: false
-param_usage_include_env: true
-param_env_vars:
-  - { env_var: "TZ", env_value: "Europe/London", desc: "Specify a timezone to use EG Europe/London." }
 param_usage_include_vols: true
 param_volumes:
   - { vol_path: "/config", vol_host_path: "/path/to/{{ project_name }}/config", desc: "Persistent config files" }
@@ -36,16 +31,6 @@ param_volumes:
 param_usage_include_ports: true
 param_ports:
   - { external_port: "443", internal_port: "443", port_desc: "WebUI" }
-param_device_map: false
-cap_add_param: false
-
-# optional container parameters
-opt_param_usage_include_env: false
-opt_param_usage_include_vols: false
-opt_param_usage_include_ports: false
-opt_param_device_map: false
-opt_cap_add_param: false
-optional_block_1: false
 
 # application setup block
 app_setup_block_enabled: true
@@ -90,11 +75,11 @@ app_setup_block: |
     ),
   ```
 
-  You may need to log out and back in for the changes to come in to effect. 
-  
+  You may need to log out and back in for the changes to come in to effect.
+
   This fix was sourced from [Nextcloud Documentation](https://docs.nextcloud.com/server/latest/admin_manual/configuration_server/config_sample_php_parameters.html#enabledpreviewproviders)
 
-  Nextcloud state that HEIC preview is disabled by default due to performance or privacy concerns, so enable this at your own risk. 
+  Nextcloud state that HEIC preview is disabled by default due to performance or privacy concerns, so enable this at your own risk.
 
   ### Custom App Directories
 
@@ -109,6 +94,7 @@ app_setup_block: |
 
 # changelog
 changelogs:
+  - { date: "24.06.24:", desc: "Rebase to Alpine 3.20. Existing users should update their nginx confs to avoid http2 deprecation warnings."}
   - { date: "19.05.24:", desc: "Added util-linux package required for taskset."}
   - { date: "10.04.24:", desc: "Added imagemagick-pdf."}
   - { date: "05.04.24:", desc: "Added imagemagick-heic. Manual update to `config.php` required - see above."}
