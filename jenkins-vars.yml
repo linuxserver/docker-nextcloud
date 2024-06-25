@@ -7,7 +7,6 @@ custom_version_command: "curl -sX GET https://api.github.com/repos/nextcloud/ser
 release_type: prerelease
 release_tag: develop
 ls_branch: develop
-build_armhf: false
 repo_vars:
   - BUILD_VERSION_ARG = 'NEXTCLOUD_RELEASE'
   - LS_USER = 'linuxserver'
@@ -23,6 +22,6 @@ repo_vars:
   - CI_PORT='443'
   - CI_SSL='true'
   - CI_DELAY='120'
-  - CI_DOCKERENV='TZ=US/Pacific'
-  - CI_AUTH='user:password'
+  - CI_DOCKERENV=''
+  - CI_AUTH=''
   - CI_WEBPATH=''
