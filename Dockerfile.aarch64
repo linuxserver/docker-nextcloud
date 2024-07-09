@@ -86,7 +86,8 @@ RUN \
   if [ -z ${NEXTCLOUD_RELEASE+x} ]; then \
     NEXTCLOUD_RELEASE=$(curl -sX GET https://api.github.com/repos/nextcloud/server/releases \
       | jq -r "first(.[] | select(.tag_name | contains($(( $(curl -sX GET https://api.github.com/repos/nextcloud/server/releases/latest \
-      | jq -r '.tag_name' | sed 's|^v||g' | awk -F '.' '{print $1}') -1 ))|tostring )) | .tag_name)"); \
+      | jq -r '.tag_name' | sed 's|^v||g' | awk -F '.' '{print $1}') -1 ))|tostring )) | .tag_name)" \
+      | sed 's|^v||g'); \
   fi && \
   curl -o \
     /tmp/nextcloud.tar.bz2 -L \
