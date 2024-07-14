@@ -87,7 +87,7 @@ fusonic/linq                         v1.1.0                           php-compos
 fusonic/opengraph                    v2.2.0                           php-composer                  
 gdbm                                 1.23-r1                          apk                           
 gdk-pixbuf                           2.42.11-r1                       apk                           
-ghostscript                          10.02.1-r0                       apk                           
+ghostscript                          10.03.1-r0                       apk                           
 giflib                               5.2.2-r0                         apk                           
 giggsey/libphonenumber-for-php-lite  8.13.27                          php-composer                  
 git                                  2.45.2-r0                        apk                           
@@ -150,7 +150,7 @@ libbsd                               0.12.2-r0                        apk
 libbz2                               1.0.8-r6                         apk                           
 libcap-ng                            0.8.5-r0                         apk                           
 libcap2                              2.70-r0                          apk                           
-libcrypto3                           3.3.1-r1                         apk                           
+libcrypto3                           3.3.1-r3                         apk                           
 libcurl                              8.8.0-r0                         apk                           
 libdav1d                             1.4.2-r0                         apk                           
 libde265                             1.0.15-r0                        apk                           
@@ -201,7 +201,7 @@ libsndfile                           1.2.2-r0                         apk
 libsodium                            1.0.19-r0                        apk                           
 libsrt                               1.5.3-r0                         apk                           
 libssh                               0.10.6-r0                        apk                           
-libssl3                              3.3.1-r1                         apk                           
+libssl3                              3.3.1-r3                         apk                           
 libstdc++                            13.2.1_git20240309-r0            apk                           
 libtasn1                             4.19.0-r2                        apk                           
 libtheora                            1.1.1-r18                        apk                           
@@ -265,7 +265,8 @@ oniguruma                            6.9.9-r0                         apk
 openexr-libiex                       3.1.13-r1                        apk                           
 openexr-libilmthread                 3.1.13-r1                        apk                           
 openexr-libopenexr                   3.1.13-r1                        apk                           
-openssl                              3.3.1-r1                         apk                           
+openjpeg                             2.5.2-r0                         apk                           
+openssl                              3.3.1-r3                         apk                           
 opus                                 1.5.2-r0                         apk                           
 orc                                  0.4.37-r0                        apk                           
 p11-kit                              0.25.3-r0                        apk                           
