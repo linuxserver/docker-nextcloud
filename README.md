@@ -67,6 +67,7 @@ This image provides various versions that are available via tags. Please read th
 | :----: | :----: |--- |
 | latest | ✅ | Stable Nextcloud releases |
 | develop | ✅ | Beta Nextcloud pre-releases *only* |
+| previous | ✅ | Nextcloud releases from the previous major version |
 
 ## Application Setup
 
@@ -345,6 +346,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **09.07.24:** - Add `previous` tag for n-1 releases.
 * **24.06.24:** - Rebase to Alpine 3.20. Existing users should update their nginx confs to avoid http2 deprecation warnings.
 * **19.05.24:** - Added util-linux package required for taskset.
 * **10.04.24:** - Added imagemagick-pdf.
