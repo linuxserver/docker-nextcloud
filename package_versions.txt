@@ -16,7 +16,7 @@ amphp/process                        v1.1.4                           php-compos
 amphp/serialization                  v1.0.0                           php-composer                  
 amphp/sync                           v1.4.2                           php-composer                  
 aom-libs                             3.9.0-r0                         apk                           
-apache2-utils                        2.4.61-r0                        apk                           
+apache2-utils                        2.4.62-r0                        apk                           
 apk-tools                            2.14.4-r0                        apk                           
 apr                                  1.7.4-r0                         apk                           
 apr-util                             1.6.3-r1                         apk                           
@@ -52,7 +52,7 @@ cups-libs                            2.4.9-r0                         apk
 curl                                 8.8.0-r0                         apk                           
 cweagans/composer-patches            1.7.3                            php-composer                  
 dbus-libs                            1.14.10-r1                       apk                           
-deepdiver/zipstreamer                2.0.0                            php-composer                  
+deepdiver/zipstreamer                v2.0.3                           php-composer                  
 deepdiver1975/tarstreamer            v2.1.0                           php-composer                  
 dmesg                                2.40.1-r1                        apk                           
 doctrine/cache                       2.2.0                            php-composer                  
