@@ -4,7 +4,7 @@ activity                             3.0.0                            npm
 alpine-baselayout                    3.6.5-r0                         apk                           
 alpine-baselayout-data               3.6.5-r0                         apk                           
 alpine-keys                          2.4-r1                           apk                           
-alpine-release                       3.20.1-r0                        apk                           
+alpine-release                       3.20.2-r0                        apk                           
 alsa-lib                             1.2.11-r0                        apk                           
 amphp/amp                            v2.6.2                           php-composer                  
 amphp/byte-stream                    v1.8.1                           php-composer                  
@@ -40,7 +40,7 @@ coreutils                            9.5-r1                           apk
 coreutils-env                        9.5-r1                           apk                           
 coreutils-fmt                        9.5-r1                           apk                           
 coreutils-sha512sum                  9.5-r1                           apk                           
-curl                                 8.8.0-r0                         apk                           
+curl                                 8.9.0-r0                         apk                           
 cweagans/composer-patches            1.7.3                            php-composer                  
 dbus-libs                            1.14.10-r1                       apk                           
 deepdiver/zipstreamer                v2.0.3                           php-composer                  
@@ -124,7 +124,7 @@ libbsd                               0.12.2-r0                        apk
 libbz2                               1.0.8-r6                         apk                           
 libcap2                              2.70-r0                          apk                           
 libcrypto3                           3.3.1-r3                         apk                           
-libcurl                              8.8.0-r0                         apk                           
+libcurl                              8.9.0-r0                         apk                           
 libdav1d                             1.4.2-r0                         apk                           
 libdovi                              3.3.0-r0                         apk                           
 libdrm                               2.4.120-r0                       apk                           
