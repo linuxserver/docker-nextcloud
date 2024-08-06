@@ -6,7 +6,7 @@ alpine-baselayout-data               3.6.5-r0                         apk
 alpine-keys                          2.4-r1                           apk                           
 alpine-release                       3.20.2-r0                        apk                           
 alsa-lib                             1.2.11-r0                        apk                           
-amphp/amp                            v2.6.2                           php-composer                  
+amphp/amp                            v2.6.4                           php-composer                  
 amphp/byte-stream                    v1.8.1                           php-composer                  
 amphp/parallel                       v1.4.3                           php-composer                  
 amphp/parser                         v1.1.0                           php-composer                  
