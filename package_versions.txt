@@ -21,6 +21,7 @@ apr-util                             1.6.3-r1                         apk
 argon2-libs                          20190702-r5                      apk                           
 aws/aws-crt-php                      v1.2.5                           php-composer                  
 aws/aws-sdk-php                      3.311.2                          php-composer                  
+bamarni/composer-bin-plugin          1.8.2                            php-composer                  
 bantu/ini-get-wrapper                v1.0.1                           php-composer                  
 bash                                 5.2.26-r0                        apk                           
 brick/math                           0.12.1                           php-composer                  
@@ -217,6 +218,7 @@ ncurses-terminfo-base                6.4_p20240420-r0                 apk
 netcat-openbsd                       1.226-r0                         apk                           
 nettle                               3.9.1-r0                         apk                           
 nextcloud                            1.0.0                            npm                           
+nextcloud/coding-standard            v1.2.1                           php-composer                  
 nextcloud/lognormalizer              v1.0.0                           php-composer                  
 nghttp2-libs                         1.62.1-r0                        apk                           
 nginx                                1.26.1-r0                        apk                           
@@ -240,6 +242,7 @@ pear/console_getopt                  v1.4.3                           php-compos
 pear/pear-core-minimal               v1.10.15                         php-composer                  
 pear/pear_exception                  v1.0.2                           php-composer                  
 photos                               3.0.0                            npm                           
+php-cs-fixer/shim                    v3.61.1                          php-composer                  
 php-http/guzzle7-adapter             1.0.0                            php-composer                  
 php-http/httplug                     2.2.0                            php-composer                  
 php-http/promise                     1.1.0                            php-composer                  
@@ -393,7 +396,7 @@ web-auth/webauthn-lib                4.8.5                            php-compos
 x264-libs                            0.164_git20231001-r0             apk                           
 x265-libs                            3.6-r0                           apk                           
 xvidcore                             1.3.7-r2                         apk                           
-xz-libs                              5.6.1-r3                         apk                           
+xz-libs                              5.6.2-r0                         apk                           
 zimg                                 3.0.5-r2                         apk                           
 zix-libs                             0.4.2-r0                         apk                           
 zlib                                 1.3.1-r1                         apk                           
