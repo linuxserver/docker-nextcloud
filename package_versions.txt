@@ -438,7 +438,7 @@ wipefs                               2.40.1-r1                        apk
 x264-libs                            0.164_git20231001-r0             apk                           
 x265-libs                            3.6-r0                           apk                           
 xvidcore                             1.3.7-r2                         apk                           
-xz-libs                              5.6.1-r3                         apk                           
+xz-libs                              5.6.2-r0                         apk                           
 zimg                                 3.0.5-r2                         apk                           
 zix-libs                             0.4.2-r0                         apk                           
 zlib                                 1.3.1-r1                         apk                           
