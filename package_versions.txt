@@ -221,7 +221,7 @@ nextcloud                            1.0.0                            npm
 nextcloud/coding-standard            v1.2.1                           php-composer                  
 nextcloud/lognormalizer              v1.0.0                           php-composer                  
 nghttp2-libs                         1.62.1-r0                        apk                           
-nginx                                1.26.1-r0                        apk                           
+nginx                                1.26.2-r0                        apk                           
 notifications                        3.0.0                            npm                           
 numactl                              2.0.18-r0                        apk                           
 onevpl-libs                          2023.3.1-r2                      apk                           
