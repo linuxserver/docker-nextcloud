@@ -239,7 +239,7 @@ logrotate                            3.21.0-r1                        apk
 losetup                              2.40.1-r1                        apk                           
 lsblk                                2.40.1-r1                        apk                           
 lz4-libs                             1.9.4-r5                         apk                           
-mbedtls                              3.6.0-r0                         apk                           
+mbedtls                              3.6.1-r0                         apk                           
 mcookie                              2.40.1-r1                        apk                           
 mexitek/phpcolors                    v1.0.4                           php-composer                  
 microsoft/azure-storage-blob         1.5.4                            php-composer                  
