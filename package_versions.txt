@@ -204,7 +204,7 @@ logreader                            3.0.0                            npm
 logrotate                            3.21.0-r1                        apk                           
 lz4-libs                             1.9.4-r5                         apk                           
 masterminds/html5                    2.9.0                            php-composer                  
-mbedtls                              3.6.0-r0                         apk                           
+mbedtls                              3.6.1-r0                         apk                           
 mexitek/phpcolors                    v1.0.4                           php-composer                  
 microsoft/azure-storage-blob         1.5.4                            php-composer                  
 microsoft/azure-storage-common       1.5.2                            php-composer                  
