@@ -99,7 +99,7 @@ imagemagick-jpeg                     7.1.1.32-r2                      apk
 imagemagick-jxl                      7.1.1.32-r2                      apk                           
 imagemagick-libs                     7.1.1.32-r2                      apk                           
 imagemagick-webp                     7.1.1.32-r2                      apk                           
-imath                                3.1.11-r2                        apk                           
+imath                                3.1.12-r0                        apk                           
 jansson                              2.14-r4                          apk                           
 jq                                   1.7.1-r0                         apk                           
 justinrainbow/json-schema            v5.2.13                          php-composer                  
@@ -231,7 +231,7 @@ openexr-libilmthread                 3.1.13-r1                        apk
 openexr-libopenexr                   3.1.13-r1                        apk                           
 openssl                              3.3.2-r0                         apk                           
 opus                                 1.5.2-r0                         apk                           
-orc                                  0.4.37-r0                        apk                           
+orc                                  0.4.39-r0                        apk                           
 p11-kit                              0.25.3-r0                        apk                           
 paragonie/constant_time_encoding     v2.6.3                           php-composer                  
 password_policy                      2.0.0                            npm                           
