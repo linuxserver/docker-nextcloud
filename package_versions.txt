@@ -6,7 +6,7 @@ agetty                               2.40.1-r1                        apk
 alpine-baselayout                    3.6.5-r0                         apk                           
 alpine-baselayout-data               3.6.5-r0                         apk                           
 alpine-keys                          2.4-r1                           apk                           
-alpine-release                       3.20.2-r0                        apk                           
+alpine-release                       3.20.3-r0                        apk                           
 alsa-lib                             1.2.11-r0                        apk                           
 amphp/amp                            v2.6.2                           php-composer                  
 amphp/byte-stream                    v1.8.1                           php-composer                  
@@ -84,7 +84,7 @@ fstrim                               2.40.1-r1                        apk
 fusonic/linq                         v1.1.0                           php-composer                  
 fusonic/opengraph                    v2.2.0                           php-composer                  
 gdbm                                 1.23-r1                          apk                           
-gdk-pixbuf                           2.42.11-r1                       apk                           
+gdk-pixbuf                           2.42.12-r0                       apk                           
 ghostscript                          10.03.1-r0                       apk                           
 giflib                               5.2.2-r0                         apk                           
 giggsey/libphonenumber-for-php-lite  8.13.12                          php-composer                  
@@ -160,7 +160,7 @@ libexpat                             2.6.3-r0                         apk
 libfdisk                             2.40.1-r1                        apk                           
 libffi                               3.4.6-r0                         apk                           
 libflac                              1.4.3-r1                         apk                           
-libformw                             6.4_p20240420-r0                 apk                           
+libformw                             6.4_p20240420-r1                 apk                           
 libgcc                               13.2.1_git20240309-r0            apk                           
 libgomp                              13.2.1_git20240309-r0            apk                           
 libheif                              1.17.6-r1                        apk                           
@@ -176,10 +176,10 @@ libmcrypt                            2.5.8-r10                        apk
 libmd                                1.1.0-r0                         apk                           
 libmemcached-libs                    1.1.4-r1                         apk                           
 libmount                             2.40.1-r1                        apk                           
-libncursesw                          6.4_p20240420-r0                 apk                           
+libncursesw                          6.4_p20240420-r1                 apk                           
 libogg                               1.3.5-r5                         apk                           
 libopenmpt                           0.7.7-r0                         apk                           
-libpanelw                            6.4_p20240420-r0                 apk                           
+libpanelw                            6.4_p20240420-r1                 apk                           
 libpciaccess                         0.18.1-r0                        apk                           
 libplacebo                           6.338.2-r1                       apk                           
 libpng                               1.6.43-r0                        apk                           
@@ -247,7 +247,7 @@ mtdowling/jmespath.php               2.6.1                            php-compos
 musl                                 1.2.5-r0                         apk                           
 musl-utils                           1.2.5-r0                         apk                           
 nano                                 8.0-r0                           apk                           
-ncurses-terminfo-base                6.4_p20240420-r0                 apk                           
+ncurses-terminfo-base                6.4_p20240420-r1                 apk                           
 netcat-openbsd                       1.226-r0                         apk                           
 nettle                               3.9.1-r0                         apk                           
 nextcloud                            1.0.0                            npm                           
@@ -419,7 +419,7 @@ tevent                               0.16.1-r0                        apk
 thecodingmachine/safe                v1.3.3                           php-composer                  
 tiff                                 4.6.0t-r0                        apk                           
 twofactor_totp                       10.0.0-beta2                     npm                           
-tzdata                               2024a-r1                         apk                           
+tzdata                               2024b-r0                         apk                           
 umount                               2.40.1-r1                        apk                           
 util-linux                           2.40.1-r1                        apk                           
 util-linux-misc                      2.40.1-r1                        apk                           
