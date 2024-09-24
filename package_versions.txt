@@ -90,7 +90,7 @@ giflib                               5.2.2-r0                         apk
 giggsey/libphonenumber-for-php-lite  8.13.12                          php-composer                  
 git                                  2.45.2-r0                        apk                           
 git-init-template                    2.45.2-r0                        apk                           
-glib                                 2.80.4-r0                        apk                           
+glib                                 2.80.5-r0                        apk                           
 glslang-libs                         1.3.261.1-r0                     apk                           
 gmp                                  6.3.0-r1                         apk                           
 gnu-libiconv                         1.17-r2                          apk                           
@@ -135,7 +135,7 @@ league/uri                           6.4.0                            php-compos
 league/uri-interfaces                2.2.0                            php-composer                  
 libSvtAv1Enc                         2.0.0-r1                         apk                           
 libacl                               2.3.2-r0                         apk                           
-libarchive                           3.7.4-r0                         apk                           
+libarchive                           3.7.5-r0                         apk                           
 libass                               0.17.2-r0                        apk                           
 libasyncns                           0.8-r3                           apk                           
 libattr                              2.5.2-r0                         apk                           
@@ -170,7 +170,7 @@ libidn2                              2.3.7-r0                         apk
 libintl                              0.22.5-r0                        apk                           
 libjpeg-turbo                        3.0.3-r0                         apk                           
 libjxl                               0.10.2-r0                        apk                           
-libldap                              2.6.7-r0                         apk                           
+libldap                              2.6.8-r0                         apk                           
 libltdl                              2.4.7-r3                         apk                           
 libmcrypt                            2.5.8-r10                        apk                           
 libmd                                1.1.0-r0                         apk                           
@@ -182,7 +182,7 @@ libopenmpt                           0.7.7-r0                         apk
 libpanelw                            6.4_p20240420-r1                 apk                           
 libpciaccess                         0.18.1-r0                        apk                           
 libplacebo                           6.338.2-r1                       apk                           
-libpng                               1.6.43-r0                        apk                           
+libpng                               1.6.44-r0                        apk                           
 libpq                                16.3-r0                          apk                           
 libproc2                             4.0.4-r0                         apk                           
 libpsl                               0.21.5-r1                        apk                           
