@@ -138,7 +138,7 @@ league/uri                           6.4.0                            php-compos
 league/uri-interfaces                2.2.0                            php-composer                  
 libSvtAv1Enc                         2.0.0-r1                         apk                           
 libacl                               2.3.2-r0                         apk                           
-libarchive                           3.7.5-r0                         apk                           
+libarchive                           3.7.6-r0                         apk                           
 libass                               0.17.2-r0                        apk                           
 libasyncns                           0.8-r3                           apk                           
 libattr                              2.5.2-r0                         apk                           
@@ -316,7 +316,7 @@ php83-pecl-imagick                   3.7.0-r0                         apk
 php83-pecl-mcrypt                    1.0.7-r0                         apk                           
 php83-pecl-memcached                 3.2.0-r0                         apk                           
 php83-pecl-msgpack                   2.2.0-r2                         apk                           
-php83-pecl-redis                     6.0.2-r0                         apk                           
+php83-pecl-redis                     6.1.0-r0                         apk                           
 php83-pecl-smbclient                 1.1.1-r0                         apk                           
 php83-pgsql                          8.3.12-r0                        apk                           
 php83-phar                           8.3.12-r0                        apk                           
