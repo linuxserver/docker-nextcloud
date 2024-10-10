@@ -22,8 +22,8 @@ apr                                  1.7.5-r0                         apk
 apr-util                             1.6.3-r1                         apk                           
 argon2-libs                          20190702-r5                      apk                           
 avahi-libs                           0.8-r17                          apk                           
-aws/aws-crt-php                      v1.0.2                           php-composer                  
-aws/aws-sdk-php                      3.240.8                          php-composer                  
+aws/aws-crt-php                      v1.2.6                           php-composer                  
+aws/aws-sdk-php                      3.322.4                          php-composer                  
 bamarni/composer-bin-plugin          1.8.2                            php-composer                  
 bantu/ini-get-wrapper                v1.0.1                           php-composer                  
 bash                                 5.2.26-r0                        apk                           
