@@ -239,7 +239,7 @@ logrotate                            3.21.0-r1                        apk
 losetup                              2.40.1-r1                        apk                           
 lsblk                                2.40.1-r1                        apk                           
 lz4-libs                             1.9.4-r5                         apk                           
-mbedtls                              3.6.1-r0                         apk                           
+mbedtls                              3.6.2-r0                         apk                           
 mcookie                              2.40.1-r1                        apk                           
 mexitek/phpcolors                    v1.0.4                           php-composer                  
 microsoft/azure-storage-blob         1.5.4                            php-composer                  
@@ -314,7 +314,7 @@ php83-pecl-apcu                      5.1.23-r0                        apk
 php83-pecl-igbinary                  3.2.15-r0                        apk                           
 php83-pecl-imagick                   3.7.0-r0                         apk                           
 php83-pecl-mcrypt                    1.0.7-r0                         apk                           
-php83-pecl-memcached                 3.2.0-r0                         apk                           
+php83-pecl-memcached                 3.3.0-r0                         apk                           
 php83-pecl-msgpack                   2.2.0-r2                         apk                           
 php83-pecl-redis                     6.1.0-r0                         apk                           
 php83-pecl-smbclient                 1.1.1-r0                         apk                           
