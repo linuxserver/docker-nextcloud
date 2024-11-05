@@ -158,7 +158,7 @@ libpanelw                            6.4_p20240420-r1                 apk
 libpciaccess                         0.18.1-r0                        apk                           
 libplacebo                           6.338.2-r1                       apk                           
 libpng                               1.6.44-r0                        apk                           
-libpq                                16.3-r0                          apk                           
+libpq                                16.4-r0                          apk                           
 libproc2                             4.0.4-r0                         apk                           
 libpsl                               0.21.5-r1                        apk                           
 libpulse                             17.0-r0                          apk                           
