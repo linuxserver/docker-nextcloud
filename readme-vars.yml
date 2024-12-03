@@ -9,29 +9,25 @@ project_blurb: |
 
   Where are your photos and documents? With Nextcloud you pick a server of your choice, at home, in a data center or at a provider. And that is where your files will be. Nextcloud runs on that server, protecting your data and giving you access from your desktop or mobile devices. Through Nextcloud you also access, sync and share your existing data on that FTP drive at the office, a Dropbox or a NAS you have at home.
 project_lsio_github_repo_url: "https://github.com/linuxserver/docker-{{ project_name }}"
-
 # supported architectures
 available_architectures:
-  - { arch: "{{ arch_x86_64 }}", tag: "amd64-latest"}
-  - { arch: "{{ arch_arm64 }}", tag: "arm64v8-latest"}
-
+  - {arch: "{{ arch_x86_64 }}", tag: "amd64-latest"}
+  - {arch: "{{ arch_arm64 }}", tag: "arm64v8-latest"}
 # development version
 development_versions: true
 development_versions_items:
-  - { tag: "latest", desc: "Stable Nextcloud releases" }
-  - { tag: "develop", desc: "Beta Nextcloud pre-releases *only*" }
-
+  - {tag: "latest", desc: "Stable Nextcloud releases"}
+  - {tag: "develop", desc: "Beta Nextcloud pre-releases *only*"}
 # container parameters
 common_param_env_vars_enabled: true
 param_container_name: "{{ project_name }}"
 param_usage_include_vols: true
 param_volumes:
-  - { vol_path: "/config", vol_host_path: "/path/to/{{ project_name }}/config", desc: "Persistent config files" }
-  - { vol_path: "/data", vol_host_path: "/path/to/data", desc: "Your personal data." }
+  - {vol_path: "/config", vol_host_path: "/path/to/{{ project_name }}/config", desc: "Persistent config files"}
+  - {vol_path: "/data", vol_host_path: "/path/to/data", desc: "Your personal data."}
 param_usage_include_ports: true
 param_ports:
-  - { external_port: "443", internal_port: "443", port_desc: "WebUI" }
-
+  - {external_port: "443", internal_port: "443", port_desc: "WebUI"}
 # application setup block
 app_setup_block_enabled: true
 app_setup_block: |
@@ -61,61 +57,115 @@ app_setup_block: |
   ```
 
   Afterwards, you can set `"path" => OC::$SERVERROOT . "/your_custom_apps_folder",` in your `config.php` file, per the [official documentation](https://docs.nextcloud.com/server/latest/admin_manual/apps_management.html#using-custom-app-directories).
-
+# init diagram
+init_diagram: |
+  "nextcloud:develop": {
+    docker-mods
+    base {
+      fix-attr +\nlegacy cont-init
+    }
+    docker-mods -> base
+    legacy-services
+    custom services
+    init-services -> legacy-services
+    init-services -> custom services
+    custom services -> legacy-services
+    legacy-services -> ci-service-check
+    init-migrations -> init-adduser
+    init-nginx-end -> init-config
+    init-os-end -> init-config
+    init-config -> init-config-end
+    init-nextcloud-config -> init-config-end
+    init-os-end -> init-crontab-config
+    init-mods-end -> init-custom-files
+    base -> init-envfile
+    init-os-end -> init-folders
+    init-php -> init-keygen
+    base -> init-migrations
+    base -> init-mods
+    init-config-end -> init-mods
+    init-version-checks -> init-mods
+    init-mods -> init-mods-end
+    init-mods-package-install -> init-mods-end
+    init-mods -> init-mods-package-install
+    init-nginx-end -> init-nextcloud-config
+    init-samples -> init-nginx
+    init-permissions -> init-nginx-end
+    base -> init-os-end
+    init-adduser -> init-os-end
+    init-envfile -> init-os-end
+    init-migrations -> init-os-end
+    init-keygen -> init-permissions
+    init-nginx -> init-php
+    init-folders -> init-samples
+    init-custom-files -> init-services
+    init-mods-end -> init-services
+    init-config-end -> init-version-checks
+    init-services -> svc-cron
+    svc-cron -> legacy-services
+    init-services -> svc-nginx
+    svc-nginx -> legacy-services
+    init-services -> svc-php-fpm
+    svc-php-fpm -> legacy-services
+  }
+  Base Images: {
+    "baseimage-alpine-nginx:3.20" <- "baseimage-alpine:3.20"
+  }
+  "nextcloud:develop" <- Base Images
 # changelog
 changelogs:
-  - { date: "24.06.24:", desc: "Rebase to Alpine 3.20. Existing users should update their nginx confs to avoid http2 deprecation warnings."}
-  - { date: "06.03.24:", desc: "Rebase to Alpine 3.19 with php 8.3."}
-  - { date: "02.01.24:", desc: "Existing users should update: site-confs/default.conf - Cleanup default site conf." }
-  - { date: "22.12.23:", desc: "Site default conf updating to include mime.types for js and mjs and update location to include more file types." }
-  - { date: "28.10.23:", desc: "Disable web upgrades using occ during init." }
-  - { date: "31.08.23:", desc: "Re-add updatenotification app. This allows users to be notified for app updates, but also notifies for NextCloud updates. Updating NextCloud via the web UI is not supported when using this image." }
-  - { date: "14.08.23:", desc: "Add develop branch." }
-  - { date: "25.06.23:", desc: "Move Nextcloud installation inside container. Remove CLI updater. [See changes announcement](https://info.linuxserver.io/issues/2023-06-25-nextcloud/)." }
-  - { date: "21.06.23:", desc: "Existing users should update `/config/nginx/site-confs/default.conf` - Security fix for real ip settings." }
-  - { date: "25.05.23:", desc: "Rebase to Alpine 3.18, deprecate armhf." }
-  - { date: "13.04.23:", desc: "Move ssl.conf include to default.conf." }
-  - { date: "21.03.23:", desc: "Add php81-sysvsem as new dep for v26. Update default X-Robots-Tag to `noindex, nofollow``." }
-  - { date: "02.03.23:", desc: "Set permissions on crontabs during init." }
-  - { date: "20.01.23:", desc: "Rebase to alpine 3.17 with php8.1." }
-  - { date: "10.10.22:", desc: "Rebasing to alpine 3.15 with php8. Restructure nginx configs ([see changes announcement](https://info.linuxserver.io/issues/2022-08-20-nginx-base))." }
-  - { date: "30.09.22:", desc: "Disabled `output_buffering` as per [nextcloud docs](https://docs.nextcloud.com/server/latest/admin_manual/configuration_files/big_file_upload_configuration.html" }
-  - { date: "21.05.22:", desc: "Update version check endpoint." }
-  - { date: "28.04.22:", desc: "Increase OPCache interned strings buffered setting to 16." }
-  - { date: "14.04.22:", desc: "Nginx default site config updated for v23 (existing users should delete `/config/nginx/site-confs/default.conf` and restart the container). Fix LDAP connection." }
-  - { date: "11.09.21:", desc: "Rebasing to alpine 3.14" }
-  - { date: "21.03.21:", desc: "Publish `php8` tag for testing." }
-  - { date: "25.02.21:", desc: "Nginx default site config updated for v21 (existing users should delete `/config/nginx/site-confs/default.conf` and restart the container)." }
-  - { date: "21.01.21:", desc: "Fix php iconv (was breaking the mail addon). If installed, attempt to remove broken CODE Server app during startup." }
-  - { date: "20.01.21:", desc: "Increase php fcgi timeout to prevent 504 Gateway timeout errors (existing users should delete `/config/nginx/site-confs/default.conf` and restart the container)." }
-  - { date: "16.01.21:", desc: "Rebasing to alpine 3.13. Users with issues on 32-bit arm, [see this article](https://docs.linuxserver.io/faq#my-host-is-incompatible-with-images-based-on-ubuntu-focal-and-alpine-3-13)." }
-  - { date: "12.08.20:", desc: "Various updates to default site config, including added support for webfinger (existing users should delete `/config/nginx/site-confs/default.conf` and restart the container)." }
-  - { date: "03.06.20:", desc: "Rebasing to alpine 3.12" }
-  - { date: "03.06.20:", desc: "Add php7-bcmath and php7-fileinfo" }
-  - { date: "31.05.20:", desc: "Add aliases for occ and updater.phar" }
-  - { date: "31.03.20:", desc: "Allow crontab to be user customized, fix logrotate." }
-  - { date: "17.01.20:", desc: "Updated php.ini defaults and site config, including an optional HSTS directive (existing users should delete `/config/nginx/site-confs/default.conf` and restart the container)." }
-  - { date: "19.12.19:", desc: "Rebasing to alpine 3.11." }
-  - { date: "18.11.19:", desc: "Nginx default site config updated for v17 (existing users should delete `/config/nginx/site-confs/default.conf` and restart the container)." }
-  - { date: "28.10.19:", desc: "Change cronjob to run every 5 minutes." }
-  - { date: "24.10.19:", desc: "Nginx default site config updated due to CVE-2019-11043 (existing users should delete `/config/nginx/site-confs/default.conf` and restart the container)." }
-  - { date: "14.07.19:", desc: "Download nextcloud during build time." }
-  - { date: "28.06.19:", desc: "Rebasing to alpine 3.10." }
-  - { date: "23.03.19:", desc: "Switching to new Base images, shift to arm32v7 tag." }
-  - { date: "27.02.19:", desc: "Updating base nginx config to sync up with v15 requirements." }
-  - { date: "22.02.19:", desc: "Rebasing to alpine 3.9." }
-  - { date: "28.01.19:", desc: "Add pipeline logic and multi arch." }
-  - { date: "25.01.19:", desc: "Add php7-phar for occ upgrades." }
-  - { date: "05.09.18:", desc: "Rebase to alpine 3.8." }
-  - { date: "11.06.18:", desc: "Use latest rather than specific version for initial install." }
-  - { date: "26.04.18:", desc: "Bump default install to 13.0.1." }
-  - { date: "06.02.18:", desc: "Bump default install to 13.0.0." }
-  - { date: "26.01.18:", desc: "Rebase to alpine 3.7, bump default install to 12.0.5." }
-  - { date: "12.12.17:", desc: "Bump default install to 12.0.4, fix continuation lines." }
-  - { date: "15.10.17:", desc: "Sed php.ini for opcache requirements in newer nextcloud versions." }
-  - { date: "20.09.17:", desc: "Bump default install to 12.0.3." }
-  - { date: "19.08.17:", desc: "Bump default install to 12.0.2." }
-  - { date: "25.05.17:", desc: "Rebase to alpine 3.6." }
-  - { date: "22.05.17:", desc: "Update to nextcloud 12.0, adding required dependecies and note about commenting out SAMEORIGIN; line." }
-  - { date: "03.05.17:", desc: "Use community repo of memcache." }
-  - { date: "07.03.17:", desc: "Release into main repository and upgrade to php7 and Alpine 3.5." }
+  - {date: "24.06.24:", desc: "Rebase to Alpine 3.20. Existing users should update their nginx confs to avoid http2 deprecation warnings."}
+  - {date: "06.03.24:", desc: "Rebase to Alpine 3.19 with php 8.3."}
+  - {date: "02.01.24:", desc: "Existing users should update: site-confs/default.conf - Cleanup default site conf."}
+  - {date: "22.12.23:", desc: "Site default conf updating to include mime.types for js and mjs and update location to include more file types."}
+  - {date: "28.10.23:", desc: "Disable web upgrades using occ during init."}
+  - {date: "31.08.23:", desc: "Re-add updatenotification app. This allows users to be notified for app updates, but also notifies for NextCloud updates. Updating NextCloud via the web UI is not supported when using this image."}
+  - {date: "14.08.23:", desc: "Add develop branch."}
+  - {date: "25.06.23:", desc: "Move Nextcloud installation inside container. Remove CLI updater. [See changes announcement](https://info.linuxserver.io/issues/2023-06-25-nextcloud/)."}
+  - {date: "21.06.23:", desc: "Existing users should update `/config/nginx/site-confs/default.conf` - Security fix for real ip settings."}
+  - {date: "25.05.23:", desc: "Rebase to Alpine 3.18, deprecate armhf."}
+  - {date: "13.04.23:", desc: "Move ssl.conf include to default.conf."}
+  - {date: "21.03.23:", desc: "Add php81-sysvsem as new dep for v26. Update default X-Robots-Tag to `noindex, nofollow``."}
+  - {date: "02.03.23:", desc: "Set permissions on crontabs during init."}
+  - {date: "20.01.23:", desc: "Rebase to alpine 3.17 with php8.1."}
+  - {date: "10.10.22:", desc: "Rebasing to alpine 3.15 with php8. Restructure nginx configs ([see changes announcement](https://info.linuxserver.io/issues/2022-08-20-nginx-base))."}
+  - {date: "30.09.22:", desc: "Disabled `output_buffering` as per [nextcloud docs](https://docs.nextcloud.com/server/latest/admin_manual/configuration_files/big_file_upload_configuration.html"}
+  - {date: "21.05.22:", desc: "Update version check endpoint."}
+  - {date: "28.04.22:", desc: "Increase OPCache interned strings buffered setting to 16."}
+  - {date: "14.04.22:", desc: "Nginx default site config updated for v23 (existing users should delete `/config/nginx/site-confs/default.conf` and restart the container). Fix LDAP connection."}
+  - {date: "11.09.21:", desc: "Rebasing to alpine 3.14"}
+  - {date: "21.03.21:", desc: "Publish `php8` tag for testing."}
+  - {date: "25.02.21:", desc: "Nginx default site config updated for v21 (existing users should delete `/config/nginx/site-confs/default.conf` and restart the container)."}
+  - {date: "21.01.21:", desc: "Fix php iconv (was breaking the mail addon). If installed, attempt to remove broken CODE Server app during startup."}
+  - {date: "20.01.21:", desc: "Increase php fcgi timeout to prevent 504 Gateway timeout errors (existing users should delete `/config/nginx/site-confs/default.conf` and restart the container)."}
+  - {date: "16.01.21:", desc: "Rebasing to alpine 3.13. Users with issues on 32-bit arm, [see this article](https://docs.linuxserver.io/faq#my-host-is-incompatible-with-images-based-on-ubuntu-focal-and-alpine-3-13)."}
+  - {date: "12.08.20:", desc: "Various updates to default site config, including added support for webfinger (existing users should delete `/config/nginx/site-confs/default.conf` and restart the container)."}
+  - {date: "03.06.20:", desc: "Rebasing to alpine 3.12"}
+  - {date: "03.06.20:", desc: "Add php7-bcmath and php7-fileinfo"}
+  - {date: "31.05.20:", desc: "Add aliases for occ and updater.phar"}
+  - {date: "31.03.20:", desc: "Allow crontab to be user customized, fix logrotate."}
+  - {date: "17.01.20:", desc: "Updated php.ini defaults and site config, including an optional HSTS directive (existing users should delete `/config/nginx/site-confs/default.conf` and restart the container)."}
+  - {date: "19.12.19:", desc: "Rebasing to alpine 3.11."}
+  - {date: "18.11.19:", desc: "Nginx default site config updated for v17 (existing users should delete `/config/nginx/site-confs/default.conf` and restart the container)."}
+  - {date: "28.10.19:", desc: "Change cronjob to run every 5 minutes."}
+  - {date: "24.10.19:", desc: "Nginx default site config updated due to CVE-2019-11043 (existing users should delete `/config/nginx/site-confs/default.conf` and restart the container)."}
+  - {date: "14.07.19:", desc: "Download nextcloud during build time."}
+  - {date: "28.06.19:", desc: "Rebasing to alpine 3.10."}
+  - {date: "23.03.19:", desc: "Switching to new Base images, shift to arm32v7 tag."}
+  - {date: "27.02.19:", desc: "Updating base nginx config to sync up with v15 requirements."}
+  - {date: "22.02.19:", desc: "Rebasing to alpine 3.9."}
+  - {date: "28.01.19:", desc: "Add pipeline logic and multi arch."}
+  - {date: "25.01.19:", desc: "Add php7-phar for occ upgrades."}
+  - {date: "05.09.18:", desc: "Rebase to alpine 3.8."}
+  - {date: "11.06.18:", desc: "Use latest rather than specific version for initial install."}
+  - {date: "26.04.18:", desc: "Bump default install to 13.0.1."}
+  - {date: "06.02.18:", desc: "Bump default install to 13.0.0."}
+  - {date: "26.01.18:", desc: "Rebase to alpine 3.7, bump default install to 12.0.5."}
+  - {date: "12.12.17:", desc: "Bump default install to 12.0.4, fix continuation lines."}
+  - {date: "15.10.17:", desc: "Sed php.ini for opcache requirements in newer nextcloud versions."}
+  - {date: "20.09.17:", desc: "Bump default install to 12.0.3."}
+  - {date: "19.08.17:", desc: "Bump default install to 12.0.2."}
+  - {date: "25.05.17:", desc: "Rebase to alpine 3.6."}
+  - {date: "22.05.17:", desc: "Update to nextcloud 12.0, adding required dependecies and note about commenting out SAMEORIGIN; line."}
+  - {date: "03.05.17:", desc: "Use community repo of memcache."}
+  - {date: "07.03.17:", desc: "Release into main repository and upgrade to php7 and Alpine 3.5."}
