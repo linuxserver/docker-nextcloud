@@ -16,7 +16,7 @@ amphp/serialization                  v1.0.0                           php-compos
 amphp/sync                           v1.4.2                           php-composer                  
 aom-libs                             3.9.1-r0                         apk                           
 apache2-utils                        2.4.62-r0                        apk                           
-apk-tools                            2.14.4-r0                        apk                           
+apk-tools                            2.14.4-r1                        apk                           
 app_api                              1.0.0                            npm                           
 apr                                  1.7.5-r0                         apk                           
 apr-util                             1.6.3-r1                         apk                           
@@ -43,13 +43,13 @@ catatonit                            0.2.0-r0                         apk
 cfdisk                               2.40.1-r1                        apk                           
 christian-riesen/base32              1.6.0                            php-composer                  
 cjson                                1.7.18-r0                        apk                           
-composer                             2.8.3                            binary                        
+composer                             2.8.4                            binary                        
 coreutils                            9.5-r1                           apk                           
 coreutils-env                        9.5-r1                           apk                           
 coreutils-fmt                        9.5-r1                           apk                           
 coreutils-sha512sum                  9.5-r1                           apk                           
 cups-libs                            2.4.9-r1                         apk                           
-curl                                 8.9.1-r2                         apk                           
+curl                                 8.11.0-r2                        apk                           
 cweagans/composer-patches            1.7.3                            php-composer                  
 dbus-libs                            1.14.10-r1                       apk                           
 deepdiver/zipstreamer                v2.0.3                           php-composer                  
@@ -147,7 +147,7 @@ libbz2                               1.0.8-r6                         apk
 libcap-ng                            0.8.5-r0                         apk                           
 libcap2                              2.70-r0                          apk                           
 libcrypto3                           3.3.2-r1                         apk                           
-libcurl                              8.9.1-r2                         apk                           
+libcurl                              8.11.0-r2                        apk                           
 libdav1d                             1.4.2-r0                         apk                           
 libde265                             1.0.15-r0                        apk                           
 libdovi                              3.3.0-r0                         apk                           
