@@ -114,6 +114,7 @@ init_diagram: |
   "nextcloud:develop" <- Base Images
 # changelog
 changelogs:
+  - {date: "09.01.25:", desc: "Fix uploading large files. Existing users should update their nginx confs."}
   - {date: "24.06.24:", desc: "Rebase to Alpine 3.20. Existing users should update their nginx confs to avoid http2 deprecation warnings."}
   - {date: "06.03.24:", desc: "Rebase to Alpine 3.19 with php 8.3."}
   - {date: "02.01.24:", desc: "Existing users should update: site-confs/default.conf - Cleanup default site conf."}
