@@ -145,6 +145,7 @@ init_diagram: |
   "nextcloud:latest" <- Base Images
 # changelog
 changelogs:
+  - {date: "09.01.25:", desc: "Fix uploading large files. Existing users should update their nginx confs."}
   - {date: "09.07.24:", desc: "Add `previous` tag for n-1 releases."}
   - {date: "24.06.24:", desc: "Rebase to Alpine 3.20. Existing users should update their nginx confs to avoid http2 deprecation warnings."}
   - {date: "19.05.24:", desc: "Added util-linux package required for taskset."}
