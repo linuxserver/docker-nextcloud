@@ -354,7 +354,7 @@ rav1e-libs                           0.7.1-r0                         apk
 readline                             8.2.10-r0                        apk                           
 recommendations                      2.1.0                            npm                           
 related_resources                    1.4.0                            npm                           
-rsync                                3.3.0-r0                         apk                           
+rsync                                3.4.0-r0                         apk                           
 rubix/ml                             dev-chore/bump-flysystem-v2.1.1  php-composer                  
 rubix/tensor                         2.2.3                            php-composer                  
 rullzer/easytotp                     v0.1.4                           php-composer                  
