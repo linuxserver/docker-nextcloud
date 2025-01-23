@@ -368,12 +368,13 @@ support                                3.0.0                  npm
 symfony/console                        v6.4.11                php-composer                   
 symfony/console                        v6.4.12                php-composer                   
 symfony/css-selector                   v6.4.3                 php-composer                   
-symfony/deprecation-contracts          v3.5.0                 php-composer  (+1 duplicate)   
+symfony/deprecation-contracts          v3.5.0                 php-composer                   
+symfony/deprecation-contracts          v3.5.1                 php-composer                   
 symfony/dom-crawler                    v6.4.4                 php-composer                   
 symfony/event-dispatcher               v6.4.8                 php-composer                   
 symfony/event-dispatcher-contracts     v3.5.0                 php-composer                   
 symfony/filesystem                     v6.4.9                 php-composer                   
-symfony/http-foundation                v6.4.12                php-composer                   
+symfony/http-foundation                v6.4.14                php-composer                   
 symfony/mailer                         v6.4.12                php-composer                   
 symfony/mime                           v6.4.12                php-composer                   
 symfony/polyfill-ctype                 v1.31.0                php-composer  (+1 duplicate)   
