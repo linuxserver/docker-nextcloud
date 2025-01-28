@@ -39,7 +39,7 @@ ca-certificates-bundle                 20241121-r1            apk
 catatonit                              0.2.0-r0               apk                            
 christian-riesen/base32                1.6.0                  php-composer                   
 cjson                                  1.7.18-r0              apk                            
-composer                               2.8.4                  binary                         
+composer                               2.8.5                  binary                         
 composer/pcre                          3.3.1                  php-composer                   
 composer/semver                        3.4.2                  php-composer                   
 composer/xdebug-handler                3.0.5                  php-composer                   
