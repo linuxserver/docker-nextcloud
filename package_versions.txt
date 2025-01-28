@@ -44,7 +44,7 @@ catatonit                            0.2.0-r0                         apk
 cfdisk                               2.40.1-r1                        apk                           
 christian-riesen/base32              1.6.0                            php-composer                  
 cjson                                1.7.18-r0                        apk                           
-composer                             2.8.4                            binary                        
+composer                             2.8.5                            binary                        
 coreutils                            9.5-r2                           apk                           
 coreutils-env                        9.5-r2                           apk                           
 coreutils-fmt                        9.5-r2                           apk                           
