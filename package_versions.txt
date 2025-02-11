@@ -199,7 +199,7 @@ libsrt                               1.5.3-r0                         apk
 libssh                               0.10.6-r0                        apk                           
 libssl3                              3.3.2-r1                         apk                           
 libstdc++                            13.2.1_git20240309-r0            apk                           
-libtasn1                             4.19.0-r2                        apk                           
+libtasn1                             4.20.0-r0                        apk                           
 libtheora                            1.1.1-r18                        apk                           
 libunibreak                          6.1-r0                           apk                           
 libunistring                         1.2-r0                           apk                           
