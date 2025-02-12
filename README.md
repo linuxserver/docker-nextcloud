@@ -67,10 +67,13 @@ This image provides various versions that are available via tags. Please read th
 | :----: | :----: |--- |
 | latest | ✅ | Stable Nextcloud releases |
 | develop | ✅ | Beta Nextcloud pre-releases *only* |
+| previous | ✅ | Nextcloud releases from the previous major version |
 
 ## Application Setup
 
 Access the webui at `https://<your-ip>:443`, for more information check out [Nextcloud](https://nextcloud.com/).
+
+Note: `occ` should be run without prepending with `sudo -u abc php` or `sudo -u www-data php` ie; `docker exec -it nextcloud occ maintenance:mode --off`
 
 ### Updating Nextcloud
 
@@ -85,6 +88,34 @@ Since all data is stored in the `/config` and `/data` volumes, nothing gets lost
 Nextcloud's built-in collaborative editing packages (Collabora/CODE and OnlyOffice) only work on x86_64 systems with glibc, and therefore they are not compatible with our images. You should create separate containers for them and set them up in Nextcloud with their respective connector addons.
 
 If (auto) installed, those built-in packages may cause instability and should be removed.
+
+### HEIC Image Previews
+
+In order to enable HEIC image preview generation you will need to add the following to your `config.php` file in your `config/www/nextcloud/config' directory;
+
+```
+  'enable_previews' => true,
+  'enabledPreviewProviders' =>
+  array (
+    'OC\Preview\PNG',
+    'OC\Preview\JPEG',
+    'OC\Preview\GIF',
+    'OC\Preview\BMP',
+    'OC\Preview\XBitmap',
+    'OC\Preview\MP3',
+    'OC\Preview\TXT',
+    'OC\Preview\MarkDown',
+    'OC\Preview\OpenDocument',
+    'OC\Preview\Krita',
+    'OC\Preview\HEIC',
+  ),
+```
+
+You may need to log out and back in for the changes to come in to effect.
+
+This fix was sourced from [Nextcloud Documentation](https://docs.nextcloud.com/server/latest/admin_manual/configuration_server/config_sample_php_parameters.html#enabledpreviewproviders)
+
+Nextcloud state that HEIC preview is disabled by default due to performance or privacy concerns, so enable this at your own risk.
 
 ### Custom App Directories
 
@@ -319,8 +350,15 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **12.02.25:** - Rebase to Alpine 3.21.
 * **09.01.25:** - Fix uploading large files. Existing users should update their nginx confs.
+* **09.07.24:** - Add `previous` tag for n-1 releases.
 * **24.06.24:** - Rebase to Alpine 3.20. Existing users should update their nginx confs to avoid http2 deprecation warnings.
+* **19.05.24:** - Added util-linux package required for taskset.
+* **10.04.24:** - Added imagemagick-pdf.
+* **05.04.24:** - Added imagemagick-heic. Manual update to `config.php` required - see above.
+* **02.04.24:** - Existing users should update: site-confs/default.conf - Add support for the Client Push (notify_push) plugin and the [new mod](https://github.com/linuxserver/docker-mods/tree/nextcloud-notify-push).
+* **22.03.24:** - Add imagemagick-svg module.
 * **06.03.24:** - Rebase to Alpine 3.19 with php 8.3.
 * **02.01.24:** - Existing users should update: site-confs/default.conf - Cleanup default site conf.
 * **22.12.23:** - Site default conf updating to include mime.types for js and mjs and update location to include more file types.
