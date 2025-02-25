@@ -89,7 +89,7 @@ giflib                               5.2.2-r0                         apk
 giggsey/libphonenumber-for-php-lite  8.13.45                          php-composer                  
 git                                  2.47.2-r0                        apk                           
 git-init-template                    2.47.2-r0                        apk                           
-glib                                 2.82.4-r0                        apk                           
+glib                                 2.82.5-r0                        apk                           
 glslang-libs                         1.3.296.0-r0                     apk                           
 gmp                                  6.3.0-r2                         apk                           
 gnu-libiconv                         1.17-r2                          apk                           
@@ -182,7 +182,7 @@ libpanelw                            6.5_p20241006-r3                 apk
 libpciaccess                         0.18.1-r0                        apk                           
 libplacebo                           6.338.2-r3                       apk                           
 libpng                               1.6.44-r0                        apk                           
-libpq                                17.2-r0                          apk                           
+libpq                                17.4-r0                          apk                           
 libproc2                             4.0.4-r2                         apk                           
 libpsl                               0.21.5-r3                        apk                           
 libpulse                             17.0-r4                          apk                           
@@ -385,7 +385,7 @@ skalibs-libs                         2.14.3.0-r0                      apk
 sord-libs                            0.16.16-r0                       apk                           
 soxr                                 0.1.3-r7                         apk                           
 speexdsp                             1.2.1-r2                         apk                           
-spirv-tools                          1.3.290.0-r0                     apk                           
+spirv-tools                          1.3.296.0-r0                     apk                           
 spomky-labs/cbor-php                 3.1.0                            php-composer                  
 spomky-labs/pki-framework            1.2.1                            php-composer                  
 sqlite-libs                          3.48.0-r0                        apk                           
