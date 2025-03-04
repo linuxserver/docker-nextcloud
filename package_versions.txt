@@ -40,7 +40,7 @@ ca-certificates-bundle                 20241121-r1       apk
 catatonit                              0.2.0-r0          apk                            
 christian-riesen/base32                1.6.0             php-composer                   
 cjson                                  1.7.18-r0         apk                            
-composer                               2.8.5             binary                         
+composer                               2.8.6             binary                         
 composer/pcre                          3.3.1             php-composer                   
 composer/semver                        3.4.2             php-composer                   
 composer/xdebug-handler                3.0.5             php-composer                   
@@ -143,7 +143,7 @@ libeconf                               0.6.3-r0          apk
 libedit                                20240808.3.1-r0   apk                            
 libevent                               2.1.12-r7         apk                            
 libexpat                               2.6.4-r0          apk                            
-libffi                                 3.4.6-r0          apk                            
+libffi                                 3.4.7-r0          apk                            
 libflac                                1.4.3-r1          apk                            
 libformw                               6.5_p20241006-r3  apk                            
 libgcc                                 14.2.0-r4         apk                            
