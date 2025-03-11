@@ -100,7 +100,7 @@ guzzlehttp/psr7                        2.7.0             php-composer
 guzzlehttp/uri-template                v1.0.3            php-composer                   
 harfbuzz                               9.0.0-r1          apk                            
 hexogen/kdtree                         v0.2.6            php-composer                   
-hwdata-pci                             0.390-r0          apk                            
+hwdata-pci                             0.393-r0          apk                            
 icewind/searchdav                      v3.1.0            php-composer                   
 icewind/smb                            v3.7.0            php-composer                   
 icewind/streams                        v0.7.7            php-composer  (+1 duplicate)   
