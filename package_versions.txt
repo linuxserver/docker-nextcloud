@@ -1,6 +1,4 @@
 NAME                                   VERSION           TYPE                          
-Hidden Input                           1, 0, 0, 0        dotnet                         
-Process Wrapper                        1.0.0.0           dotnet        (+1 duplicate)   
 acl-libs                               2.3.2-r1          apk                            
 activity                               4.0.0             npm                            
 agetty                                 2.40.4-r0         apk                            
@@ -45,7 +43,7 @@ catatonit                              0.2.0-r0          apk
 cfdisk                                 2.40.4-r0         apk                            
 christian-riesen/base32                1.6.0             php-composer                   
 cjson                                  1.7.18-r0         apk                            
-composer                               2.8.6             binary                         
+composer                               2.8.7             binary                         
 composer/pcre                          3.3.1             php-composer                   
 composer/semver                        3.4.2             php-composer                   
 composer/xdebug-handler                3.0.5             php-composer                   
@@ -141,7 +139,7 @@ lcms2                                  2.16-r0           apk
 lcobucci/clock                         3.0.0             php-composer                   
 ldb                                    2.9.2-r0          apk                            
 libSvtAv1Enc                           2.2.1-r0          apk                            
-libarchive                             3.7.7-r0          apk                            
+libarchive                             3.7.9-r0          apk                            
 libass                                 0.17.3-r0         apk                            
 libasyncns                             0.8-r4            apk                            
 libattr                                2.5.2-r2          apk                            
@@ -245,7 +243,7 @@ lsblk                                  2.40.4-r0         apk
 lscpu                                  2.40.4-r0         apk                            
 lz4-libs                               1.10.0-r0         apk                            
 masterminds/html5                      2.9.0             php-composer                   
-mbedtls                                3.6.2-r0          apk                            
+mbedtls                                3.6.3-r0          apk                            
 mcookie                                2.40.4-r0         apk                            
 mexitek/phpcolors                      v1.0.4            php-composer                   
 microsoft/azure-storage-blob           1.5.4             php-composer                   
@@ -450,7 +448,7 @@ text                                   5.0.0             npm
 tiff                                   4.7.0-r0          apk                            
 twofactor_nextcloud_notification       5.0.0             npm                            
 twofactor_totp                         13.0.0-dev.0      npm                            
-tzdata                                 2025a-r0          apk                            
+tzdata                                 2025b-r0          apk                            
 umount                                 2.40.4-r0         apk                            
 util-linux                             2.40.4-r0         apk                            
 util-linux-misc                        2.40.4-r0         apk                            
