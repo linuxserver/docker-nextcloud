@@ -31,14 +31,14 @@ brotli-libs                            1.1.0-r2          apk
 bruteforcesettings                     4.0.0             npm                            
 busybox                                1.37.0-r12        apk                            
 busybox-binsh                          1.37.0-r12        apk                            
-c-ares                                 1.34.3-r0         apk                            
+c-ares                                 1.34.5-r0         apk                            
 c-client                               2007f-r15         apk                            
 ca-certificates                        20241121-r1       apk                            
 ca-certificates-bundle                 20241121-r1       apk                            
 catatonit                              0.2.0-r0          apk                            
 christian-riesen/base32                1.6.0             php-composer                   
 cjson                                  1.7.18-r0         apk                            
-composer                               2.8.7             binary                         
+composer                               2.8.8             binary                         
 composer/pcre                          3.3.1             php-composer                   
 composer/semver                        3.4.2             php-composer                   
 composer/xdebug-handler                3.0.5             php-composer                   
@@ -81,7 +81,7 @@ freetype                               2.13.3-r0         apk
 fribidi                                1.0.16-r0         apk                            
 fusonic/opengraph                      v2.3.0            php-composer                   
 gdbm                                   1.24-r0           apk                            
-giflib                                 5.2.2-r0          apk                            
+giflib                                 5.2.2-r1          apk                            
 giggsey/libphonenumber-for-php-lite    8.13.48           php-composer                   
 git                                    2.47.2-r0         apk                            
 git-init-template                      2.47.2-r0         apk                            
@@ -422,7 +422,7 @@ webmozart/assert                       1.11.0            php-composer
 x264-libs                              0.164.3108-r0     apk                            
 x265-libs                              3.6-r0            apk                            
 xvidcore                               1.3.7-r2          apk                            
-xz-libs                                5.6.3-r0          apk                            
+xz-libs                                5.6.3-r1          apk                            
 zimg                                   3.0.5-r2          apk                            
 zix-libs                               0.4.2-r0          apk                            
 zlib                                   1.3.1-r2          apk                            
