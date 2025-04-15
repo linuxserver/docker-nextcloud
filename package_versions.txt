@@ -387,7 +387,7 @@ speexdsp                             1.2.1-r2                         apk
 spirv-tools                          1.3.296.0-r0                     apk                           
 spomky-labs/cbor-php                 3.1.0                            php-composer                  
 spomky-labs/pki-framework            1.2.1                            php-composer                  
-sqlite-libs                          3.48.0-r0                        apk                           
+sqlite-libs                          3.48.0-r1                        apk                           
 sratom                               0.6.16-r0                        apk                           
 ssl_client                           1.37.0-r12                       apk                           
 stecman/symfony-console-completion   v0.13.0                          php-composer                  
