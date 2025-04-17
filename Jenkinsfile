@@ -143,7 +143,7 @@ pipeline {
       steps{
         script{
           env.EXT_RELEASE = sh(
-            script: ''' curl -sX GET https://api.github.com/repos/nextcloud/server/releases | jq -r "first(.[] | select(.tag_name | contains($(( $(curl -sX GET https://api.github.com/repos/nextcloud/server/releases/latest | jq -r '.tag_name' | sed 's|^v||g' | awk -F '.' '{print $1}') -1 ))|tostring ) and (contains( \\"rc\\" )|not)) | .tag_name)" | sed 's|^v||g' ''',
+            script: ''' curl -sX GET https://api.github.com/repos/nextcloud/server/releases | jq -r "first(.[] | select(.tag_name | contains($(( $(curl -sX GET https://api.github.com/repos/nextcloud/server/releases | jq -r '.[] | select(.prerelease != true) | .tag_name' | sed 's|^v||g' | awk -F '.' '{print $1}' | sort -rV | head -1) -1 ))|tostring ) and (contains( \\"rc\\" )|not)) | .tag_name)" | sed 's|^v||g' ''',
             returnStdout: true).trim()
             env.RELEASE_LINK = 'custom_command'
         }

@@ -3,7 +3,7 @@
 # jenkins variables
 project_name: docker-nextcloud
 external_type: na
-custom_version_command: "curl -sX GET https://api.github.com/repos/nextcloud/server/releases | jq -r \"first(.[] | select(.tag_name | contains($(( $(curl -sX GET https://api.github.com/repos/nextcloud/server/releases/latest | jq -r '.tag_name' | sed 's|^v||g' | awk -F '.' '{print $1}') -1 ))|tostring ) and (contains( \\\\\"rc\\\\\" )|not)) | .tag_name)\" | sed 's|^v||g'"
+custom_version_command: "curl -sX GET https://api.github.com/repos/nextcloud/server/releases | jq -r \"first(.[] | select(.tag_name | contains($(( $(curl -sX GET https://api.github.com/repos/nextcloud/server/releases | jq -r '.[] | select(.prerelease != true) | .tag_name' | sed 's|^v||g' | awk -F '.' '{print $1}' | sort -rV | head -1) -1 ))|tostring ) and (contains( \\\\\"rc\\\\\" )|not)) | .tag_name)\" | sed 's|^v||g'"
 release_type: prerelease
 release_tag: previous
 ls_branch: previous

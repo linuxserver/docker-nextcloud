@@ -26,7 +26,7 @@ jobs:
           echo "> [!NOTE]" >> $GITHUB_STEP_SUMMARY
           echo "> External trigger running off of previous branch. To disable this trigger, add \`nextcloud_previous\` into the Github organizational variable \`SKIP_EXTERNAL_TRIGGER\`." >> $GITHUB_STEP_SUMMARY
           printf "\n## Retrieving external version\n\n" >> $GITHUB_STEP_SUMMARY
-          EXT_RELEASE=$(curl -u ${{ secrets.CR_USER }}:${{ secrets.CR_PAT }} -sX GET https://api.github.com/repos/nextcloud/server/releases | jq -r "first(.[] | select(.tag_name | contains($(( $(curl -u ${{ secrets.CR_USER }}:${{ secrets.CR_PAT }} -sX GET https://api.github.com/repos/nextcloud/server/releases/latest | jq -r '.tag_name' | sed 's|^v||g' | awk -F '.' '{print $1}') -1 ))|tostring ) and (contains( \"rc\" )|not)) | .tag_name)" | sed 's|^v||g')
+          EXT_RELEASE=$(curl -u ${{ secrets.CR_USER }}:${{ secrets.CR_PAT }} -sX GET https://api.github.com/repos/nextcloud/server/releases | jq -r "first(.[] | select(.tag_name | contains($(( $(curl -u ${{ secrets.CR_USER }}:${{ secrets.CR_PAT }} -sX GET https://api.github.com/repos/nextcloud/server/releases | jq -r '.[] | select(.prerelease != true) | .tag_name' | sed 's|^v||g' | awk -F '.' '{print $1}' | sort -rV | head -1) -1 ))|tostring ) and (contains( \"rc\" )|not)) | .tag_name)" | sed 's|^v||g')
           echo "Type is \`custom_version_command\`" >> $GITHUB_STEP_SUMMARY
           if grep -q "^nextcloud_previous_${EXT_RELEASE}" <<< "${SKIP_EXTERNAL_TRIGGER}"; then
             echo "> [!WARNING]" >> $GITHUB_STEP_SUMMARY
