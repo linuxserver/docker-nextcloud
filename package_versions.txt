@@ -210,7 +210,7 @@ libtasn1                               4.20.0-r0         apk
 libtheora                              1.1.1-r18         apk                            
 libunibreak                            6.1-r0            apk                            
 libunistring                           1.2-r0            apk                            
-libuuid                                2.40.4-r0         apk                            
+libuuid                                2.40.4-r1         apk                            
 libva                                  2.22.0-r1         apk                            
 libvdpau                               1.5-r4            apk                            
 libvorbis                              1.3.7-r2          apk                            
