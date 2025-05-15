@@ -189,7 +189,7 @@ libpanelw                              6.5_p20241006-r3  apk
 libpciaccess                           0.18.1-r0         apk                            
 libplacebo                             6.338.2-r3        apk                            
 libpng                                 1.6.47-r0         apk                            
-libpq                                  17.4-r0           apk                            
+libpq                                  17.5-r0           apk                            
 libproc2                               4.0.4-r2          apk                            
 libpsl                                 0.21.5-r3         apk                            
 libpulse                               17.0-r4           apk                            
