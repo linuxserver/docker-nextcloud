@@ -125,7 +125,7 @@ jq                                   1.7.1-r0                         apk
 justinrainbow/json-schema            v5.2.13                          php-composer                  
 kornrunner/blurhash                  v1.2.2                           php-composer                  
 lame-libs                            3.100-r5                         apk                           
-laravel/serializable-closure         v1.3.5                           php-composer                  
+laravel/serializable-closure         v1.3.7                           php-composer                  
 lcms2                                2.16-r0                          apk                           
 lcobucci/clock                       3.0.0                            php-composer                  
 ldb                                  2.9.2-r0                         apk                           
@@ -182,7 +182,7 @@ libpanelw                            6.5_p20241006-r3                 apk
 libpciaccess                         0.18.1-r0                        apk                           
 libplacebo                           6.338.2-r3                       apk                           
 libpng                               1.6.47-r0                        apk                           
-libpq                                17.4-r0                          apk                           
+libpq                                17.5-r0                          apk                           
 libproc2                             4.0.4-r2                         apk                           
 libpsl                               0.21.5-r3                        apk                           
 libpulse                             17.0-r4                          apk                           
