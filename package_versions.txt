@@ -42,7 +42,7 @@ catatonit                            0.2.0-r0                         apk
 cfdisk                               2.40.4-r1                        apk                           
 christian-riesen/base32              1.6.0                            php-composer                  
 cjson                                1.7.18-r0                        apk                           
-composer                             2.8.8                            binary                        
+composer                             2.8.9                            binary                        
 coreutils                            9.5-r2                           apk                           
 coreutils-env                        9.5-r2                           apk                           
 coreutils-fmt                        9.5-r2                           apk                           
@@ -83,7 +83,7 @@ fstrim                               2.40.4-r1                        apk
 fusonic/opengraph                    v2.3.0                           php-composer                  
 gdbm                                 1.24-r0                          apk                           
 gdk-pixbuf                           2.42.12-r1                       apk                           
-ghostscript                          10.04.0-r0                       apk                           
+ghostscript                          10.05.1-r0                       apk                           
 giflib                               5.2.2-r1                         apk                           
 giggsey/libphonenumber-for-php-lite  8.13.45                          php-composer                  
 git                                  2.47.2-r0                        apk                           
@@ -219,7 +219,7 @@ libxdmcp                             1.1.5-r1                         apk
 libxext                              1.3.6-r2                         apk                           
 libxfixes                            6.0.1-r4                         apk                           
 libxft                               2.3.8-r3                         apk                           
-libxml2                              2.13.4-r5                        apk                           
+libxml2                              2.13.4-r6                        apk                           
 libxpm                               3.5.17-r0                        apk                           
 libxrender                           0.9.11-r5                        apk                           
 libxt                                1.3.1-r0                         apk                           
