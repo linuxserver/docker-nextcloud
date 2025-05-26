@@ -1,4 +1,6 @@
 NAME                                   VERSION           TYPE                          
+Hidden Input                           1, 0, 0, 0        binary                         
+Process Wrapper                        0.0.0.0           binary        (+1 duplicate)   
 acl-libs                               2.3.2-r1          apk                            
 activity                               4.0.0             npm                            
 agetty                                 2.40.4-r1         apk                            
@@ -139,7 +141,7 @@ lcms2                                  2.16-r0           apk
 lcobucci/clock                         3.0.0             php-composer                   
 ldb                                    2.9.2-r0          apk                            
 libSvtAv1Enc                           2.2.1-r0          apk                            
-libarchive                             3.7.9-r0          apk                            
+libarchive                             3.8.0-r0          apk                            
 libass                                 0.17.3-r0         apk                            
 libasyncns                             0.8-r4            apk                            
 libattr                                2.5.2-r2          apk                            
