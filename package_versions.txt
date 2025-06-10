@@ -38,7 +38,7 @@ c-ares                               1.34.5-r0                        apk
 c-client                             2007f-r15                        apk                           
 ca-certificates                      20241121-r1                      apk                           
 ca-certificates-bundle               20241121-r1                      apk                           
-cairo                                1.18.2-r1                        apk                           
+cairo                                1.18.4-r0                        apk                           
 catatonit                            0.2.0-r0                         apk                           
 cfdisk                               2.40.4-r1                        apk                           
 christian-riesen/base32              1.6.0                            php-composer                  
@@ -133,7 +133,7 @@ ldb                                  2.9.2-r0                         apk
 league/flysystem                     2.5.0                            php-composer                  
 league/mime-type-detection           1.11.0                           php-composer                  
 libSvtAv1Enc                         2.2.1-r0                         apk                           
-libarchive                           3.8.0-r0                         apk                           
+libarchive                           3.8.1-r0                         apk                           
 libass                               0.17.3-r0                        apk                           
 libasyncns                           0.8-r4                           apk                           
 libattr                              2.5.2-r2                         apk                           
