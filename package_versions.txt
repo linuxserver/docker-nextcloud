@@ -410,7 +410,7 @@ sqlite-libs                            3.48.0-r2         apk
 sratom                                 0.6.16-r0         apk                            
 ssl_client                             1.37.0-r12        apk                            
 stecman/symfony-console-completion     v0.13.0           php-composer                   
-sudo                                   1.9.16_p2-r0      apk                            
+sudo                                   1.9.17_p1-r0      apk                            
 support                                3.0.0             npm                            
 symfony/console                        v6.4.11           php-composer                   
 symfony/console                        v6.4.17           php-composer                   
