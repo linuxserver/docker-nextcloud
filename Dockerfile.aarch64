@@ -36,7 +36,6 @@ RUN \
     php84-pdo_pgsql \
     php84-pdo_sqlite \
     php84-pecl-imagick \
-    php84-pecl-mcrypt \
     php84-pecl-memcached \
     php84-pecl-smbclient \
     php84-pgsql \
