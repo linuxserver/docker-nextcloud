@@ -279,7 +279,7 @@ pcre                                 8.45-r3                          apk
 pcre2                                10.43-r0                         apk                           
 pear/archive_tar                     1.5.0                            php-composer                  
 pear/console_getopt                  v1.4.3                           php-composer                  
-pear/pear-core-minimal               v1.10.15                         php-composer                  
+pear/pear-core-minimal               v1.10.16                         php-composer                  
 pear/pear_exception                  v1.0.2                           php-composer                  
 photos                               3.0.0                            npm                           
 php-cs-fixer/shim                    v3.61.1                          php-composer                  
