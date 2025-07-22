@@ -410,7 +410,7 @@ phpdocumentor/type-resolver            1.8.2                 php-composer
 phpseclib/phpseclib                    2.0.48                php-composer                   
 phpstan/phpdoc-parser                  1.30.1                php-composer                   
 pimple/pimple                          v3.5.0                php-composer                   
-pixman                                 0.46.0-r0             apk                            
+pixman                                 0.46.4-r0             apk                            
 pkgconf                                2.4.3-r0              apk                            
 popt                                   1.19-r4               apk                            
 ppv-lite86                             0.2.17                rust-crate                     
@@ -483,7 +483,7 @@ speexdsp                               1.2.1-r2              apk
 spirv-tools                            1.4.313.0-r0          apk                            
 spomky-labs/cbor-php                   3.0.4                 php-composer                   
 spomky-labs/pki-framework              1.2.1                 php-composer                   
-sqlite-libs                            3.49.2-r0             apk                            
+sqlite-libs                            3.49.2-r1             apk                            
 sratom                                 0.6.18-r0             apk                            
 ssl_client                             1.37.0-r18            apk                            
 stecman/symfony-console-completion     v0.13.0               php-composer                   
