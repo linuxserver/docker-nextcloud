@@ -16,7 +16,7 @@ amphp/process                        v1.1.4                           php-compos
 amphp/serialization                  v1.0.0                           php-composer                  
 amphp/sync                           v1.4.2                           php-composer                  
 aom-libs                             3.11.0-r0                        apk                           
-apache2-utils                        2.4.62-r0                        apk                           
+apache2-utils                        2.4.64-r0                        apk                           
 apk-tools                            2.14.6-r3                        apk                           
 app_api                              1.0.0                            npm                           
 apr                                  1.7.5-r0                         apk                           
