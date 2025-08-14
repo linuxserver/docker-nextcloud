@@ -106,7 +106,8 @@ hexogen/kdtree                       v0.2.6                           php-compos
 hwdata-pci                           0.393-r0                         apk                           
 icewind/searchdav                    v3.1.0                           php-composer                  
 icewind/smb                          v3.7.0                           php-composer                  
-icewind/streams                      v0.7.7                           php-composer  (+1 duplicate)  
+icewind/streams                      v0.7.7                           php-composer                  
+icewind/streams                      v0.7.8                           php-composer                  
 icu-data-en                          74.2-r1                          apk                           
 icu-libs                             74.2-r1                          apk                           
 imagemagick                          7.1.1.41-r0                      apk                           
