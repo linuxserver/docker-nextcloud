@@ -11,7 +11,7 @@ alpine-release                         3.22.1-r0             apk
 alsa-lib                               1.2.14-r0             apk                            
 amphp/amp                              v2.6.4                php-composer  (+1 duplicate)   
 amphp/byte-stream                      v1.8.2                php-composer  (+1 duplicate)   
-amphp/parallel                         v1.4.3                php-composer                   
+amphp/parallel                         v1.4.4                php-composer                   
 amphp/parser                           v1.1.1                php-composer                   
 amphp/process                          v1.1.9                php-composer                   
 amphp/serialization                    v1.0.0                php-composer                   
@@ -154,7 +154,7 @@ hexogen/kdtree                         v0.2.6                php-composer
 hwdata-pci                             0.395-r0              apk                            
 icewind/searchdav                      v3.1.0                php-composer                   
 icewind/smb                            v3.7.0                php-composer                   
-icewind/streams                        v0.7.7                php-composer  (+1 duplicate)   
+icewind/streams                        v0.7.8                php-composer  (+1 duplicate)   
 icu-data-en                            76.1-r1               apk                            
 icu-libs                               76.1-r1               apk                            
 imagemagick                            7.1.2.0-r0            apk                            
