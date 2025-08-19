@@ -32,8 +32,8 @@ blkid                                2.40.4-r1                        apk
 brick/math                           0.12.1                           php-composer                  
 brotli-libs                          1.1.0-r2                         apk                           
 bruteforcesettings                   3.0.0                            npm                           
-busybox                              1.37.0-r12                       apk                           
-busybox-binsh                        1.37.0-r12                       apk                           
+busybox                              1.37.0-r13                       apk                           
+busybox-binsh                        1.37.0-r13                       apk                           
 c-ares                               1.34.5-r0                        apk                           
 c-client                             2007f-r15                        apk                           
 ca-certificates                      20250619-r0                      apk                           
@@ -392,7 +392,7 @@ spomky-labs/cbor-php                 3.1.0                            php-compos
 spomky-labs/pki-framework            1.2.1                            php-composer                  
 sqlite-libs                          3.48.0-r3                        apk                           
 sratom                               0.6.16-r0                        apk                           
-ssl_client                           1.37.0-r12                       apk                           
+ssl_client                           1.37.0-r13                       apk                           
 stecman/symfony-console-completion   v0.13.0                          php-composer                  
 sudo                                 1.9.17_p1-r0                     apk                           
 support                              2.0.0                            npm                           
