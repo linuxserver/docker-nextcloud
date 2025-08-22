@@ -63,7 +63,7 @@ clap_complete                          4.4.6                 rust-crate
 clap_derive                            4.4.7                 rust-crate                    
 clap_lex                               0.6.0                 rust-crate                    
 colorchoice                            1.0.0                 rust-crate                    
-composer                               2.8.10                binary                        
+composer                               2.8.11                binary                        
 composer/pcre                          3.3.1                 php-composer                  
 composer/semver                        3.4.2                 php-composer                  
 composer/xdebug-handler                3.0.5                 php-composer                  
@@ -182,7 +182,7 @@ libbz2                                 1.0.8-r6              apk
 libc                                   0.2.155               rust-crate                    
 libc                                   0.2.172               rust-crate                    
 libcap2                                2.76-r0               apk                           
-libcrypto3                             3.5.1-r0              apk                           
+libcrypto3                             3.5.2-r0              apk                           
 libcurl                                8.14.1-r1             apk                           
 libdav1d                               1.5.1-r0              apk                           
 libdeflate                             1.23-r0               apk                           
@@ -228,7 +228,7 @@ libsndfile                             1.2.2-r2              apk
 libsodium                              1.0.20-r0             apk                           
 libsrt                                 1.5.3-r1              apk                           
 libssh                                 0.11.2-r0             apk                           
-libssl3                                3.5.1-r0              apk                           
+libssl3                                3.5.2-r0              apk                           
 libstdc++                              14.2.0-r6             apk                           
 libtasn1                               4.20.0-r0             apk                           
 libtheora                              1.1.1-r18             apk                           
@@ -278,7 +278,7 @@ mpg123-libs                            1.32.10-r0            apk
 mtdowling/jmespath.php                 2.8.0                 php-composer                  
 musl                                   1.2.5-r10             apk                           
 musl-utils                             1.2.5-r10             apk                           
-myclabs/deep-copy                      1.13.1                php-composer                  
+myclabs/deep-copy                      1.13.4                php-composer                  
 nano                                   8.4-r0                apk                           
 ncurses-terminfo-base                  6.5_p20250503-r0      apk                           
 netcat-openbsd                         1.229.1-r0            apk                           
@@ -309,7 +309,7 @@ openexr-libiex                         3.3.2-r0              apk
 openexr-libilmthread                   3.3.2-r0              apk                           
 openexr-libopenexr                     3.3.2-r0              apk                           
 openexr-libopenexrcore                 3.3.2-r0              apk                           
-openssl                                3.5.1-r0              apk                           
+openssl                                3.5.2-r0              apk                           
 opus                                   1.5.2-r1              apk                           
 orc                                    0.4.40-r1             apk                           
 p11-kit                                0.25.5-r2             apk                           
@@ -386,7 +386,7 @@ phpunit/php-file-iterator              4.1.0                 php-composer
 phpunit/php-invoker                    4.0.0                 php-composer                  
 phpunit/php-text-template              3.0.1                 php-composer                  
 phpunit/php-timer                      6.0.0                 php-composer                  
-phpunit/phpunit                        10.5.47               php-composer                  
+phpunit/phpunit                        10.5.53               php-composer                  
 pimple/pimple                          v3.5.0                php-composer                  
 popt                                   1.19-r4               apk                           
 ppv-lite86                             0.2.17                rust-crate                    
@@ -450,7 +450,7 @@ sebastian/global-state                 6.0.2                 php-composer
 sebastian/lines-of-code                2.0.2                 php-composer                  
 sebastian/object-enumerator            5.0.0                 php-composer                  
 sebastian/object-reflector             3.0.0                 php-composer                  
-sebastian/recursion-context            5.0.0                 php-composer                  
+sebastian/recursion-context            5.0.1                 php-composer                  
 sebastian/type                         4.0.0                 php-composer                  
 sebastian/version                      4.0.1                 php-composer                  
 serd-libs                              0.32.4-r0             apk                           
@@ -516,6 +516,7 @@ syn                                    2.0.48                rust-crate
 talloc                                 2.4.2-r1              apk                           
 tap                                    1.0.1                 rust-crate                    
 tdb-libs                               1.4.12-r0             apk                           
+teams                                  32.0.0                npm                           
 terminal_size                          0.3.0                 rust-crate                    
 tevent                                 0.16.1-r0             apk                           
 text                                   6.0.0-dev.0           npm                           
