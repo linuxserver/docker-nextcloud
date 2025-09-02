@@ -355,7 +355,7 @@ php84-pdo                              8.4.11-r0             apk
 php84-pdo_mysql                        8.4.11-r0             apk                           
 php84-pdo_pgsql                        8.4.11-r0             apk                           
 php84-pdo_sqlite                       8.4.11-r0             apk                           
-php84-pecl-apcu                        5.1.26-r0             apk                           
+php84-pecl-apcu                        5.1.27-r0             apk                           
 php84-pecl-igbinary                    3.2.16-r1             apk                           
 php84-pecl-imagick                     3.8.0-r1              apk                           
 php84-pecl-imap                        1.0.3-r0              apk                           
