@@ -86,11 +86,10 @@ dbus-libs                              1.16.2-r1             apk
 deepdiver/zipstreamer                  v2.0.3                php-composer                  
 deepdiver1975/tarstreamer              v2.1.0                php-composer                  
 dnoegel/php-xdg-base-dir               v0.1.1                php-composer                  
-doctrine/cache                         2.2.0                 php-composer                  
-doctrine/dbal                          3.9.1                 php-composer                  
+doctrine/dbal                          3.10.2                php-composer                  
 doctrine/deprecations                  1.1.3                 php-composer                  
 doctrine/deprecations                  1.1.5                 php-composer                  
-doctrine/event-manager                 1.2.0                 php-composer                  
+doctrine/event-manager                 2.0.1                 php-composer                  
 doctrine/lexer                         3.0.1                 php-composer                  
 dolby_vision                           3.3.1                 rust-crate                    
 egulias/email-validator                4.0.4                 php-composer                  
