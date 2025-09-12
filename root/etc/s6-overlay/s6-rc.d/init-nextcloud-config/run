@@ -33,6 +33,19 @@ for dir in apps config themes; do
     fi
 done
 
+# set data directory
+if [[ ! -s /config/www/nextcloud/config/config.php ]]; then
+    echo -e "<?php\n\$CONFIG = array (\n    'datadirectory' => '/data',\n);" >/config/www/nextcloud/config/config.php
+elif [[ -f /config/www/nextcloud/config/config.php ]]; then
+    sed -i "s|/app/www/public/data|/data|g" /config/www/nextcloud/config/config.php
+fi
+
+#modify javascript mime type and add .mjs support
+if [[ -s /etc/nginx/mime.types ]]; then
+    sed -i 's|\bjs;|js mjs;|g' /etc/nginx/mime.types
+    sed -i 's|\bapplication/javascript|text/javascript|g' /etc/nginx/mime.types
+fi
+
 # get versions
 image_version=$(php -r "require '/app/www/src/version.php'; echo implode('.', \$OC_Version);" 2>/dev/null | xargs)
 installed_version=$(php -r "require '/config/www/nextcloud/config/config.php'; echo \$CONFIG['version'];" 2>/dev/null | xargs)
@@ -97,10 +110,39 @@ if [[ -f /config/www/nextcloud/config/needs_migration ]] || [[ -f /tmp/needs_ins
     if [[ -f /config/www/nextcloud/config/needs_migration ]] || [[ -f /tmp/needs_upgrade ]]; then
         # Upgrade
         occ upgrade
-    else
-        if [[ "${installed_version}" = "0.0.0.0" ]]; then
-            # Install
-            echo "New nextcloud instance"
+    elif [[ -f /tmp/needs_install ]]; then
+        # Install
+        echo "New nextcloud instance"
+
+        # Make sure all database settings are set
+        if [[ "${DB_HOST+x}" && "${DB_USER+x}" && "${DB_NAME+x}" && "${#DB_PASS}" -gt "3" ]] && \
+           [[ "${DB_TYPE}" == "sqlite" || "${DB_TYPE}" == "pgsql" || "${DB_TYPE}" == "mysql" ]]; then
+
+            # Generate admin password, if missing
+            if [[ ! "${ADMIN_PASS+x}" ]]; then
+                ADMIN_PASS="$(openssl rand -hex 64)"
+                echo "Nextcloud admin password: $ADMIN_PASS"
+            fi
+
+            # Run installation process
+            echo "Running Nextcloud installation..."
+            occ maintenance:install \
+                --database="${DB_TYPE}" \
+                --database-host="${DB_HOST}" \
+                --database-name="${DB_NAME}" \
+                --database-user="${DB_USER}" \
+                --database-pass="${DB_PASS}" \
+                --admin-pass="${ADMIN_PASS}" \
+                --data-dir=/data
+
+            # Check return code
+            if [[ $? -eq 0 ]]; then
+                echo "Nextcloud installation successful!"
+            else
+                echo "Nextcloud installation failed!"
+                echo "Please run the web-based installer or check the logs."
+            fi
+        else
             echo "Please run the web-based installer on first connect!"
         fi
     fi
@@ -161,16 +203,3 @@ for APP in richdocumentscode; do
     occ app:remove "${APP}" >/dev/null 2>&1
     rm -rf "${APP_PATH}"
 done
-
-# set data directory
-if [[ ! -s /config/www/nextcloud/config/config.php ]]; then
-    echo -e "<?php\n\$CONFIG = array (\n    'datadirectory' => '/data',\n);" >/config/www/nextcloud/config/config.php
-elif [[ -f /config/www/nextcloud/config/config.php ]]; then
-    sed -i "s|/app/www/public/data|/data|g" /config/www/nextcloud/config/config.php
-fi
-
-#modify javascript mime type and add .mjs support
-if [[ -s /etc/nginx/mime.types ]]; then
-    sed -i 's|\bjs;|js mjs;|g' /etc/nginx/mime.types
-    sed -i 's|\bapplication/javascript|text/javascript|g' /etc/nginx/mime.types
-fi
