@@ -41,6 +41,7 @@ done
 
 # set data directory
 if [[ ! -s /config/www/nextcloud/config/config.php ]]; then
+    touch /config/www/nextcloud/config/CAN_INSTALL
     echo -e "<?php\n\$CONFIG = array (\n    'datadirectory' => '/data',\n);" >/config/www/nextcloud/config/config.php
 elif [[ -f /config/www/nextcloud/config/config.php ]]; then
     sed -i "s|/app/www/public/data|/data|g" /config/www/nextcloud/config/config.php
