@@ -181,6 +181,9 @@ if occ config:system:get installed >/dev/null 2>&1; then
     if ! occ config:system:get datadirectory >/dev/null 2>&1; then
         occ config:system:set datadirectory --value='/data'
     fi
+    if ! occ config:system:get maintenance_window_start >/dev/null 2>&1; then
+        occ config:system:set maintenance_window_start --value=4 --type=integer 
+    fi
     if ! occ config:system:get upgrade.disable-web >/dev/null 2>&1; then
         occ config:system:set upgrade.disable-web --value=true --type=boolean
     fi
@@ -190,6 +193,10 @@ if occ config:system:get installed >/dev/null 2>&1; then
         echo "Setting admin password"
         occ user:resetpassword --password-from-env "${ADMIN_USER:-admin}"
     fi
+
+    # Run maintenance steps, this also fixes warnings in the admin panel
+    occ db:add-missing-indices
+    occ maintenance:repair --include-expensive
 else
     echo "After completing the web-based installer, restart the Nextcloud container to apply default memory caching and transactional file locking configurations."
     echo "Alternatively, you can apply your own configurations by editing /config/www/nextcloud/config/config.php following the documentation:"
