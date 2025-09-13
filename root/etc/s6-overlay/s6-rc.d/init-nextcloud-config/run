@@ -1,6 +1,12 @@
 #!/usr/bin/with-contenv bash
 # shellcheck shell=bash
 
+# load env file if it exists
+if [[ -f "/config/env" ]]; then
+    # shellcheck source=/dev/null
+    source /config/env
+fi
+
 # create folders
 mkdir -p \
     /app/www/public \
