@@ -138,6 +138,7 @@ if [[ -f /config/www/nextcloud/config/needs_migration ]] || [[ -f /tmp/needs_ins
                 --database-name="${DB_NAME}" \
                 --database-user="${DB_USER}" \
                 --database-pass="${DB_PASS}" \
+                --admin-user="${ADMIN_USER:-admin}" \
                 --admin-pass="${ADMIN_PASS}" \
                 --data-dir=/data
 
@@ -182,6 +183,12 @@ if occ config:system:get installed >/dev/null 2>&1; then
     fi
     if ! occ config:system:get upgrade.disable-web >/dev/null 2>&1; then
         occ config:system:set upgrade.disable-web --value=true --type=boolean
+    fi
+
+    # Set admin password
+    if [[ "${ADMIN_PASS+x}" ]]; then
+        echo "Setting admin password"
+        occ user:resetpassword --password-from-env "${ADMIN_USER:-admin}"
     fi
 else
     echo "After completing the web-based installer, restart the Nextcloud container to apply default memory caching and transactional file locking configurations."
