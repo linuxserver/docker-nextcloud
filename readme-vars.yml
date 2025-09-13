@@ -32,12 +32,59 @@ param_ports:
   - {external_port: "443", internal_port: "443", port_desc: "WebUI"}
 readonly_supported: false
 nonroot_supported: false
+# optional container parameters
+opt_param_usage_include_env: true
+opt_param_env_vars:
+  - {env_var: "DB_TYPE", env_value: "sqlite", desc: "Specify the type of database to be used (valid values: 'sqlite', 'mysql', 'pgsql') (valid only for first run)"}
+  - {env_var: "DB_HOST", env_value: "localhost", desc: "Set this to the database host. (valid only for first run)"}
+  - {env_var: "DB_NAME", env_value: "nextcloud", desc: "Set this to the database name. (valid only for first run)"}
+  - {env_var: "DB_USER", env_value: "nextcloud", desc: "Set this to the database user. (valid only for first run)"}
+  - {env_var: "DB_PASS", env_value: "", desc: "Set this to the database password. (minimum 4 characters & non-alphanumeric passwords must be properly escaped). (valid only for first run)"}
+  - {env_var: "ADMIN_USER", env_value: "admin", desc: "Specify the admin account name. (valid only for first run and while setting password)"}
+  - {env_var: "ADMIN_PASS", env_value: "", desc: "Specify the password for the nextcloud admin account. (resets password every start if set) (automated setup generates a random password if empty)"}
 # application setup block
 app_setup_block_enabled: true
 app_setup_block: |
   Access the webui at `https://<your-ip>:443`, for more information check out [Nextcloud]({{ project_url }}).
 
   Note: `occ` should be run without prepending with `sudo -u abc php` or `sudo -u www-data php` ie; `docker exec -it nextcloud occ maintenance:mode --off`
+
+  ### Automated installation (optional)
+
+  NOTE changing any of the `DB_` variables after the container has set up Nextcloud has no effect, edit the config file instead.
+
+  NOTE if you want to use (`DB_TYPE`, `DB_HOST`, `DB_NAME`, `DB_USER`, `DB_PASS`) **all five** of these variables need to be set you cannot pick and choose.
+  However, you can use the defaults if they match your setup.
+
+  This is completely optional and can be skipped.
+  If the `ADMIN_PASS` variable is empty, a random password will be generated while the automated installation runs.
+  You can find this password in the logs.
+
+  ### Loading passwords and users from files
+
+  All env values can be set in a file:
+
+  ```path
+  /config/env
+  ```
+
+  Using the following format:
+
+  ```env
+  DB_TYPE="mysql"
+  DB_HOST="mariadb_container_name"
+  DB_NAME="nextcloud"
+  DB_USER="nextcloud"
+  DB_PASS="MySuperL0ngPW"
+  ADMIN_PASS="MyEv3nB3tt3rPW"
+  ```
+
+  These settings can be mixed and matched with Docker ENV settings as you require, but the settings in the file will always take precedence.
+
+  ### Resetting admin password
+
+  The admin's password will be set on container start, if the `ADMIN_PASS` env variable is set.
+  This allows an easy password reset, but keep in mind that changes via Nextcloud will be overridden.
 
   ### Updating Nextcloud
 
