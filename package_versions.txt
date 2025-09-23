@@ -428,7 +428,7 @@ talloc                               2.4.2-r1                         apk
 tdb-libs                             1.4.12-r0                        apk                           
 tevent                               0.16.1-r0                        apk                           
 text                                 4.0.0                            npm                           
-tiff                                 4.7.0-r0                         apk                           
+tiff                                 4.7.1-r0                         apk                           
 twofactor_nextcloud_notification     4.0.0                            npm                           
 twofactor_totp                       12.0.0-dev                       npm                           
 tzdata                               2025b-r0                         apk                           
