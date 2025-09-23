@@ -24,7 +24,7 @@ anyhow                                 1.0.79                rust-crate
 anyhow                                 1.0.98                rust-crate                    
 aom-libs                               3.12.1-r0             apk                           
 apache2-utils                          2.4.65-r0             apk                           
-apk-tools                              2.14.9-r2             apk                           
+apk-tools                              2.14.9-r3             apk                           
 app_api                                1.0.0                 npm                           
 apr                                    1.7.5-r0              apk                           
 apr-util                               1.6.3-r1              apk                           
@@ -167,7 +167,7 @@ lcms2                                  2.16-r0               apk
 lcobucci/clock                         3.0.0                 php-composer                  
 ldb                                    4.21.4-r4             apk                           
 libSvtAv1Enc                           2.3.0-r0              apk                           
-libapk2                                2.14.9-r2             apk                           
+libapk2                                2.14.9-r3             apk                           
 libarchive                             3.8.1-r0              apk                           
 libass                                 0.17.3-r0             apk                           
 libasyncns                             0.8-r4                apk                           
