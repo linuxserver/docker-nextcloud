@@ -75,7 +75,7 @@ coreutils-sha512sum                    9.7-r1                apk
 crc                                    3.3.0                 rust-crate                    
 crc-catalog                            2.4.0                 rust-crate                    
 crossbeam                              0.8.4                 rust-crate                    
-crossbeam-channel                      0.5.11                rust-crate                    
+crossbeam-channel                      0.5.14                rust-crate                    
 crossbeam-deque                        0.8.5                 rust-crate                    
 crossbeam-epoch                        0.9.18                rust-crate                    
 crossbeam-queue                        0.3.11                rust-crate                    
@@ -181,7 +181,7 @@ libbz2                                 1.0.8-r6              apk
 libc                                   0.2.155               rust-crate                    
 libc                                   0.2.172               rust-crate                    
 libcap2                                2.76-r0               apk                           
-libcrypto3                             3.5.3-r0              apk                           
+libcrypto3                             3.5.4-r0              apk                           
 libcurl                                8.14.1-r1             apk                           
 libdav1d                               1.5.1-r0              apk                           
 libdeflate                             1.23-r0               apk                           
@@ -190,7 +190,7 @@ libdrm                                 2.4.124-r0            apk
 libeconf                               0.6.3-r0              apk                           
 libedit                                20250104.3.1-r1       apk                           
 libevent                               2.1.12-r8             apk                           
-libexpat                               2.7.2-r0              apk                           
+libexpat                               2.7.3-r0              apk                           
 libffi                                 3.4.8-r0              apk                           
 libflac                                1.4.3-r1              apk                           
 libformw                               6.5_p20250503-r0      apk                           
@@ -227,7 +227,7 @@ libsndfile                             1.2.2-r2              apk
 libsodium                              1.0.20-r0             apk                           
 libsrt                                 1.5.3-r1              apk                           
 libssh                                 0.11.2-r0             apk                           
-libssl3                                3.5.3-r0              apk                           
+libssl3                                3.5.4-r0              apk                           
 libstdc++                              14.2.0-r6             apk                           
 libtasn1                               4.20.0-r0             apk                           
 libtheora                              1.1.1-r18             apk                           
@@ -308,7 +308,7 @@ openexr-libiex                         3.3.2-r0              apk
 openexr-libilmthread                   3.3.2-r0              apk                           
 openexr-libopenexr                     3.3.2-r0              apk                           
 openexr-libopenexrcore                 3.3.2-r0              apk                           
-openssl                                3.5.3-r0              apk                           
+openssl                                3.5.4-r0              apk                           
 opus                                   1.5.2-r1              apk                           
 orc                                    0.4.40-r1             apk                           
 p11-kit                                0.25.5-r2             apk                           
@@ -411,7 +411,7 @@ rand                                   0.8.5                 rust-crate
 rand_chacha                            0.3.1                 rust-crate                    
 rand_core                              0.6.4                 rust-crate                    
 rav1e                                  0.7.1                 rust-crate                    
-rav1e-libs                             0.7.1-r1              apk                           
+rav1e-libs                             0.7.1-r2              apk                           
 rayon                                  1.8.0                 rust-crate                    
 rayon-core                             1.12.0                rust-crate                    
 readline                               8.2.13-r1             apk                           
