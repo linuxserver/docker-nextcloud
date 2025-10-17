@@ -81,11 +81,11 @@ if [[ -f /config/www/nextcloud/config/needs_migration ]] || [[ -f /tmp/needs_ins
     rsync -rlD --exclude-from=/app/upgrade.exclude /app/www/src/ /app/www/public/
     for dir in apps config themes; do
         if [[ -f /config/www/nextcloud/config/needs_migration ]] || [[ -f /tmp/needs_upgrade ]] || [[ -z "$(ls -A /app/www/public/${dir} 2>/dev/null)" ]]; then
-            rsync -rlD --include "/${dir}" --exclude '/*' /app/www/src/ /config/www/nextcloud/
+            rsync -rlD --chown=abc:abc --include "/${dir}" --exclude '/*' /app/www/src/ /config/www/nextcloud/
         fi
     done
     if [[ -z "$(ls -A /data/ 2>/dev/null)" ]]; then
-        rsync -rlD --include "/data" --exclude '/*' /app/www/src/ /
+        rsync -rlD --chown=abc:abc --include "/data" --exclude '/*' /app/www/src/ /
     fi
 
     echo "Setting permissions"
