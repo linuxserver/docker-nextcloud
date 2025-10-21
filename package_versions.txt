@@ -7,7 +7,7 @@ agetty                                 2.41-r9               apk
 alpine-baselayout                      3.7.0-r0              apk                            
 alpine-baselayout-data                 3.7.0-r0              apk                            
 alpine-keys                            2.5-r0                apk                            
-alpine-release                         3.22.1-r0             apk                            
+alpine-release                         3.22.2-r0             apk                            
 alsa-lib                               1.2.14-r0             apk                            
 amphp/amp                              v2.6.4                php-composer  (+1 duplicate)   
 amphp/byte-stream                      v1.8.2                php-composer  (+1 duplicate)   
@@ -296,7 +296,7 @@ lscpu                                  2.41-r9               apk
 lz4-libs                               1.10.0-r0             apk                            
 masterminds/html5                      2.9.0                 php-composer                   
 maybe-rayon                            0.1.1                 rust-crate                     
-mbedtls                                3.6.4-r0              apk                            
+mbedtls                                3.6.5-r0              apk                            
 mcookie                                2.41-r9               apk                            
 memchr                                 2.7.1                 rust-crate                     
 mexitek/phpcolors                      v1.0.4                php-composer                   
