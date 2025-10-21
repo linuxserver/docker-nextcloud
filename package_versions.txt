@@ -5,7 +5,7 @@ activity                             5.0.0-dev.0           npm
 alpine-baselayout                    3.7.0-r0              apk                           
 alpine-baselayout-data               3.7.0-r0              apk                           
 alpine-keys                          2.5-r0                apk                           
-alpine-release                       3.22.1-r0             apk                           
+alpine-release                       3.22.2-r0             apk                           
 alsa-lib                             1.2.14-r0             apk                           
 amphp/amp                            v2.6.4                php-composer                  
 amphp/byte-stream                    v1.8.2                php-composer                  
