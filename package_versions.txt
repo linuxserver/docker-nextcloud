@@ -64,7 +64,7 @@ clap_complete                        4.4.6                 rust-crate
 clap_derive                          4.4.7                 rust-crate                    
 clap_lex                             0.6.0                 rust-crate                    
 colorchoice                          1.0.0                 rust-crate                    
-composer                             2.9.1                 binary                        
+composer                             2.9.2                 binary                        
 console                              0.15.8                rust-crate                    
 coreutils                            9.7-r1                apk                           
 coreutils-env                        9.7-r1                apk                           
@@ -420,7 +420,7 @@ rayon                                1.8.0                 rust-crate
 rayon-core                           1.12.0                rust-crate                    
 readline                             8.2.13-r1             apk                           
 recommendations                      4.0.0                 npm                           
-rsync                                3.4.1-r0              apk                           
+rsync                                3.4.1-r1              apk                           
 rubix/ml                             2.3.2                 php-composer                  
 rubix/tensor                         3.0.5                 php-composer                  
 rullzer/easytotp                     v0.1.4                php-composer                  
