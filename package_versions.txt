@@ -22,7 +22,7 @@ anstyle-query                        1.0.2                 rust-crate
 anyhow                               1.0.79                rust-crate                    
 anyhow                               1.0.98                rust-crate                    
 aom-libs                             3.12.1-r0             apk                           
-apache2-utils                        2.4.65-r0             apk                           
+apache2-utils                        2.4.66-r0             apk                           
 apk-tools                            2.14.9-r3             apk                           
 apr                                  1.7.5-r0              apk                           
 apr-util                             1.6.3-r1              apk                           
