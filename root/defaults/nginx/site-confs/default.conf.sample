@@ -132,6 +132,12 @@ server {
         fastcgi_request_buffering off;
 
         fastcgi_max_temp_file_size 0;
+
+        # This ensures the processing of multipart uploads and prevents 504 errors during these resource-intensive operations.
+        fastcgi_connect_timeout 60s;
+        fastcgi_send_timeout 3600;
+        fastcgi_read_timeout 3600;
+        send_timeout 3600;
     }
 
     # Serve static files
