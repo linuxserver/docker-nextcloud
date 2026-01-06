@@ -64,7 +64,7 @@ clap_complete                        4.4.6                 rust-crate
 clap_derive                          4.4.7                 rust-crate                    
 clap_lex                             0.6.0                 rust-crate                    
 colorchoice                          1.0.0                 rust-crate                    
-composer                             2.9.2                 binary                        
+composer                             2.9.3                 binary                        
 console                              0.15.8                rust-crate                    
 coreutils                            9.7-r1                apk                           
 coreutils-env                        9.7-r1                apk                           
@@ -237,7 +237,7 @@ libsm                                1.2.5-r0              apk
 libsmartcols                         2.41-r9               apk                           
 libsmbclient                         4.21.9-r1             apk                           
 libsndfile                           1.2.2-r2              apk                           
-libsodium                            1.0.20-r0             apk                           
+libsodium                            1.0.20-r1             apk                           
 libsrt                               1.5.3-r1              apk                           
 libssh                               0.11.2-r0             apk                           
 libssl3                              3.5.4-r0              apk                           
