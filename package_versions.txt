@@ -32,7 +32,7 @@ arrayvec                             0.7.4                 rust-crate
 av-metrics                           0.9.1                 rust-crate                    
 av1-grain                            0.2.3                 rust-crate                    
 aws/aws-crt-php                      v1.2.7                php-composer                  
-aws/aws-sdk-php                      3.349.3               php-composer                  
+aws/aws-sdk-php                      3.369.9               php-composer                  
 bamarni/composer-bin-plugin          1.8.3                 php-composer                  
 bantu/ini-get-wrapper                v1.0.1                php-composer                  
 bash                                 5.2.37-r0             apk                           
@@ -430,6 +430,7 @@ symfony/deprecation-contracts        v3.6.0                php-composer  (+1 dup
 symfony/dom-crawler                  v6.4.23               php-composer                  
 symfony/event-dispatcher             v6.4.8                php-composer                  
 symfony/event-dispatcher-contracts   v3.5.0                php-composer                  
+symfony/filesystem                   v7.4.0                php-composer                  
 symfony/http-foundation              v6.4.29               php-composer                  
 symfony/mailer                       v6.4.12               php-composer                  
 symfony/mime                         v6.4.12               php-composer                  
@@ -444,7 +445,7 @@ symfony/polyfill-php83               v1.33.0               php-composer
 symfony/polyfill-php84               v1.33.0               php-composer  (+1 duplicate)  
 symfony/polyfill-php85               v1.33.0               php-composer                  
 symfony/polyfill-uuid                v1.29.0               php-composer                  
-symfony/process                      v6.4.15               php-composer                  
+symfony/process                      v6.4.31               php-composer                  
 symfony/routing                      v6.4.12               php-composer                  
 symfony/service-contracts            v3.5.1                php-composer                  
 symfony/string                       v6.4.15               php-composer                  
