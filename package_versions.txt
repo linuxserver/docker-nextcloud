@@ -146,7 +146,7 @@ ivf                                  0.1.3                 rust-crate
 jansson                              2.14.1-r0             apk                           
 joomla/string                        3.0.4                 php-composer                  
 jq                                   1.8.1-r0              apk                           
-justinrainbow/json-schema            6.4.2                 php-composer                  
+justinrainbow/json-schema            6.6.4                 php-composer                  
 kornrunner/blurhash                  v1.2.2                php-composer                  
 lab                                  0.11.0                rust-crate                    
 lame-libs                            3.100-r5              apk                           
