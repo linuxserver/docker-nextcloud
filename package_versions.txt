@@ -249,7 +249,7 @@ linux-pam                            1.7.0-r4              apk
 linux-raw-sys                        0.4.12                rust-crate                    
 lmdb                                 0.9.33-r0             apk                           
 log                                  0.4.20                rust-crate                    
-logreader                            6.0.0-dev.0           npm                           
+logreader                            6.0.0                 npm                           
 logrotate                            3.21.0-r1             apk                           
 lz4-libs                             1.10.0-r0             apk                           
 marc-mabe/php-enum                   v4.7.1                php-composer                  
