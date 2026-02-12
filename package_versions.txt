@@ -105,7 +105,7 @@ ffmpeg-libswresample                 6.1.2-r2              apk
 ffmpeg-libswscale                    6.1.2-r2              apk                           
 fftw-double-libs                     3.3.10-r6             apk                           
 files_downloadlimit                  5.0.0-dev.0           npm                           
-files_pdfviewer                      5.0.0-dev.0           npm                           
+files_pdfviewer                      5.0.0                 npm                           
 findmnt                              2.41-r9               apk                           
 findutils                            4.10.0-r0             apk                           
 firstrunwizard                       5.0.0-dev.0           npm                           
@@ -277,7 +277,7 @@ linux-raw-sys                        0.4.12                rust-crate
 lmdb                                 0.9.33-r0             apk                           
 log                                  0.4.20                rust-crate                    
 logger                               2.41-r9               apk                           
-logreader                            5.0.0-dev.0           npm                           
+logreader                            5.0.0                 npm                           
 logrotate                            3.21.0-r1             apk                           
 losetup                              2.41-r9               apk                           
 lsblk                                2.41-r9               apk                           
