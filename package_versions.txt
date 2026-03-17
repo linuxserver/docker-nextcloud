@@ -203,7 +203,7 @@ libpanelw                            6.5_p20250503-r0      apk
 libpciaccess                         0.18.1-r0             apk                           
 libplacebo                           6.338.2-r3            apk                           
 libpng                               1.6.55-r0             apk                           
-libpq                                17.8-r0               apk                           
+libpq                                17.9-r0               apk                           
 libproc2                             4.0.4-r3              apk                           
 libpsl                               0.21.5-r3             apk                           
 libpulse                             17.0-r5               apk                           
@@ -464,7 +464,7 @@ thiserror                            1.0.56                rust-crate
 thiserror-impl                       1.0.56                rust-crate                    
 tinyvec                              1.9.0                 rust-crate                    
 twofactor_totp                       15.0.0-dev.0          npm                           
-tzdata                               2025c-r0              apk                           
+tzdata                               2026a-r0              apk                           
 unicode-ident                        1.0.12                rust-crate                    
 unicode-width                        0.1.11                rust-crate                    
 utf8parse                            0.2.1                 rust-crate                    
