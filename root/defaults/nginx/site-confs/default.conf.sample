@@ -1,4 +1,4 @@
-## Version 2025/07/10 - Changelog: https://github.com/linuxserver/docker-nextcloud/commits/master/root/defaults/nginx/site-confs/default.conf.sample
+## Version 2026/02/08 - Changelog: https://github.com/linuxserver/docker-nextcloud/commits/master/root/defaults/nginx/site-confs/default.conf.sample
 
 # Set the `immutable` cache control options only for assets with a cache busting `v` argument
 map $arg_v $asset_immutable {
@@ -165,8 +165,16 @@ server {
         try_files $uri $uri/ /index.php$request_uri;
     }
 
-    # deny access to .htaccess/.htpasswd files
-    location ~ /\.ht {
+    # deny access to all dotfiles
+    location ~ /\. {
         deny all;
+        log_not_found off;
+        access_log off;
+        return 404;
+    }
+
+    # Allow access to the ".well-known" directory
+    location ^~ /.well-known {
+        allow all;
     }
 }
