@@ -183,7 +183,7 @@ lab                                    0.11.0                rust-crate
 lame-libs                              3.100-r5              apk                            
 laravel/serializable-closure           v2.0.4                php-composer                   
 lazy_static                            1.4.0                 rust-crate                     
-lcms2                                  2.16-r0               apk                            
+lcms2                                  2.19-r0               apk                            
 lcobucci/clock                         3.0.0                 php-composer                   
 ldb                                    4.21.9-r1             apk                            
 league/flysystem                       3.33.0                php-composer                   
@@ -463,7 +463,7 @@ rector/rector-downgrade-php            dev-main              php-composer
 rector/rector-phpunit                  dev-main              php-composer                   
 rector/rector-symfony                  dev-main              php-composer                   
 revolt/event-loop                      v1.0.8                php-composer                   
-rsync                                  3.4.1-r2              apk                            
+rsync                                  3.4.2-r0              apk                            
 rubix/ml                               2.5.3                 php-composer                   
 rubix/tensor                           3.0.5                 php-composer                   
 rullzer/easytotp                       v0.1.4                php-composer                   
