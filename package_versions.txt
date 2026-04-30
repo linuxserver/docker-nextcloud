@@ -34,7 +34,7 @@ av-metrics                           0.9.1                 rust-crate
 av1-grain                            0.2.3                 rust-crate                    
 avahi-libs                           0.8-r21               apk                           
 aws/aws-crt-php                      v1.2.7                php-composer                  
-aws/aws-sdk-php                      3.369.9               php-composer                  
+aws/aws-sdk-php                      3.376.2               php-composer                  
 bamarni/composer-bin-plugin          1.8.3                 php-composer                  
 bantu/ini-get-wrapper                v1.0.1                php-composer                  
 bash                                 5.2.37-r0             apk                           
@@ -78,7 +78,7 @@ crossbeam-deque                      0.8.5                 rust-crate
 crossbeam-epoch                      0.9.18                rust-crate                    
 crossbeam-queue                      0.3.11                rust-crate                    
 crossbeam-utils                      0.8.19                rust-crate                    
-cups-libs                            2.4.16-r0             apk                           
+cups-libs                            2.4.18-r0             apk                           
 curl                                 8.14.1-r2             apk                           
 cweagans/composer-patches            1.7.3                 php-composer                  
 dbus-libs                            1.16.2-r1             apk                           
@@ -171,7 +171,7 @@ lab                                  0.11.0                rust-crate
 lame-libs                            3.100-r5              apk                           
 laravel/serializable-closure         v2.0.4                php-composer                  
 lazy_static                          1.4.0                 rust-crate                    
-lcms2                                2.16-r0               apk                           
+lcms2                                2.19-r0               apk                           
 lcobucci/clock                       3.0.0                 php-composer                  
 ldb                                  4.21.9-r1             apk                           
 libSvtAv1Enc                         2.3.0-r0              apk                           
@@ -391,7 +391,7 @@ php84-xml                            8.4.16-r0             apk
 php84-xmlreader                      8.4.16-r0             apk                           
 php84-xmlwriter                      8.4.16-r0             apk                           
 php84-zip                            8.4.16-r0             apk                           
-phpseclib/phpseclib                  2.0.47                php-composer                  
+phpseclib/phpseclib                  2.0.53                php-composer                  
 pimple/pimple                        v3.6.0                php-composer                  
 pixman                               0.46.4-r0             apk                           
 pkgconf                              2.4.3-r0              apk                           
@@ -423,7 +423,7 @@ rayon                                1.8.0                 rust-crate
 rayon-core                           1.12.0                rust-crate                    
 readline                             8.2.13-r1             apk                           
 recommendations                      6.0.0-dev.0           npm                           
-rsync                                3.4.1-r2              apk                           
+rsync                                3.4.2-r0              apk                           
 rubix/ml                             2.5.3                 php-composer                  
 rubix/tensor                         3.0.5                 php-composer                  
 rullzer/easytotp                     v0.1.4                php-composer                  
