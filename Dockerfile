@@ -12,6 +12,15 @@ LABEL maintainer="aptalca"
 # environment settings
 ENV LD_PRELOAD="/usr/lib/preloadable_libiconv.so"
 
+ENV DB_TYPE="sqlite"
+ENV DB_HOST="localhost"
+ENV DB_NAME="nextcloud"
+ENV DB_USER="nextcloud"
+ENV DB_PASS=""
+
+ENV ADMIN_USER="admin"
+ENV ADMIN_PASS=""
+
 RUN \
   echo "**** install runtime packages ****" && \
   apk add --no-cache \
