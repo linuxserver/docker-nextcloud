@@ -180,9 +180,4 @@ server {
         access_log off;
         return 404;
     }
-
-    # Allow access to the ".well-known" directory
-    location ^~ /.well-known {
-        allow all;
-    }
 }
