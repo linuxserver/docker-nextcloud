@@ -129,7 +129,7 @@ glslang-libs                         1.4.309.0-r0          apk
 gmp                                  6.3.0-r3              apk                           
 gnu-libiconv                         1.17-r2               apk                           
 gnu-libiconv-libs                    1.17-r2               apk                           
-gnutls                               3.8.12-r0             apk                           
+gnutls                               3.8.13-r0             apk                           
 graphite2                            1.3.14-r6             apk                           
 guzzlehttp/guzzle                    7.10.0                php-composer                  
 guzzlehttp/promises                  2.3.0                 php-composer                  
@@ -533,7 +533,7 @@ wyz                                  0.5.1                 rust-crate
 x264-libs                            0.164.3108-r0         apk                           
 x265-libs                            3.6-r0                apk                           
 xvidcore                             1.3.7-r2              apk                           
-xz-libs                              5.8.1-r0              apk                           
+xz-libs                              5.8.3-r0              apk                           
 y4m                                  0.8.0                 rust-crate                    
 zimg                                 3.0.5-r3              apk                           
 zix-libs                             0.6.2-r0              apk                           
