@@ -288,6 +288,7 @@ num-integer                          0.1.45                rust-crate
 num-rational                         0.4.1                 rust-crate                     
 num-traits                           0.2.17                rust-crate                     
 numactl                              2.0.18-r0             apk                            
+office                               1.0.0                 npm                            
 once_cell                            1.19.0                rust-crate                     
 onevpl-libs                          2023.3.1-r2           apk                            
 oniguruma                            6.9.10-r0             apk                            
