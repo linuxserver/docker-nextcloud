@@ -507,7 +507,6 @@ thiserror                            1.0.56                rust-crate
 thiserror-impl                       1.0.56                rust-crate                    
 tiff                                 4.7.1-r0              apk                           
 tinyvec                              1.9.0                 rust-crate                    
-twofactor_totp                       15.0.0-dev.0          npm                           
 tzdata                               2026b-r0              apk                           
 umount                               2.41-r9               apk                           
 unicode-ident                        1.0.12                rust-crate                    
