@@ -60,7 +60,7 @@ clap_complete                        4.4.6                 rust-crate
 clap_derive                          4.4.7                 rust-crate                     
 clap_lex                             0.6.0                 rust-crate                     
 colorchoice                          1.0.0                 rust-crate                     
-composer                             2.9.8                 binary                         
+composer                             2.10.0                binary                         
 console                              0.15.8                rust-crate                     
 coreutils                            9.7-r1                apk                            
 coreutils-env                        9.7-r1                apk                            
