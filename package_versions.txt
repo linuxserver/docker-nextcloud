@@ -278,7 +278,7 @@ new_debug_unreachable                1.0.4                 rust-crate
 nextcloud                            1.0.0                 npm                            
 nextcloud/lognormalizer              v3.0.1                php-composer                   
 nghttp2-libs                         1.69.0-r0             apk                            
-nginx                                1.28.3-r2             apk                            
+nginx                                1.28.3-r3             apk                            
 nom                                  7.1.3                 rust-crate                     
 noop_proc_macro                      0.3.0                 rust-crate                     
 notifications                        7.0.0-dev.0           npm                            
