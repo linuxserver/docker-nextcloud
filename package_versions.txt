@@ -60,7 +60,7 @@ clap_complete                        4.4.6                 rust-crate
 clap_derive                          4.4.7                 rust-crate                     
 clap_lex                             0.6.0                 rust-crate                     
 colorchoice                          1.0.0                 rust-crate                     
-composer                             2.10.0                binary                         
+composer                             2.10.1                binary                         
 console                              0.15.8                rust-crate                     
 coreutils                            9.7-r1                apk                            
 coreutils-env                        9.7-r1                apk                            
@@ -239,7 +239,7 @@ libxcb                               1.17.0-r0             apk
 libxdmcp                             1.1.5-r1              apk                            
 libxext                              1.3.6-r2              apk                            
 libxfixes                            6.0.1-r4              apk                            
-libxml2                              2.13.9-r0             apk                            
+libxml2                              2.13.9-r1             apk                            
 libxpm                               3.5.19-r0             apk                            
 libxt                                1.3.1-r0              apk                            
 libxxhash                            0.8.3-r0              apk                            
@@ -461,7 +461,6 @@ syn                                  2.0.48                rust-crate
 talloc                               2.4.2-r1              apk                            
 tap                                  1.0.1                 rust-crate                     
 tdb-libs                             1.4.12-r0             apk                            
-teams                                34.0.0-dev.0          npm                            
 terminal_size                        0.3.0                 rust-crate                     
 tevent                               0.16.1-r0             apk                            
 text                                 8.0.0-dev.0           npm                            
