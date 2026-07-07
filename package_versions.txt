@@ -65,7 +65,7 @@ clap_complete                        4.4.6                 rust-crate
 clap_derive                          4.4.7                 rust-crate                    
 clap_lex                             0.6.0                 rust-crate                    
 colorchoice                          1.0.0                 rust-crate                    
-composer                             2.10.1                binary                        
+composer                             2.10.2                binary                        
 console                              0.15.8                rust-crate                    
 coreutils                            9.7-r1                apk                           
 coreutils-env                        9.7-r1                apk                           
@@ -201,8 +201,8 @@ libdovi                              3.3.1-r1              apk
 libdrm                               2.4.124-r0            apk                           
 libeconf                             0.6.3-r0              apk                           
 libedit                              20250104.3.1-r1       apk                           
-libevent                             2.1.12-r8             apk                           
-libexpat                             2.8.1-r0              apk                           
+libevent                             2.1.13-r0             apk                           
+libexpat                             2.8.2-r0              apk                           
 libfdisk                             2.41-r9               apk                           
 libffi                               3.4.8-r0              apk                           
 libflac                              1.4.3-r1              apk                           
