@@ -77,6 +77,7 @@ crossbeam-utils                        0.8.19                rust-crate
 curl                                   8.14.1-r3             apk                            
 cweagans/composer-configurable-plugin  2.0.0                 php-composer                   
 cweagans/composer-patches              2.0.0                 php-composer                   
+dbdoctor                               0.1.0                 npm                            
 dbus-libs                              1.16.2-r1             apk                            
 deepdiver/zipstreamer                  v3.0.1                php-composer                   
 deepdiver1975/tarstreamer              v2.1.0                php-composer                   
@@ -290,7 +291,7 @@ num-integer                            0.1.45                rust-crate
 num-rational                           0.4.1                 rust-crate                     
 num-traits                             0.2.17                rust-crate                     
 numactl                                2.0.18-r0             apk                            
-office                                 1.0.0                 npm                            
+office                                 1.1.0-dev.0           npm                            
 once_cell                              1.19.0                rust-crate                     
 onevpl-libs                            2023.3.1-r2           apk                            
 oniguruma                              6.9.10-r0             apk                            
