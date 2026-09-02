@@ -56,6 +56,8 @@ RUN \
   sed -E -i 's/^;?clear_env ?=.*$/clear_env = no/g' /etc/php84/php-fpm.d/www.conf && \
   if ! grep -qxF 'clear_env = no' /etc/php84/php-fpm.d/www.conf; then echo 'clear_env = no' >> /etc/php84/php-fpm.d/www.conf; fi && \
   echo "env[PATH] = /usr/local/bin:/usr/bin:/bin" >> /etc/php84/php-fpm.conf && \
+  echo "**** fix fpm timeout ****" && \
+  sed -E -i 's/^;?request_terminate_timeout ?=.*$/request_terminate_timeout = 300/g' /etc/php84/php-fpm.d/www.conf && \
   echo "**** configure php for nextcloud ****" && \
   { \
     echo 'apc.enable_cli=1'; \
