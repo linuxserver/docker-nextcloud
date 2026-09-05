@@ -1,4 +1,4 @@
-## Version 2025/07/10 - Changelog: https://github.com/linuxserver/docker-nextcloud/commits/master/root/defaults/nginx/site-confs/default.conf.sample
+## Version 2026/05/05 - Changelog: https://github.com/linuxserver/docker-nextcloud/commits/master/root/defaults/nginx/site-confs/default.conf.sample
 
 # Set the `immutable` cache control options only for assets with a cache busting `v` argument
 map $arg_v $asset_immutable {
@@ -19,6 +19,13 @@ server {
     include /config/nginx/ssl.conf;
 
     root /app/www/public;
+
+    # deny access to all dotfiles
+    location ~ /\. {
+        access_log off;
+        log_not_found off;
+        return 404;
+    }
 
     # display real ip in nginx logs when connected through reverse proxy via docker network
     set_real_ip_from 172.16.0.0/12;
@@ -49,12 +56,12 @@ server {
     client_body_buffer_size 512k;
 
     # HTTP response headers borrowed from Nextcloud `.htaccess`
-    add_header Referrer-Policy                   "no-referrer"       always;
-    add_header X-Content-Type-Options            "nosniff"           always;
-    add_header X-Frame-Options                   "SAMEORIGIN"        always;
-    add_header X-Permitted-Cross-Domain-Policies "none"              always;
-    add_header X-Robots-Tag                      "noindex, nofollow" always;
-    add_header X-XSS-Protection                  "1; mode=block"     always;
+    add_header Referrer-Policy "no-referrer" always;
+    add_header X-Content-Type-Options "nosniff" always;
+    add_header X-Frame-Options "SAMEORIGIN" always;
+    add_header X-Permitted-Cross-Domain-Policies "none" always;
+    add_header X-Robots-Tag "noindex, nofollow" always;
+    add_header X-XSS-Protection "1; mode=block" always;
 
     # Remove X-Powered-By, which is an information leak
     fastcgi_hide_header X-Powered-By;
@@ -92,11 +99,19 @@ server {
         # The rules in this block are an adaptation of the rules
         # in `.htaccess` that concern `/.well-known`.
 
-        location = /.well-known/carddav { return 301 /remote.php/dav/; }
-        location = /.well-known/caldav  { return 301 /remote.php/dav/; }
+        location = /.well-known/carddav {
+            return 301 /remote.php/dav/;
+        }
+        location = /.well-known/caldav {
+            return 301 /remote.php/dav/;
+        }
 
-        location /.well-known/acme-challenge    { try_files $uri $uri/ =404; }
-        location /.well-known/pki-validation    { try_files $uri $uri/ =404; }
+        location /.well-known/acme-challenge {
+            try_files $uri $uri/ =404;
+        }
+        location /.well-known/pki-validation {
+            try_files $uri $uri/ =404;
+        }
 
         # Let Nextcloud's API for `/.well-known` URIs handle all other
         # requests by passing them to the front-end controller.
@@ -104,8 +119,12 @@ server {
     }
 
     # Rules borrowed from `.htaccess` to hide certain paths from clients
-    location ~ ^/(?:build|tests|config|lib|3rdparty|templates|data)(?:$|/)  { return 404; }
-    location ~ ^/(?:\.|autotest|occ|issue|indie|db_|console)                { return 404; }
+    location ~ ^/(?:build|tests|config|lib|3rdparty|templates|data)(?:$|/) {
+        return 404;
+    }
+    location ~ ^/(?:\.|autotest|occ|issue|indie|db_|console) {
+        return 404;
+    }
 
     # Ensure this block, which passes PHP files to the PHP process, is above the blocks
     # which handle static assets (as seen below). If this block is not declared first,
@@ -124,8 +143,8 @@ server {
         fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
         fastcgi_param PATH_INFO $path_info;
 
-        fastcgi_param modHeadersAvailable true;         # Avoid sending the security headers twice
-        fastcgi_param front_controller_active true;     # Enable pretty urls
+        fastcgi_param modHeadersAvailable true; # Avoid sending the security headers twice
+        fastcgi_param front_controller_active true; # Enable pretty urls
         fastcgi_pass 127.0.0.1:9000;
 
         fastcgi_intercept_errors on;
@@ -138,7 +157,7 @@ server {
     location ~ \.(?:css|js|mjs|svg|gif|png|jpg|ico|wasm|tflite|map|ogg|flac)$ {
         try_files $uri /index.php$request_uri;
         add_header Cache-Control "public, max-age=15778463, $asset_immutable";
-        access_log off;     # Optional: Don't log access to assets
+        access_log off; # Optional: Don't log access to assets
 
         location ~ \.wasm$ {
             default_type application/wasm;
@@ -148,13 +167,21 @@ server {
 
     location ~ \.woff2?$ {
         try_files $uri /index.php$request_uri;
-        expires 7d;         # Cache-Control policy borrowed from `.htaccess`
-        access_log off;     # Optional: Don't log access to assets
+        expires 7d; # Cache-Control policy borrowed from `.htaccess`
+        access_log off; # Optional: Don't log access to assets
     }
 
     # Rule borrowed from `.htaccess`
     location /remote {
         return 301 /remote.php$request_uri;
+    }
+
+    # Support for the Client Push (notify_push) plugin, needs mod installed https://github.com/linuxserver/docker-mods/tree/nextcloud-notify-push
+    location ^~ /push/ {
+        proxy_pass http://127.0.0.1:7867/;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "Upgrade";
     }
 
     location / {
@@ -163,10 +190,5 @@ server {
         #auth_basic_user_file /config/nginx/.htpasswd;
 
         try_files $uri $uri/ /index.php$request_uri;
-    }
-
-    # deny access to .htaccess/.htpasswd files
-    location ~ /\.ht {
-        deny all;
     }
 }
