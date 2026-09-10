@@ -145,6 +145,7 @@ init_diagram: |
   "nextcloud:latest" <- Base Images
 # changelog
 changelogs:
+  - {date: "05.09.26:", desc: "Disable OPcache JIT. The tracing JIT could emit code that loops forever, pinning all php-fpm workers at 100% CPU until the container was restarted."}
   - {date: "10.07.25:", desc: "Rebase to Alpine 3.22."}
   - {date: "12.02.25:", desc: "Rebase to Alpine 3.21."}
   - {date: "09.01.25:", desc: "Fix uploading large files. Existing users should update their nginx confs."}
