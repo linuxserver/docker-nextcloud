@@ -77,7 +77,6 @@ crossbeam-utils                        0.8.19                rust-crate
 curl                                   8.14.1-r3             apk                            
 cweagans/composer-configurable-plugin  2.0.0                 php-composer                   
 cweagans/composer-patches              2.0.0                 php-composer                   
-dbdoctor                               0.1.0                 npm                            
 dbus-libs                              1.16.2-r1             apk                            
 deepdiver/zipstreamer                  v3.0.1                php-composer                   
 deepdiver1975/tarstreamer              v2.1.0                php-composer                   
