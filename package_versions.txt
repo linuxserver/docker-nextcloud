@@ -340,7 +340,7 @@ pear/archive_tar                     1.5.0                 php-composer
 pear/console_getopt                  v1.4.3                php-composer                  
 pear/pear-core-minimal               v1.10.16              php-composer                  
 pear/pear_exception                  v1.0.2                php-composer                  
-photos                               6.0.0-dev.0           npm                           
+photos                               6.0.0                 npm                           
 php-http/guzzle7-adapter             1.1.0                 php-composer                  
 php-http/httplug                     2.4.1                 php-composer                  
 php-http/promise                     1.3.1                 php-composer                  
