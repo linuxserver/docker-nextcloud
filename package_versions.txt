@@ -164,7 +164,7 @@ ivf                                  0.1.3                 rust-crate
 jansson                              2.14.1-r0             apk                           
 jbig2dec                             0.20-r0               apk                           
 joomla/string                        3.0.4                 php-composer                  
-jq                                   1.8.1-r0              apk                           
+jq                                   1.8.2-r0              apk                           
 justinrainbow/json-schema            6.6.4                 php-composer                  
 kornrunner/blurhash                  v1.2.2                php-composer                  
 lab                                  0.11.0                rust-crate                    
@@ -247,7 +247,7 @@ libtasn1                             4.21.0-r0             apk
 libtheora                            1.1.1-r18             apk                           
 libunibreak                          6.1-r0                apk                           
 libunistring                         1.3-r0                apk                           
-libuuid                              2.41-r9               apk                           
+libuuid                              2.41.6-r1             apk                           
 libva                                2.22.0-r1             apk                           
 libvdpau                             1.5-r4                apk                           
 libvorbis                            1.3.7-r2              apk                           
@@ -533,7 +533,7 @@ wyz                                  0.5.1                 rust-crate
 x264-libs                            0.164.3108-r0         apk                           
 x265-libs                            3.6-r0                apk                           
 xvidcore                             1.3.7-r2              apk                           
-xz-libs                              5.8.3-r0              apk                           
+xz-libs                              5.8.4-r0              apk                           
 y4m                                  0.8.0                 rust-crate                    
 zimg                                 3.0.5-r3              apk                           
 zix-libs                             0.6.2-r0              apk                           
