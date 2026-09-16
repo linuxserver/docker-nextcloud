@@ -145,6 +145,7 @@ init_diagram: |
   "nextcloud:latest" <- Base Images
 # changelog
 changelogs:
+  - {date: "01.06.26:", desc: "Automated `occ` maintenance tasks on container start. Non time critical cron tasks run daily between 01:00 and 05:00 UTC."}
   - {date: "10.07.25:", desc: "Rebase to Alpine 3.22."}
   - {date: "12.02.25:", desc: "Rebase to Alpine 3.21."}
   - {date: "09.01.25:", desc: "Fix uploading large files. Existing users should update their nginx confs."}
