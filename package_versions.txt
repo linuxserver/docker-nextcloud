@@ -32,7 +32,7 @@ arrayvec                               0.7.4                 rust-crate
 av-metrics                             0.9.1                 rust-crate                     
 av1-grain                              0.2.3                 rust-crate                     
 aws/aws-crt-php                        v1.2.7                php-composer                   
-aws/aws-sdk-php                        3.391.2               php-composer                   
+aws/aws-sdk-php                        3.398.3               php-composer                   
 bamarni/composer-bin-plugin            1.9.1                 php-composer  (+1 duplicate)   
 bantu/ini-get-wrapper                  v1.0.1                php-composer                   
 bash                                   5.2.37-r0             apk                            
@@ -363,7 +363,7 @@ php84-xml                              8.4.16-r0             apk
 php84-xmlreader                        8.4.16-r0             apk                            
 php84-xmlwriter                        8.4.16-r0             apk                            
 php84-zip                              8.4.16-r0             apk                            
-phpseclib/phpseclib                    3.0.55                php-composer                   
+phpseclib/phpseclib                    3.0.57                php-composer                   
 pimple/pimple                          v3.6.2                php-composer                   
 popt                                   1.19-r4               apk                            
 ppv-lite86                             0.2.17                rust-crate                     
