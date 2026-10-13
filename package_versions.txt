@@ -23,7 +23,7 @@ anstyle-query                        1.0.2                 rust-crate
 anyhow                               1.0.79                rust-crate                    
 anyhow                               1.0.98                rust-crate                    
 aom-libs                             3.12.1-r0             apk                           
-apache2-utils                        2.4.68-r0             apk                           
+apache2-utils                        2.4.69-r0             apk                           
 apk-tools                            2.14.12-r0            apk                           
 apr                                  1.7.5-r0              apk                           
 apr-util                             1.6.4-r0              apk                           
@@ -191,7 +191,7 @@ libc                                 0.2.155               rust-crate
 libc                                 0.2.172               rust-crate                    
 libcap-ng                            0.8.5-r0              apk                           
 libcap2                              2.78-r0               apk                           
-libcrypto3                           3.5.8-r0              apk                           
+libcrypto3                           3.5.9-r0              apk                           
 libcurl                              8.14.1-r3             apk                           
 libdav1d                             1.5.1-r0              apk                           
 libde265                             1.0.15-r1             apk                           
@@ -242,7 +242,7 @@ libsndfile                           1.2.2-r2              apk
 libsodium                            1.0.20-r1             apk                           
 libsrt                               1.5.3-r1              apk                           
 libssh                               0.11.2-r0             apk                           
-libssl3                              3.5.8-r0              apk                           
+libssl3                              3.5.9-r0              apk                           
 libstdc++                            14.2.0-r6             apk                           
 libtasn1                             4.21.0-r0             apk                           
 libtheora                            1.1.1-r18             apk                           
@@ -328,8 +328,8 @@ openexr-libiex                       3.3.11-r0             apk
 openexr-libilmthread                 3.3.11-r0             apk                           
 openexr-libopenexr                   3.3.11-r0             apk                           
 openexr-libopenexrcore               3.3.11-r0             apk                           
-openjpeg                             2.5.4-r0              apk                           
-openssl                              3.5.8-r0              apk                           
+openjpeg                             2.5.4-r1              apk                           
+openssl                              3.5.9-r0              apk                           
 opus                                 1.5.2-r1              apk                           
 orc                                  0.4.40-r1             apk                           
 p11-kit                              0.26.2-r0             apk                           
@@ -513,7 +513,7 @@ tevent                               0.16.1-r0             apk
 text                                 8.0.0-dev.0           npm                           
 thiserror                            1.0.56                rust-crate                    
 thiserror-impl                       1.0.56                rust-crate                    
-tiff                                 4.7.1-r0              apk                           
+tiff                                 4.7.2-r0              apk                           
 tinyvec                              1.9.0                 rust-crate                    
 tzdata                               2026d-r0              apk                           
 umount                               2.41.6-r1             apk                           
