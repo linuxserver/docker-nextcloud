@@ -67,8 +67,8 @@ RUN \
     echo 'opcache.memory_consumption=128'; \
     echo 'opcache.save_comments=1'; \
     echo 'opcache.revalidate_freq=60'; \
-    echo 'opcache.jit=1255'; \
-    echo 'opcache.jit_buffer_size=128M'; \
+    echo 'opcache.jit=disable'; \
+    echo 'opcache.jit_buffer_size=0'; \
   } >> "/etc/php84/conf.d/00_opcache.ini" && \
   { \
     echo 'memory_limit=-1'; \
