@@ -30,7 +30,6 @@ RUN \
     php85-imap \
     php85-intl \
     php85-ldap \
-    php85-opcache \
     php85-pcntl \
     php85-pdo_mysql \
     php85-pdo_pgsql \
