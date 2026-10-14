@@ -347,6 +347,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **14.10.26:** - Rebase to Alpine 3.24 with php 8.5. Import upstream release notes in Github releases.
 * **14.10.25:** - Rebase to Alpine 3.22.
 * **12.02.25:** - Rebase to Alpine 3.21.
 * **09.01.25:** - Fix uploading large files. Existing users should update their nginx confs.
