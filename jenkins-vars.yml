@@ -4,6 +4,8 @@
 project_name: docker-nextcloud
 external_type: na
 custom_version_command: "curl -sX GET https://api.github.com/repos/nextcloud/server/releases | jq -r '.[] | select(.prerelease == true) | .tag_name' | sed 's|^v||g' | sort -rV | head -1"
+custom_release_notes_command: |-
+  curl -H "Authorization: token ${GITHUB_TOKEN}" -s https://api.github.com/repos/nextcloud-releases/server/releases/tags/v${EXT_RELEASE} | jq -r '. |.body' > releasebody.json
 release_type: prerelease
 release_tag: develop
 ls_branch: develop
