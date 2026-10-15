@@ -37,7 +37,7 @@ av-scenechange                       0.14.1            rust-crate
 av1-grain                            0.2.4             rust-crate                    
 avahi-libs                           0.9_rc4-r0        apk                           
 aws/aws-crt-php                      v1.2.7            php-composer                  
-aws/aws-sdk-php                      3.376.2           php-composer                  
+aws/aws-sdk-php                      3.398.3           php-composer                  
 bamarni/composer-bin-plugin          1.9.1             php-composer  (+1 duplicate)  
 bantu/ini-get-wrapper                v1.0.1            php-composer                  
 bash                                 5.3.9-r1          apk                           
